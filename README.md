@@ -21,4 +21,4 @@ install_github("pacman", "trinker")
 
 ```
 
-Note: Windows users [Rtools](http://www.murdoch-sutherland.com/Rtools/) installed to get devtools.
+Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and [devtools](http://CRAN.R-project.org/package=devtools) to install this way.
