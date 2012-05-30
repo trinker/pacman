@@ -1,7 +1,7 @@
 p_vignette <-
-function(package="all"){
+function(package = "all"){
     x <- as.character(substitute(package))
-    if(x%in%c("all")) {
+    if(x == "all") {
         vignette() 
     } else {
         vignette(x)
