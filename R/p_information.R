@@ -4,3 +4,5 @@ function(package=NULL) {
     if(identical(x, character(0))) x <- "base"
     packageDescription(x)
 }
+
+p_info <- p_information

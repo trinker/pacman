@@ -23,3 +23,5 @@ function(begins.with = NULL, contains = NULL){
     library(x, character.only = TRUE)
     cat(x, "loaded\n")
 }
+
+p_sl <- p_search_library

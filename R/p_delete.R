@@ -36,3 +36,5 @@ function (...)
             paste(y, collapse = ", ")), "\n")
     }
 }
+
+p_del <- p_delete

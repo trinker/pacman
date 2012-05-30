@@ -18,3 +18,5 @@ function(package = "all"){
         }
     }
 }
+
+p_vign <- p_vignette

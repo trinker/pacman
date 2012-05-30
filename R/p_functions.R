@@ -22,3 +22,5 @@ function (package = NULL, load = FALSE)
         detach(w, unload = TRUE, character.only = TRUE, force = TRUE)
     return(a)
 }
+
+p_funs <- p_functions

@@ -20,3 +20,5 @@ function() {
     } 
     cat("Thank you for using the p_interactive function!\n\n")
 }
+
+p_inter <- p_interactive

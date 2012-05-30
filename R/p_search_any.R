@@ -28,3 +28,5 @@ function (term, search.by = "Maintainer")
             1:3]
     }
 }
+
+p_sa <- p_search_any

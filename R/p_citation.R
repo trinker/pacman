@@ -8,3 +8,5 @@ function(package="r") {
             lib.loc = NULL, auto = NULL)
     }
 }
+
+p_cite <- p_citation
