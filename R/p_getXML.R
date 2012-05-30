@@ -7,8 +7,7 @@ function(package="XML", fun){
     cat("\n\nDo you want to continue?\n")
     men <- menu(c("yes", "no"))
     if(men==1){
-        #install.packages("XML", contriburl = url)
-        cat("C")
+        install.packages("XML", contriburl = url)
     }else{
         cat("Please download the XML package before using", fun, "\n")    
     }
