@@ -3,10 +3,10 @@ Type: Package
 Title: Package Management Tool
 Version: 0.1.0
 Date: 2012-05-09
-Author: Tyler Rinker & Dason Kurkiewicz(If he accepts)
+Author: Tyler Rinker & Dason Kurkiewicz
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends: R (>= 2.15.0)
 Suggests: XML
-Description: This package is a designed to more efficiently manage packages.  pacman  conveniently  wraps library and package related functions and names them in a intuitive and consistent fashion.  It seeks to combine functionality from lower level functions that can speed up workflow.
+Description: This package is a designed to more efficiently manage packages.  pacman  conveniently  wraps library and package related functions and names them in an intuitive and consistent fashion.  It seeks to combine functionality from lower level functions that can speed up workflow.
 License: GPL-2
 URL: http://trinkerrstuff.wordpress.com/
