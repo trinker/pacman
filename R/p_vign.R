@@ -1,9 +1,20 @@
 p_vign <-
-function(package="all"){
+function(package = "all"){
     x <- as.character(substitute(package))
-    if(x%in%c("all")) {
+    if (x == "all") {
         vignette() 
     } else {
-        vignette(x)
+        y <- vignette(package = x)$results[, 3]
+        if (length(y) > 1) {
+            w <- c(y, "All Vignettes")
+            z <- menu(w) 
+            if (w[z] == "All Vignettes") {
+                lapply(y, vignette)
+            } else {
+                vignette(w[z])
+            }
+        } else {
+            vignette(y)
+        }
     }
 }
