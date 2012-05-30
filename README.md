@@ -10,7 +10,7 @@ Function names in the pacman package follow the format of `p_xxx` where 'xxx' is
 Currently there isn't a release on [CRAN](http://cran.r-project.org/).
 
 
-You can, however, download the [zip ball](https://github.com/trinker/pacman/zipball/master) or [tar ball](https://github.com/yihui/knitr/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **devtools** package to install the development version:
+You can, however, download the [zip ball](https://github.com/trinker/pacman/zipball/master) or [tar ball](https://github.com/trinker/pacman/tarball/master), decompress and run `R CMD INSTALL` on it, or use the **devtools** package to install the development version:
 
 ```r
 # Make sure your current packages are up to date
