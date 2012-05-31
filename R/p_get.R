@@ -4,3 +4,5 @@ function(package){
     install.packages(pack)
     do.call('library', list(pack))
 }
+
+p_install <- p_get

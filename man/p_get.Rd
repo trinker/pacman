@@ -1,5 +1,6 @@
 \name{p_get}
 \alias{p_get}
+\alias{p_install}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
 Installs and loads a package provided the package is a CRAN package
@@ -9,6 +10,7 @@ Installs a package provided the package is a CRAN package
 }
 \usage{
 p_get(package)
+p_install(package)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
