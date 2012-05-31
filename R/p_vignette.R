@@ -12,7 +12,7 @@ function(package = "all"){
         } else {
             if (!x %in% vn[, 1]){
                 stop (paste(x, 
-                            "does not appear to be a package with a vignette or the name of a vignette"))
+                    "does not appear to be a package with a vignette or the name of a vignette"))
             } else {
                 y <- vignette(package = x)$results[, 3]
                 if (length(y) > 1) {
