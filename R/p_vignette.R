@@ -1,34 +1,51 @@
 p_vignette <-
 function(package = "all"){
     x <- as.character(substitute(package))
+    if(length(x) > 1){
+        warning("There appears to be more than one input.",
+                " Only first element will be used.")
+        x <- x[1]
+    }
+    
+    # Get list of all vignettes
     vigns <- vignette()
     if (x == "all") {
-        vigns     
-    } else {
-        vn <- vigns$results
-        if (x %in% vn[, 3]) {
-            pn <- vn[vn[, 3] %in% x, 3]
-            vignette(pn)
-        } else {
-            if (!x %in% vn[, 1]){
-                stop (paste(x, 
-                    "does not appear to be a package with a vignette or the name of a vignette"))
+        # If the selection is 'all' 
+        # return the list of all vignettes
+        return(vigns)
+    }
+    
+    vignette.names <- vigns$results[, "Item"]
+    if (x %in% vignette.names) { 
+        # x is the name of a vignette
+        return(vignette(x))
+    } 
+    
+    # else x isn't the name of a vignette
+    # check if x is the name of a package
+    vignette.packages <- unique(vigns$results[,"Package"])
+    
+    if (x %in% vignette.packages){
+        package.vignettes <- vignette(package = x)$results[, "Item"]
+        if (length(package.vignettes) > 1) {
+            ALL <- "All Vignettes"
+            choices <- c(package.vignettes, ALL)
+            users.choice <- menu(choices)
+            
+            if (choices[users.choice] == ALL) {
+                out <- lapply(package.vignettes, vignette)
+                return(out)
             } else {
-                y <- vignette(package = x)$results[, 3]
-                if (length(y) > 1) {
-                    w <- c(y, "All Vignettes")
-                    z <- menu(w) 
-                    if (w[z] == "All Vignettes") {
-                        lapply(y, vignette)
-                    } else {
-                        vignette(w[z])
-                    }
-                } else {
-                    vignette(y)
-                }
+                return(vignette(choices[users.choice]))
             }
+        } else { # only one vignette in package
+            return(vignette(package.vignettes))
         }
     }
+    
+    # If x isn't the name of a vignette or a package
+    message(paste0(x,": does not appear to be the name of a vignette\n",
+                   " or a the name of a package that has a vignette"))
 }
 
 p_vign <- p_vignette
