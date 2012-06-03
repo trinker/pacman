@@ -5,7 +5,8 @@
   p_author(package = "base")
 }
 \arguments{
-  \item{package}{name of package}
+  \item{package}{Name of the package you want the author
+  of.}
 }
 \description{
   Returns the author of a package

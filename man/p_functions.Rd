@@ -6,9 +6,11 @@
   p_functions(package = NULL, load = FALSE)
 }
 \arguments{
-  \item{package}{name of package}
+  \item{package}{Name of the package you want the list of
+  functions for.}
 
-  \item{load}{logical.  If TRUE the package will be loaded}
+  \item{load}{logical.  If TRUE the package will be
+  loaded.}
 }
 \description{
   List the functions from a package

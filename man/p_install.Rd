@@ -6,7 +6,7 @@
   p_install(package)
 }
 \arguments{
-  \item{package}{name of package}
+  \item{package}{Name of package(s)}
 }
 \description{
   Installs a package provided the package is a CRAN package
