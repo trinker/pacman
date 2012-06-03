@@ -3,14 +3,17 @@ function (open = FALSE)
 {
     x <- .libPaths()
     y <- list.files(x)
-    if (open) { 
+    if (open) {
+        lib <- x[1]
         if (.Platform['OS.type']!="windows"){
-            system(paste("open", x[1]))
+            ## This should give a better chance for Linux to work
+            ## Works with Mac OSX 10.6
+            system(paste(Sys.getenv("R_BROWSER"), lib))
         } else {
             ## TODO: Possibly fix this
             ## Why only the first of the libPaths.
             ## on my system that opens the least useful library :(
-            shell.exec(x[1])
+            shell.exec(lib)
         }
     }
     return(y)
