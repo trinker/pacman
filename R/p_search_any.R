@@ -28,7 +28,7 @@ function (term, search.by = "Maintainer")
     LIB <- list.files(.libPaths())
     #if (!"XML" %in% list.files(.libPaths())) {
     # This is essentially what require was made for
-    if(!require("XML"))
+    if(!require("XML")){
         if (Sys.info()[['sysname']] == "Windows") {
             p_getXML(package = "XML", fun = "p_search_any")
         } else {
