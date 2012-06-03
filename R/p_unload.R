@@ -51,8 +51,7 @@ function (..., negate = FALSE)
             suppressWarnings(detach(package, character.only = TRUE, 
                 force = TRUE, unload = TRUE))
         }))
-    }
-    else {
+    } else {
         unload <- function(y2) {
             x <- paste0("package:", y2)
             suppressWarnings(detach(x, unload = TRUE, character.only = TRUE, 

@@ -57,8 +57,7 @@ function (term, search.by = "Maintainer")
     }
     if (is.numeric(search.by)) {
         dat[agrep(term, dat[, search.by]), 1:3]
-    }
-    else {
+    } else {
         dat[agrep(term, dat[, agrep(search.by, colnames(dat))]), 1:3]
     }
 }

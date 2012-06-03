@@ -21,12 +21,10 @@ function (package = NULL, load = FALSE)
     }
     if (x %in% (.packages())) {  
         load <- TRUE
-    }
-    else {
+    } else {
         if (!x %in% list.files(.libPaths())) {
             install.packages(x)
-        }
-        else {
+        } else {
             require(x, character.only = TRUE)
         }
     }
