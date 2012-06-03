@@ -1,3 +1,21 @@
+#' Generate an html, web or pdf package help manual
+#'
+#' Generate an html, web or pdf of a package's help manual
+#' 
+#' @aliases p_help
+#' @param package name of package
+#' @param web logical.  If TRUE grabs current help manual from the web
+#' @param pdf logical.  If TRUE uses a LaTeX compiler to generate a pdf
+#' @section Warning:
+#' To use the pdf argument you must have a pdf compiler (e.g. MikTex) installed.
+#' @keywords help manual package
+#' @seealso \code{\link[utils]{help}}
+#' @export
+#' @examples
+#' # p_help()
+#' # p_help(pacman)
+#' # p_help(pacman, web=TRUE)
+#' # p_help(pacman, pdf=TRUE)
 p_help <- 
 function (package = NULL, web = FALSE, pdf = FALSE) 
 {

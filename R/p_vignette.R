@@ -1,3 +1,18 @@
+#' Look at a package's vignette
+#' 
+#' Use default "all" to see which packages have vignettes 
+#' and supply a package name to view that vignette.
+#' 
+#' @aliases p_vignette p_vign
+#' @param package name of package or "all" (if all returns
+#' all packages from the user's library that have vignettes)
+#' @seealso  \code{\link[utils]{vignette}}
+#' @keywords vignette package
+#' @export
+#' @examples
+#' p_vignette()
+#' p_vign()
+#' # p _vign(fortunes)
 p_vignette <-
 function(package = "all"){
     x <- as.character(substitute(package))

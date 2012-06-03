@@ -1,5 +1,19 @@
+#' Checks CRAN to determine if a package exists
+#' 
+#' Checks CRAN to determine if a package exists
+#' 
+#' @aliases p_exists
+#' @param package name of package
+#' @param cran logical.  If TRUE checks CRAN for the package; 
+#' if FALSE checks the user's local library
+#' @keywords exists package
+#' @export
+#' @examples
+#' p_exists(pacman)
+#' p_exists(pacman, FALSE)
+#' p_exists(I_dont_exist)
 p_exists <-
-function (package, cran=TRUE) 
+function (package, cran = TRUE) 
 {
     x <- as.character(substitute(package))
     if (cran){

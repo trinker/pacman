@@ -1,3 +1,19 @@
+#' Update out of date packages
+#' 
+#' Either view out of date packages or update 
+#' out of data packages
+#' 
+#' @aliases p_update p_up
+#' @param install logical.  If TRUE installs 
+#' any out of date packages; if FALSE retuns a list 
+#' of out of date packages
+#' @seealso \code{\link[utils]{old.packages}}
+#' @keywords update packages
+#' @export
+#' @examples
+#' # p_update()
+#' # p_update(FALSE)
+#' # p_up(FALSE)
 p_update <-
 function (install = TRUE) {
      y <- utils::old.packages()[, 1]
@@ -21,3 +37,5 @@ function (install = TRUE) {
              "\n\bare updated!\n")
      }
 }
+
+p_up <- p_update

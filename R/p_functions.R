@@ -1,3 +1,17 @@
+#' List the functions from a package
+#' 
+#' List the functions from a package
+#' 
+#' @aliases p_functions p_funs
+#' @param package name of package
+#' @param load logical.  If TRUE the package will be loaded
+#' @keywords function package
+#' @seealso \code{\link[=base]{object}}
+#' @export
+#' @examples
+#' p_functions()
+#' p_funs()
+#' p_funs(pacman)
 p_functions <- 
 function (package = NULL, load = FALSE) 
 {

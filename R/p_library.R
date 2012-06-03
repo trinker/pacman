@@ -1,3 +1,16 @@
+#' Display library packages
+#'
+#' Generates a vector all available add on packages 
+#' in user's library and optionally opens that directory.
+#' 
+#' @aliases p_library p_lib
+#' @param open logical. If TRUE opens the directory of the add on packages library
+#' @keywords library package
+#' @export
+#' @examples
+#' p_lib()
+#' p_library()
+#' p_lib(TRUE)
 p_library <-
 function (open = FALSE) 
 {

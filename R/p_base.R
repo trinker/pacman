@@ -1,3 +1,16 @@
+#' List all the packages in a base install
+#' 
+#' List all the packages in a base install
+#' 
+#' @aliases p_base
+#' @param open logical. If TRUE opens the directory of the base install packages
+#' @note Packages that are installed when R starts are marked with an asterisk(*)
+#' @seealso \code{\link[base]{getOption}}
+#' @keywords base package
+#' @export
+#' @examples
+#' p_base()
+#' p_base(TRUE)
 p_base <- 
 function(open = FALSE){
     ast <- function(x) paste0(x, "*")

@@ -1,3 +1,15 @@
+#' Interactive package exploration
+#' 
+#' Interactively search through packages, looking 
+#' at functions and optionally attaching the package 
+#' and looking at the help page.
+#' 
+#' @aliases p_interactive p_inter
+#' @keywords package
+#' @export
+#' @examples
+#' # p_interactive()
+#' # p_inter()
 p_interactive <-
 function() {
     x <- menu(rownames(installed.packages()))

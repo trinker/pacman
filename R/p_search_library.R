@@ -1,3 +1,23 @@
+#' Search library packages using partial matching
+#' 
+#' Search library packages using partial matching.  
+#' Search for packages by begining letter(s) or by 
+#' any letter(s) contained within the package's name.  
+#' Useful for those times when you can't remember 
+#' that package name but you know ``it starts with...''
+#' 
+#' @aliases p_search_library p_sl
+#' @param begins.with a character string to search for 
+#' packages starting with the letter(s)
+#' @param contains a character string to search for 
+#' packages containing the letter(s)
+#' @keywords search library package
+#' @export
+#' @examples
+#' # p_search_library(begins.with = ma, contains = NULL)
+#' # p_search_library(begins.with = MA, contains = NULL)
+#' # p_search_library(begins.with = r, contains = t) #gives an error
+#' # p_search_library(contains = att) 
 p_search_library<-
 function(begins.with = NULL, contains = NULL){
     begins.with <- as.character(substitute(begins.with))
