@@ -26,5 +26,6 @@ function(open = FALSE){
         }
     }
     cat('\npackages with an "***" are loaded when R starts\n\n')
-    return(z)
+    print(noquote(z))
+    invisible(x)
 }
