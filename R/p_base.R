@@ -13,7 +13,7 @@
 #' p_base(TRUE)
 p_base <- 
 function(open = FALSE){
-    ast <- function(x) paste0(x, "*")
+    ast <- function(x) paste(x, "***")
     w <- .libPaths()[2]
     x <- dir(w) 
     y <- c(getOption("defaultPackages"), "base")
@@ -25,6 +25,6 @@ function(open = FALSE){
             shell.exec(w)
         }
     }
-    cat('\npackages with an "*" are loaded when R starts\n\n')
+    cat('\npackages with an "***" are loaded when R starts\n\n')
     return(z)
 }
