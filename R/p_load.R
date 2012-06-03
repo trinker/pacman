@@ -50,6 +50,7 @@ function (..., install = TRUE, update = TRUE, require = TRUE){
         }
         lapply(packages, upper, Update = update, Install = install)
     }
+    ## TODO: Why do we offer the option to use require or library?
     if (require) {
          invisible(lapply(packages, function(x) do.call("require", 
              list(x))))

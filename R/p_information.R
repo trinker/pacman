@@ -6,7 +6,8 @@
 #' imports, suggests
 #' 
 #' @aliases p_information p_info
-#' @param package name of package (defaults to base)
+#' @param package Name of the package you want information on.
+#' The default is "base".
 #' @keywords packageDescription info information package
 #' @seealso \code{\link[utils]{packageDescription}}
 #' @export
@@ -15,9 +16,11 @@
 #' p_info()
 #' p_info(pacman)
 p_information <-
-function(package=NULL) {
+function(package = "base") {
     x <- as.character(substitute(package))
-    if(identical(x, character(0))) x <- "base"
+    if(identical(x, character(0))){
+        x <- "base"
+    }
     packageDescription(x)
 }
 

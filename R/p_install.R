@@ -3,7 +3,7 @@
 #' Installs a package provided the package is a CRAN package
 #' 
 #' @aliases p_install p_get
-#' @param package name of package
+#' @param package Name of package(s)
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export
@@ -11,7 +11,7 @@
 #' \dontrun{p_install(pacman)}
 p_install <-
 function(package){
-    pack<-as.character(substitute(package))
+    pack <- as.character(substitute(package))
     install.packages(pack)
     do.call('library', list(pack))
 }

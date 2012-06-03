@@ -3,7 +3,7 @@
 #' Find out news on a package
 #' 
 #' @aliases p_news
-#' @param package name of package (default is to see news for R)
+#' @param package Name of package (default is to see news for R)
 #' @seealso \code{\link[utils]{news}}
 #' @keywords news packages
 #' @export
@@ -11,9 +11,12 @@
 #' p_news()
 #' p_news(lattice)
 p_news <-
-function(package=NULL){   
+function(package = NULL){   
     x <- as.character(substitute(package))
-    if(identical(x, character(0))) x <- "R"
-    if(x=="r") x <- "R"
+    if(identical(x, character(0)) | x == "r"){
+        x <- "R"
+    }
+    # the extra parenthesis allows us to pass in object
+    # containing the string of interest.
     news(package = (x))
 }

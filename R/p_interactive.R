@@ -14,6 +14,7 @@
 #' }
 p_interactive <-
 function() {
+    ## TODO: Let's use better variable names...
     x <- menu(rownames(installed.packages()))
     pack <- rownames(installed.packages())[x]
     suppressWarnings(suppressPackageStartupMessages(require

@@ -16,7 +16,7 @@
 #' p_loaded()
 #' p_loaded(FALSE)
 #' p_loaded(TRUE)
-#' p_unload(lattice)
+#' \dontrun{p_unload(lattice)}
 p_loaded <-
 function(all=FALSE) {
     if (all) {

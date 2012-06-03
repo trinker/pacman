@@ -3,8 +3,8 @@
 #' List the functions from a package
 #' 
 #' @aliases p_functions p_funs
-#' @param package name of package
-#' @param load logical.  If TRUE the package will be loaded
+#' @param package Name of the package you want the list of functions for.
+#' @param load logical.  If TRUE the package will be loaded.
 #' @keywords function package
 #' @seealso \code{\link[=base]{object}}
 #' @export
@@ -32,8 +32,9 @@ function (package = NULL, load = FALSE)
     }
     w <- paste0("package:", x)
     a <- objects(w)
-    if (!load) 
+    if (!load){
         detach(w, unload = TRUE, character.only = TRUE, force = TRUE)
+    }
     return(a)
 }
 
