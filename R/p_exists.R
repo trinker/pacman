@@ -2,7 +2,6 @@
 #' 
 #' Checks CRAN to determine if a package exists
 #' 
-#' @aliases p_exists
 #' @param package name of package
 #' @param cran logical.  If TRUE checks CRAN for the package; 
 #' if FALSE checks the user's local library

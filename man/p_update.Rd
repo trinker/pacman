@@ -4,6 +4,8 @@
 \title{Update out of date packages}
 \usage{
   p_update(install = TRUE)
+
+  p_up(install = TRUE)
 }
 \arguments{
   \item{install}{logical.  If TRUE installs any out of date

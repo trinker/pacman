@@ -4,6 +4,8 @@
 \title{Look at a package's vignette}
 \usage{
   p_vignette(package = "all")
+
+  p_vign(package = "all")
 }
 \arguments{
   \item{package}{name of package or "all" (if all returns

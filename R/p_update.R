@@ -3,7 +3,7 @@
 #' Either view out of date packages or update 
 #' out of data packages
 #' 
-#' @aliases p_update p_up
+#' @rdname p_update
 #' @param install logical.  If TRUE installs 
 #' any out of date packages; if FALSE retuns a list 
 #' of out of date packages
@@ -38,5 +38,6 @@ function (install = TRUE) {
      }
 }
 
+#' @rdname p_update
 #' @export
 p_up <- p_update

@@ -2,7 +2,7 @@
 #' 
 #' Remove package(s) from the library permanently.  
 #' 
-#' @aliases p_delete p_del
+#' @rdname p_delete
 #' @param \ldots name(s) of package(s)
 #' @section Warning:
 #' 
@@ -55,5 +55,6 @@ function (...)
     }
 }
 
+#' @rdname p_delete
 #' @export
 p_del <- p_delete

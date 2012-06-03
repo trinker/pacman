@@ -2,7 +2,6 @@
 #' 
 #' Returns the author of a package
 #' 
-#' @aliases p_author
 #' @param package Name of the package you want the author of.
 #' @seealso \code{\link[utils]{packageDescription}}
 #' @keywords author package

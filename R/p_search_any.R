@@ -4,7 +4,7 @@
 #' Uses agrep to find packages by 
 #' maintainer (often this is the author as well) or by name
 #' 
-#' @aliases p_search_any p_sa
+#' @rdname p_search_any
 #' @param term A search character string
 #' @param search.by The variable to search by (takes 
 #' a integer or a character string): 1-"Maintainer", 
@@ -62,5 +62,6 @@ function (term, search.by = "Maintainer")
     }
 }
 
+#' @rdname p_search_any
 #' @export
 p_sa <- p_search_any

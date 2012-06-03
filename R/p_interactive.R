@@ -4,7 +4,7 @@
 #' at functions and optionally attaching the package 
 #' and looking at the help page.
 #' 
-#' @aliases p_interactive p_inter
+#' @rdname p_interactive
 #' @keywords package
 #' @export
 #' @examples
@@ -36,5 +36,6 @@ function() {
     cat("Thank you for using the p_interactive function!\n\n")
 }
 
+#' @rdname p_interactive
 #' @export
 p_inter <- p_interactive

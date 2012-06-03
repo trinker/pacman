@@ -5,7 +5,7 @@
 #' version, author, maintainer, description, depends, 
 #' imports, suggests
 #' 
-#' @aliases p_information p_info
+#' @rdname p_information
 #' @param package Name of the package you want information on.
 #' The default is "base".
 #' @keywords packageDescription info information package
@@ -24,5 +24,6 @@ function(package = "base") {
     packageDescription(x)
 }
 
+#' @rdname p_information
 #' @export
 p_info <- p_information

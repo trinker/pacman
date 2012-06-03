@@ -6,7 +6,7 @@
 #' Useful for those times when you can't remember 
 #' that package name but you know ``it starts with...''
 #' 
-#' @aliases p_search_library p_sl
+#' @rdname p_search_library
 #' @param begins.with a character string to search for 
 #' packages starting with the letter(s)
 #' @param contains a character string to search for 
@@ -46,5 +46,6 @@ function(begins.with = NULL, contains = NULL){
     cat(x, "loaded\n")
 }
 
+#' @rdname p_search_library
 #' @export
 p_sl <- p_search_library

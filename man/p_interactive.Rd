@@ -4,6 +4,8 @@
 \title{Interactive package exploration}
 \usage{
   p_interactive()
+
+  p_inter()
 }
 \description{
   Interactively search through packages, looking at

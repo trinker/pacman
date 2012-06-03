@@ -4,7 +4,6 @@
 #' It checks to see if a package is installed, if not 
 #' it installs the package(s) and loads it.
 #' 
-#' @aliases p_load
 #' @param \ldots name(s) of package(s)
 #' @param install logical.  If TRUE will attempt to install a package 
 #' not found in the library

@@ -4,6 +4,8 @@
 \title{Determine installed package version}
 \usage{
   p_version(package = "R")
+
+  p_ver(package = "R")
 }
 \arguments{
   \item{package}{name of package (default returns R

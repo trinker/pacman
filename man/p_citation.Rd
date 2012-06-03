@@ -4,6 +4,8 @@
 \title{Generate citation for a package}
 \usage{
   p_citation(package = "r")
+
+  p_cite(package = "r")
 }
 \arguments{
   \item{package}{Name of the package you want a citation

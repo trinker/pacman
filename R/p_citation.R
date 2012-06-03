@@ -2,7 +2,7 @@
 #' 
 #' Generate citation for a package
 #' 
-#' @aliases p_citation p_cite
+#' @rdname p_citation
 #' @param package Name of the package you want a citation for
 #' @seealso \code{\link[utils]{citation}}
 #' @keywords citation cite
@@ -23,5 +23,6 @@ function(package = "r") {
     citation(package = x, lib.loc = NULL, auto = NULL)
 }
 
+#' @rdname p_citation
 #' @export
 p_cite <- p_citation

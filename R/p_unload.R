@@ -2,7 +2,6 @@
 #' 
 #' Unloads package(s) or all packages
 #' 
-#' @aliases p_unload
 #' @param \dots name of package(s) or "all" 
 #' (all removes all add on packages)
 #' @param negate logical. If TRUE will uninstall 

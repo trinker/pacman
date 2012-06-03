@@ -2,7 +2,6 @@
 #'
 #' Find out news on a package
 #' 
-#' @aliases p_news
 #' @param package Name of package (default is to see news for R)
 #' @seealso \code{\link[utils]{news}}
 #' @keywords news packages

@@ -10,7 +10,6 @@
 #' Choosing not to download will result in a warning 
 #' message (and likely will result in an error).
 #' 
-#' @aliases p_getXML
 #' @param package Provides the name of XML to the warning
 #' @param fun Provides the name of the function getXML is being used in to the warning
 #' @keywords XML

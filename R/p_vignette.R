@@ -3,7 +3,7 @@
 #' Use default "all" to see which packages have vignettes 
 #' and supply a package name to view that vignette.
 #' 
-#' @aliases p_vignette p_vign
+#' @rdname p_vignette
 #' @param package name of package or "all" (if all returns
 #' all packages from the user's library that have vignettes)
 #' @seealso  \code{\link[utils]{vignette}}
@@ -63,5 +63,6 @@ function(package = "all"){
                    " or a the name of a package that has a vignette"))
 }
 
+#' @rdname p_vignette
 #' @export
 p_vign <- p_vignette

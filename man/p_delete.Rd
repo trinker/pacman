@@ -4,6 +4,8 @@
 \title{Remove package(s) from the library}
 \usage{
   p_delete(...)
+
+  p_del(...)
 }
 \arguments{
   \item{\ldots}{name(s) of package(s)}

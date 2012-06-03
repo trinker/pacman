@@ -3,7 +3,7 @@
 #' Generates a vector of all available add on packages 
 #' in the user's library and optionally opens that directory.
 #' 
-#' @aliases p_library p_lib
+#' @rdname p_library
 #' @param open logical. If TRUE opens the directory of 
 #' the add on packages library.
 #' @keywords library package
@@ -33,5 +33,6 @@ function (open = FALSE)
     return(y)
 }
 
+#' @rdname p_library
 #' @export
 p_lib <- p_library

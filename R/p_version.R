@@ -2,7 +2,7 @@
 #' 
 #' Determine what version a package is in your library
 #' 
-#' @aliases p_version p_ver
+#' @rdname p_version
 #' @param package name of package (default returns R version)
 #' @seealso  \code{\link[utils]{packageDescription}}
 #' @keywords package version
@@ -21,5 +21,6 @@ function(package="R") {
     }
 }
 
+#' @rdname p_version
 #' @export
 p_ver <- p_version

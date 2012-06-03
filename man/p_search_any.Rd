@@ -5,6 +5,8 @@
 by similar package names}
 \usage{
   p_search_any(term, search.by = "Maintainer")
+
+  p_sa(term, search.by = "Maintainer")
 }
 \arguments{
   \item{term}{A search character string}

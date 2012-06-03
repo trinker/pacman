@@ -4,6 +4,8 @@
 \title{Search library packages using partial matching}
 \usage{
   p_search_library(begins.with = NULL, contains = NULL)
+
+  p_sl(begins.with = NULL, contains = NULL)
 }
 \arguments{
   \item{begins.with}{a character string to search for

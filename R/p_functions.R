@@ -2,7 +2,7 @@
 #' 
 #' List the functions from a package
 #' 
-#' @aliases p_functions p_funs
+#' @rdname p_functions
 #' @param package Name of the package you want the list of functions for.
 #' @param load logical.  If TRUE the package will be loaded.
 #' @keywords function package
@@ -36,5 +36,6 @@ function (package = NULL, load = FALSE)
     return(a)
 }
 
+#' @rdname p_functions
 #' @export
 p_funs <- p_functions

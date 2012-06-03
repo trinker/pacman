@@ -2,7 +2,6 @@
 #'
 #' Output is a character string of loaded packages
 #' 
-#' @aliases p_loaded
 #' @param all logical.  If TRUE will show all packages 
 #' including base install; FALSE will show all packages
 #'  excluding base install packages that install when R loads

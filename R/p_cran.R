@@ -2,7 +2,6 @@
 #' 
 #' Generate a vector of all available packages.
 #' 
-#' @aliases p_cran
 #' @param menu logical.  If TRUE allows user to select 
 #' the package and return that package name
 #' @seealso \code{\link[utils]{available.packages}}

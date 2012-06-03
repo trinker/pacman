@@ -4,6 +4,8 @@
 \title{Display library packages}
 \usage{
   p_library(open = FALSE)
+
+  p_lib(open = FALSE)
 }
 \arguments{
   \item{open}{logical. If TRUE opens the directory of the

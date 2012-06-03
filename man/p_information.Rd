@@ -4,6 +4,8 @@
 \title{See information on a package.}
 \usage{
   p_information(package = "base")
+
+  p_info(package = "base")
 }
 \arguments{
   \item{package}{Name of the package you want information

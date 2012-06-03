@@ -2,7 +2,6 @@
 #'
 #' Generate an html, web or pdf of a package's help manual
 #' 
-#' @aliases p_help
 #' @param package name of package
 #' @param web logical.  If TRUE grabs current help manual from the web
 #' @param pdf logical.  If TRUE uses a LaTeX compiler to generate a pdf

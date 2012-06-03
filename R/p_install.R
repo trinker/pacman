@@ -2,7 +2,7 @@
 #' 
 #' Installs a package provided the package is a CRAN package
 #' 
-#' @aliases p_install p_get
+#' @rdname p_install
 #' @param package Name of package(s)
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
@@ -16,5 +16,6 @@ function(package){
     do.call('library', list(pack))
 }
 
+#' @rdname p_install
 #' @export
 p_get <- p_install

@@ -4,6 +4,8 @@
 \title{List the functions from a package}
 \usage{
   p_functions(package = NULL, load = FALSE)
+
+  p_funs(package = NULL, load = FALSE)
 }
 \arguments{
   \item{package}{Name of the package you want the list of

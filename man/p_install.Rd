@@ -4,6 +4,8 @@
 \title{Installs and loads a package provided the package is a CRAN package}
 \usage{
   p_install(package)
+
+  p_get(package)
 }
 \arguments{
   \item{package}{Name of package(s)}

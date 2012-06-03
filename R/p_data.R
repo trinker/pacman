@@ -2,7 +2,6 @@
 #' 
 #' Generate a script of all data sets contained in package.
 #' 
-#' @aliases p_data
 #' @param package name of package (default is the base install datasets package)
 #' @seealso \code{\link[utils]{data}}
 #' @keywords data package
