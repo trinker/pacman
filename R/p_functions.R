@@ -37,4 +37,5 @@ function (package = NULL, load = FALSE)
     return(a)
 }
 
+#' @export
 p_funs <- p_functions

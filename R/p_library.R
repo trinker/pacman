@@ -32,4 +32,5 @@ function (open = FALSE)
     return(y)
 }
 
+#' @export
 p_lib <- p_library

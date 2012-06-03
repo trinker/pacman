@@ -1,31 +1,24 @@
 \name{p_citation}
 \alias{p_citation}
 \alias{p_cite}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Generate citation for a package
+\title{Generate citation for a package}
+\usage{
+  p_citation(package = "r")
+}
+\arguments{
+  \item{package}{Name of the package you want a citation
+  for}
 }
 \description{
-Generate citation for a package  
-}
-\usage{
-p_citation(package = "r")
-p_cite(package = "r")
-}
-%- maybe also 'usage' for other objects documented here.
-\arguments{
-  \item{package}{
-name of package
-}
-}
-\seealso{
-\code{\link[utils]{citation}}
+  Generate citation for a package
 }
 \examples{
 p_cite(pacman)
 p_citation(pacman)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
+\seealso{
+  \code{\link[utils]{citation}}
+}
 \keyword{citation}
-\keyword{cite}% __ONLY ONE__ keyword per line
+\keyword{cite}
+

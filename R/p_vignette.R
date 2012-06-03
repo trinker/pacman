@@ -63,4 +63,5 @@ function(package = "all"){
                    " or a the name of a package that has a vignette"))
 }
 
+#' @export
 p_vign <- p_vignette

@@ -1,29 +1,23 @@
 \name{p_data}
 \alias{p_data}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-List all data sets available in a package
+\title{List all data sets available in a package}
+\usage{
+  p_data(package = "datasets")
+}
+\arguments{
+  \item{package}{name of package (default is the base
+  install datasets package)}
 }
 \description{
-Generate a script of all data sets contained in package.
-}
-\usage{
-p_data(package = "datasets")
-}
-%- maybe also 'usage' for other objects documented here.
-\arguments{
-  \item{package}{
-name of package (default is the base install datasets package)
-}
-}
-\seealso{
-\code{\link[utils]{data}}
+  Generate a script of all data sets contained in package.
 }
 \examples{
 p_data()
 p_data(lattice)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
+\seealso{
+  \code{\link[utils]{data}}
+}
 \keyword{data}
-\keyword{ package }% __ONLY ONE__ keyword per line
+\keyword{package}
+

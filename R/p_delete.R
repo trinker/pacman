@@ -53,4 +53,5 @@ function (...)
     }
 }
 
+#' @export
 p_del <- p_delete

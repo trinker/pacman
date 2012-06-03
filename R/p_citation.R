@@ -21,4 +21,5 @@ function(package="r") {
     }
 }
 
+#' @export
 p_cite <- p_citation

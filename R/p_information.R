@@ -21,4 +21,5 @@ function(package=NULL) {
     packageDescription(x)
 }
 
+#' @export
 p_info <- p_information

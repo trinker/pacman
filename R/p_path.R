@@ -2,9 +2,9 @@
 #' 
 #' See path to library of add on package
 #' 
-#' @alias p_path
+#' @aliases p_path
 #' @seealso \code{\link[base]{.libPaths}}
-#' @keyword package library location path
+#' @keywords package library location path
 #' @export
 #' @examples
 #' p_path()

@@ -1,33 +1,27 @@
 \name{p_base}
 \alias{p_base}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-List all the packages in a base install
-}
-\description{
-List all the packages in a base install
-}
+\title{List all the packages in a base install}
 \usage{
-p_base(open=FALSE)
-%- maybe also 'usage' for other objects documented here.
+  p_base(open = FALSE)
 }
 \arguments{
-  \item{open}{
-logical. If TRUE opens the directory of the base install packages
+  \item{open}{logical. If TRUE opens the directory of the
+  base install packages}
 }
+\description{
+  List all the packages in a base install
 }
-
 \note{
-PAckages that are installed when R starts are marked with an asterisk(*)
-}
-\seealso{
-\code{\link[base]{getOption}}
+  Packages that are installed when R starts are marked with
+  an asterisk(*)
 }
 \examples{
 p_base()
 p_base(TRUE)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
+\seealso{
+  \code{\link[base]{getOption}}
+}
 \keyword{base}
 \keyword{package}
+

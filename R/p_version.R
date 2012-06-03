@@ -21,4 +21,5 @@ function(package="R") {
     }
 }
 
+#' @export
 p_ver <- p_version

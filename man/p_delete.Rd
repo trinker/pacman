@@ -1,31 +1,27 @@
 \name{p_delete}
-\alias{p_delete}
 \alias{p_del}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Remove package(s) from the library
+\alias{p_delete}
+\title{Remove package(s) from the library}
+\usage{
+  p_delete(...)
+}
+\arguments{
+  \item{\ldots}{name(s) of package(s)}
 }
 \description{
-Remove package(s) from the library permanently.  
+  Remove package(s) from the library permanently.
 }
-\usage{
-p_delete(...)
-p_del(...)
+\section{Warning}{
+  Using this function will remove the package from your
+  library and can not be loaded again without reinstalling
+  the package.
 }
-%- maybe also 'usage' for other objects documented here
-\arguments{
-  \item{\dots}{
-name(s) of package(s)
+\examples{
+# p_delete(pacman) # You never want to run this
 }
-}
-
-\section{Warning }{Using this function will remove the package from your 
-library and can not be loaded again without reinstalling the package.} 
-
 \seealso{
-\code{\link[utils]{remove.packages}}
+  \code{\link[utils]{remove.packages}}
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ delete }
-\keyword{ package }
+\keyword{delete}
+\keyword{package}
+

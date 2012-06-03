@@ -38,4 +38,5 @@ function (install = TRUE) {
      }
 }
 
+#' @export
 p_up <- p_update

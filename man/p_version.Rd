@@ -1,32 +1,25 @@
 \name{p_version}
-\alias{p_version}
 \alias{p_ver}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Determine installed package version
+\alias{p_version}
+\title{Determine installed package version}
+\usage{
+  p_version(package = "R")
+}
+\arguments{
+  \item{package}{name of package (default returns R
+  version)}
 }
 \description{
-Determine what version a package is in your library
-}
-\usage{
-p_version(package = "R")
-p_ver(package = "R")
-}
-%- maybe also 'usage' for other objects documented here.
-\arguments{
-  \item{package}{
-name of package (default returns R version)
-}
-}
-\seealso{
- \code{\link[utils]{packageDescription}}
+  Determine what version a package is in your library
 }
 \examples{
 p_ver()
 p_ver(pacman)
 p_version(pacman)
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
-\keyword{ package}
-\keyword{ version} 
+\seealso{
+  \code{\link[utils]{packageDescription}}
+}
+\keyword{package}
+\keyword{version}
+

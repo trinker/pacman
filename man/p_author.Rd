@@ -1,29 +1,22 @@
 \name{p_author}
 \alias{p_author}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-Returns the author of a package
+\title{Returns the author of a package}
+\usage{
+  p_author(package = "base")
+}
+\arguments{
+  \item{package}{name of package}
 }
 \description{
-Returns the author of a package
-}
-\usage{
-p_author(package = "base")
-}
-%- maybe also 'usage' for other objects documented here.
-\arguments{
-  \item{package}{
-name of package
-}
-}
-\seealso{
-\code{\link[utils]{packageDescription}}
+  Returns the author of a package
 }
 \examples{
 p_author(pacman)
 p_author()
 }
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
+\seealso{
+  \code{\link[utils]{packageDescription}}
+}
 \keyword{author}
 \keyword{package}
+

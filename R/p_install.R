@@ -16,4 +16,5 @@ function(package){
     do.call('library', list(pack))
 }
 
+#' @export
 p_get <- p_install

@@ -44,4 +44,5 @@ function(begins.with = NULL, contains = NULL){
     cat(x, "loaded\n")
 }
 
+#' @export
 p_sl <- p_search_library
