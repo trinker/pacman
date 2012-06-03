@@ -3,10 +3,11 @@
 \alias{p_information}
 \title{See information on a package.}
 \usage{
-  p_information(package = NULL)
+  p_information(package = "base")
 }
 \arguments{
-  \item{package}{name of package (defaults to base)}
+  \item{package}{Name of the package you want information
+  on. The default is "base".}
 }
 \description{
   Provides the information from for a package from the

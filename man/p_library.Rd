@@ -7,11 +7,11 @@
 }
 \arguments{
   \item{open}{logical. If TRUE opens the directory of the
-  add on packages library}
+  add on packages library.}
 }
 \description{
-  Generates a vector all available add on packages in
-  user's library and optionally opens that directory.
+  Generates a vector of all available add on packages in
+  the user's library and optionally opens that directory.
 }
 \examples{
 p_lib()

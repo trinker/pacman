@@ -18,7 +18,7 @@
 p_loaded()
 p_loaded(FALSE)
 p_loaded(TRUE)
-p_unload(lattice)
+\dontrun{p_unload(lattice)}
 }
 \seealso{
   \code{\link[base]{.packages}},

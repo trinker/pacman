@@ -5,7 +5,7 @@
   p_news(package = NULL)
 }
 \arguments{
-  \item{package}{name of package (default is to see news
+  \item{package}{Name of package (default is to see news
   for R)}
 }
 \description{
