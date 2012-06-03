@@ -29,7 +29,6 @@ function (install = TRUE) {
                         unload = TRUE))
                     }
                 )
-
      }
      cat(y, "\n")
      if (install){ 
