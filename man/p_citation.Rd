@@ -13,6 +13,7 @@
   Generate citation for a package
 }
 \examples{
+p_citation()
 p_cite(pacman)
 p_citation(pacman)
 }

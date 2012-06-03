@@ -11,9 +11,11 @@
 #' @keywords update packages
 #' @export
 #' @examples
-#' # p_update()
-#' # p_update(FALSE)
-#' # p_up(FALSE)
+#' \dontrun{
+#' p_update()
+#' p_update(FALSE)
+#' p_up(FALSE)
+#' }
 p_update <-
 function (install = TRUE) {
      y <- utils::old.packages()[, 1]

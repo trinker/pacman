@@ -17,7 +17,7 @@
 \examples{
 p_vignette()
 p_vign()
-# p _vign(fortunes)
+\dontrun{p _vign(fortunes)}
 }
 \seealso{
   \code{\link[utils]{vignette}}

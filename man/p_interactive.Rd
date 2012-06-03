@@ -11,8 +11,10 @@
   looking at the help page.
 }
 \examples{
-# p_interactive()
-# p_inter()
+\dontrun{
+p_interactive()
+p_inter()
+}
 }
 \keyword{package}
 

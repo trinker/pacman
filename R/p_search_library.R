@@ -14,10 +14,12 @@
 #' @keywords search library package
 #' @export
 #' @examples
-#' # p_search_library(begins.with = ma, contains = NULL)
-#' # p_search_library(begins.with = MA, contains = NULL)
-#' # p_search_library(begins.with = r, contains = t) #gives an error
-#' # p_search_library(contains = att) 
+#' \dontrun{
+#' p_search_library(begins.with = ma, contains = NULL)
+#' p_search_library(begins.with = MA, contains = NULL)
+#' p_search_library(begins.with = r, contains = t) #gives an error
+#' p_search_library(contains = att) 
+#' }
 p_search_library<-
 function(begins.with = NULL, contains = NULL){
     begins.with <- as.character(substitute(begins.with))

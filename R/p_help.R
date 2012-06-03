@@ -12,10 +12,12 @@
 #' @seealso \code{\link[utils]{help}}
 #' @export
 #' @examples
-#' # p_help()
-#' # p_help(pacman)
-#' # p_help(pacman, web=TRUE)
-#' # p_help(pacman, pdf=TRUE)
+#' \dontrun{
+#' p_help()
+#' p_help(pacman)
+#' p_help(pacman, web=TRUE)
+#' p_help(pacman, pdf=TRUE)
+#' }
 p_help <- 
 function (package = NULL, web = FALSE, pdf = FALSE) 
 {

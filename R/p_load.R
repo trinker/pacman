@@ -17,12 +17,14 @@
 #' \code{\link[utils]{install.packages}}
 #' @export
 #' @examples
-#' # p_load(lattice)
-#' # p_unload(lattice)
-#' # p_load(lattice, foreign, boot, rpart)
-#' # p_loaded()
-#' # p_unload(lattice, foreign, boot, rpart)
-#' # p_loaded()
+#' \dontrun{
+#' p_load(lattice)
+#' p_unload(lattice)
+#' p_load(lattice, foreign, boot, rpart)
+#' p_loaded()
+#' p_unload(lattice, foreign, boot, rpart)
+#' p_loaded()
+#' }
 p_load <-
 function (..., install = TRUE, update = TRUE, require = TRUE){ 
 #     nonnamed <- which(names(as.list(match.call())) == "")[-1]

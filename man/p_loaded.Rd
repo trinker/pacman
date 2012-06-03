@@ -14,7 +14,7 @@
   Output is a character string of loaded packages
 }
 \examples{
-# p_load(lattice)
+\dontrun{p_load(lattice)}
 p_loaded()
 p_loaded(FALSE)
 p_loaded(TRUE)

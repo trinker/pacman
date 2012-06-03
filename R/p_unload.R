@@ -12,20 +12,22 @@
 #' @keywords detach package
 #' @export
 #' @examples
-#' # p_load(lattice)
-#' # p_loaded()
-#' # p_unload(lattice)
-#' # p_loaded()
+#' \dontrun{
+#' p_load(lattice)
+#' p_loaded()
+#' p_unload(lattice)
+#' p_loaded()
 #' 
-#' # p_load("lattice", "MASS")
-#' # p_loaded()
-#' # p_unload(all)
-#' # p_loaded() # will not work as you unloaded pacman
+#' p_load("lattice", "MASS")
+#' p_loaded()
+#' p_unload(all)
+#' p_loaded() # will not work as you unloaded pacman
 #'
-#' # p_load(lattice, MASS, foreign)
-#' # p_loaded()
-#' # p_unload(pacman, negate=TRUE)
-#' # p_loaded()
+#' p_load(lattice, MASS, foreign)
+#' p_loaded()
+#' p_unload(pacman, negate=TRUE)
+#' p_loaded()
+#' }
 p_unload <- 
 function (..., negate = FALSE) 
 {

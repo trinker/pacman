@@ -23,12 +23,14 @@
   installs the package(s) and loads it.
 }
 \examples{
-# p_load(lattice)
-# p_unload(lattice)
-# p_load(lattice, foreign, boot, rpart)
-# p_loaded()
-# p_unload(lattice, foreign, boot, rpart)
-# p_loaded()
+\dontrun{
+p_load(lattice)
+p_unload(lattice)
+p_load(lattice, foreign, boot, rpart)
+p_loaded()
+p_unload(lattice, foreign, boot, rpart)
+p_loaded()
+}
 }
 \seealso{
   \code{\link[base]{library}}, \code{\link[base]{require}},

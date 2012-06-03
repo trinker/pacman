@@ -12,7 +12,7 @@
 #' @examples
 #' p_vignette()
 #' p_vign()
-#' # p _vign(fortunes)
+#' \dontrun{p _vign(fortunes)}
 p_vignette <-
 function(package = "all"){
     x <- as.character(substitute(package))

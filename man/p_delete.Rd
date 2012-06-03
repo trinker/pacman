@@ -17,7 +17,9 @@
   the package.
 }
 \examples{
-# p_delete(pacman) # You never want to run this
+\dontrun{
+p_delete(pacman) # You never want to run this
+}
 }
 \seealso{
   \code{\link[utils]{remove.packages}}

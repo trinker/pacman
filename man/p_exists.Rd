@@ -14,9 +14,11 @@
   Checks CRAN to determine if a package exists
 }
 \examples{
-#p_exists(pacman)
-#p_exists(pacman, FALSE)
-#p_exists(I_dont_exist)
+\dontrun{
+p_exists(pacman)
+p_exists(pacman, FALSE)
+p_exists(I_dont_exist)
+}
 }
 \keyword{exists}
 \keyword{package}

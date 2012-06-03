@@ -12,7 +12,7 @@
   Installs a package provided the package is a CRAN package
 }
 \examples{
-# p_install(pacman)
+\dontrun{p_install(pacman)}
 }
 \seealso{
   \code{\link[utils]{install.packages}}

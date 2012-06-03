@@ -14,9 +14,11 @@
   packages
 }
 \examples{
-# p_update()
-# p_update(FALSE)
-# p_up(FALSE)
+\dontrun{
+p_update()
+p_update(FALSE)
+p_up(FALSE)
+}
 }
 \seealso{
   \code{\link[utils]{old.packages}}

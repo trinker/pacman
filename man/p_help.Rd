@@ -21,10 +21,12 @@
   (e.g. MikTex) installed.
 }
 \examples{
-# p_help()
-# p_help(pacman)
-# p_help(pacman, web=TRUE)
-# p_help(pacman, pdf=TRUE)
+\dontrun{
+p_help()
+p_help(pacman)
+p_help(pacman, web=TRUE)
+p_help(pacman, pdf=TRUE)
+}
 }
 \seealso{
   \code{\link[utils]{help}}

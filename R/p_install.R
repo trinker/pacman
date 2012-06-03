@@ -8,7 +8,7 @@
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export
 #' @examples
-#' # p_install(pacman)
+#' \dontrun{p_install(pacman)}
 p_install <-
 function(package){
     pack<-as.character(substitute(package))

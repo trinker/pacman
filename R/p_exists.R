@@ -9,9 +9,11 @@
 #' @keywords exists package
 #' @export
 #' @examples
-#' # p_exists(pacman)
-#' # p_exists(pacman, FALSE)
-#' # p_exists(I_dont_exist)
+#' \dontrun{
+#' p_exists(pacman)
+#' p_exists(pacman, FALSE)
+#' p_exists(I_dont_exist)
+#' }
 p_exists <-
 function (package, cran = TRUE) 
 {

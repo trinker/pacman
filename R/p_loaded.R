@@ -12,7 +12,7 @@
 #' \code{\link[utils]{sessionInfo}}
 #' @export
 #' @examples
-#' # p_load(lattice)
+#' \dontrun{p_load(lattice)}
 #' p_loaded()
 #' p_loaded(FALSE)
 #' p_loaded(TRUE)

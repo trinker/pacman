@@ -8,8 +8,10 @@
 #' @keywords package
 #' @export
 #' @examples
-#' # p_interactive()
-#' # p_inter()
+#' \dontrun{
+#' p_interactive()
+#' p_inter()
+#' }
 p_interactive <-
 function() {
     x <- menu(rownames(installed.packages()))

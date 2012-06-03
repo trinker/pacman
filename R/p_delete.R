@@ -13,7 +13,9 @@
 #' @keywords delete package
 #' @export
 #' @examples
-#' # p_delete(pacman) # You never want to run this
+#' \dontrun{
+#' p_delete(pacman) # You never want to run this
+#' }
 p_delete <-
 function (...) 
 {
