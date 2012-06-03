@@ -8,17 +8,19 @@
 #' @keywords citation cite
 #' @export
 #' @examples
+#' p_citation()
 #' p_cite(pacman)
 #' p_citation(pacman)
 p_citation <-
-function(package="r") {
+function(package = "r") {
     x <- as.character(substitute(package))
-    if(x%in%c("R", "r")){
-        citation() 
-    } else {
-        citation(package = x, 
-            lib.loc = NULL, auto = NULL)
+    
+    if(x %in% c("R", "r")){
+        # To cite R we need to use package = "base"
+        x <- "base"
     }
+    
+    citation(package = x, lib.loc = NULL, auto = NULL)
 }
 
 #' @export
