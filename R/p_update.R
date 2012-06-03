@@ -34,9 +34,8 @@ function (install = TRUE) {
      cat(y, "\n")
      if (install){ 
          lapply(y, install.packages)
-         cat("\n\nThe following packages:\n", 
-             paste0("\b", paste(y, collapse = ", ")), 
-             "\n\bare updated!\n")
+         cat("\n\nThe following packages are updated:\n", 
+             paste0("\b", paste(y, collapse = ", ")), "\n\n")
      }
 }
 
