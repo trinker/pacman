@@ -7,6 +7,9 @@ function (open = FALSE)
         if (.Platform['OS.type']!="windows"){
             system(paste("open", x[1]))
         } else {
+            ## TODO: Possibly fix this
+            ## Why only the first of the libPaths.
+            ## on my system that opens the least useful library :(
             shell.exec(x[1])
         }
     }
