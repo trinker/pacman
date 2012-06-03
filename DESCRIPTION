@@ -20,7 +20,7 @@ Description: This package is a designed to more conveniently manage packages.
     them in an intuitive and consistent fashion.  It seeks to combine
     functionality from lower level functions that can speed up workflow.
 License: GPL-2
-URL: http://trinkerrstuff.wordpress.com/
+URL: https://github.com/trinker/pacman
 Collate:
     'p_author.R'
     'p_base.R'
