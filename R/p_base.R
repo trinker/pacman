@@ -2,7 +2,6 @@
 #' 
 #' List all the packages in a base install
 #' 
-#' @aliases p_base
 #' @param open logical. If TRUE opens the directory of the base install packages
 #' @note Packages that are installed when R starts are marked with an asterisk(*)
 #' @seealso \code{\link[base]{getOption}}
