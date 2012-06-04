@@ -2,7 +2,7 @@ Package: pacman
 Type: Package
 Title: Package Management Tool
 Version: 0.2.0
-Date: 2012-05-09
+Date: 2012-06-03
 Author@R: c(person("Tyler", "Rinker",
     role = c("aut", "cre", "ctb"),
     email = "tyler.rinker@gmail.com"),
