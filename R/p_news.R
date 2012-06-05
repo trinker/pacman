@@ -12,7 +12,7 @@
 p_news <-
 function(package = NULL){   
     x <- as.character(substitute(package))
-    if(identical(x, character(0)) | x == "r"){
+    if( identical(x, character(0)) || x == "r"){
         x <- "R"
     }
     # the extra parenthesis allows us to pass in object

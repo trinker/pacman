@@ -33,7 +33,7 @@ function (package = NULL, web = FALSE, pdf = FALSE)
                 install.packages("XML")
             }
         }   
-        suppressPackageStartupMessages(p_load(XML))
+        suppressPackageStartupMessages(p_load("XML"))
         url <- "http://stat.ethz.ch/R-manual/R-patched/library/"
         doc <- XML::htmlTreeParse(url, useInternalNodes = TRUE)
         content <- getNodeSet(doc, "//pre//text()")

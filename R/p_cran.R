@@ -8,8 +8,10 @@
 #' @keywords CRAN package
 #' @export
 #' @examples
+#' \dontrun{
 #' p_cran()
-#' \dontrun{p_cran(TRUE)}
+#' p_cran(TRUE)
+#' }
 p_cran <-
 function(menu = FALSE){
     a <- available.packages()

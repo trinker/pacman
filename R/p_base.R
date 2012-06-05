@@ -8,8 +8,10 @@
 #' @keywords base package
 #' @export
 #' @examples
+#' \dontrun{
 #' p_base()
 #' p_base(TRUE)
+#' }
 p_base <- 
 function(open = FALSE){
     ast <- function(x) paste(x, "***")

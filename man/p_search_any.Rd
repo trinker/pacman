@@ -26,10 +26,12 @@ by similar package names}
   packages via CRAN's website.
 }
 \examples{
+\dontrun{
 p_search_any("hadley", 1)
 p_sa("hadley", "author")
 p_sa("color", 2)
 p_sa("psych", "package")
+}
 }
 \references{
   \url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}

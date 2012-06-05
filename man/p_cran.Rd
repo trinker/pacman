@@ -12,8 +12,10 @@
   Generate a vector of all available packages.
 }
 \examples{
+\dontrun{
 p_cran()
-\dontrun{p_cran(TRUE)}
+p_cran(TRUE)
+}
 }
 \seealso{
   \code{\link[utils]{available.packages}}

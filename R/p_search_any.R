@@ -18,10 +18,12 @@
 #' @keywords author package search
 #' @export
 #' @examples
+#' \dontrun{
 #' p_search_any("hadley", 1)
 #' p_sa("hadley", "author")
 #' p_sa("color", 2)
 #' p_sa("psych", "package")
+#' }
 p_search_any <-
 function (term, search.by = "Maintainer") 
 {

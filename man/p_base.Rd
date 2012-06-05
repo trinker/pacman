@@ -16,8 +16,10 @@
   an asterisk(*)
 }
 \examples{
+\dontrun{
 p_base()
 p_base(TRUE)
+}
 }
 \seealso{
   \code{\link[base]{getOption}}
