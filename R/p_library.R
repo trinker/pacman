@@ -15,16 +15,15 @@
 p_library <-
 function (open = FALSE) 
 {
-    x <- .libPaths()
-    y <- list.files(x)
+    ## This doesn't necessarily have all add-on
+    ## packages though...
+    userlibrary <- Sys.getenv("R_LIBS_USER")
+    userpackages <- list.files(userlibrary)
     if (open) {
-        ## TODO: Possibly fix this
-        ## Why only the first of the libPaths.
-        ## on my system that opens the least useful library :(
-        lib <- x[1]
-        p_opendir(lib)
+
+        p_opendir(userlibrary)
     }
-    return(y)
+    return(userpackages)
 }
 
 #' @rdname p_library
