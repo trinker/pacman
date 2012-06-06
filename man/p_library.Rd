@@ -12,8 +12,10 @@
   add on packages library.}
 }
 \description{
-  Generates a vector of all available add on packages in
-  the user's library and optionally opens that directory.
+  Generates a vector of all available add on packages
+  available to the user and optionally opens the user's
+  library (this isn't necessarily where all of the
+  available packages are stored).
 }
 \examples{
 p_lib()
