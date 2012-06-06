@@ -24,7 +24,7 @@ function(open = FALSE){
                               add_asterisks(basefiles),
                               basefiles)
     if (open) { 
-        p_opendir(basepase)
+        p_opendir(basepath)
     }
     cat('\npackages with an "***" are loaded when R starts\n\n')
     print(noquote(modified_output))
