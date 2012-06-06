@@ -6,7 +6,11 @@
 #' this functionality to its own non-exported function
 #' makes sense.
 #' 
+#' Note: I'm not sure if we should export this but
+#' exporting it for the time being makes testing easier.
+#' 
 #' @param dir The directory to be opened
+#' @export
 p_opendir <- function(dir){
     if (.Platform['OS.type'] == "windows"){
         shell.exec(dir)

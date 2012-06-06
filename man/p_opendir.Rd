@@ -13,4 +13,8 @@
   more than one function so moving this functionality to
   its own non-exported function makes sense.
 }
+\details{
+  Note: I'm not sure if we should export this but exporting
+  it for the time being makes testing easier.
+}
 
