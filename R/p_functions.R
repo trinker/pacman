@@ -36,6 +36,9 @@ function (package = "base", load = FALSE)
         }
     }
     
+    ## To get all functions...
+    # unclass(lsf.str(envir = asNamespace(package), all = T))
+    
     w <- paste0("package:", package)
     packagefunctions <- objects(w)
     if (!load){
