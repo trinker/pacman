@@ -13,27 +13,35 @@
 #' p_funs()
 #' p_funs(pacman)
 p_functions <- 
-function (package = NULL, load = FALSE) 
+function (package = "base", load = FALSE) 
 {
-    x <- as.character(substitute(package))
-    if (identical(x, character(0))) {
-        x <- "base"
+    # deparse is a little better/safer than as.character
+    package <- as.character(substitute(package))[1]
+    
+    # Shouldn't have to check for this with deparse
+    if (identical(package, character(0))) {
+        package <- "base"
     }
-    if (x %in% (.packages())) {  
+    
+    if (package %in% (.packages())) {  
         load <- TRUE
     } else {
-        if (!x %in% list.files(.libPaths())) {
-            install.packages(x)
+        
+        ## We could replace this with p_load since
+        ## p_load installs if it isn't found...
+        if (!package %in% list.files(.libPaths())) {
+            install.packages(package)
         } else {
-            require(x, character.only = TRUE)
+            require(package, character.only = TRUE)
         }
     }
-    w <- paste0("package:", x)
-    a <- objects(w)
+    
+    w <- paste0("package:", package)
+    packagefunctions <- objects(w)
     if (!load){
         detach(w, unload = TRUE, character.only = TRUE, force = TRUE)
     }
-    return(a)
+    return(packagefunctions)
 }
 
 #' @rdname p_functions
