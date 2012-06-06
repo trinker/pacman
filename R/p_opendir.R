@@ -9,8 +9,8 @@
 #' @param dir The directory to be opened
 p_opendir <- function(dir){
     if (.Platform['OS.type'] == "windows"){
-        shell.exec(lib)
+        shell.exec(dir)
     } else {
-        system(paste(Sys.getenv("R_BROWSER"), lib))
+        system(paste(Sys.getenv("R_BROWSER"), dir))
     }
 }
