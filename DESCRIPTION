@@ -46,3 +46,4 @@ Collate:
     'p_update.R'
     'p_version.R'
     'p_vignette.R'
+    'p_opendir.R'
