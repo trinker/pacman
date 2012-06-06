@@ -18,7 +18,7 @@
 \examples{
 p_lib()
 p_library()
-p_lib(TRUE)
+\dontrun{p_lib(TRUE)}
 }
 \keyword{library}
 \keyword{package}
