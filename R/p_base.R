@@ -14,19 +14,17 @@
 #' }
 p_base <- 
 function(open = FALSE){
-    ast <- function(x) paste(x, "***")
-    w <- .libPaths()[2]
-    x <- dir(w) 
-    y <- c(getOption("defaultPackages"), "base")
-    z <- ifelse(x %in% y, ast(x), x)
+    add_asterisks <- function(x) paste(x, "***")
+    basepath <- .libPaths()[2]
+    basefiles <- dir(basepath) 
+    basepackages <- c(getOption("defaultPackages"), "base")
+    modified_output <- ifelse(basefiles %in% basepackages,
+                              add_asterisks(basefiles),
+                              basefiles)
     if (open) { 
-        if (.Platform['OS.type']!="windows"){
-            system(paste("open", w))
-        } else {
-            shell.exec(w)
-        }
+        p_opendir(basepase)
     }
     cat('\npackages with an "***" are loaded when R starts\n\n')
-    print(noquote(z))
-    invisible(x)
+    print(noquote(modified_output))
+    invisible(basefiles)
 }
