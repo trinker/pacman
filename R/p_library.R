@@ -17,8 +17,7 @@
 p_library <-
 function (open = FALSE) 
 {
-    ## This doesn't necessarily have all add-on
-    ## packages though...
+    ## This location doesn't necessarily have all add-on packages
     userlibrary <- Sys.getenv("R_LIBS_USER")
     userpackages <- .packages(all.available = TRUE) #list.files(userlibrary)
     if (open) {
