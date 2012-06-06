@@ -22,13 +22,7 @@ function (open = FALSE)
         ## Why only the first of the libPaths.
         ## on my system that opens the least useful library :(
         lib <- x[1]
-        if (.Platform['OS.type']!="windows"){
-            ## This should give a better chance for Linux to work
-            ## Works with Mac OSX 10.6
-            system(paste(Sys.getenv("R_BROWSER"), lib))
-        } else {
-            shell.exec(lib)
-        }
+        p_opendir(lib)
     }
     return(y)
 }
