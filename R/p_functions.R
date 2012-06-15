@@ -29,6 +29,8 @@ function (package = "base", load = FALSE)
         
         ## We could replace this with p_load since
         ## p_load installs if it isn't found...
+        
+        ##TODO: Find a way to look at functions without loading
         if (!package %in% list.files(.libPaths())) {
             install.packages(package)
         } else {
