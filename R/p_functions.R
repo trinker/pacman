@@ -4,6 +4,8 @@
 #' 
 #' @rdname p_functions
 #' @param package Name of the package you want the list of functions for.
+#' @param all logical.  If TRUE all of the functions from the package will
+#' be displayed regardless of whether they're exported or not.
 #' @param load logical.  If TRUE the package will be loaded.
 #' @keywords function package
 #' @seealso \code{\link[=base]{object}}
@@ -13,9 +15,10 @@
 #' p_funs()
 #' p_funs(pacman)
 p_functions <- 
-function (package = "base", load = FALSE) 
+function (package = "base", all = FALSE, load = FALSE) 
 {
     # deparse is a little better/safer than as.character
+    # but it messes something up.  I don't remember what though...
     package <- as.character(substitute(package))[1]
     
     # Shouldn't have to check for this with deparse
@@ -38,14 +41,23 @@ function (package = "base", load = FALSE)
         }
     }
     
-    ## To get all functions...
-    # unclass(lsf.str(envir = asNamespace(package), all = T))
-    
     w <- paste0("package:", package)
-    packagefunctions <- objects(w)
+    
+    ## Should we mark non-exported functions with asterisks or something?
+    if(all){
+        packagefunctions <- unclass(lsf.str(envir = asNamespace(package), all = T))
+        # Removes pesky attributes.
+        attributes(packagefunctions) <- NULL
+    }else{
+        packagefunctions <- objects(w)        
+    }
+    
+    # If we didn't want to load then unload the packages
+    # we needed to load.
     if (!load){
         detach(w, unload = TRUE, character.only = TRUE, force = TRUE)
     }
+    
     return(packagefunctions)
 }
 
