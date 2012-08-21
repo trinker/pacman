@@ -23,6 +23,10 @@ function (...)
     x <- as.character(mf[[2]])   
     lp <- .libPaths()[1]
     z <- x[!x %in% dir(lp)]
+    
+    ## TODO: We definitely need to rewrite
+    ## to better detect where the package actually
+    ## is stored
     m <- dir(.libPaths()[2])
     o <- z[z %in% dir(.libPaths()[2])]
     z <- z[!z %in% dir(.libPaths()[2])]
