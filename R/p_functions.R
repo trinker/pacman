@@ -54,6 +54,7 @@ function (package = "base", all = FALSE, load = FALSE)
     
     # If we didn't want to load then unload the packages
     # we needed to load.
+    # TODO: Check if package was already loaded and don't unload those packages
     if (!load){
         detach(w, unload = TRUE, character.only = TRUE, force = TRUE)
     }
