@@ -47,3 +47,4 @@ Collate:
     'p_version.R'
     'p_vignette.R'
     'p_opendir.R'
+    'p_isloaded.R'
