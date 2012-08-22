@@ -13,7 +13,6 @@
 #' @param package Provides the name of XML to the warning
 #' @param fun Provides the name of the function getXML is being used in to the warning
 #' @keywords XML
-#' @export
 p_getXML <- 
 function(package="XML", fun){
     url <- "http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/2.15/"
