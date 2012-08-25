@@ -15,7 +15,11 @@
 p_isloaded <-
 function(...) {
     x <- substitute(...())
-    x <-unlist(lapply(x, function(y) as.character(y)))
+    x <- sapply(x, as.character)
+    
+    # Note: Is there a reason we don't want to add a name
+    # when there is only one input?  Otherwise we could
+    # simplify this
     if (length(x) == 1) {
         x %in% p_loaded(TRUE)
     } else {
