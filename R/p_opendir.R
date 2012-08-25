@@ -10,7 +10,6 @@
 #' exporting it for the time being makes testing easier.
 #' 
 #' @param dir The directory to be opened
-#' @export
 p_opendir <- function(dir){
     if (.Platform['OS.type'] == "windows"){
         shell.exec(dir)
