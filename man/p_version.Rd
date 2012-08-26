@@ -16,6 +16,7 @@
 }
 \examples{
 p_ver()
+p_version()
 p_ver(pacman)
 p_version(pacman)
 }
