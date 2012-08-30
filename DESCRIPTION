@@ -48,3 +48,5 @@ Collate:
     'p_vignette.R'
     'p_opendir.R'
     'p_isloaded.R'
+    'p_seeRipley.R'
+    'p_getRipley.R'
