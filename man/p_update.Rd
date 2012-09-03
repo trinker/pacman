@@ -3,12 +3,12 @@
 \alias{p_update}
 \title{Update out of date packages}
 \usage{
-  p_update(install = TRUE)
+  p_update(update = TRUE)
 
-  p_up(install = TRUE)
+  p_up(update = TRUE)
 }
 \arguments{
-  \item{install}{logical.  If TRUE installs any out of date
+  \item{update}{logical.  If TRUE updates any out of date
   packages; if FALSE retuns a list of out of date packages}
 }
 \description{
