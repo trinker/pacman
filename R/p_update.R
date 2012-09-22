@@ -4,7 +4,7 @@
 #' out of data packages
 #' 
 #' @rdname p_update
-#' @param install logical.  If TRUE installs 
+#' @param update logical.  If TRUE updates 
 #' any out of date packages; if FALSE retuns a list 
 #' of out of date packages
 #' @seealso \code{\link[utils]{old.packages}}
@@ -17,7 +17,7 @@
 #' p_up(FALSE)
 #' }
 p_update <-
-function (install = TRUE) {
+function (update = TRUE) {
      y <- utils::old.packages()[, 1]
      packs <- names(sessionInfo()[["otherPkgs"]])
      if (any((y %in% packs)) & !is.null(packs)) {
@@ -31,7 +31,7 @@ function (install = TRUE) {
                 )
      }
      cat(y, "\n")
-     if (install){ 
+     if (update){ 
          lapply(y, install.packages)
          cat("\n\nThe following packages are updated:\n", 
              paste0("\b", paste(y, collapse = ", ")), "\n\n")
