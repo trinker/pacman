@@ -36,12 +36,11 @@ p_load <- function (..., install = TRUE, update = TRUE){
     
     # Attempt to load packages making note of which don't load
     loaded <- sapply(packages, p_load_single)
-    if(all(loaded)){
-        return(invisible())
+    # Give a warning if some packags couldn't be installed/loaded
+    if(!all(loaded)){
+        failed <- packages[!loaded]
+        warning("Failed to install/load:\n", paste(failed, collapse=", "))
     }
-    
-    failed <- packages[!loaded]
-    warning("Failed to install/load:\n", paste(failed, collapse=", "))
     
     return(invisible(loaded))
 }
