@@ -2,8 +2,7 @@
 \alias{p_load}
 \title{Load one or more packages}
 \usage{
-  p_load(..., install = TRUE, update = TRUE,
-    require = TRUE)
+  p_load(..., install = TRUE, update = TRUE)
 }
 \arguments{
   \item{\ldots}{name(s) of package(s)}
@@ -13,9 +12,6 @@
 
   \item{update}{logical.  If TRUE will attempt to update
   out of date packages}
-
-  \item{require}{logical.  If TRUE will use require; FALSE
-  will use library}
 }
 \description{
   This function is a wrapper for library and require. It
@@ -36,8 +32,4 @@ p_loaded()
   \code{\link[base]{library}}, \code{\link[base]{require}},
   \code{\link[utils]{install.packages}}
 }
-\keyword{library}
-\keyword{package}
-\keyword{require}
-\keyword{update}
 
