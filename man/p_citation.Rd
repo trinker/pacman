@@ -11,7 +11,7 @@
   \item{package}{Name of the package you want a citation
   for}
 
-  \item{...}{Additional inputs to
+  \item{\ldots}{Additional inputs to
   \code{\link[utils]{citation}}}
 }
 \description{
