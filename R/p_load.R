@@ -8,8 +8,6 @@
 #' @param install logical.  If TRUE will attempt to install a package 
 #' not found in the library
 #' @param update logical.  If TRUE will attempt to update out of date packages
-#' @param require logical.  If TRUE will use require; FALSE will use library
-#' @keywords library require package update
 #' @seealso 
 #' \code{\link[base]{library}},
 #' \code{\link[base]{require}},
@@ -24,37 +22,25 @@
 #' p_unload(lattice, foreign, boot, rpart)
 #' p_loaded()
 #' }
-p_load <-
-function (..., install = TRUE, update = TRUE, require = TRUE){ 
-#     nonnamed <- which(names(as.list(match.call())) == "")[-1]
-#     packages <- as.character(match.call())[nonnamed]
-#     if(identical(packages, character(0))){
-#         packages <- as.character(match.call())[-1]
-#     }
+p_load <- function (..., install = TRUE, update = TRUE){ 
     mf <- match.call(expand.dots = FALSE)
     packages <- as.character(mf[[2]])
-
-    if (update | install){
-        upper <- function(pack, Update, Install) {
-            y <- utils::old.packages()[, 1]
-            packs <- names(sessionInfo()[["otherPkgs"]])
-            A <- all(c(pack %in% y, !pack %in% packs))
-            B <- !pack %in% list.files(.libPaths())
-            if ((A & Update)) {
-                install.packages(pack)
-            }
-            if ((B & Install)) {
-                install.packages(pack)
-            }
-        }
-        lapply(packages, upper, Update = update, Install = install)
+    if(length(packages) == 0){
+        invisible()
     }
-    ## TODO: Why do we offer the option to use require or library?
-    if (require) {
-         invisible(lapply(packages, function(x) do.call("require", 
-             list(x))))
-    } else {
-         invisible(lapply(packages, function(x) do.call("library", 
-             list(x))))
+    
+    # Update all packages
+    if (update){
+        p_update()
     }
+    
+    # Attempt to load packages making note of which don't load
+    loaded <- sapply(packages, p_load_single)
+    # Give a warning if some packags couldn't be installed/loaded
+    if(!all(loaded)){
+        failed <- packages[!loaded]
+        warning("Failed to install/load:\n", paste(failed, collapse=", "))
+    }
+    
+    return(invisible(loaded))
 }

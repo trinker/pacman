@@ -50,3 +50,4 @@ Collate:
     'p_isloaded.R'
     'p_seeRipley.R'
     'p_getRipley.R'
+    'p_load_single.R'

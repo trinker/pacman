@@ -4,7 +4,7 @@
 #' 
 #' @rdname p_citation
 #' @param package Name of the package you want a citation for
-#' @param ... Additional inputs to \code{\link[utils]{citation}}
+#' @param \ldots Additional inputs to \code{\link[utils]{citation}}
 #' @seealso \code{\link[utils]{citation}}
 #' @keywords citation cite
 #' @export
