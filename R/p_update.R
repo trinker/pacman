@@ -16,26 +16,25 @@
 #' p_update(FALSE)
 #' p_up(FALSE)
 #' }
-p_update <-
-function (update = TRUE) {
-     y <- utils::old.packages()[, 1]
-     packs <- names(sessionInfo()[["otherPkgs"]])
-     if (any((y %in% packs)) & !is.null(packs)) {
-         x <- y[na.omit(match(y, packs))]
-         x <- paste0("package:", x)
-         lapply(x, function(package) {
-                        suppressWarnings(detach(package, 
-                        character.only=TRUE, force = TRUE, 
-                        unload = TRUE))
-                    }
-                )
-     }
-     cat(y, "\n")
-     if (update){ 
-         lapply(y, install.packages)
-         cat("\n\nThe following packages are updated:\n", 
-             paste0("\b", paste(y, collapse = ", ")), "\n\n")
-     }
+p_update <- function (update = TRUE) {
+    # Figure out which packages need updates    
+    y <- utils::old.packages()[, 1]
+    packs <- names(sessionInfo()[["otherPkgs"]])
+    if (any((y %in% packs)) & !is.null(packs)) {
+        x <- y[na.omit(match(y, packs))]
+        x <- paste0("package:", x)
+        lapply(x, function(package) {
+            suppressWarnings(detach(package, 
+                                    character.only=TRUE, force = TRUE, 
+                                    unload = TRUE))
+        }
+        )
+    }
+    cat(y, "\n")
+    
+    if (update){ 
+        update.packages(ask = FALSE)
+    }
 }
 
 #' @rdname p_update
