@@ -41,5 +41,7 @@ p_load <- function (..., install = TRUE, update = TRUE){
     }
     
     failed <- packages[!loaded]
-    warning("Failed to install/load:\n", paste(failed, collapse=", "))    
+    warning("Failed to install/load:\n", paste(failed, collapse=", "))
+    
+    return(invisible(loaded))
 }
