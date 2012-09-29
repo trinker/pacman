@@ -6,7 +6,7 @@ function (package, install = TRUE){
         return(TRUE)
     }
     # Loaded failed - attempt to install
-    p_install(package)
+    p_install(package, character.only = TRUE)
     # Try to load again
     if(require(package, character.only = TRUE)){
         return(TRUE)

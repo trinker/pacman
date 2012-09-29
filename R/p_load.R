@@ -8,7 +8,6 @@
 #' @param install logical.  If TRUE will attempt to install a package 
 #' not found in the library
 #' @param update logical.  If TRUE will attempt to update out of date packages
-#' @keywords library require package update
 #' @seealso 
 #' \code{\link[base]{library}},
 #' \code{\link[base]{require}},
@@ -38,7 +37,7 @@ p_load <- function (..., install = TRUE, update = TRUE){
     # Attempt to load packages making note of which don't load
     loaded <- sapply(packages, p_load_single)
     if(all(loaded)){
-        invisible()
+        return(invisible())
     }
     
     failed <- packages[!loaded]

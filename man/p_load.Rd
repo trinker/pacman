@@ -32,8 +32,4 @@ p_loaded()
   \code{\link[base]{library}}, \code{\link[base]{require}},
   \code{\link[utils]{install.packages}}
 }
-\keyword{library}
-\keyword{package}
-\keyword{require}
-\keyword{update}
 
