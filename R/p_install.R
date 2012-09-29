@@ -13,7 +13,6 @@ p_install <-
 function(package){
     pack <- as.character(substitute(package))
     install.packages(pack)
-    do.call('library', list(pack))
 }
 
 #' @rdname p_install

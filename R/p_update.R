@@ -16,7 +16,8 @@
 #' p_update(FALSE)
 #' p_up(FALSE)
 #' }
-p_update <- function (update = TRUE) {
+p_update <- 
+function (update = TRUE) {
     # Figure out which packages need updates    
     y <- utils::old.packages()[, 1]
     packs <- names(sessionInfo()[["otherPkgs"]])
