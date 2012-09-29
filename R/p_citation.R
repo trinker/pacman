@@ -4,6 +4,7 @@
 #' 
 #' @rdname p_citation
 #' @param package Name of the package you want a citation for
+#' @param ... Additional inputs to \code{\link[utils]{citation}}
 #' @seealso \code{\link[utils]{citation}}
 #' @keywords citation cite
 #' @export
@@ -12,7 +13,7 @@
 #' p_cite(pacman)
 #' p_citation(pacman)
 p_citation <-
-function(package = "r") {
+function(package = "r", ...) {
     x <- as.character(substitute(package))
     
     if(x %in% c("R", "r")){
@@ -20,7 +21,7 @@ function(package = "r") {
         x <- "base"
     }
     
-    citation(package = x, lib.loc = NULL, auto = NULL)
+    citation(package = x, ...)
 }
 
 #' @rdname p_citation
