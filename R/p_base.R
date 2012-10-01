@@ -18,7 +18,7 @@ p_base <-
 function(open = FALSE,  basemarker = "***"){
     add_asterisks <- function(x) paste(x, basemarker)
     
-    basepath <- paste0(Sys.getenv("R_HOME"), "/library")
+    basepath <- p_basepath()
     
     basefiles <- dir(basepath) 
     basepackages <- c(getOption("defaultPackages"), "base")

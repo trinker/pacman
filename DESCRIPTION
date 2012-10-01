@@ -51,3 +51,4 @@ Collate:
     'p_seeRipley.R'
     'p_getRipley.R'
     'p_load_single.R'
+    'p_basepath.R'
