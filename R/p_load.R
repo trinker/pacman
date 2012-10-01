@@ -2,12 +2,14 @@
 #'
 #' This function is a wrapper for library and require.
 #' It checks to see if a package is installed, if not 
-#' it installs the package(s) and loads it.
+#' it attempts to install the package from CRAN and/or
+#' any other repository in the pacman repository list.
 #' 
 #' @param \ldots name(s) of package(s)
 #' @param install logical.  If TRUE will attempt to install a package 
-#' not found in the library
-#' @param update logical.  If TRUE will attempt to update out of date packages
+#'  not found in the library
+#' @param update logical.  If TRUE will attempt to update all 
+#'  out of date packages
 #' @seealso 
 #' \code{\link[base]{library}},
 #' \code{\link[base]{require}},
@@ -23,8 +25,7 @@
 #' p_loaded()
 #' }
 p_load <- function (..., install = TRUE, update = TRUE){ 
-    mf <- match.call(expand.dots = FALSE)
-    packages <- as.character(mf[[2]])
+    packages <- as.character(match.call(expand.dots = FALSE)[[2]])
     if(length(packages) == 0){
         invisible()
     }

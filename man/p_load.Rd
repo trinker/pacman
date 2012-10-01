@@ -11,12 +11,13 @@
   a package not found in the library}
 
   \item{update}{logical.  If TRUE will attempt to update
-  out of date packages}
+  all out of date packages}
 }
 \description{
   This function is a wrapper for library and require. It
   checks to see if a package is installed, if not it
-  installs the package(s) and loads it.
+  attempts to install the package from CRAN and/or any
+  other repository in the pacman repository list.
 }
 \examples{
 \dontrun{
