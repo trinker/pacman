@@ -18,6 +18,8 @@
 #' }
 p_update <- 
 function (update = TRUE) {
+    p_set_cranrepo()
+    
     # As interesting as this is it creates extra noise right now
 #     # Figure out which packages need updates    
 #     y <- utils::old.packages()[, 1]

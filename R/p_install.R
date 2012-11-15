@@ -12,6 +12,8 @@
 #' \dontrun{p_install(pacman)}
 p_install <-
 function(package, character.only = FALSE){
+    p_set_cranrepo()
+    
     if(!character.only){
         package <- as.character(substitute(package))
     }
