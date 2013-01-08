@@ -2,10 +2,12 @@
 \alias{p_opendir}
 \title{Attempts to open a directory in a file browser}
 \usage{
-  p_opendir(dir)
+  p_opendir(dir = getwd())
 }
 \arguments{
-  \item{dir}{The directory to be opened}
+  \item{dir}{A character string representing the path
+  (either relative or absolute) to the directory to be
+  opened. Defaults to the working directory.}
 }
 \description{
   Attempts to open a directory in a file browser. Opening a
@@ -14,7 +16,15 @@
   its own non-exported function makes sense.
 }
 \details{
-  Note: I'm not sure if we should export this but exporting
-  it for the time being makes testing easier.
+  Note: Most likely we'll move this to a different package
+  at some point since it's not specically for package
+  stuff...
+}
+\examples{
+\dontrun{
+p_opendir() # opens working directory
+p_opendir("~") # opens home directory
+p_opendir(pacman:::p_basepath())
+}
 }
 

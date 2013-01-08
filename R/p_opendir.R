@@ -6,11 +6,21 @@
 #' this functionality to its own non-exported function
 #' makes sense.
 #' 
-#' Note: I'm not sure if we should export this but
-#' exporting it for the time being makes testing easier.
+#' Note: Most likely we'll move this to a different
+#' package at some point since it's not specically for
+#' package stuff...
 #' 
-#' @param dir The directory to be opened
-p_opendir <- function(dir){
+#' @param dir A character string representing the path
+#' (either relative or absolute) to the directory to be opened.
+#' Defaults to the working directory.
+#' @export
+#' @examples
+#' \dontrun{
+#' p_opendir() # opens working directory
+#' p_opendir("~") # opens home directory
+#' p_opendir(pacman:::p_basepath())
+#' }
+p_opendir <- function(dir = getwd()){
     if (.Platform['OS.type'] == "windows"){
         shell.exec(dir)
     } else {
