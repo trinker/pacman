@@ -2,7 +2,8 @@
 \alias{p_load}
 \title{Load one or more packages}
 \usage{
-  p_load(..., install = TRUE, update = TRUE)
+  p_load(..., install = TRUE,
+    update = getOption("pac_update"))
 }
 \arguments{
   \item{\ldots}{name(s) of package(s)}
@@ -11,7 +12,8 @@
   a package not found in the library}
 
   \item{update}{logical.  If TRUE will attempt to update
-  all out of date packages}
+  all out of date packages.  Default allows the user to set
+  a \code{"pac_update"} in their .Rprofile}
 }
 \description{
   This function is a wrapper for library and require. It
