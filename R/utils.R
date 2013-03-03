@@ -1,6 +1,5 @@
-#for internal use.  Not exported
-left.just <-
-function(dataframe, column = NULL, keep.class = FALSE) {
+# for internal use.  Not exported
+left.just <- function(dataframe, column = NULL, keep.class = FALSE) {
     df.class <- function(dataframe) {
         sapply(1:ncol(dataframe), function(i) {
             x <- class(dataframe[, i])
@@ -17,17 +16,17 @@ function(dataframe, column = NULL, keep.class = FALSE) {
         if (is.null(column)) column <- colnames(DF2)
         Q <- max(nchar(c(as.character(DF2[, column]), names(DF2)[column])))
         DF2 <- data.frame(rbind(colnames(DF2), do.call(cbind,
-            lapply(DF2, as.character))), check.names = FALSE)
+                                                       lapply(DF2, as.character))), check.names = FALSE)
         DF2[, column] <- left.j(as.character(DF2[, column]))     
         if (is.character(column)) {
             col <- names(DF2)[which(names(DF2) == column)]
-                names(DF2)[which(names(DF2) == column)] <- sprintf(paste("%-", 
-                Q, "s", sep = ""), col)
+            names(DF2)[which(names(DF2) == column)] <- sprintf(paste("%-", 
+                                                                     Q, "s", sep = ""), col)
         } else {
             if (is.numeric(column)) {
                 col <- names(DF2)[column]
-                    names(DF2)[column] <- sprintf(paste("%-", Q, "s", 
-                    sep = ""), col)
+                names(DF2)[column] <- sprintf(paste("%-", Q, "s", 
+                                                    sep = ""), col)
             }
         }
         DF2 <- data.frame(DF2[-1, , drop = FALSE], check.names = FALSE)
@@ -59,16 +58,20 @@ function(dataframe, column = NULL, keep.class = FALSE) {
         colClasses <- function(d, colClasses) {
             colClasses <- rep(colClasses, len=length(d))
             d[] <- lapply(seq_along(d), function(i) switch(colClasses[i], 
-                numeric=as.numeric(d[[i]]), 
-                character=as.character(d[[i]]), 
-                Date=as.Date(d[[i]], origin='1970-01-01'), 
-                POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'), 
-                factor=as.factor(d[[i]]),
-                as(d[[i]], colClasses[i]) ))
+                                                           numeric=as.numeric(d[[i]]), 
+                                                           character=as.character(d[[i]]), 
+                                                           Date=as.Date(d[[i]], origin='1970-01-01'), 
+                                                           POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'), 
+                                                           factor=as.factor(d[[i]]),
+                                                           as(d[[i]], colClasses[i]) ))
             d
         }
         DF3 <- colClasses(DF3, CLASS)
     }
     colnames(DF3) <- gsub("\\.(?=\\.*$)", " ", colnames(DF3), perl=TRUE)
     return(DF3)
+}
+
+paste0 <- function(..., collapse = NULL){
+    paste(..., sep = "", collapse = collapse)
 }
