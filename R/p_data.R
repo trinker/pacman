@@ -40,7 +40,5 @@ function(package = "datasets", static = FALSE) {
 #' @S3method print p_data
 print.p_data <-
 function(x, ...) {
-    # just print as a data.frame until
-    # trinker fixes the left.just issue?
-    print.data.frame(x)
+    print.data.frame(left.just(x))
 }
