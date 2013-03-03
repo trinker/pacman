@@ -14,8 +14,7 @@
 #' p_funs()
 #' p_funs(pacman)
 p_functions <- 
-function (package = "base", all = FALSE, load = FALSE) 
-{
+function (package = "base", all = FALSE, load = FALSE){
     # deparse is a little better/safer than as.character
     # but it messes something up.  I don't remember what though...
     package <- as.character(substitute(package))[1]
@@ -34,9 +33,13 @@ function (package = "base", all = FALSE, load = FALSE)
         
         ##TODO: Find a way to look at functions without loading
         if (!package %in% list.files(.libPaths())) {
-            install.packages(package)
+            suppressWarnings(suppressPackageStartupMessages(
+                install.packages(package)
+            ))
         } else {
-            require(package, character.only = TRUE)
+            suppressWarnings(suppressPackageStartupMessages(
+                require(package, character.only = TRUE) 
+            ))
         }
     }
     
@@ -50,7 +53,10 @@ function (package = "base", all = FALSE, load = FALSE)
     }else{
         packagefunctions <- objects(w)        
     }
-    
+
+    datas <- suppressWarnings(data(package = package)[["results"]][, 3])
+    packagefunctions <- packagefunctions[!packagefunctions %in% datas]
+
     # If we didn't want to load then unload the packages
     # we needed to load.
     # TODO: Check if package was already loaded and don't unload those packages
