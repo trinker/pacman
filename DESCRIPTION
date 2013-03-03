@@ -12,7 +12,7 @@ Author@R: c(person("Tyler", "Rinker",
 Author: Tyler Rinker & Dason Kurkiewicz
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
-    R (>= 2.15.0)
+    R (>= 2.13.0)
 Suggests:
     XML
 Description: This package is a designed to more conveniently manage packages.
