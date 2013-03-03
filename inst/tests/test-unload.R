@@ -27,4 +27,3 @@ test_that("Don't unload default packages",{
     }
 })
 
-test_that("")

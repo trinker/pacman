@@ -8,7 +8,7 @@
   \item{\dots}{name of package(s) or "all" (all removes all
   add on packages)}
 
-  \item{negate}{logical. If TRUE will uninstall all add on
+  \item{negate}{logical. If TRUE will unload all add on
   packages except those provided to p_unload.}
 }
 \description{
