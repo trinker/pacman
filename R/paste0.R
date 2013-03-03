@@ -1,3 +1,3 @@
-paste0 <- function(x){
-    paste(x, sep = "")
+paste0 <- function(..., collapse = NULL){
+    paste(..., sep = "", collapse = collapse)
 }
