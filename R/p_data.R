@@ -22,7 +22,7 @@ function(package = "datasets", static = FALSE) {
         stringsAsFactors = FALSE
     )
     if (static) {
-        return(data(package = "ggplot2"))
+        return(data(package = pack))
     } else {
         class(o) <- c("p_data", "data.frame")
         return(o)
@@ -40,5 +40,7 @@ function(package = "datasets", static = FALSE) {
 #' @S3method print p_data
 print.p_data <-
 function(x, ...) {
-    print(left.just(x))
+    # just print as a data.frame until
+    # trinker fixes the left.just issue?
+    print.data.frame(x)
 }
