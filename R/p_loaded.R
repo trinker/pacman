@@ -2,9 +2,11 @@
 #'
 #' Output is a character string of loaded packages
 #' 
+#' @param \ldots Optional package names.  Adding package names will check their 
+#' individual load status.
 #' @param all logical.  If TRUE will show all packages 
 #' including base install; FALSE will show all packages
-#'  excluding base install packages that install when R loads
+#' excluding base install packages that install when R loads
 #' @keywords packages loaded
 #' @seealso 
 #' \code{\link[base]{.packages}},
@@ -13,14 +15,27 @@
 #' @examples
 #' \dontrun{p_load(lattice)}
 #' p_loaded()
-#' p_loaded(FALSE)
-#' p_loaded(TRUE)
+#' p_loaded(all=TRUE)
+#' p_loaded(ggplot2, tm, qdap)
 #' \dontrun{p_unload(lattice)}
-p_loaded <-
-function(all=FALSE) {
+p_loaded <- 
+function(..., all = FALSE) {
+    dots <- match.call(expand.dots = FALSE)
+    packs <- tryCatch(dots[[2]], error=function(err) NA)
+    if (is.logical(packs)) {
+        packs <- NA
+    } 
     if (all) {
-        (.packages()) 
+        loaded <- (.packages()) 
     } else {
-        names(sessionInfo()[["otherPkgs"]])
+        loaded <- names(sessionInfo()[["otherPkgs"]])
+    }
+    if (length(packs) > 1 || !is.na(packs)) {
+       packs <- as.character(packs)
+       output <- packs %in% loaded
+       names(output) <- packs
+       output
+    } else {
+       loaded
     }
 }

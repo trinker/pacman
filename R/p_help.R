@@ -18,8 +18,7 @@
 #' p_help(pacman, pdf=TRUE)
 #' }
 p_help <- 
-function (package = NULL, web = FALSE, pdf = FALSE) 
-{
+function (package = NULL, web = FALSE, pdf = FALSE) {
     x <- as.character(substitute(package))
     if (identical(x, character(0))) 
         x <- "base"
