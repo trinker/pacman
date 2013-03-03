@@ -6,10 +6,11 @@
 #' any other repository in the pacman repository list.
 #' 
 #' @param \ldots name(s) of package(s)
-#' @param install logical.  If TRUE will attempt to install a package 
-#'  not found in the library
-#' @param update logical.  If TRUE will attempt to update all 
-#'  out of date packages
+#' @param install logical.  If TRUE will attempt to install a package not found 
+#' in the library
+#' @param update logical.  If TRUE will attempt to update all out of date 
+#' packages.  Default allows the user to set a \code{"pac_update"} in their 
+#' .Rprofile
 #' @seealso 
 #' \code{\link[base]{library}},
 #' \code{\link[base]{require}},
@@ -24,13 +25,16 @@
 #' p_unload(lattice, foreign, boot, rpart)
 #' p_loaded()
 #' }
-p_load <- function (..., install = TRUE, update = TRUE){ 
+p_load <- function (..., install = TRUE, update = getOption("pac_update")){ 
     packages <- as.character(match.call(expand.dots = FALSE)[[2]])
     if(length(packages) == 0){
         invisible()
     }
     
     # Update all packages
+    if (is.null(update)) {
+    	update <- FALSE
+    }
     if (update){
         p_update()
     }
