@@ -8,4 +8,12 @@ p_set_cranrepo <- function(){
     if(options()$repos == "@CRAN@"){
         options(repos = "http://cran.r-project.org/")
     }
+    
+    # Add ripley's repos on windows
+    if(p_detectOS() == "Windows"){
+        if(is.na(options()$repo["CRANextra"])){
+            options(repos = c(options()$repos, 
+                             CRANextra = "http://www.stats.ox.ac.uk/pub/RWin"))
+        }
+    }
 }
