@@ -12,5 +12,5 @@ citEntry(entry = "manual",
     textVersion  = paste("Rinker, T. W. & Kurkiewicz, D. (2013).",
         "pacman: Package Management for R",
         "version 0.2.0. University at Buffalo. Buffalo, New York.",
-        "http://github.com/trinker/reports")
+        "http://github.com/trinker/pacman")
 )
