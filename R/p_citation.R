@@ -4,6 +4,8 @@
 #' 
 #' @rdname p_citation
 #' @param package Name of the package you want a citation for
+#' @param copy2clip logical.  If TRUE attempts to copy the output to the 
+#' clipboard
 #' @param \ldots Additional inputs to \code{\link[utils]{citation}}
 #' @seealso \code{\link[utils]{citation}}
 #' @keywords citation cite
@@ -13,14 +15,24 @@
 #' p_cite(pacman)
 #' p_citation(pacman)
 p_citation <-
-function(package = "r", ...) {
+function(package = "r", copy2clip = TRUE, ...) {
     x <- as.character(substitute(package))
     
     if(x %in% c("R", "r")){
         # To cite R we need to use package = "base"
         x <- "base"
     }
-    
+    if(copy2clip){
+        out <- capture.output(citation(package = x, ...))
+        if (Sys.info()["sysname"] == "Windows") {
+            writeClipboard(out, format = 1)
+        }
+        if (Sys.info()["sysname"] == "Darwin") {           
+            j <- pipe("pbcopy", "w")                       
+            writeLines(out, con = j)                               
+            close(j)                                    
+        }             
+    }   
     citation(package = x, ...)
 }
 
