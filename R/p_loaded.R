@@ -20,22 +20,25 @@
 #' \dontrun{p_unload(lattice)}
 p_loaded <- 
 function(..., all = FALSE) {
+    # make this better...
     dots <- match.call(expand.dots = FALSE)
     packs <- tryCatch(dots[[2]], error=function(err) NA)
     if (is.logical(packs)) {
         packs <- NA
     } 
     if (all) {
-        loaded <- (.packages()) 
+        loaded <- .packages()
     } else {
         loaded <- names(sessionInfo()[["otherPkgs"]])
     }
     if (length(packs) > 1 || !is.na(packs)) {
        packs <- as.character(packs)
-       output <- packs %in% loaded
+       
+       #output <- packs %in% loaded
+       output <- packs %in% .packages() # make sure we can detect any loaded package
        names(output) <- packs
-       output
+       return(output)
     } else {
-       loaded
+       return(loaded)
     }
 }
