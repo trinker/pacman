@@ -37,6 +37,8 @@ function (update = TRUE) {
 #     cat(y, "\n")
     
     if (update){ 
+        # TODO: Add package options
+        #       Make 'ask' one of those options...
         update.packages(ask = FALSE)
     }
 }
