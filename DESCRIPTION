@@ -54,3 +54,4 @@ Collate:
     'p_set_cranrepo.R'
     'p_detectOS.R'
     'utils.R'
+    'p_temp.R'

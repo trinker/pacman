@@ -5,19 +5,20 @@
 #' @rdname p_install
 #' @param package Name of package(s)
 #' @param character.only Logical indicating if input is a character string
+#' @param \ldots Additional parameters to pass to install.packages
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export
 #' @examples
 #' \dontrun{p_install(pacman)}
 p_install <-
-function(package, character.only = FALSE){
+function(package, character.only = FALSE, ...){
     p_set_cranrepo()
     
     if(!character.only){
         package <- as.character(substitute(package))
     }
-    install.packages(package)
+    install.packages(package, ...)
 }
 
 #' @rdname p_install
