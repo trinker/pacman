@@ -1,4 +1,7 @@
 # for internal use.  Not exported
+# Request: Can you add some documentation for this?
+# what is it used for?  Can you add some comments to the code
+# because it's a little hard to follow...
 left.just <- function(dataframe, column = NULL, keep.class = FALSE) {
     df.class <- function(dataframe) {
         sapply(1:ncol(dataframe), function(i) {
@@ -77,9 +80,10 @@ paste0 <- function(..., collapse = NULL){
 }
 
 writeToClipboard <- function(out){
-    if (Sys.info()["sysname"] == "Windows") {
+    os <- p_detectOS()
+    if(os == "Windows"){
         writeClipboard(out, format = 1)
-    }else if (Sys.info()["sysname"] == "Darwin") {           
+    }else if(os == "Darwin") {           
         j <- pipe("pbcopy", "w")                       
         writeLines(out, con = j)                               
         close(j)                                    
