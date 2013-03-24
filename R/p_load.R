@@ -11,6 +11,8 @@
 #' @param update logical.  If TRUE will attempt to update all out of date 
 #' packages.  Default allows the user to set a \code{"pac_update"} in their 
 #' .Rprofile
+#' @param character.only logical. If TRUE then p_load will only accept a single
+#' input which is a character vector containing the names of packages to load.
 #' @seealso 
 #' \code{\link[base]{library}},
 #' \code{\link[base]{require}},
@@ -25,8 +27,15 @@
 #' p_unload(lattice, foreign, boot, rpart)
 #' p_loaded()
 #' }
-p_load <- function (..., install = TRUE, update = getOption("pac_update")){ 
-    packages <- as.character(match.call(expand.dots = FALSE)[[2]])
+p_load <- function (..., install = TRUE, update = getOption("pac_update"), character.only = FALSE){ 
+
+    if(character.only){
+        packages <- eval(match.call()[[2]])
+    }else{
+        packages <- as.character(match.call(expand.dots = FALSE)[[2]])
+    }
+    
+    
     if(length(packages) == 0){
         invisible()
     }

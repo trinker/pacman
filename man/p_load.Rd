@@ -3,7 +3,8 @@
 \title{Load one or more packages}
 \usage{
   p_load(..., install = TRUE,
-    update = getOption("pac_update"))
+    update = getOption("pac_update"),
+    character.only = FALSE)
 }
 \arguments{
   \item{\ldots}{name(s) of package(s)}
@@ -14,6 +15,10 @@
   \item{update}{logical.  If TRUE will attempt to update
   all out of date packages.  Default allows the user to set
   a \code{"pac_update"} in their .Rprofile}
+
+  \item{character.only}{logical. If TRUE then p_load will
+  only accept a single input which is a character vector
+  containing the names of packages to load.}
 }
 \description{
   This function is a wrapper for library and require. It
