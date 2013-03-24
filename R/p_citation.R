@@ -14,8 +14,7 @@
 #' p_citation()
 #' p_cite(pacman)
 #' p_citation(pacman)
-p_citation <-
-function(package = "r", copy2clip = TRUE, ...) {
+p_citation <- function(package = "r", copy2clip = TRUE, ...) {
     x <- as.character(substitute(package))
     
     if(x %in% c("R", "r")){
@@ -24,14 +23,7 @@ function(package = "r", copy2clip = TRUE, ...) {
     }
     if(copy2clip){
         out <- capture.output(citation(package = x, ...))
-        if (Sys.info()["sysname"] == "Windows") {
-            writeClipboard(out, format = 1)
-        }
-        if (Sys.info()["sysname"] == "Darwin") {           
-            j <- pipe("pbcopy", "w")                       
-            writeLines(out, con = j)                               
-            close(j)                                    
-        }             
+        writeToClipboard(out)            
     }   
     citation(package = x, ...)
 }

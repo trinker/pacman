@@ -75,3 +75,15 @@ left.just <- function(dataframe, column = NULL, keep.class = FALSE) {
 paste0 <- function(..., collapse = NULL){
     paste(..., sep = "", collapse = collapse)
 }
+
+writeToClipboard <- function(out){
+    if (Sys.info()["sysname"] == "Windows") {
+        writeClipboard(out, format = 1)
+    }else if (Sys.info()["sysname"] == "Darwin") {           
+        j <- pipe("pbcopy", "w")                       
+        writeLines(out, con = j)                               
+        close(j)                                    
+    }else{
+        message("No clipboard functionality for Linux...")
+    }
+}
