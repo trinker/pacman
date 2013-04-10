@@ -12,30 +12,26 @@ function(package = NULL, path = getOption("download_path")){
 
     # error handling if path not provided
     if(is.null(path)) {
-        stop("Supply path to zip/tar.gz file to `path` argument")
-    }
-    files <- dir(path)
-
-    # grab all zip or gz files
-    if (Sys.info()["sysname"] == "Windows") {
-        extMatch <- "zip"
+        install.packages(file.choose(), .libPaths()[1L], repos = NULL)
     } else {
-        extMatch <- "gz"
-    }   
-    files <- files[tools::file_ext(files) == extMatch]
-    # interactively select files
-    if (is.null(package)) {
-        selectedPackage <- select.list(files, title = "sources")
-    } else {
-        possMatches <- files[agrep(package, files, max.distance = 0)]
-        if (length(possMatches)==0) {
-            stop("no packages match: ", package)
+        files <- dir(path)
+    
+        # grab all zip or gz files
+        extMatch <- c("zip", "gz") 
+        files <- files[tools::file_ext(files) %in% extMatch]
+        # interactively select files
+        if (is.null(package)) {
+            selectedPackage <- select.list(files, title = "sources")
+        } else {
+            possMatches <- files[agrep(package, files, max.distance = 0)]
+            if (length(possMatches)==0) {
+                stop("no packages match: ", package)
+            }
+            selectedPackage <- select.list(possMatches, title = "sources")
         }
-        selectedPackage <- select.list(possMatches, title = "sources")
+        # install the package
+        install.packages(file.path(path, selectedPackage), .libPaths()[1L], repos = NULL)
     }
-
-    # install the package
-    install.packages(file.path(path, selectedPackage), .libPaths()[1L], repos = NULL)
     message(paste(selectedPackage, "installed\n"))
 }
 

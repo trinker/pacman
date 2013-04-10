@@ -14,6 +14,8 @@
   \item{all}{logical.  If TRUE all of the functions from
   the package will be displayed regardless of whether
   they're exported or not.}
+
+  \item{load}{logical.  If TRUE loads the package.}
 }
 \description{
   List the functions from a package
