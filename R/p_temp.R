@@ -10,6 +10,8 @@
 #' @param character.only Logical - Is the input a character string?
 #' 
 #' @export
+#' @author Idea from juba at stackoverflow.  See references.
+#' @references \url{http://stackoverflow.com/a/14896943/1003565}
 #' 
 p_temp <- function(package, character.only = FALSE){
     if(!character.only){
@@ -21,10 +23,13 @@ p_temp <- function(package, character.only = FALSE){
     temppath <- tempdir()
     currentLibPaths <- .libPaths()
     # Add the temp path to libPaths so that it can be loaded...
-    .libPaths(c(currentLibPaths, temppath))
+    if(!temppath %in% currentLibPaths){
+        .libPaths(c(currentLibPaths, temppath))
+    }
     # Install into the temppath
     p_install(package, character.only = TRUE, lib = temppath)
     # load the package
+    # NOTE: Is there a reason to use or not to use p_load?
     require(package, character.only = TRUE)
 
 }
