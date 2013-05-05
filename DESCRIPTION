@@ -55,3 +55,4 @@ Collate:
     'p_detectOS.R'
     'utils.R'
     'p_temp.R'
+    'p_zip.R'

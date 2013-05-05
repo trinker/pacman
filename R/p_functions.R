@@ -6,6 +6,7 @@
 #' @param package Name of the package you want the list of functions for.
 #' @param all logical.  If TRUE all of the functions from the package will
 #' be displayed regardless of whether they're exported or not.
+#' @param load logical.  If TRUE loads the package.
 #' @keywords function package
 #' @seealso \code{\link[=base]{object}}
 #' @export
