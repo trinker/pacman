@@ -7,6 +7,8 @@
 #' @param all logical.  If TRUE all of the functions from the package will
 #' be displayed regardless of whether they're exported or not.
 #' @param load logical.  If TRUE loads the package.
+#' @param character.only logical. If TRUE the input is a variable 
+#' containing the package name.
 #' @keywords function package
 #' @seealso \code{\link[=base]{object}}
 #' @export
@@ -15,10 +17,12 @@
 #' p_funs()
 #' p_funs(pacman)
 p_functions <- 
-function (package = "base", all = FALSE, load = FALSE){
+function (package = "base", all = FALSE, load = FALSE, character.only = FALSE){
     # deparse is a little better/safer than as.character
     # but it messes something up.  I don't remember what though...
-    package <- as.character(substitute(package))[1]
+    if(!character.only){
+        package <- as.character(substitute(package))[1]
+    }
     
     # Shouldn't have to check for this with deparse
     if (identical(package, character(0))) {

@@ -18,6 +18,7 @@ function(package = NULL, path = getOption("download_path")){
     
         # grab all zip or gz files
         extMatch <- c("zip", "gz") 
+        # Should we add an imports for this?
         files <- files[tools::file_ext(files) %in% extMatch]
         # interactively select files
         if (is.null(package)) {

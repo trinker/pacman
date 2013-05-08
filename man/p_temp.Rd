@@ -18,4 +18,10 @@
   effort needed by the user.  This will also install the
   necessary dependencies temporarily as well.
 }
+\author{
+  Idea from juba at stackoverflow.  See references.
+}
+\references{
+  \url{http://stackoverflow.com/a/14896943/1003565}
+}
 
