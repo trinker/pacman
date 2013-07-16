@@ -17,10 +17,12 @@
 #' p_unlock()
 #' }
 p_unlock <- function(lib.loc = p_path()) {
-    path <- file.path(lib.loc, "00LOCK")
-    if (!file.exists(path)) {
-        stop(paste("The following 00LOCK does not exist:\n", path))
+    lib.content <- dir(lib.loc)
+    violator <- lib.content[grepl("00LOCK", lib.content)]
+    if (identical(violator, character(0))) {
+        stop(paste("\nNo 00LOCK detected in:\n", eval(lib.loc)))
     }
+    path <- file.path(lib.loc, violator)
     unlink(path, recursive = TRUE, force = FALSE)
     message(paste("The following 00LOCK has been deleted:\n", path))
 }
