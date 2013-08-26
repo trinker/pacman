@@ -31,11 +31,7 @@ function (term, search.by = "Maintainer")
     #if (!"XML" %in% list.files(.libPaths())) {
     # This is essentially what require was made for
     if(!require("XML")){
-        if (Sys.info()[['sysname']] == "Windows") {
-            p_getXML(package = "XML", fun = "p_search_any")
-        } else {
-            install.packages("XML")
-        }
+        install.packages("XML")
     }
     
     ## Should probably make sure XML was able to install correctly

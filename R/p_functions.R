@@ -10,7 +10,6 @@
 #' @param character.only logical. If TRUE the input is a variable 
 #' containing the package name.
 #' @keywords function package
-#' @seealso \code{\link[base]{object}}
 #' @export
 #' @examples
 #' p_functions()

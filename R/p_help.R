@@ -24,14 +24,9 @@ function (package = NULL, web = FALSE, pdf = FALSE) {
         x <- "base"
     y <- list.files(.libPaths())
     if (web) {
-        if (!"XML" %in% list.files(.libPaths())) {
-            if (Sys.info()[['sysname']]=="Windows") {
-                p_getXML(package="XML", 
-                    fun="web argument for p_help")
-            } else {
-                install.packages("XML")
-            }
-        }   
+        if(!require("XML")){
+            install.packages("XML")
+        } 
         suppressPackageStartupMessages(p_load("XML"))
         url <- "http://stat.ethz.ch/R-manual/R-patched/library/"
         doc <- XML::htmlTreeParse(url, useInternalNodes = TRUE)

@@ -30,9 +30,6 @@ p_functions()
 p_funs()
 p_funs(pacman)
 }
-\seealso{
-  \code{\link[base]{object}}
-}
 \keyword{function}
 \keyword{package}
 
