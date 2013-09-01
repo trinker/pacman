@@ -25,7 +25,7 @@ CHANGES IN pacman VERSION 0.2.0
 *
 
 
-HANGES IN pacman VERSION 0.1.0
+CHANGES IN pacman VERSION 0.1.0
 ----------------------------------------------------------------
 
 * The first installation of pacman
