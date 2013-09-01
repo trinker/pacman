@@ -7,9 +7,13 @@ function (package, install = TRUE, ...){
         return(TRUE)
     }
     # Loaded failed - attempt to install
-    p_install(package, character.only = TRUE, ...)
     
-    # Try to load again - return results
-    suppressMessages(require(package, character.only = TRUE))
+    if(install){
+        p_install(package, character.only = TRUE, ...) 
+        # Try to load again - return results
+        suppressMessages(require(package, character.only = TRUE))
+    }
 
+    # Couldn't load and we didn't want to install
+    return(FALSE)
 }
