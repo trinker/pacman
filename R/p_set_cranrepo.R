@@ -5,7 +5,7 @@
 p_set_cranrepo <- function(){
     # If no repo is set then choose the main CRAN mirror
     # this way the user doesn't have to deal with the repo...
-    if(options()$repos == "@CRAN@"){
+    if(getOption("repos") == "@CRAN@"){
         options(repos = "http://cran.r-project.org/")
     }
     
