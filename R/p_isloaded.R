@@ -21,9 +21,9 @@ function(...) {
     # when there is only one input?  Otherwise we could
     # simplify this
     if (length(x) == 1) {
-        x %in% p_loaded(TRUE)
+        x %in% p_loaded(all = TRUE)
     } else {
-        loaded <- x %in% p_loaded(TRUE)
+        loaded <- x %in% p_loaded(all = TRUE)
         names(loaded) <- x
         return(loaded)
     }
