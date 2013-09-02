@@ -11,7 +11,7 @@ function (package, install = TRUE, ...){
     if(install){
         p_install(package, character.only = TRUE, ...) 
         # Try to load again - return results
-        suppressMessages(require(package, character.only = TRUE))
+        return(suppressMessages(require(package, character.only = TRUE)))
     }
 
     # Couldn't load and we didn't want to install
