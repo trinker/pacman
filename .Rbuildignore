@@ -1,4 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 .gitignore
-README.md
+maintenance.R
+NEWS.md

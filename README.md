@@ -25,5 +25,12 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 
 
 ## Help
-   
-For the package pdf help manual [click here](https://dl.dropbox.com/u/61803503/pacman.pdf). 
+
+[Package PDF Help Manual](https://dl.dropbox.com/u/61803503/pacman.pdf)   
+
+## Contact
+
+You are welcome to:
+* submit suggestions and bug-reports at: <https://github.com/trinker/pacman/issues>
+* send a pull request on: <https://github.com/trinker/pacman/>
+* compose a friendly e-mail to: <tyler.rinker@gmail.com>
