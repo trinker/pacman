@@ -1,0 +1,19 @@
+language: c
+
+script: ./travis-tool.sh run_tests
+before_install:
+  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+  - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+install:
+  - sh -e /etc/init.d/xvfb start
+  - ./travis-tool.sh aptget_install r-cran-xml 
+  - ./travis-tool.sh install_deps
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+env:
+  global:
+    - DISPLAY=:99.0

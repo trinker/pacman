@@ -3,3 +3,4 @@
 .gitignore
 maintenance.R
 NEWS.md
+.travis.yml
