@@ -3,7 +3,7 @@
 #' Deletes the 00LOCK directory left accidentally left behind by fail in 
 #' \code{\link[utils]{install.packages}}
 #' 
-#' @param lib.loc Peth to library location.
+#' @param lib.loc Path to library location.
 #' @keywords lock
 #' @details Sometimes \code{\link[utils]{install.packages}} can "fail so badly 
 #' that the lock directory is not removed: this inhibits any further installs to 
