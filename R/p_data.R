@@ -21,6 +21,7 @@ function(package = "datasets", static = FALSE) {
     o <- data.frame(results[, 3:4], 
         stringsAsFactors = FALSE
     )
+	colnames(o) <- c("Data", "Description")
     if (static) {
         return(data(package = pack))
     } else {
