@@ -5,7 +5,7 @@
   p_unlock(lib.loc = p_path())
 }
 \arguments{
-  \item{lib.loc}{Peth to library location.}
+  \item{lib.loc}{Path to library location.}
 }
 \description{
   Deletes the 00LOCK directory left accidentally left

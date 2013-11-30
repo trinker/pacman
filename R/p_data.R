@@ -40,5 +40,8 @@ function(package = "datasets", static = FALSE) {
 #' @S3method print p_data
 print.p_data <-
 function(x, ...) {
-    print.data.frame(left.just(x))
+    width <- options()[["width"]]
+    on.exit(options(width=width))
+    print(left.just(x))
+    return()
 }
