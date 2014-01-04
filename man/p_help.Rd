@@ -2,7 +2,7 @@
 \alias{p_help}
 \title{Generate an html, web or pdf package help manual}
 \usage{
-  p_help(package = NULL, web = FALSE, pdf = FALSE)
+p_help(package = NULL, web = FALSE, pdf = FALSE)
 }
 \arguments{
   \item{package}{name of package}
@@ -14,7 +14,7 @@
   generate a pdf}
 }
 \description{
-  Generate an html, web or pdf of a package's help manual
+Generate an html, web or pdf of a package's help manual
 }
 \section{Warning}{
   To use the pdf argument you must have a pdf compiler
@@ -29,7 +29,7 @@ p_help(pacman, pdf=TRUE)
 }
 }
 \seealso{
-  \code{\link[utils]{help}}
+\code{\link[utils]{help}}
 }
 \keyword{help}
 \keyword{manual}

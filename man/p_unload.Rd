@@ -2,7 +2,7 @@
 \alias{p_unload}
 \title{Unloads package(s)}
 \usage{
-  p_unload(..., negate = FALSE)
+p_unload(..., negate = FALSE)
 }
 \arguments{
   \item{\dots}{name of package(s) or "all" (all removes all
@@ -12,11 +12,11 @@
   packages except those provided to p_unload.}
 }
 \description{
-  Unloads package(s) or all packages
+Unloads package(s) or all packages
 }
 \note{
-  p_unload will not unload the base install packages that
-  load when R boots up.
+p_unload will not unload the base install packages that
+load when R boots up.
 }
 \examples{
 \dontrun{
@@ -37,7 +37,7 @@ p_loaded()
 }
 }
 \seealso{
-  \code{\link[base]{detach}}
+\code{\link[base]{detach}}
 }
 \keyword{detach}
 \keyword{package}

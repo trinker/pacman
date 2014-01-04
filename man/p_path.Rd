@@ -2,16 +2,16 @@
 \alias{p_path}
 \title{See path to library of add on package}
 \usage{
-  p_path()
+p_path()
 }
 \description{
-  See path to library of add on package
+See path to library of add on package
 }
 \examples{
 p_path()
 }
 \seealso{
-  \code{\link[base]{.libPaths}}
+\code{\link[base]{.libPaths}}
 }
 \keyword{library}
 \keyword{location}

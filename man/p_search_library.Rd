@@ -3,9 +3,9 @@
 \alias{p_sl}
 \title{Search library packages using partial matching}
 \usage{
-  p_search_library(begins.with = NULL, contains = NULL)
+p_search_library(begins.with = NULL, contains = NULL)
 
-  p_sl(begins.with = NULL, contains = NULL)
+p_sl(begins.with = NULL, contains = NULL)
 }
 \arguments{
   \item{begins.with}{a character string to search for
@@ -15,11 +15,11 @@
   containing the letter(s)}
 }
 \description{
-  Search library packages using partial matching. Search
-  for packages by begining letter(s) or by any letter(s)
-  contained within the package's name. Useful for those
-  times when you can't remember that package name but you
-  know ``it starts with...''
+Search library packages using partial matching. Search for
+packages by begining letter(s) or by any letter(s)
+contained within the package's name. Useful for those times
+when you can't remember that package name but you know ``it
+starts with...''
 }
 \examples{
 \dontrun{

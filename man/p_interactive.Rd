@@ -3,14 +3,14 @@
 \alias{p_interactive}
 \title{Interactive package exploration}
 \usage{
-  p_interactive()
+p_interactive()
 
-  p_inter()
+p_inter()
 }
 \description{
-  Interactively search through packages, looking at
-  functions and optionally attaching the package and
-  looking at the help page.
+Interactively search through packages, looking at functions
+and optionally attaching the package and looking at the
+help page.
 }
 \examples{
 \dontrun{

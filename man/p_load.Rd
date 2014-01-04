@@ -2,9 +2,8 @@
 \alias{p_load}
 \title{Load one or more packages}
 \usage{
-  p_load(..., install = TRUE,
-    update = getOption("pac_update"),
-    character.only = FALSE)
+p_load(..., install = TRUE, update = getOption("pac_update"),
+  character.only = FALSE)
 }
 \arguments{
   \item{\ldots}{name(s) of package(s)}
@@ -21,10 +20,10 @@
   containing the names of packages to load.}
 }
 \description{
-  This function is a wrapper for library and require. It
-  checks to see if a package is installed, if not it
-  attempts to install the package from CRAN and/or any
-  other repository in the pacman repository list.
+This function is a wrapper for library and require. It
+checks to see if a package is installed, if not it attempts
+to install the package from CRAN and/or any other
+repository in the pacman repository list.
 }
 \examples{
 \dontrun{
@@ -37,7 +36,7 @@ p_loaded()
 }
 }
 \seealso{
-  \code{\link[base]{library}}, \code{\link[base]{require}},
-  \code{\link[utils]{install.packages}}
+\code{\link[base]{library}}, \code{\link[base]{require}},
+\code{\link[utils]{install.packages}}
 }
 

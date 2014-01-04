@@ -4,9 +4,9 @@
 \title{Search for CRAN packages by maintainer or match
 by similar package names}
 \usage{
-  p_search_any(term, search.by = "Maintainer")
+p_search_any(term, search.by = "Maintainer")
 
-  p_sa(term, search.by = "Maintainer")
+p_sa(term, search.by = "Maintainer")
 }
 \arguments{
   \item{term}{A search character string}
@@ -16,8 +16,8 @@ by similar package names}
   1-"Author", 2-"Package", 3-"Version"}
 }
 \description{
-  Uses agrep to find packages by maintainer (often this is
-  the author as well) or by name
+Uses agrep to find packages by maintainer (often this is
+the author as well) or by name
 }
 \section{details}{
   Useful for finding packages by the same author (usually
@@ -34,7 +34,7 @@ p_sa("psych", "package")
 }
 }
 \references{
-  \url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
+\url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
 }
 \keyword{author}
 \keyword{package}

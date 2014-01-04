@@ -3,11 +3,11 @@
 \alias{p_funs}
 \title{List the functions from a package}
 \usage{
-  p_functions(package = "base", all = FALSE, load = FALSE,
-    character.only = FALSE)
+p_functions(package = "base", all = FALSE, load = FALSE,
+  character.only = FALSE)
 
-  p_funs(package = "base", all = FALSE, load = FALSE,
-    character.only = FALSE)
+p_funs(package = "base", all = FALSE, load = FALSE,
+  character.only = FALSE)
 }
 \arguments{
   \item{package}{Name of the package you want the list of
@@ -23,7 +23,7 @@
   variable containing the package name.}
 }
 \description{
-  List the functions from a package
+List the functions from a package
 }
 \examples{
 p_functions()

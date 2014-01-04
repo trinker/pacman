@@ -3,9 +3,9 @@
 \alias{p_vignette}
 \title{Look at a package's vignette}
 \usage{
-  p_vignette(package = "all")
+p_vignette(package = "all")
 
-  p_vign(package = "all")
+p_vign(package = "all")
 }
 \arguments{
   \item{package}{name of package or "all" (if all returns
@@ -13,8 +13,8 @@
   vignettes)}
 }
 \description{
-  Use default "all" to see which packages have vignettes
-  and supply a package name to view that vignette.
+Use default "all" to see which packages have vignettes and
+supply a package name to view that vignette.
 }
 \examples{
 p_vignette()
@@ -22,7 +22,7 @@ p_vign()
 \dontrun{p_vign(fortunes)}
 }
 \seealso{
-  \code{\link[utils]{vignette}}
+\code{\link[utils]{vignette}}
 }
 \keyword{package}
 \keyword{vignette}

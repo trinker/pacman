@@ -3,9 +3,9 @@
 \alias{p_install}
 \title{Installs and loads a package provided the package is a CRAN package}
 \usage{
-  p_install(package, character.only = FALSE, ...)
+p_install(package, character.only = FALSE, ...)
 
-  p_get(package, character.only = FALSE, ...)
+p_get(package, character.only = FALSE, ...)
 }
 \arguments{
   \item{package}{Name of package(s)}
@@ -17,13 +17,13 @@
   install.packages}
 }
 \description{
-  Installs a package provided the package is a CRAN package
+Installs a package provided the package is a CRAN package
 }
 \examples{
 \dontrun{p_install(pacman)}
 }
 \seealso{
-  \code{\link[utils]{install.packages}}
+\code{\link[utils]{install.packages}}
 }
 \keyword{install}
 \keyword{package}

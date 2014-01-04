@@ -3,15 +3,15 @@
 \alias{p_delete}
 \title{Remove package(s) from the library}
 \usage{
-  p_delete(...)
+p_delete(...)
 
-  p_del(...)
+p_del(...)
 }
 \arguments{
   \item{\ldots}{name(s) of package(s)}
 }
 \description{
-  Remove package(s) from the library permanently.
+Remove package(s) from the library permanently.
 }
 \section{Warning}{
   Using this function will remove the package from your
@@ -24,7 +24,7 @@ p_delete(pacman) # You never want to run this
 }
 }
 \seealso{
-  \code{\link[utils]{remove.packages}}
+\code{\link[utils]{remove.packages}}
 }
 \keyword{delete}
 \keyword{package}

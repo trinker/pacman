@@ -2,10 +2,10 @@
 \alias{p_detectOS}
 \title{Detects operating system}
 \usage{
-  p_detectOS()
+p_detectOS()
 }
 \description{
-  Attempts to detect the operating system. Returns:
-  "Windows", "Darwin" on mac, or "Linux"
+Attempts to detect the operating system. Returns:
+"Windows", "Darwin" on mac, or "Linux"
 }
 

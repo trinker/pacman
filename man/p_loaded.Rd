@@ -2,7 +2,7 @@
 \alias{p_loaded}
 \title{View loaded packages}
 \usage{
-  p_loaded(..., all = FALSE)
+p_loaded(..., all = FALSE)
 }
 \arguments{
   \item{\ldots}{Optional package names.  Adding package
@@ -14,7 +14,7 @@
   loads}
 }
 \description{
-  Output is a character string of loaded packages
+Output is a character string of loaded packages
 }
 \examples{
 \dontrun{p_load(lattice)}
@@ -24,8 +24,8 @@ p_loaded(ggplot2, tm, qdap)
 \dontrun{p_unload(lattice)}
 }
 \seealso{
-  \code{\link[base]{.packages}},
-  \code{\link[utils]{sessionInfo}}
+\code{\link[base]{.packages}},
+\code{\link[utils]{sessionInfo}}
 }
 \keyword{loaded}
 \keyword{packages}

@@ -2,7 +2,7 @@
 \alias{p_base}
 \title{List all the packages in a base install}
 \usage{
-  p_base(open = FALSE, basemarker = "***")
+p_base(open = FALSE, basemarker = "***")
 }
 \arguments{
   \item{open}{logical. If TRUE opens the directory of the
@@ -12,11 +12,11 @@
   to mark which packages are part of the default packages.}
 }
 \description{
-  List all the packages in a base install
+List all the packages in a base install
 }
 \note{
-  Packages that are installed when R starts are marked with
-  an asterisk(*)
+Packages that are installed when R starts are marked with
+an asterisk(*)
 }
 \examples{
 \dontrun{
@@ -25,7 +25,7 @@ p_base(TRUE)
 }
 }
 \seealso{
-  \code{\link[base]{getOption}}
+\code{\link[base]{getOption}}
 }
 \keyword{base}
 \keyword{package}

@@ -42,7 +42,7 @@ function(package = "datasets", static = FALSE) {
 print.p_data <-
 function(x, ...) {
     width <- options()[["width"]]
-	options(width=10000)
+    options(width=10000)
     on.exit(options(width=width))
     print(left.just(x))
     return()

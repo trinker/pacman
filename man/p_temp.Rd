@@ -2,7 +2,7 @@
 \alias{p_temp}
 \title{Install a package temporarily}
 \usage{
-  p_temp(package, character.only = FALSE)
+p_temp(package, character.only = FALSE)
 }
 \arguments{
   \item{package}{- The package we want to install
@@ -12,16 +12,16 @@
   string?}
 }
 \description{
-  Installs and loads a package for the current session. The
-  package won't be available in future sessions and will
-  eventually be deleted from the machine with no additional
-  effort needed by the user.  This will also install the
-  necessary dependencies temporarily as well.
+Installs and loads a package for the current session. The
+package won't be available in future sessions and will
+eventually be deleted from the machine with no additional
+effort needed by the user.  This will also install the
+necessary dependencies temporarily as well.
 }
 \author{
-  Idea from juba at stackoverflow.  See references.
+Idea from juba at stackoverflow.  See references.
 }
 \references{
-  \url{http://stackoverflow.com/a/14896943/1003565}
+\url{http://stackoverflow.com/a/14896943/1003565}
 }
 

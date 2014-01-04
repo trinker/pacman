@@ -2,7 +2,7 @@
 \alias{p_exists}
 \title{Checks CRAN to determine if a package exists}
 \usage{
-  p_exists(package, cran = TRUE)
+p_exists(package, cran = TRUE)
 }
 \arguments{
   \item{package}{name of package}
@@ -11,7 +11,7 @@
   package; if FALSE checks the user's local library}
 }
 \description{
-  Checks CRAN to determine if a package exists
+Checks CRAN to determine if a package exists
 }
 \examples{
 \dontrun{
