@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 *.Rproj
+README.html
+.Rprofile
+NEWS.html

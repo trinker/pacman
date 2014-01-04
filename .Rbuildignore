@@ -7,3 +7,6 @@ NEWS.md
 pacmanR.png
 pacmanR.svg
 Rlogo.png
+.Rprofile
+NEWS.html
+inst/extra_statdoc
