@@ -1,6 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-.gitignore
+^\.gitignore
 maintenance.R
 NEWS.md
 .travis.yml
@@ -10,3 +10,6 @@ Rlogo.png
 .Rprofile
 NEWS.html
 inst/extra_statdoc
+README.html
+inst/pacman_logo
+inst/staticdocs

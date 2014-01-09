@@ -3,13 +3,12 @@ Type: Package
 Title: Package Management Tool
 Version: 0.2.0
 Date: 2012-06-03
-Author@R: c(person("Tyler", "Rinker",
+Authors@R: c(person("Tyler", "Rinker",
     role = c("aut", "cre", "ctb"),
     email = "tyler.rinker@gmail.com"),
     person("Dason", "Kurkiewicz",
     role = c("aut", "ctb"),
     email = "dasonk@iastate.edu"))
-Author: Tyler Rinker & Dason Kurkiewicz
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
     R (>= 2.13.0)
