@@ -9,9 +9,6 @@ The pacman package is an R package management tool that combines the functionali
 
 Function names in the pacman package follow the format of `p_xxx` where 'xxx' is the task the function performs.  For instance the `p_load` function allows the user to load one or more packages as a more generic substitute for the `library` or `require` functions and if the package isn't available locally it will install it for you.
 
-## CRAN Release Date
-
-We plan to upload pacman to CRAN on 02-01-2014.  We will tackle as many [issues](https://github.com/trinker/pacman/issues?state=open) between now and then as possible.
 
 ## Installation
 
