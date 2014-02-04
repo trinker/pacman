@@ -6,6 +6,10 @@
 #' any other repository in the pacman repository list.
 #' 
 #' @param \ldots name(s) of package(s)
+#' @param char Character vector containing packages to load.  If you are calling
+#' p_load from within a function (or just having difficulties calling it using
+#' a character vector input) then pass your character vector of packages to load
+#' to this parameter directly.
 #' @param install logical.  If TRUE will attempt to install a package not found 
 #' in the library
 #' @param update logical.  If TRUE will attempt to update all out of date 
@@ -27,9 +31,11 @@
 #' p_unload(lattice, foreign, boot, rpart)
 #' p_loaded()
 #' }
-p_load <- function (..., install = TRUE, update = getOption("pac_update"), character.only = FALSE){ 
+p_load <- function (..., char, install = TRUE, update = getOption("pac_update"), character.only = FALSE){ 
 
-    if(character.only){
+    if(!missing(char)){
+        packages <- char
+    }else if(character.only){
         packages <- eval(match.call()[[2]])
     }else{
         packages <- as.character(match.call(expand.dots = FALSE)[[2]])

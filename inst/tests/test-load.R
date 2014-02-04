@@ -12,10 +12,12 @@ test_that("p_load works for a single non-string input",{
     expect_true(p_load(pacman))
 })
 
-test_that("p_load works for a character vector",{
+
+test_that("p_load works for a character vector", {
     success <- c(MASS=TRUE, pacman=TRUE)
     packs <- c("MASS", "pacman")
-    expect_equal(p_load(packs, character.only = TRUE), success)
+    
+    expect_equal(p_load(char = packs), success)
     expect_equal(p_load(c("MASS", "pacman"), character.only = TRUE), success)
 })
 
