@@ -22,26 +22,6 @@ And constructed with the following guidelines:
 <b>CHANGES</b> IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.2.0
 ----------------------------------------------------------------
 
-<b>BUG FIXES</b>
-
-* 
-
-<b>NEW FEATURES</b>
-
-*  
-
-<b>MINOR FEATURES</b>
-
-* 
-
-<b>CHANGES</b>
-
-*   
-
-
-<b>CHANGES</b> IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.1.0
-----------------------------------------------------------------
-
 * The first installation of <a href="https://github.com/trinker/pacman" target="_blank">pacman</a>
 
 * Package designed to assist in package related tasks.
