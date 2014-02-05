@@ -9,7 +9,7 @@ p_data(package = "datasets", static = FALSE)
   install datasets package).}
 
   \item{static}{logical.  If \code{TRUE} a static text
-  docuemnt is returned (e.g. \code{data("datasets")}).}
+  document is returned (e.g. \code{data("datasets")}).}
 }
 \value{
 Returns the data sets of a package as dataframe

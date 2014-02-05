@@ -3,7 +3,7 @@
 #' Generate a script of all data sets contained in package.
 #' 
 #' @param package name of package (default is the base install datasets package).
-#' @param static logical.  If \code{TRUE} a static text docuemnt is returned 
+#' @param static logical.  If \code{TRUE} a static text document is returned 
 #' (e.g. \code{data("datasets")}).
 #' @seealso \code{\link[utils]{data}}
 #' @return Returns the data sets of a package as dataframe 
