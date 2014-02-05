@@ -3,6 +3,9 @@
 # what is it used for?  Can you add some comments to the code
 # because it's a little hard to follow...
 left.just <- function(dataframe, column = NULL, keep.class = FALSE) {
+    if(nrow(dataframe) == 0){
+        return(dataframe)
+    }
     df.class <- function(dataframe) {
         sapply(1:ncol(dataframe), function(i) {
             x <- class(dataframe[, i])

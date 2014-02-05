@@ -17,7 +17,9 @@
 p_data <-
 function(package = "datasets", static = FALSE) {
     pack <- as.character(substitute(package))
+    
     results <- data(package = pack)[["results"]]
+    
     o <- data.frame(results[, 3:4], 
         stringsAsFactors = FALSE
     )
@@ -44,6 +46,6 @@ function(x, ...) {
     width <- options()[["width"]]
     options(width=10000)
     on.exit(options(width=width))
-    print(left.just(x))
+    print.data.frame(left.just(x))
     return()
 }
