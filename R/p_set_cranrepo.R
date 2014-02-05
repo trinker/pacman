@@ -2,11 +2,22 @@
 #' 
 #' Check if a repo is already set and if not choose
 #' an appropriate repo.
-p_set_cranrepo <- function(){
+#' 
+#' TODO: make default_repo a package option?
+p_set_cranrepo <- function(default_repo = "http://cran.r-project.org/"){
+    
+    repos <- getOption("repos")
+    
     # If no repo is set then choose the main CRAN mirror
     # this way the user doesn't have to deal with the repo...
-    if(getOption("repos") == "@CRAN@"){
-        options(repos = "http://cran.r-project.org/")
+    if("@CRAN@" %in% repos){
+        repos[repos == "@CRAN@"] <- default_repo
+        options(repos = repos)
+    }
+    
+    # If there are no repos set somehow then set to default
+    if(length(repos) == 0){
+        options(repos = default_repo)
     }
     
     # Add ripley's repos on windows
