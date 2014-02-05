@@ -1,12 +1,12 @@
 #' Unloads package(s)
 #' 
-#' Unloads package(s) or all packages
+#' Unloads package(s) or all packages.
 #' 
-#' @param \dots name of package(s) or "all" 
-#' (all removes all add on packages)
-#' @param negate logical. If TRUE will unload
-#' all add on packages except those provided to p_unload.
-#' @note p_unload will not unload the base install packages that load when R boots up.
+#' @param \dots name of package(s) or "all" (all removes all add on packages).
+#' @param negate logical. If \code{TRUE} will unload
+#' all add on packages except those provided to \code{p_unload}.
+#' @note \code{p_unload} will not unload the base install packages that load 
+#' when R boots up.
 #' @seealso \code{\link[base]{detach}}
 #' @keywords detach package
 #' @export

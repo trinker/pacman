@@ -6,10 +6,10 @@ p_news(package = NULL)
 }
 \arguments{
   \item{package}{Name of package (default is to see news
-  for R)}
+  for R).}
 }
 \description{
-Find out news on a package
+Find out news on a package.
 }
 \examples{
 p_news()

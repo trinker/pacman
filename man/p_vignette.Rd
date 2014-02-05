@@ -8,9 +8,9 @@ p_vignette(package = "all")
 p_vign(package = "all")
 }
 \arguments{
-  \item{package}{name of package or "all" (if all returns
-  all packages from the user's library that have
-  vignettes)}
+  \item{package}{Name of package or \code{"all"} (if
+  \code{"all"} returns all packages from the user's library
+  that have vignettes).}
 }
 \description{
 Use default "all" to see which packages have vignettes and

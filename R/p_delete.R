@@ -17,46 +17,60 @@
 #' p_delete(pacman) # You never want to run this
 #' }
 p_delete <-
-function (...) 
-{
+function (...) {
     mf <- match.call(expand.dots = FALSE)
-    x <- as.character(mf[[2]])   
-    lp <- .libPaths()[1]
-    z <- x[!x %in% dir(lp)]
-    
-    ## TODO: We definitely need to rewrite
-    ## to better detect where the package actually
-    ## is stored
-    m <- dir(.libPaths()[2])
-    o <- z[z %in% dir(.libPaths()[2])]
-    z <- z[!z %in% dir(.libPaths()[2])]
-    y <- x[x %in% dir(lp)]
-    y2 <- paste0("package:", y)
-    w <- y %in% names(sessionInfo()[["otherPkgs"]])
-    if (any(w)) {
-        u <- y2[w]
-        invisible(lapply(u, function(package) {
+    packs <- as.character(mf[[2]]) 
+    pack_check <- sapply(packs, function(x) system.file(package = x))
+  
+    ## Generate list of packages present/absent in a library 
+    absent <- nulls(names(pack_check[pack_check == ""]))
+    base_install <- rownames(installed.packages(priority="base"))
+    bcheck <- basename(pack_check) %in% c(base_install)
+    base <- nulls(basename(pack_check)[bcheck])
+    present <- nulls(pack_check[!bcheck & pack_check != ""])
+
+    ## Unload any package that will be deleted
+    loaded <- basename(present) %in% names(sessionInfo()[["otherPkgs"]])
+    if (any(loaded)) {
+        unloads <- sprintf("package:%s", basename(present)[loaded])
+        invisible(lapply(unloads, function(package) {
             suppressWarnings(detach(package, character.only = TRUE, 
                 force = TRUE, unload = TRUE))
         }))
     }
-    if (length(y) > 0){
-        suppressWarnings(remove.packages(y, lib = lp))
+
+    ## Force delete the files
+    if (length(present) > 0){
+        suppressWarnings(remove.packages(pkgs = basename(present), 
+           lib = dirname(present)))
     }
-    y <- paste(y, collapse = ", ")
-    if (!identical(o, character(0))) {
-        cat(paste0("The following packages are a base ", 
-            "install and will not be deleted:\n"), 
-            paste0("\b", paste(o, collapse = ", ")), "\n\n")
+
+    ## Message about base package not removed
+    if (!is.null(base)) {
+        message("The following packages are a base ", 
+            "install and will not be deleted:\n", 
+            paste(base, collapse = ", "), "\n")
     }
-    if (!identical(z, character(0))) {
-        cat("The following packages not found in library:\n", 
-            paste0("\b", paste(z, collapse = ", ")), "\n\n")
+
+    ## Message about files not found
+    if (!is.null(absent)) {
+        message("The following packages not found in library:\n", 
+            paste(absent, collapse = ", "), "\n")
     }
-    if (length(y) > 0) {
-        cat("The following packages have been deleted:\n", paste0("\b", 
-            paste(y, collapse = ", ")), "\n")
+
+    ## Message about deleted files
+    if (length(present) > 0) {
+        message("The following packages have been deleted:\n",  
+            paste(basename(present), collapse = ", "))
     }
+}
+
+## Helper to check for as.character(0) and turn to NULL
+nulls <- function(x, ret = NULL) {
+    if (identical(x, character(0))){
+        x <- ret
+    }    
+    x
 }
 
 #' @rdname p_delete

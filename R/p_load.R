@@ -1,22 +1,22 @@
 #' Load one or more packages 
 #'
-#' This function is a wrapper for library and require.
-#' It checks to see if a package is installed, if not 
-#' it attempts to install the package from CRAN and/or
-#' any other repository in the pacman repository list.
+#' This function is a wrapper for library and require.  It checks to see if a 
+#' package is installed, if not it attempts to install the package from CRAN 
+#' and/or any other repository in the pacman repository list.
 #' 
-#' @param \ldots name(s) of package(s)
+#' @param \ldots name(s) of package(s).
 #' @param char Character vector containing packages to load.  If you are calling
-#' p_load from within a function (or just having difficulties calling it using
-#' a character vector input) then pass your character vector of packages to load
-#' to this parameter directly.
-#' @param install logical.  If TRUE will attempt to install a package not found 
-#' in the library
-#' @param update logical.  If TRUE will attempt to update all out of date 
+#' \code{p_load} from within a function (or just having difficulties calling it 
+#' using a character vector input) then pass your character vector of packages 
+#' to load to this parameter directly.
+#' @param install logical.  If \code{TRUE} will attempt to install a package not 
+#' found in the library.
+#' @param update logical.  If \code{TRUE} will attempt to update all out of date 
 #' packages.  Default allows the user to set a \code{"pac_update"} in their 
-#' .Rprofile
-#' @param character.only logical. If TRUE then p_load will only accept a single
-#' input which is a character vector containing the names of packages to load.
+#' .Rprofile.
+#' @param character.only logical. If \code{TRUE} then \code{p_load} will only 
+#' accept a single input which is a character vector containing the names of 
+#' packages to load.
 #' @seealso 
 #' \code{\link[base]{library}},
 #' \code{\link[base]{require}},
@@ -31,7 +31,8 @@
 #' p_unload(lattice, foreign, boot, rpart)
 #' p_loaded()
 #' }
-p_load <- function (..., char, install = TRUE, update = getOption("pac_update"), character.only = FALSE){ 
+p_load <- function (..., char, install = TRUE, update = getOption("pac_update"), 
+	character.only = FALSE){ 
 
     if(!missing(char)){
         packages <- char

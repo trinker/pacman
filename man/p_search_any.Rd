@@ -12,12 +12,13 @@ p_sa(term, search.by = "Maintainer")
   \item{term}{A search character string}
 
   \item{search.by}{The variable to search by (takes a
-  integer or a character string): 1-"Maintainer",
-  1-"Author", 2-"Package", 3-"Version"}
+  integer or a character string): 1-\code{"Maintainer"},
+  1-\code{"Author"}, 2-\code{"Package"},
+  3-\code{"Version"}}
 }
 \description{
 Uses agrep to find packages by maintainer (often this is
-the author as well) or by name
+the author as well) or by name.
 }
 \section{details}{
   Useful for finding packages by the same author (usually

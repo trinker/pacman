@@ -1,8 +1,8 @@
 #' View news for R or add-on packages
 #'
-#' Find out news on a package
+#' Find out news on a package.
 #' 
-#' @param package Name of package (default is to see news for R)
+#' @param package Name of package (default is to see news for R).
 #' @seealso \code{\link[utils]{news}}
 #' @keywords news packages
 #' @export

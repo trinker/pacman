@@ -4,10 +4,10 @@
 #' 
 #' @rdname p_functions
 #' @param package Name of the package you want the list of functions for.
-#' @param all logical.  If TRUE all of the functions from the package will
-#' be displayed regardless of whether they're exported or not.
-#' @param load logical.  If TRUE loads the package.
-#' @param character.only logical. If TRUE the input is a variable 
+#' @param all logical.  If \code{TRUE} all of the functions from the package 
+#' will be displayed regardless of whether they're exported or not.
+#' @param load logical.  If \code{TRUE} loads the package.
+#' @param character.only logical. If \code{TRUE} the input is a variable 
 #' containing the package name.
 #' @keywords function package
 #' @export
@@ -51,7 +51,8 @@ function (package = "base", all = FALSE, load = FALSE, character.only = FALSE){
     
     ## Should we mark non-exported functions with asterisks or something?
     if(all){
-        packagefunctions <- unclass(lsf.str(envir = asNamespace(package), all = T))
+        packagefunctions <- unclass(lsf.str(envir = asNamespace(package), 
+        	all = TRUE))
         # Removes pesky attributes.
         attributes(packagefunctions) <- NULL
     }else{

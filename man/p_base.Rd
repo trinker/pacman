@@ -5,18 +5,18 @@
 p_base(open = FALSE, basemarker = "***")
 }
 \arguments{
-  \item{open}{logical. If TRUE opens the directory of the
-  base install packages}
+  \item{open}{logical. If \code{TRUE} opens the directory
+  of the base install packages.}
 
   \item{basemarker}{character string.  The string to append
   to mark which packages are part of the default packages.}
 }
 \description{
-List all the packages in a base install
+List all the packages and marks those in a base install
 }
 \note{
 Packages that are installed when R starts are marked with
-an asterisk(*)
+an asterisk(*).
 }
 \examples{
 \dontrun{

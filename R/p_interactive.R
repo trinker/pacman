@@ -1,8 +1,7 @@
 #' Interactive package exploration
 #' 
-#' Interactively search through packages, looking 
-#' at functions and optionally attaching the package 
-#' and looking at the help page.
+#' Interactively search through packages, looking at functions and optionally 
+#' attaching the package and looking at the help page.
 #' 
 #' @rdname p_interactive
 #' @keywords package
@@ -26,14 +25,14 @@ function() {
             sep = ""), character.only = TRUE)))
     }
     y <- menu(objects(paste("package:", pack, sep = "")))
-    cat("Available Functions\n")
+    message("Available Functions\n")
     fun <- objects(paste("package:", pack, sep = ""))[y]
     z2 <- switch(menu(c(cat("\n\nDo you want to see the help page for", 
         fun, "\b?\n"), "Yes", "No")), TRUE, FALSE)
     if (z2) {
         help((fun))
     } 
-    cat("Thank you for using the p_interactive function!\n\n")
+    message("Thank you for using the p_interactive function!\n\n")
 }
 
 #' @rdname p_interactive

@@ -79,18 +79,44 @@ paste0 <- function(..., collapse = NULL){
     paste(..., sep = "", collapse = collapse)
 }
 
-writeToClipboard <- function(out){
-    os <- p_detectOS()
-    if (os != "Windows") {
-        writeClipboard <- NULL
-    }  		
-    if(os == "Windows"){
-        writeClipboard(out, format = 1)
-    }else if(os == "Darwin") {           
-        j <- pipe("pbcopy", "w")                       
-        writeLines(out, con = j)                               
-        close(j)                                    
-    }else{
-        message("No clipboard functionality for Linux...")
+writeToClipboard  <- function(x) {
+    ## The code for this helper function comes from the oveRflow package.  
+    ## # https://raw.github.com/sebastian-c/oveRflow/master/R/writeClip.R
+    ## This is code I submitted but was modified by the package maintainers.
+    ## The idea to keep this function as a modular unit makes sense and was 
+    ## subsequently applied to the pacman package
+	
+    OS <- Sys.info()["sysname"]
+    
+    if(!(OS %in% c("Darwin", "Windows", "Linux"))) {
+        stop("Copying to clipboard not supported on your OS")
     }
+    
+    if (OS != "Windows") {
+        writeClipboard <- NULL
+    } 
+    
+    switch(OS, 
+        "Darwin"={j <- pipe("pbcopy", "w")                       
+            writeLines(x, con = j)                               
+            close(j)   
+        },
+        "Windows"=writeClipboard(x, format = 1),
+        "Linux"={
+            if(Sys.which("xclip") == "") {
+              warning("Clipboard on Linux requires 'xclip'. Try using:\nsudo apt-get install xclip")
+            }
+            con <- pipe("xclip -i", "w")
+            writeLines(x, con=con)
+            close(con)
+        }
+    )
 }
+
+## Function to remove leading/trailing white spaces
+Trim <- function(x){
+    gsub("^\\s+|\\s+$", "", x)
+}
+
+
+

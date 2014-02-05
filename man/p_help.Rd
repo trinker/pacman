@@ -5,13 +5,13 @@
 p_help(package = NULL, web = FALSE, pdf = FALSE)
 }
 \arguments{
-  \item{package}{name of package}
+  \item{package}{Name of package.}
 
-  \item{web}{logical.  If TRUE grabs current help manual
-  from the web}
+  \item{web}{logical.  If \code{TRUE} grabs current help
+  manual from the web.}
 
-  \item{pdf}{logical.  If TRUE uses a LaTeX compiler to
-  generate a pdf}
+  \item{pdf}{logical.  If \code{TRUE} uses a LaTeX compiler
+  to generate a pdf}
 }
 \description{
 Generate an html, web or pdf of a package's help manual

@@ -2,25 +2,32 @@
 \alias{p_load}
 \title{Load one or more packages}
 \usage{
-p_load(..., install = TRUE, update = getOption("pac_update"),
+p_load(..., char, install = TRUE, update = getOption("pac_update"),
   character.only = FALSE)
 }
 \arguments{
-  \item{\ldots}{name(s) of package(s)}
+  \item{\ldots}{name(s) of package(s).}
 
-  \item{install}{logical.  If TRUE will attempt to install
-  a package not found in the library}
+  \item{char}{Character vector containing packages to load.
+  If you are calling \code{p_load} from within a function
+  (or just having difficulties calling it using a character
+  vector input) then pass your character vector of packages
+  to load to this parameter directly.}
 
-  \item{update}{logical.  If TRUE will attempt to update
-  all out of date packages.  Default allows the user to set
-  a \code{"pac_update"} in their .Rprofile}
+  \item{install}{logical.  If \code{TRUE} will attempt to
+  install a package not found in the library.}
 
-  \item{character.only}{logical. If TRUE then p_load will
-  only accept a single input which is a character vector
-  containing the names of packages to load.}
+  \item{update}{logical.  If \code{TRUE} will attempt to
+  update all out of date packages.  Default allows the user
+  to set a \code{"pac_update"} in their .Rprofile.}
+
+  \item{character.only}{logical. If \code{TRUE} then
+  \code{p_load} will only accept a single input which is a
+  character vector containing the names of packages to
+  load.}
 }
 \description{
-This function is a wrapper for library and require. It
+This function is a wrapper for library and require.  It
 checks to see if a package is installed, if not it attempts
 to install the package from CRAN and/or any other
 repository in the pacman repository list.

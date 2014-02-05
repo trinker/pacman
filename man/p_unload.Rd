@@ -6,17 +6,17 @@ p_unload(..., negate = FALSE)
 }
 \arguments{
   \item{\dots}{name of package(s) or "all" (all removes all
-  add on packages)}
+  add on packages).}
 
-  \item{negate}{logical. If TRUE will unload all add on
-  packages except those provided to p_unload.}
+  \item{negate}{logical. If \code{TRUE} will unload all add
+  on packages except those provided to \code{p_unload}.}
 }
 \description{
-Unloads package(s) or all packages
+Unloads package(s) or all packages.
 }
 \note{
-p_unload will not unload the base install packages that
-load when R boots up.
+\code{p_unload} will not unload the base install packages
+that load when R boots up.
 }
 \examples{
 \dontrun{

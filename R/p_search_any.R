@@ -2,13 +2,13 @@
 #' by similar package names
 #' 
 #' Uses agrep to find packages by 
-#' maintainer (often this is the author as well) or by name
+#' maintainer (often this is the author as well) or by name.
 #' 
 #' @rdname p_search_any
 #' @param term A search character string
 #' @param search.by The variable to search by (takes 
-#' a integer or a character string): 1-"Maintainer", 
-#' 1-"Author", 2-"Package", 3-"Version"
+#' a integer or a character string): 1-\code{"Maintainer"}, 
+#' 1-\code{"Author"}, 2-\code{"Package"}, 3-\code{"Version"}
 #' @section details:
 #' Useful for finding packages by the same author 
 #' (usually the same as the maintainer).  This 
@@ -17,6 +17,7 @@
 #' @references \url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
 #' @keywords author package search
 #' @export
+#' @importFrom XML readHTMLTable
 #' @examples
 #' \dontrun{
 #' p_search_any("hadley", 1)
@@ -25,29 +26,15 @@
 #' p_sa("psych", "package")
 #' }
 p_search_any <-
-function (term, search.by = "Maintainer") 
-{
+function (term, search.by = "Maintainer") {
     LIB <- list.files(.libPaths())
-    #if (!"XML" %in% list.files(.libPaths())) {
-    # This is essentially what require was made for
-    if(!require("XML")){
-        install.packages("XML")
-    }
-    
-    ## Should probably make sure XML was able to install correctly
-    require(XML)
+   
     u1 <- "http://cran.r-project.org/web/checks/check_summary"
     u2 <- "_by_maintainer.html#summary_by_maintainer"
     URL <- paste0(u1, u2)
-    ## If we loaded XML we shouldn't have to use :: syntax
-    ## Unless we're worried about some other namespace collision
-    dat <- XML::readHTMLTable(doc = URL, which = 1, header = T, 
-                              strip.white = T, as.is = FALSE, 
-                              sep = ",", 
-                              na.strings = c("999", "NA", " "))
-    Trim <- function(x){
-        gsub("^\\s+|\\s+$", "", x)
-    }
+    dat <- readHTMLTable(doc = URL, which = 1, header = TRUE, 
+        strip.white = TRUE, as.is = FALSE, sep = ",", 
+    	na.strings = c("999", "NA", " "))
 
     names(dat) <- Trim(names(dat))
     if (tolower(search.by) == "author") {

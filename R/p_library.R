@@ -6,8 +6,8 @@
 #' packages are stored).
 #' 
 #' @rdname p_library
-#' @param open logical. If TRUE opens the directory of 
-#' the add on packages library.
+#' @param open logical. If \code{TRUE} opens the directory of the add on 
+#' packages library.
 #' @keywords library package
 #' @export
 #' @examples

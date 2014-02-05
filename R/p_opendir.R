@@ -6,13 +6,11 @@
 #' this functionality to its own non-exported function
 #' makes sense.
 #' 
-#' Note: Most likely we'll move this to a different
-#' package at some point since it's not specically for
-#' package stuff...
-#' 
 #' @param dir A character string representing the path
 #' (either relative or absolute) to the directory to be opened.
 #' Defaults to the working directory.
+#' @section Note: Most likely this function will move to a different
+#' package at some point as it's not specically package related...
 #' @export
 #' @examples
 #' \dontrun{

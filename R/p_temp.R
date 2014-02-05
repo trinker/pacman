@@ -12,7 +12,6 @@
 #' @export
 #' @author Idea from juba at stackoverflow.  See references.
 #' @references \url{http://stackoverflow.com/a/14896943/1003565}
-#' 
 p_temp <- function(package, character.only = FALSE){
     if(!character.only){
         package <- as.character(substitute(package))

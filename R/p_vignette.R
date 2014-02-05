@@ -4,8 +4,8 @@
 #' and supply a package name to view that vignette.
 #' 
 #' @rdname p_vignette
-#' @param package name of package or "all" (if all returns
-#' all packages from the user's library that have vignettes)
+#' @param package Name of package or \code{"all"} (if \code{"all"} returns
+#' all packages from the user's library that have vignettes).
 #' @seealso  \code{\link[utils]{vignette}}
 #' @keywords vignette package
 #' @export

@@ -1,11 +1,12 @@
 #' List all the packages in a base install
 #' 
-#' List all the packages in a base install
+#' List all the packages and marks those in a base install
 #' 
-#' @param open logical. If TRUE opens the directory of the base install packages
-#' @param basemarker character string.  The string to append to mark which packages
-#' are part of the default packages.
-#' @note Packages that are installed when R starts are marked with an asterisk(*)
+#' @param open logical. If \code{TRUE} opens the directory of the base install 
+#' packages.
+#' @param basemarker character string.  The string to append to mark which 
+#' packages are part of the default packages.
+#' @note Packages that are installed when R starts are marked with an asterisk(*).
 #' @seealso \code{\link[base]{getOption}}
 #' @keywords base package
 #' @export
@@ -28,7 +29,7 @@ function(open = FALSE,  basemarker = "***"){
     if (open) { 
         p_opendir(basepath)
     }
-    cat('\npackages with an', basemarker, 'are loaded when R starts\n\n')
+    message('\npackages with an', basemarker, 'are loaded when R starts\n\n')
     print(noquote(modified_output))
     invisible(basefiles)
 }

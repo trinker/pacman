@@ -15,9 +15,10 @@ directory isn't a platform independent but it is used in
 more than one function so moving this functionality to its
 own non-exported function makes sense.
 }
-\details{
-Note: Most likely we'll move this to a different package at
-some point since it's not specically for package stuff...
+\section{Note}{
+  Most likely this function will move to a different
+  package at some point as it's not specically package
+  related...
 }
 \examples{
 \dontrun{

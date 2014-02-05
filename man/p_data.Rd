@@ -6,14 +6,14 @@ p_data(package = "datasets", static = FALSE)
 }
 \arguments{
   \item{package}{name of package (default is the base
-  install datasets package)}
+  install datasets package).}
 
-  \item{static}{logical.  If TRUE a static txt docuemnt is
-  returned (e.g. \code{data("datasets")}).}
+  \item{static}{logical.  If \code{TRUE} a static text
+  docuemnt is returned (e.g. \code{data("datasets")}).}
 }
 \value{
 Returns the data sets of a package as dataframe
-(\code{static = FALSE}) or as a static txt file
+(\code{static = FALSE}) or as a static text file
 (\code{static = TRUE}).
 }
 \description{

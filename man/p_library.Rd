@@ -8,8 +8,8 @@ p_library(open = FALSE)
 p_lib(open = FALSE)
 }
 \arguments{
-  \item{open}{logical. If TRUE opens the directory of the
-  add on packages library.}
+  \item{open}{logical. If \code{TRUE} opens the directory
+  of the add on packages library.}
 }
 \description{
 Generates a vector of all available add on packages

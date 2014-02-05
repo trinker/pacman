@@ -2,12 +2,12 @@
 #' 
 #' Generate a script of all data sets contained in package.
 #' 
-#' @param package name of package (default is the base install datasets package)
-#' @param static logical.  If TRUE a static txt docuemnt is returned (e.g. 
-#' \code{data("datasets")}).
+#' @param package name of package (default is the base install datasets package).
+#' @param static logical.  If \code{TRUE} a static text docuemnt is returned 
+#' (e.g. \code{data("datasets")}).
 #' @seealso \code{\link[utils]{data}}
 #' @return Returns the data sets of a package as dataframe 
-#' (\code{static = FALSE}) or as a static txt file (\code{static = TRUE}).
+#' (\code{static = FALSE}) or as a static text file (\code{static = TRUE}).
 #' @keywords data package
 #' @export
 #' @examples

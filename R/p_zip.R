@@ -1,10 +1,14 @@
 #' Install zip/tar
 #' 
-#' Installs zip/tar packages.  This is convenient to set \code{download_path} in .Rprofile options to the downloads directory.
+#' Installs zip/tar packages.  This is convenient to set \code{download_path} in 
+#' .Rprofile options to the downloads directory.
 #' 
 #' @rdname p_zip
-#' @param package A quoted character string of the name/partial name of the package to install as zip/tar.
-#' @param path The path to the directory that contains the package.  It is convenient to set \code{download_path} in .Rprofile options to the downloads directory.
+#' @param package A quoted character string of the name/partial name of the 
+#' package to install as zip/tar.
+#' @param path The path to the directory that contains the package.  It is 
+#' convenient to set \code{download_path} in .Rprofile options to the downloads 
+#' directory.
 #' @keywords zip tar tar.gz source
 #' @export
 p_zip <- 

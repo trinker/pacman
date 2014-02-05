@@ -7,8 +7,9 @@ p_exists(package, cran = TRUE)
 \arguments{
   \item{package}{name of package}
 
-  \item{cran}{logical.  If TRUE checks CRAN for the
-  package; if FALSE checks the user's local library}
+  \item{cran}{logical.  If \code{TRUE} checks CRAN for the
+  package; if \code{FALSE} checks the user's local
+  library.}
 }
 \description{
 Checks CRAN to determine if a package exists
