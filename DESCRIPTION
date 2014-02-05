@@ -9,6 +9,7 @@ Authors@R: c(person("Tyler", "Rinker",
     person("Dason", "Kurkiewicz",
     role = c("aut", "ctb"),
     email = "dasonk@iastate.edu"))
+Author: Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb]
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
     R (>= 2.13.0)
