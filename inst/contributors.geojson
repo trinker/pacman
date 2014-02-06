@@ -1,0 +1,36 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.0347,
+          93.6200
+        ]
+      },
+      "properties": {
+        "marker-symbol": "person",
+        "name": "Dason Kurkiewicz",
+        "address": "Ames, IA"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          42.9047,
+          78.8494
+        ]
+      },
+      "properties": {
+        "marker-symbol": "person",
+        "name": "Tyler Rinker",
+        "address": "Buffalo, NY"
+      }
+    }
+    
+  ]
+}
