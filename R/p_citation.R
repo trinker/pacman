@@ -22,7 +22,7 @@
 #' p_citation(tex = FALSE)
 #' p_cite(knitr)
 #' }
-p_citation <- function(package = "r", copy2clip = TRUE, 
+p_citation <- function(package = "r", copy2clip = interactive(), 
     tex = getOption("pac_tex"), ...) {
 
     ## Try to get tex options otherwise default to TRUE

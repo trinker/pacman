@@ -3,10 +3,11 @@
 \alias{p_cite}
 \title{Package Citation}
 \usage{
-p_citation(package = "r", copy2clip = TRUE, tex = getOption("pac_tex"),
-  ...)
+p_citation(package = "r", copy2clip = interactive(),
+  tex = getOption("pac_tex"), ...)
 
-p_cite(package = "r", copy2clip = TRUE, tex = getOption("pac_tex"), ...)
+p_cite(package = "r", copy2clip = interactive(),
+  tex = getOption("pac_tex"), ...)
 }
 \arguments{
   \item{package}{Name of the package you want a citation
