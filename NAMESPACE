@@ -1,4 +1,4 @@
-S3method(print,p_data)
+S3method(print,wide_table)
 export(p_author)
 export(p_base)
 export(p_citation)

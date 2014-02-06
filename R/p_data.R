@@ -27,21 +27,21 @@ function(package = "datasets", static = FALSE) {
     if (static) {
         return(data(package = pack))
     } else {
-        class(o) <- c("p_data", "data.frame")
+        class(o) <- c("wide_table", "data.frame")
         return(o)
     }
 }
 
 
-#' Prints a p_data Object
+#' Prints a wide_table Object
 #' 
-#' Prints a p_data object.
+#' Prints a wide_table object.
 #' 
-#' @param x The p_data object.
+#' @param x The wide_table object.
 #' @param \ldots ignored
-#' @method print p_data
-#' @S3method print p_data
-print.p_data <-
+#' @method print wide_table
+#' @S3method print wide_table
+print.wide_table <-
 function(x, ...) {
     width <- options()[["width"]]
     options(width=10000)
