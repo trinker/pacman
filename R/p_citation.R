@@ -8,7 +8,8 @@
 #' clipboard.
 #' @param tex logical.  If \code{TRUE} A only the BibTex version of the citation
 #' is copied to the clipboard.  If \code{FALSE} The standard citation is copied 
-#' to the clipboard.  If \code{NULL} both are copied to the clipboard.
+#' to the clipboard.  If \code{NA} both are copied to the clipboard.  Default 
+#' allows the user to set a \code{"pac_tex"} in his/her .Rprofile.
 #' @param \ldots Additional inputs to \code{\link[utils]{citation}}
 #' @seealso \code{\link[utils]{citation}}
 #' @keywords citation cite
@@ -21,7 +22,11 @@
 #' p_citation(tex = FALSE)
 #' p_cite(knitr)
 #' }
-p_citation <- function(package = "r", copy2clip = TRUE, tex = TRUE, ...) {
+p_citation <- function(package = "r", copy2clip = TRUE, 
+    tex = getOption("pac_tex"), ...) {
+
+    ## Try to get tex options otherwise default to TRUE
+    tex <- ifelse(is.null(tex), TRUE, tex)
     x <- as.character(substitute(package))
     
     if(x %in% c("R", "r")){
@@ -51,7 +56,7 @@ p_citation <- function(package = "r", copy2clip = TRUE, tex = TRUE, ...) {
             out <- out[1:tail(which(grepl("}", out)), 1)]
         }
 
-        if (!is.null(tex)) {
+        if (!is.na(tex)) {
 
             if (isTRUE(tex)) {  
                 ## Grab only the bibtex portion

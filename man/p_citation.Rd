@@ -3,9 +3,10 @@
 \alias{p_cite}
 \title{Package Citation}
 \usage{
-p_citation(package = "r", copy2clip = TRUE, tex = TRUE, ...)
+p_citation(package = "r", copy2clip = TRUE, tex = getOption("pac_tex"),
+  ...)
 
-p_cite(package = "r", copy2clip = TRUE, tex = TRUE, ...)
+p_cite(package = "r", copy2clip = TRUE, tex = getOption("pac_tex"), ...)
 }
 \arguments{
   \item{package}{Name of the package you want a citation
@@ -17,8 +18,9 @@ p_cite(package = "r", copy2clip = TRUE, tex = TRUE, ...)
   \item{tex}{logical.  If \code{TRUE} A only the BibTex
   version of the citation is copied to the clipboard.  If
   \code{FALSE} The standard citation is copied to the
-  clipboard.  If \code{NULL} both are copied to the
-  clipboard.}
+  clipboard.  If \code{NA} both are copied to the
+  clipboard.  Default allows the user to set a
+  \code{"pac_tex"} in his/her .Rprofile.}
 
   \item{\ldots}{Additional inputs to
   \code{\link[utils]{citation}}}
