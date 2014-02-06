@@ -49,7 +49,7 @@ function(..., char, interactive = TRUE, character.only = FALSE){
 
     ## Interactive picking if ! all
     if (interactive){
-        p_load(tools)
+        p_load("tools")
         return(browseVignettes(package=pack))
     }
 
