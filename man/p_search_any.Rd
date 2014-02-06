@@ -1,8 +1,7 @@
 \name{p_search_any}
 \alias{p_sa}
 \alias{p_search_any}
-\title{Search for CRAN packages by maintainer or match
-by similar package names}
+\title{Search CRAN Packages by Maintainer, Author, Version or Package}
 \usage{
 p_search_any(term, search.by = "Maintainer")
 
@@ -17,8 +16,8 @@ p_sa(term, search.by = "Maintainer")
   3-\code{"Version"}}
 }
 \description{
-Uses agrep to find packages by maintainer (often this is
-the author as well) or by name.
+Uses \code{\link[base]{agrep}} to find packages by
+maintainer (often this is the author as well) or by name.
 }
 \section{details}{
   Useful for finding packages by the same author (usually

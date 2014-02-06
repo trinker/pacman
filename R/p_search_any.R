@@ -1,7 +1,6 @@
-#' Search for CRAN packages by maintainer or match 
-#' by similar package names
+#' Search CRAN Packages by Maintainer, Author, Version or Package
 #' 
-#' Uses agrep to find packages by 
+#' Uses \code{\link[base]{agrep}} to find packages by 
 #' maintainer (often this is the author as well) or by name.
 #' 
 #' @rdname p_search_any

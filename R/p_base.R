@@ -4,7 +4,7 @@
 #' 
 #' @param open logical. If \code{TRUE} opens the directory of the base install 
 #' packages.
-#' @param basemarker character string.  The string to append to mark which 
+#' @param basemarker Character string.  The string to append to mark which 
 #' packages are part of the default packages.
 #' @note Packages that are installed when R starts are marked with an asterisk(*).
 #' @seealso \code{\link[base]{getOption}}

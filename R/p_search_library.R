@@ -1,16 +1,15 @@
-#' Search library packages using partial matching
+#' Partial Matching Package Search
 #' 
-#' Search library packages using partial matching.  
-#' Search for packages by begining letter(s) or by 
-#' any letter(s) contained within the package's name.  
-#' Useful for those times when you can't remember 
-#' that package name but you know ``it starts with...''
+#' Search library packages using partial matching.  Search for packages by 
+#' partial matching letter(s) or by any letter(s) contained within the package's 
+#' name.  Useful for those times when you can't remember that package name but 
+#' you know ``it starts with...''
 #' 
 #' @rdname p_search_library
-#' @param begins.with a character string to search for 
-#' packages starting with the letter(s)
-#' @param contains a character string to search for 
-#' packages containing the letter(s)
+#' @param begins.with A character string to search for packages starting with 
+#' the letter(s).
+#' @param contains A character string to search for packages containing the 
+#' letter(s).
 #' @keywords search library package
 #' @export
 #' @examples
@@ -49,3 +48,4 @@ function(begins.with = NULL, contains = NULL){
 #' @rdname p_search_library
 #' @export
 p_sl <- p_search_library
+

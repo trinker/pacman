@@ -15,7 +15,7 @@ Remove package(s) from the library permanently.
 }
 \section{Warning}{
   Using this function will remove the package from your
-  library and can not be loaded again without reinstalling
+  library and cannot be loaded again without reinstalling
   the package.
 }
 \examples{

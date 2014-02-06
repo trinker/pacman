@@ -18,7 +18,8 @@ Generate an html, web or pdf of a package's help manual.
 }
 \section{Warning}{
   To use the pdf argument you must have a pdf compiler
-  (e.g. MikTex) installed.
+  (e.g. \href{http://miktex.org/}{MikTex} or
+  \href{https://www.tug.org/texlive/}{Tex Live}) installed.
 }
 \examples{
 \dontrun{

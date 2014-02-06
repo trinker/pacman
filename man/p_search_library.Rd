@@ -1,25 +1,25 @@
 \name{p_search_library}
 \alias{p_search_library}
 \alias{p_sl}
-\title{Search library packages using partial matching}
+\title{Partial Matching Package Search}
 \usage{
 p_search_library(begins.with = NULL, contains = NULL)
 
 p_sl(begins.with = NULL, contains = NULL)
 }
 \arguments{
-  \item{begins.with}{a character string to search for
-  packages starting with the letter(s)}
+  \item{begins.with}{A character string to search for
+  packages starting with the letter(s).}
 
-  \item{contains}{a character string to search for packages
-  containing the letter(s)}
+  \item{contains}{A character string to search for packages
+  containing the letter(s).}
 }
 \description{
-Search library packages using partial matching. Search for
-packages by begining letter(s) or by any letter(s)
-contained within the package's name. Useful for those times
-when you can't remember that package name but you know ``it
-starts with...''
+Search library packages using partial matching.  Search for
+packages by partial matching letter(s) or by any letter(s)
+contained within the package's name.  Useful for those
+times when you can't remember that package name but you
+know ``it starts with...''
 }
 \examples{
 \dontrun{

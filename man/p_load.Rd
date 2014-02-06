@@ -19,7 +19,7 @@ p_load(..., char, install = TRUE, update = getOption("pac_update"),
 
   \item{update}{logical.  If \code{TRUE} will attempt to
   update all out of date packages.  Default allows the user
-  to set a \code{"pac_update"} in their .Rprofile.}
+  to set a \code{"pac_update"} in his/her .Rprofile.}
 
   \item{character.only}{logical. If \code{TRUE} then
   \code{p_load} will only accept a single input which is a

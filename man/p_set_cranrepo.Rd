@@ -1,13 +1,11 @@
 \name{p_set_cranrepo}
 \alias{p_set_cranrepo}
-\title{Check if a repo is set}
+\title{Check if Repo is Set}
 \usage{
 p_set_cranrepo(default_repo = "http://cran.r-project.org/")
 }
 \arguments{
-  \item{default_repo}{The defaut package repository.
-
-  TODO: make default_repo a package option?}
+  \item{default_repo}{The default package repository.}
 }
 \description{
 Check if a repo is already set and if not choose an

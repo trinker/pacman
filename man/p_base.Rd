@@ -8,7 +8,7 @@ p_base(open = FALSE, basemarker = "***")
   \item{open}{logical. If \code{TRUE} opens the directory
   of the base install packages.}
 
-  \item{basemarker}{character string.  The string to append
+  \item{basemarker}{Character string.  The string to append
   to mark which packages are part of the default packages.}
 }
 \description{

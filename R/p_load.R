@@ -12,7 +12,7 @@
 #' @param install logical.  If \code{TRUE} will attempt to install a package not 
 #' found in the library.
 #' @param update logical.  If \code{TRUE} will attempt to update all out of date 
-#' packages.  Default allows the user to set a \code{"pac_update"} in their 
+#' packages.  Default allows the user to set a \code{"pac_update"} in his/her 
 #' .Rprofile.
 #' @param character.only logical. If \code{TRUE} then \code{p_load} will only 
 #' accept a single input which is a character vector containing the names of 

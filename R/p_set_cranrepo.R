@@ -1,13 +1,12 @@
-#' Check if a repo is set
+#' Check if Repo is Set
 #' 
-#' Check if a repo is already set and if not choose
-#' an appropriate repo.
+#' Check if a repo is already set and if not choose an appropriate repo.
 #' 
-#' @param default_repo The defaut package repository.
-#' 
-#' TODO: make default_repo a package option?
+#' @param default_repo The default package repository.
 p_set_cranrepo <- function(default_repo = "http://cran.r-project.org/"){
     
+	# TODO: make default_repo a package option?
+	
     repos <- getOption("repos")
     
     # If no repo is set then choose the main CRAN mirror
