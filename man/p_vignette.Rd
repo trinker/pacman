@@ -29,8 +29,8 @@ Interactively view vignettes for package(s) or return a
 dataframe of vignettes and accompanying information.
 }
 \examples{
-p_vignette(interactive = FALSE)
 \dontrun{
+p_vignette(interactive = FALSE)
 p_vignette()
 p_vign()
 p_vign(grid, utils)

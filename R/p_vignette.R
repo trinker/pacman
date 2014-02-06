@@ -18,8 +18,8 @@
 #' @keywords vignette package
 #' @export
 #' @examples
-#' p_vignette(interactive = FALSE)
 #' \dontrun{
+#' p_vignette(interactive = FALSE)
 #' p_vignette()
 #' p_vign()
 #' p_vign(grid, utils)

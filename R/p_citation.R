@@ -14,9 +14,13 @@
 #' @keywords citation cite
 #' @export
 #' @examples
+#' \dontrun{
 #' p_citation()
 #' p_cite(pacman)
-#' p_citation(pacman)
+#' p_citation(pacman, tex = FALSE)
+#' p_citation(tex = FALSE)
+#' p_cite(knitr)
+#' }
 p_citation <- function(package = "r", copy2clip = TRUE, tex = TRUE, ...) {
     x <- as.character(substitute(package))
     
@@ -25,14 +29,29 @@ p_citation <- function(package = "r", copy2clip = TRUE, tex = TRUE, ...) {
         x <- "base"
     }
 
+    ## Default variable set to FALSE.  
+    ## IF not bibtex entry goes to FALSE
+    nobib <- FALSE
+
     if(copy2clip){
+
         ## Grab citation to optionally manipulate 
         ## and copy to clipboard
         out <- capture.output(citation(package = x, ...))
 
+        ## check for BiBTex Entry
+        loc <- grep("BibTeX entry for LaTeX", out)
+        if (identical(loc, integer(0))) {
+            if (isTRUE(tex)) warning("No BibTex entry found")
+            tex <- FALSE
+            loc <- length(out)
+            nobib <- TRUE
+        } else {
+            ## Remove stuff after last closed curly brace
+            out <- out[1:tail(which(grepl("}", out)), 1)]
+        }
+
         if (!is.null(tex)) {
-            
-            loc <- grep("BibTeX entry for LaTeX", out)
 
             if (isTRUE(tex)) {  
                 ## Grab only the bibtex portion
@@ -40,15 +59,21 @@ p_citation <- function(package = "r", copy2clip = TRUE, tex = TRUE, ...) {
             } else {
 
                 ## Remove the `To cite in publications, please use:` 
-                grab <- seq_along(out) != grep("in publications, please use", out)
+                grab <- seq_along(out) != grep("To cite|in publications", out)
                 out <- out[grab]
-
-                ## Grab only the standard portion
+                
+                if (!nobib) {
+                    ## Grab only the standard portion
+                    loc <- grep("BibTeX entry for LaTeX", out) 
+                }
                 locs <- 1:(loc - 1)
             }
 
             out <- out[locs]
-            out <- out[out != ""]
+
+            ## Remove blanks ("") at the begining and end of the vector
+            nonblanks <- which(out != "")
+            out <- out[head(nonblanks, 1): tail(nonblanks, 1)]
             out <- paste(substring(out, 3), collapse="\n")
         }
         writeToClipboard(out)            

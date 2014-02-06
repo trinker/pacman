@@ -27,9 +27,13 @@ p_cite(package = "r", copy2clip = TRUE, tex = TRUE, ...)
 Generate citation for a package.
 }
 \examples{
+\dontrun{
 p_citation()
 p_cite(pacman)
-p_citation(pacman)
+p_citation(pacman, tex = FALSE)
+p_citation(tex = FALSE)
+p_cite(knitr)
+}
 }
 \seealso{
 \code{\link[utils]{citation}}
