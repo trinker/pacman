@@ -6,12 +6,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          42.0347,
-          93.6200
+          93.6200,
+          42.0347
         ]
       },
       "properties": {
-        "marker-symbol": "person",
+        "marker-symbol": "rocket",
         "name": "Dason Kurkiewicz",
         "address": "Ames, IA"
       }
@@ -21,12 +21,12 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          42.9047,
-          78.8494
+          78.8494,
+          42.9047
         ]
       },
       "properties": {
-        "marker-symbol": "person",
+        "marker-symbol": "danger",
         "name": "Tyler Rinker",
         "address": "Buffalo, NY"
       }
