@@ -9,7 +9,6 @@
 #' To use the pdf argument you must have a pdf compiler (e.g. MikTex) installed.
 #' @keywords help manual package
 #' @seealso \code{\link[utils]{help}}
-#' @importFrom XML htmlTreeParse getNodeSet xmlValue
 #' @export
 #' @examples
 #' \dontrun{
@@ -26,14 +25,18 @@ function (package = NULL, web = FALSE, pdf = FALSE) {
     y <- list.files(.libPaths())
     if (web) {
 
-        url <- "http://stat.ethz.ch/R-manual/R-patched/library/"
+	    ## Load and check XML package
+        xml_mess <- suppressPackageStartupMessages(p_load(char="XML"))
+	    if (!xml_mess) stop("Unable to install/load the XML package")
+    	
+    	url <- "http://stat.ethz.ch/R-manual/R-patched/library/"
         doc <- htmlTreeParse(url, useInternalNodes = TRUE)
         content <- getNodeSet(doc, "//pre//text()")
         content <- sapply(content, xmlValue)
         content <- content[10:length(content)]
-        content <- data.frame(x = content[c(T, F)], 
+        content <- data.frame(x = content[c(TRUE, FALSE)], 
             y = content[c(F, T)], stringsAsFactors = FALSE)[, 1]
-        base <- gsub("/", "", content, fixed = T)
+        base <- gsub("/", "", content, fixed = TRUE)
         if (!(x %in% base)) {
             p1 <- "http://cran.r-project.org/web/packages/"
             browseURL(paste0(p1, x, "/", x, ".pdf"))
@@ -45,7 +48,7 @@ function (package = NULL, web = FALSE, pdf = FALSE) {
     } else {
         if (!pdf) {
             if (x %in% y) {
-                j <- options()$help_type
+                j <- options()[["help_type"]]
                 on.exit(options(help_type = j))
                 options(help_type = "html")
                 help(package = (x))
@@ -54,7 +57,7 @@ function (package = NULL, web = FALSE, pdf = FALSE) {
                 browseURL(paste0(z, x, "/", x, ".pdf"))
             }
         } else {
-            w <- paste0(getwd(), "/", x, ".pdf")
+            w <- paste0(x, ".pdf")
             if (file.exists(w)) {
                 shell.exec(w)
             } else {

@@ -17,7 +17,6 @@
 #' @references \url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
 #' @keywords author package search
 #' @export
-#' @importFrom XML readHTMLTable
 #' @examples
 #' \dontrun{
 #' p_search_any("hadley", 1)
@@ -28,12 +27,16 @@
 p_search_any <-
 function (term, search.by = "Maintainer") {
     LIB <- list.files(.libPaths())
-   
+
+	## Load and check XML package
+    xml_mess <- suppressPackageStartupMessages(p_load(char="XML"))
+	if (!xml_mess) stop("Unable to install/load the XML package")
+
     u1 <- "http://cran.r-project.org/web/checks/check_summary"
     u2 <- "_by_maintainer.html#summary_by_maintainer"
     URL <- paste0(u1, u2)
     dat <- readHTMLTable(doc = URL, which = 1, header = TRUE, 
-        strip.white = TRUE, as.is = FALSE, sep = ",", 
+    	strip.white = TRUE, as.is = FALSE, sep = ",", 
     	na.strings = c("999", "NA", " "))
 
     names(dat) <- Trim(names(dat))
