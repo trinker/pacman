@@ -13,7 +13,7 @@
       "properties": {
         "marker-symbol": "rocket",
         "name": "Dason Kurkiewicz",
-        "contribution": "author, contributor"
+        "contribution": "author, contributor",
         "entity": "Bot",
         "address": "Ames, IA",
         "affiliation": "Department of Statistics, Iowa State University"
@@ -31,7 +31,7 @@
       "properties": {
         "marker-symbol": "danger",
         "name": "Tyler Rinker",
-        "contribution": "author, creator, contributor"
+        "contribution": "author, creator, contributor",
         "entity": "Raptor",
         "address": "Buffalo, NY",
         "affiliation": "University at Buffalo"
