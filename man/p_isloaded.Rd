@@ -1,14 +1,14 @@
 \name{p_isloaded}
 \alias{p_isloaded}
-\title{Check if package(s) is loaded}
+\title{Check if Package(s) is Loaded}
 \usage{
 p_isloaded(...)
 }
 \arguments{
-  \item{\ldots}{name(s) of package(s)}
+  \item{\ldots}{Name(s) of package(s).}
 }
 \description{
-Check if package(s) is loaded
+Check if package(s) is loaded.
 }
 \examples{
 \dontrun{

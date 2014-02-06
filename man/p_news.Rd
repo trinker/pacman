@@ -1,6 +1,6 @@
 \name{p_news}
 \alias{p_news}
-\title{View news for R or add-on packages}
+\title{Package/R News}
 \usage{
 p_news(package = NULL)
 }
@@ -9,7 +9,7 @@ p_news(package = NULL)
   for R).}
 }
 \description{
-Find out news on a package.
+Find out news on a package or R.
 }
 \examples{
 p_news()

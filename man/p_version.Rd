@@ -1,7 +1,7 @@
 \name{p_version}
 \alias{p_ver}
 \alias{p_version}
-\title{Determine installed package version}
+\title{Package Version}
 \usage{
 p_version(package = "R")
 

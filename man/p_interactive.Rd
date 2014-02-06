@@ -1,7 +1,7 @@
 \name{p_interactive}
 \alias{p_inter}
 \alias{p_interactive}
-\title{Interactive package exploration}
+\title{Interactive Package Exploration}
 \usage{
 p_interactive()
 

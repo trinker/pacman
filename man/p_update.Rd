@@ -1,19 +1,20 @@
 \name{p_update}
 \alias{p_up}
 \alias{p_update}
-\title{Update out of date packages}
+\title{Update Out-of-Date Packages}
 \usage{
 p_update(update = TRUE)
 
 p_up(update = TRUE)
 }
 \arguments{
-  \item{update}{logical.  If TRUE updates any out of date
-  packages; if FALSE retuns a list of out of date packages}
+  \item{update}{logical.  If \code{TRUE} updates any
+  out-of-date packages; if \code{FALSE} returns a list of
+  out-of-date packages.}
 }
 \description{
 Either view out of date packages or update out of data
-packages
+packages.
 }
 \examples{
 \dontrun{
