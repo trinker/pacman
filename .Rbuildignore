@@ -3,11 +3,11 @@
 ^\.gitignore
 maintenance.R
 NEWS.md
-.travis.yml
+^\.travis\.yml$
 pacmanR.png
 pacmanR.svg
 Rlogo.png
-.Rprofile
+^\.Rprofile
 NEWS.html
 inst/extra_statdoc
 README.html
