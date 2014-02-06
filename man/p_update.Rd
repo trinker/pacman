@@ -3,14 +3,23 @@
 \alias{p_update}
 \title{Update Out-of-Date Packages}
 \usage{
-p_update(update = TRUE)
+p_update(update = TRUE, ask = FALSE)
 
-p_up(update = TRUE)
+p_up(update = TRUE, ask = FALSE)
 }
 \arguments{
   \item{update}{logical.  If \code{TRUE} updates any
   out-of-date packages; if \code{FALSE} returns a list of
   out-of-date packages.}
+
+  \item{ask}{logical. If \code{TRUE} asks user before
+  packages are actually downloaded and installed, or the
+  character string \code{"graphics"}, which brings up a
+  widget to allow the user to (de-)select from the list of
+  packages which could be updated or added.}
+
+  \item{\ldots}{Other arguments passed to
+  \code{\link[utils]{update.packages}}.}
 }
 \description{
 Either view out of date packages or update out of data
@@ -24,6 +33,7 @@ p_up(FALSE)
 }
 }
 \seealso{
+\code{\link[utils]{update.packages}},
 \code{\link[utils]{old.packages}}
 }
 \keyword{packages}

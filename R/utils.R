@@ -2,10 +2,8 @@
 # Request: Can you add some documentation for this?
 # what is it used for?  Can you add some comments to the code
 # because it's a little hard to follow...
-left.just <- function(dataframe, column = NULL, keep.class = FALSE) {
-    if(nrow(dataframe) == 0){
-        return(dataframe)
-    }
+left.just <-
+function(dataframe, column = NULL, keep.class = FALSE) {
     df.class <- function(dataframe) {
         sapply(1:ncol(dataframe), function(i) {
             x <- class(dataframe[, i])
@@ -26,20 +24,20 @@ left.just <- function(dataframe, column = NULL, keep.class = FALSE) {
         DF2[, column] <- left.j(as.character(DF2[, column]))     
         if (is.character(column)) {
             col <- names(DF2)[which(names(DF2) == column)]
-            names(DF2)[which(names(DF2) == column)] <- sprintf(paste("%-", 
+                names(DF2)[which(names(DF2) == column)] <- sprintf(paste("%-", 
                 Q, "s", sep = ""), col)
         } else {
             if (is.numeric(column)) {
                 col <- names(DF2)[column]
-                names(DF2)[column] <- sprintf(paste("%-", Q, "s", 
-                                                    sep = ""), col)
+                    names(DF2)[column] <- sprintf(paste("%-", Q, "s", 
+                    sep = ""), col)
             }
         }
         DF2 <- data.frame(DF2[-1, , drop = FALSE], check.names = FALSE)
         rownames(DF2) <- NULL
         return(DF2)
     }
-    if (length(column)<2) {
+    if (length(column) < 2) {
         if (!is.data.frame(dataframe)) {
             y <- as.character(substitute(dataframe))
             dataframe <- data.frame(dataframe, check.names = FALSE)
@@ -49,7 +47,7 @@ left.just <- function(dataframe, column = NULL, keep.class = FALSE) {
         DF3 <- lj(DF2=dataframe, column=column)
     } else { 
         if (!is.numeric(column)) column <- match(column, names(dataframe))
-        dat <- dataframe[, -c(column)]
+        dat <- dataframe[, -c(column), drop=FALSE]
         ndf <- colnames(dataframe)
         LIST <- lapply(column, function(x) {
             lj(DF2=dataframe[, x, drop=FALSE], column = NULL)
@@ -77,6 +75,7 @@ left.just <- function(dataframe, column = NULL, keep.class = FALSE) {
     colnames(DF3) <- gsub("\\.(?=\\.*$)", " ", colnames(DF3), perl=TRUE)
     return(DF3)
 }
+
 
 paste0 <- function(..., collapse = NULL){
     paste(..., sep = "", collapse = collapse)

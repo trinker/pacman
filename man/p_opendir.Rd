@@ -23,7 +23,7 @@ own non-exported function makes sense.
 \examples{
 \dontrun{
 p_opendir() # opens working directory
-p_opendir("~") # opens home directory
+p_opendir(path.expand("~")) # opens home directory
 p_opendir(pacman:::p_basepath())
 }
 }

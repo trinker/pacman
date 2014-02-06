@@ -5,7 +5,13 @@
 #' @rdname p_update
 #' @param update logical.  If \code{TRUE} updates any out-of-date packages; if 
 #' \code{FALSE} returns a list of out-of-date packages.
-#' @seealso \code{\link[utils]{old.packages}}
+#' @param ask logical. If \code{TRUE} asks user before packages are actually 
+#' downloaded and installed, or the character string \code{"graphics"}, which 
+#' brings up a widget to allow the user to (de-)select from the list of packages 
+#' which could be updated or added.
+#' @param \ldots Other arguments passed to  \code{\link[utils]{update.packages}}.
+#' @seealso \code{\link[utils]{update.packages}},
+#' \code{\link[utils]{old.packages}}
 #' @keywords update packages
 #' @export
 #' @examples
@@ -15,30 +21,20 @@
 #' p_up(FALSE)
 #' }
 p_update <- 
-function (update = TRUE) {
+function (update = TRUE, ask = FALSE) {
+	
     p_set_cranrepo()
-    
-# As interesting as this is it creates extra noise right now
-#     # Figure out which packages need updates    
-#     y <- utils::old.packages()[, 1]
-#     packs <- names(sessionInfo()[["otherPkgs"]])
-#     if (any((y %in% packs)) & !is.null(packs)) {
-#         x <- y[na.omit(match(y, packs))]
-#         x <- paste0("package:", x)
-#         lapply(x, function(package) {
-#             suppressWarnings(detach(package, 
-#                                     character.only=TRUE, force = TRUE, 
-#                                     unload = TRUE))
-#         }
-#         )
-#     }
-#     cat(y, "\n")
-    
+    out <- old.packages()[, 1]
+    names(out) <- NULL
+	
     if (update){ 
         # TODO: Add package options
         #       Make 'ask' one of those options...
-        update.packages(ask = FALSE)
-    }
+        update.packages(ask = ask, ...)
+    	return(invisible(out))
+    } 
+    out
+
 }
 
 #' @rdname p_update

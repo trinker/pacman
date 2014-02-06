@@ -22,6 +22,7 @@
 #' p_unload(all)
 #' p_loaded() # will not work as you unloaded pacman
 #'
+#' library(pacman)
 #' p_load(lattice, MASS, foreign)
 #' p_loaded()
 #' p_unload(pacman, negate=TRUE)

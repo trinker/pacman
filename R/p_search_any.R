@@ -43,12 +43,34 @@ function (term, search.by = "Maintainer") {
         search.by <- "Maintainer"
     }
     if (is.numeric(search.by)) {
-        dat[agrep(term, dat[, search.by]), 1:3]
+        dat <- dat[agrep(term, dat[, search.by]), 1:3]
     } else {
-        dat[agrep(term, dat[, agrep(search.by, colnames(dat))]), 1:3]
+        dat <- dat[agrep(term, dat[, agrep(search.by, colnames(dat))]), 1:3]
     }
+	rownames(dat) <- NULL
+    class(dat) <- c("search_any", class(dat))
+    return(dat)	
 }
 
 #' @rdname p_search_any
 #' @export
 p_sa <- p_search_any
+
+
+#' Prints a search_any Object
+#' 
+#' Prints a search_any object.
+#' 
+#' @param x The search_any object.
+#' @param \ldots ignored
+#' @method print wide_table
+#' @S3method print wide_table
+print.search_any <-
+function(x, ...) {
+    width <- options()[["width"]]
+    options(width=10000)
+    on.exit(options(width=width))
+    print.data.frame(left.just(x, 1:2))
+    return()
+}
+
