@@ -1,23 +1,23 @@
 \name{p_install}
 \alias{p_get}
 \alias{p_install}
-\title{Installs and loads a package provided the package is a CRAN package}
+\title{Installs & Loads Packages}
 \usage{
 p_install(package, character.only = FALSE, ...)
 
 p_get(package, character.only = FALSE, ...)
 }
 \arguments{
-  \item{package}{Name of package(s)}
+  \item{package}{Name of package(s).}
 
-  \item{character.only}{Logical indicating if input is a
-  character string}
+  \item{character.only}{logical.  If \code{TRUE}
+  \code{\dots} is treated a character string.}
 
   \item{\ldots}{Additional parameters to pass to
-  install.packages}
+  \code{install.packages}.}
 }
 \description{
-Installs a package provided the package is a CRAN package
+Installs a package provided the package is a CRAN package.
 }
 \examples{
 \dontrun{p_install(pacman)}

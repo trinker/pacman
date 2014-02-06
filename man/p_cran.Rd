@@ -1,6 +1,6 @@
 \name{p_cran}
 \alias{p_cran}
-\title{List all available CRAN packages}
+\title{CRAN Packages}
 \usage{
 p_cran(menu = FALSE)
 }

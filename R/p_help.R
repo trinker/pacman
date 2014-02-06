@@ -1,10 +1,10 @@
-#' Generate an html, web or pdf package help manual
+#' Package Help Manual
 #'
-#' Generate an html, web or pdf of a package's help manual
+#' Generate an html, web or pdf of a package's help manual.
 #' 
 #' @param package Name of package.
 #' @param web logical.  If \code{TRUE} grabs current help manual from the web.
-#' @param pdf logical.  If \code{TRUE} uses a LaTeX compiler to generate a pdf
+#' @param pdf logical.  If \code{TRUE} uses a LaTeX compiler to generate a pdf.
 #' @section Warning:
 #' To use the pdf argument you must have a pdf compiler (e.g. MikTex) installed.
 #' @keywords help manual package

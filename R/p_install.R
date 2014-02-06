@@ -1,11 +1,12 @@
-#' Installs and loads a package provided the package is a CRAN package
+#' Installs & Loads Packages 
 #' 
-#' Installs a package provided the package is a CRAN package
+#' Installs a package provided the package is a CRAN package.
 #' 
 #' @rdname p_install
-#' @param package Name of package(s)
-#' @param character.only Logical indicating if input is a character string
-#' @param \ldots Additional parameters to pass to install.packages
+#' @param package Name of package(s).
+#' @param character.only logical.  If \code{TRUE} \code{\dots} is treated a 
+#' character string.
+#' @param \ldots Additional parameters to pass to \code{install.packages}.
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export

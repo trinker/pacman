@@ -1,4 +1,4 @@
-#' List all available CRAN packages
+#' CRAN Packages
 #' 
 #' Generate a vector of all available packages.
 #' 

@@ -1,18 +1,18 @@
 \name{p_exists}
 \alias{p_exists}
-\title{Checks CRAN to determine if a package exists}
+\title{Checks if Package is On CRAN/In Local Library}
 \usage{
 p_exists(package, cran = TRUE)
 }
 \arguments{
-  \item{package}{name of package}
+  \item{package}{Name of package.}
 
   \item{cran}{logical.  If \code{TRUE} checks CRAN for the
   package; if \code{FALSE} checks the user's local
   library.}
 }
 \description{
-Checks CRAN to determine if a package exists
+Checks CRAN to determine if a package exists.
 }
 \examples{
 \dontrun{

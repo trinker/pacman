@@ -1,8 +1,8 @@
-#' Checks CRAN to determine if a package exists
+#' Checks if Package is On CRAN/In Local Library
 #' 
-#' Checks CRAN to determine if a package exists
+#' Checks CRAN to determine if a package exists.
 #' 
-#' @param package name of package
+#' @param package Name of package.
 #' @param cran logical.  If \code{TRUE} checks CRAN for the package; 
 #' if \code{FALSE} checks the user's local library.
 #' @keywords exists package

@@ -1,6 +1,6 @@
-#' List all the packages in a base install
+#' Base Install Packages
 #' 
-#' List all the packages and marks those in a base install
+#' List all the packages and marks those in a base install.
 #' 
 #' @param open logical. If \code{TRUE} opens the directory of the base install 
 #' packages.

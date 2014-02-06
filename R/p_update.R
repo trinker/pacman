@@ -1,12 +1,10 @@
-#' Update out of date packages
+#' Update Out-of-Date Packages
 #' 
-#' Either view out of date packages or update 
-#' out of data packages
+#' Either view out of date packages or update out of data packages.
 #' 
 #' @rdname p_update
-#' @param update logical.  If TRUE updates 
-#' any out of date packages; if FALSE retuns a list 
-#' of out of date packages
+#' @param update logical.  If \code{TRUE} updates any out-of-date packages; if 
+#' \code{FALSE} returns a list of out-of-date packages.
 #' @seealso \code{\link[utils]{old.packages}}
 #' @keywords update packages
 #' @export

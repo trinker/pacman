@@ -1,9 +1,9 @@
-#' Check if package(s) is loaded
+#' Check if Package(s) is Loaded
 #' 
-#' Check if package(s) is loaded
+#' Check if package(s) is loaded.
 #' 
 #' @rdname p_isloaded
-#' @param \ldots name(s) of package(s)
+#' @param \ldots Name(s) of package(s).
 #' @seealso \code{\link[base]{.packages}}
 #' @keywords delete package
 #' @export

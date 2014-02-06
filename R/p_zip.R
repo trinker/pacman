@@ -35,7 +35,8 @@ function(package = NULL, path = getOption("download_path")){
             selectedPackage <- select.list(possMatches, title = "sources")
         }
         # install the package
-        install.packages(file.path(path, selectedPackage), .libPaths()[1L], repos = NULL)
+        install.packages(file.path(path, selectedPackage), .libPaths()[1L], 
+        	repos = NULL)
     }
     message(paste(selectedPackage, "installed\n"))
 }

@@ -1,6 +1,6 @@
 \name{p_help}
 \alias{p_help}
-\title{Generate an html, web or pdf package help manual}
+\title{Package Help Manual}
 \usage{
 p_help(package = NULL, web = FALSE, pdf = FALSE)
 }
@@ -11,10 +11,10 @@ p_help(package = NULL, web = FALSE, pdf = FALSE)
   manual from the web.}
 
   \item{pdf}{logical.  If \code{TRUE} uses a LaTeX compiler
-  to generate a pdf}
+  to generate a pdf.}
 }
 \description{
-Generate an html, web or pdf of a package's help manual
+Generate an html, web or pdf of a package's help manual.
 }
 \section{Warning}{
   To use the pdf argument you must have a pdf compiler

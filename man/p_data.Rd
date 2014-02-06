@@ -1,6 +1,6 @@
 \name{p_data}
 \alias{p_data}
-\title{List all data sets available in a package}
+\title{Package Data Sets}
 \usage{
 p_data(package = "datasets", static = FALSE)
 }
@@ -22,7 +22,7 @@ Generate a script of all data sets contained in package.
 \examples{
 p_data()
 p_data(lattice)
-p_data(static=TRUE)
+\dontrun{p_data(static=TRUE)}
 }
 \seealso{
 \code{\link[utils]{data}}

@@ -1,14 +1,14 @@
 \name{p_delete}
 \alias{p_del}
 \alias{p_delete}
-\title{Remove package(s) from the library}
+\title{Permanently Remove Package Removal(s) From Library}
 \usage{
 p_delete(...)
 
 p_del(...)
 }
 \arguments{
-  \item{\ldots}{name(s) of package(s)}
+  \item{\ldots}{name(s) of package(s).}
 }
 \description{
 Remove package(s) from the library permanently.

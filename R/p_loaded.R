@@ -1,19 +1,20 @@
-#' View loaded packages
+#' View Loaded Packages
 #'
-#' Output is a character string of loaded packages
+#' Output is a character string of loaded packages.
 #' 
 #' @param \ldots Optional package names.  Adding package names will check their 
 #' individual load status.
-#' @param all logical.  If TRUE will show all packages 
-#' including base install; FALSE will show all packages
-#' excluding base install packages that install when R loads
+#' @param all logical.  If \code{TRUE} will show all packages 
+#' including base install; \code{FALSE} will show all packages
+#' excluding base install packages that install when R loads.
 #' @keywords packages loaded
 #' @seealso 
 #' \code{\link[base]{.packages}},
 #' \code{\link[utils]{sessionInfo}}
 #' @export
 #' @examples
-#' \dontrun{p_load(lattice)}
+#' \dontrun{
+#' p_load(lattice)}
 #' p_loaded()
 #' p_loaded(all=TRUE)
 #' p_loaded(ggplot2, tm, qdap)

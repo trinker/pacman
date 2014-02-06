@@ -1,8 +1,9 @@
-#' List all data sets available in a package
+#' Package Data Sets
 #' 
 #' Generate a script of all data sets contained in package.
 #' 
-#' @param package name of package (default is the base install datasets package).
+#' @param package name of package (default is the base install datasets 
+#' package).
 #' @param static logical.  If \code{TRUE} a static text document is returned 
 #' (e.g. \code{data("datasets")}).
 #' @seealso \code{\link[utils]{data}}
@@ -13,7 +14,7 @@
 #' @examples
 #' p_data()
 #' p_data(lattice)
-#' p_data(static=TRUE)
+#' \dontrun{p_data(static=TRUE)}
 p_data <-
 function(package = "datasets", static = FALSE) {
     pack <- as.character(substitute(package))

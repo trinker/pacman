@@ -1,11 +1,11 @@
-#' Generate citation for a package
+#' Package Citation
 #' 
-#' Generate citation for a package
+#' Generate citation for a package.
 #' 
 #' @rdname p_citation
-#' @param package Name of the package you want a citation for
+#' @param package Name of the package you want a citation for.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
-#' clipboard
+#' clipboard.
 #' @param tex logical.  If \code{TRUE} A only the BibTex version of the citation
 #' is copied to the clipboard.  If \code{FALSE} The standard citation is copied 
 #' to the clipboard.  If \code{NULL} both are copied to the clipboard.

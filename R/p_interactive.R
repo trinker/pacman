@@ -1,4 +1,4 @@
-#' Interactive package exploration
+#' Interactive Package Exploration
 #' 
 #' Interactively search through packages, looking at functions and optionally 
 #' attaching the package and looking at the help page.

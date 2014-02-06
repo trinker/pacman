@@ -1,6 +1,6 @@
-#' Returns the author of a package
+#' Package Author
 #' 
-#' Returns the author of a package
+#' Returns the author of a package.
 #' 
 #' @param package Name of the package you want the author of.
 #' @seealso \code{\link[utils]{packageDescription}}

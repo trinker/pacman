@@ -1,6 +1,6 @@
-#' List the functions from a package
+#' Package Functions
 #' 
-#' List the functions from a package
+#' List the functions from a package.
 #' 
 #' @rdname p_functions
 #' @param package Name of the package you want the list of functions for.

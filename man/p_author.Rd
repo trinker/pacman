@@ -1,6 +1,6 @@
 \name{p_author}
 \alias{p_author}
-\title{Returns the author of a package}
+\title{Package Author}
 \usage{
 p_author(package = "base")
 }
@@ -9,7 +9,7 @@ p_author(package = "base")
   of.}
 }
 \description{
-Returns the author of a package
+Returns the author of a package.
 }
 \examples{
 p_author(pacman)

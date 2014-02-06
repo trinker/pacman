@@ -1,14 +1,12 @@
-#' Remove package(s) from the library
+#' Permanently Remove Package Removal(s) From Library
 #' 
 #' Remove package(s) from the library permanently.  
 #' 
 #' @rdname p_delete
-#' @param \ldots name(s) of package(s)
+#' @param \ldots name(s) of package(s).
 #' @section Warning:
-#' 
 #' Using this function will remove the package from your 
 #' library and can not be loaded again without reinstalling the package.
-#' 
 #' @seealso \code{\link[utils]{remove.packages}}
 #' @keywords delete package
 #' @export

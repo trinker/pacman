@@ -1,6 +1,6 @@
 \name{p_base}
 \alias{p_base}
-\title{List all the packages in a base install}
+\title{Base Install Packages}
 \usage{
 p_base(open = FALSE, basemarker = "***")
 }
@@ -12,7 +12,7 @@ p_base(open = FALSE, basemarker = "***")
   to mark which packages are part of the default packages.}
 }
 \description{
-List all the packages and marks those in a base install
+List all the packages and marks those in a base install.
 }
 \note{
 Packages that are installed when R starts are marked with

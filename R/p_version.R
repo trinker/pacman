@@ -1,4 +1,4 @@
-#' Determine installed package version
+#' Package Version
 #' 
 #' Determine what version a package is in your library.
 #' 
@@ -17,7 +17,7 @@
 p_version <-
 function(package="R") {
     x <- as.character(substitute(package))
-    if (x%in%c("r", "R")){
+    if (x %in% c("r", "R")){
         R.Version()[["version.string"]]
     } else {
         packageDescription(x)["Version"]

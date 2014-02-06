@@ -1,13 +1,13 @@
-#' See information on a package.
+#' Package Information
 #'
 #' Provides the information from for a package from 
-#' the NAMESPACE.  Information may include: title, 
+#' the \emph{NAMESPACE}.  Information may include: title, 
 #' version, author, maintainer, description, depends, 
 #' imports, suggests
 #' 
 #' @rdname p_information
-#' @param package Name of the package you want information on.
-#' The default is "base".
+#' @param package Name of the package to grab information for.  Default is 
+#' \code{"base"}.
 #' @keywords packageDescription info information package
 #' @seealso \code{\link[utils]{packageDescription}}
 #' @export
