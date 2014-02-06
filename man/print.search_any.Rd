@@ -2,7 +2,7 @@
 \alias{print.search_any}
 \title{Prints a search_any Object}
 \usage{
-\method{print}{wide_table}(x, ...)
+\method{print}{search_any}(x, ...)
 }
 \arguments{
   \item{x}{The search_any object.}

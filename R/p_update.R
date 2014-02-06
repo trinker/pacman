@@ -21,7 +21,7 @@
 #' p_up(FALSE)
 #' }
 p_update <- 
-function (update = TRUE, ask = FALSE) {
+function (update = TRUE, ask = FALSE, ...) {
 	
     p_set_cranrepo()
     out <- old.packages()[, 1]

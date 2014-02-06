@@ -29,7 +29,7 @@
         ]
       },
       "properties": {
-        "marker-symbol": "danger",
+        "marker-symbol": "pitch",
         "name": "Tyler Rinker",
         "contribution": "author, creator, contributor",
         "entity": "Raptor",

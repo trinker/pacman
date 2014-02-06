@@ -3,9 +3,9 @@
 \alias{p_update}
 \title{Update Out-of-Date Packages}
 \usage{
-p_update(update = TRUE, ask = FALSE)
+p_update(update = TRUE, ask = FALSE, ...)
 
-p_up(update = TRUE, ask = FALSE)
+p_up(update = TRUE, ask = FALSE, ...)
 }
 \arguments{
   \item{update}{logical.  If \code{TRUE} updates any

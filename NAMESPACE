@@ -1,3 +1,4 @@
+S3method(print,search_any)
 S3method(print,wide_table)
 export(p_author)
 export(p_base)
