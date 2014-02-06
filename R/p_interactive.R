@@ -29,10 +29,10 @@ function() {
     fun <- objects(paste("package:", pack, sep = ""))[y]
     z2 <- switch(menu(c(cat("\n\nDo you want to see the help page for", 
         fun, "\b?\n"), "Yes", "No")), TRUE, FALSE)
+    message("Thank you for using the p_interactive function!\n\n")
     if (z2) {
         help((fun))
     } 
-    message("Thank you for using the p_interactive function!\n\n")
 }
 
 #' @rdname p_interactive
