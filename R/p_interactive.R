@@ -29,9 +29,9 @@ function() {
         on.exit(suppressWarnings(detach(paste("package:", package, 
             sep = ""), character.only = TRUE)))
     }
-    
+   
     function_choices <- p_functions(package, character.only = TRUE)
-    function_menu<- menu(funs, title = "Available Functions")
+    function_menu <- menu(function_choices, title = "Available Functions")
     fun <- function_choices[function_menu]
     
     help_menu <- menu(c(cat("\n\nDo you want to see the help page for", 
