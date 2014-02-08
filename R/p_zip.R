@@ -10,7 +10,6 @@
 #' convenient to set \code{download_path} in .Rprofile options to the downloads 
 #' directory.
 #' @keywords zip tar tar.gz source
-#' @export
 p_zip <- 
 function(package = NULL, path = getOption("download_path")){
 
