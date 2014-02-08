@@ -5,6 +5,13 @@
 #' @param \dots name of package(s) or "all" (all removes all add on packages).
 #' @param negate logical. If \code{TRUE} will unload
 #' all add on packages except those provided to \code{p_unload}.
+#' @param char Character vector containing packages to load.  If you are calling
+#' \code{p_unload} from within a function (or just having difficulties calling it 
+#' using a character vector input) then pass your character vector of packages 
+#' to load to this parameter directly.
+#' @param character.only logical. If \code{TRUE} then \code{p_unload} will only 
+#' accept a single input which is a character vector containing the names of 
+#' packages to load.
 #' @note \code{p_unload} will not unload the base install packages that load 
 #' when R boots up.
 #' @seealso \code{\link[base]{detach}}
@@ -28,9 +35,17 @@
 #' p_unload(pacman, negate=TRUE)
 #' p_loaded()
 #' }
-p_unload <- function (..., negate = FALSE) 
-{
-    toUnload <- as.character(match.call(expand.dots = FALSE)[[2]])
+p_unload <- 
+function (..., negate = FALSE, char, character.only = FALSE) {
+	
+    if(!missing(char)){
+        toUnload <- char
+    }else if(character.only){
+        toUnload <- eval(match.call()[[2]])
+    }else{
+        toUnload <- tryCatch(as.character(match.call(expand.dots = FALSE)[[2]]), error=function(err) NA)
+    }
+
     loaded <- names(sessionInfo()[["otherPkgs"]])
     defaultPackages <- getOption("defaultPackages")
     cantUnload <- c("base", defaultPackages)
@@ -44,7 +59,7 @@ p_unload <- function (..., negate = FALSE)
     toUnloadButCantUnload <- toUnloadButNotLoaded[toUnloadButNotLoaded %in% cantUnload]
     # Told to unload but they aren't actually loaded
     toUnloadButNotLoaded <- toUnloadButNotLoaded[!toUnloadButNotLoaded %in% cantUnload]
-    
+
     mt <- toUnload %in% "all"
     toUnload <- toUnload[toUnload %in% loaded]
     if (!identical(mt, logical(0)) & all(mt)) {
