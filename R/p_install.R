@@ -44,9 +44,16 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
             p_unload(char = package)
         }
 
+        ## Handling if no package supplied
+        if (length(package) == 1 && package == "") {
+            package <- NULL 
+        } 
+
         install.packages(package, ...)
+
     }
-    message(paste("\n", package, "installed"))
+    pack <- ifelse(is.null(package), "Your package", package)
+    message(sprintf("\n%s installed", pack))
 }
 
 #' @rdname p_install
