@@ -41,5 +41,4 @@ function(package = NULL, path = getOption("download_path")){
 }
 
 #' @rdname p_zip
-#' @export
 p_tar <- p_zip
