@@ -1,8 +1,11 @@
 \name{p_loaded}
+\alias{p_isloaded}
 \alias{p_loaded}
-\title{View Loaded Packages}
+\title{Check for Loaded Packages}
 \usage{
 p_loaded(..., all = FALSE, char, character.only = FALSE)
+
+p_isloaded(...)
 }
 \arguments{
   \item{\ldots}{Optional package names.  Adding package
@@ -25,14 +28,20 @@ p_loaded(..., all = FALSE, char, character.only = FALSE)
   load.}
 }
 \description{
-Output is a character string of loaded packages.
+\code{p_loaded} - Output is a character string of loaded
+packages.
+
+\code{p_isloaded} - Check if package(s) is loaded.
 }
 \examples{
 \dontrun{
-p_load(lattice)}
+p_load(lattice, ggplot2)}
 p_loaded()
 p_loaded(all=TRUE)
 p_loaded(ggplot2, tm, qdap)
+
+p_isloaded(ggplot2)
+p_isloaded(ggplot2, dfs, pacman)
 \dontrun{p_unload(lattice)}
 }
 \seealso{

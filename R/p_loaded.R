@@ -1,6 +1,6 @@
-#' View Loaded Packages
+#' Check for Loaded Packages
 #'
-#' Output is a character string of loaded packages.
+#' \code{p_loaded} - Output is a character string of loaded packages.
 #' 
 #' @param \ldots Optional package names.  Adding package names will check their 
 #' individual load status.
@@ -15,16 +15,20 @@
 #' accept a single input which is a character vector containing the names of 
 #' packages to load.
 #' @keywords packages loaded
+#' @rdname p_loaded
 #' @seealso 
 #' \code{\link[base]{.packages}},
 #' \code{\link[utils]{sessionInfo}}
 #' @export
 #' @examples
 #' \dontrun{
-#' p_load(lattice)}
+#' p_load(lattice, ggplot2)}
 #' p_loaded()
 #' p_loaded(all=TRUE)
 #' p_loaded(ggplot2, tm, qdap)
+#' 
+#' p_isloaded(ggplot2)
+#' p_isloaded(ggplot2, dfs, pacman)
 #' \dontrun{p_unload(lattice)}
 p_loaded <- 
 function(..., all = FALSE, char, character.only = FALSE) {
@@ -55,4 +59,18 @@ function(..., all = FALSE, char, character.only = FALSE) {
     } else {
        return(loaded)
     }
+}
+
+
+#' Check for Loaded Packages
+#' 
+#' \code{p_isloaded} - Check if package(s) is loaded.
+#' 
+#' @rdname p_loaded
+#' @export
+p_isloaded <-
+function(...) {
+    x <- substitute(...())
+    p_loaded(char = sapply(x, as.character))
+
 }
