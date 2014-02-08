@@ -1,16 +1,16 @@
-#' Install zip/tar
-#' 
-#' Installs zip/tar packages.  This is convenient to set \code{download_path} in 
-#' .Rprofile options to the downloads directory.
-#' 
-#' @rdname p_zip
-#' @param package A quoted character string of the name/partial name of the 
-#' package to install as zip/tar.
-#' @param path The path to the directory that contains the package.  It is 
-#' convenient to set \code{download_path} in .Rprofile options to the downloads 
-#' directory.
-#' @keywords zip tar tar.gz source
-p_zip <- 
+## Install zip/tar
+## 
+## Installs zip/tar packages.  This is convenient to set \code{download_path} in 
+## .Rprofile options to the downloads directory.
+## 
+## @rdname p_zip
+## @param package A quoted character string of the name/partial name of the 
+## package to install as zip/tar.
+## @param path The path to the directory that contains the package.  It is 
+## convenient to set \code{download_path} in .Rprofile options to the downloads 
+## directory.
+## @keywords zip tar tar.gz source
+p_tar <- 
 function(package = NULL, path = getOption("download_path")){
 
     # error handling if path not provided
@@ -39,6 +39,3 @@ function(package = NULL, path = getOption("download_path")){
     }
     message(paste(selectedPackage, "installed\n"))
 }
-
-#' @rdname p_zip
-p_tar <- p_zip
