@@ -3,9 +3,11 @@
 \alias{p_install}
 \title{Installs & Loads Packages}
 \usage{
-p_install(package, character.only = FALSE, ...)
+p_install(package, character.only = FALSE,
+  path = getOption("download_path"), ...)
 
-p_get(package, character.only = FALSE, ...)
+p_get(package, character.only = FALSE, path = getOption("download_path"),
+  ...)
 }
 \arguments{
   \item{package}{Name of package(s).}
@@ -15,6 +17,10 @@ p_get(package, character.only = FALSE, ...)
 
   \item{\ldots}{Additional parameters to pass to
   \code{install.packages}.}
+
+  \item{path}{The path to the directory that contains the
+  package.  It is convenient to set \code{download_path} in
+  .Rprofile options to the downloads directory.}
 }
 \description{
 Installs a package provided the package is a CRAN package.

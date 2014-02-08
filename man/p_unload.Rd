@@ -2,7 +2,7 @@
 \alias{p_unload}
 \title{Unloads package(s)}
 \usage{
-p_unload(..., negate = FALSE)
+p_unload(..., negate = FALSE, char, character.only = FALSE)
 }
 \arguments{
   \item{\dots}{name of package(s) or "all" (all removes all
@@ -10,6 +10,17 @@ p_unload(..., negate = FALSE)
 
   \item{negate}{logical. If \code{TRUE} will unload all add
   on packages except those provided to \code{p_unload}.}
+
+  \item{char}{Character vector containing packages to load.
+  If you are calling \code{p_unload} from within a function
+  (or just having difficulties calling it using a character
+  vector input) then pass your character vector of packages
+  to load to this parameter directly.}
+
+  \item{character.only}{logical. If \code{TRUE} then
+  \code{p_unload} will only accept a single input which is
+  a character vector containing the names of packages to
+  load.}
 }
 \description{
 Unloads package(s) or all packages.
