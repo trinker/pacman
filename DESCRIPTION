@@ -14,7 +14,9 @@ Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
     R (>= 2.13.0)
 Suggests:
+    devtools (>= 1.4.1),
     lattice,
+    RCurl,
     XML
 BugReports: https://github.com/trinker/pacman/issues?state=open
 Description: This package is a designed to more conveniently perform tasks

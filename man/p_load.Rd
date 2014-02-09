@@ -1,9 +1,9 @@
 \name{p_load}
 \alias{p_load}
-\title{Load one or more packages}
+\title{Load One or More Packages}
 \usage{
 p_load(..., char, install = TRUE, update = getOption("pac_update"),
-  character.only = FALSE)
+  quick = FALSE, build_vignettes = !quick, character.only = FALSE)
 }
 \arguments{
   \item{\ldots}{name(s) of package(s).}
@@ -25,12 +25,26 @@ p_load(..., char, install = TRUE, update = getOption("pac_update"),
   \code{p_load} will only accept a single input which is a
   character vector containing the names of packages to
   load.}
+
+  \item{quick}{if \code{TRUE} skips docs,
+  multiple-architectures, demos, and vignettes, to make
+  installation as fast as possible.}
+
+  \item{build_vignettes}{if \code{TRUE}, will build
+  vignettes. Normally it is \code{build} that's responsible
+  for creating vignettes; this argument makes sure
+  vignettes are built even if a build never happens (i.e.
+  because \code{local = TRUE}.}
 }
 \description{
-This function is a wrapper for library and require.  It
+This function is a wrapper for \code{\link[base]{library}},
+\code{\link[base]{require}}, and \code{p_install}.  It
 checks to see if a package is installed, if not it attempts
 to install the package from CRAN and/or any other
-repository in the pacman repository list.
+repository in the pacman repository list. \code{p_load}
+also attempts to install and load packages from source
+(.tar.gz/.zip) or from a \href{https://github.com/}{GitHub}
+repository.
 }
 \examples{
 \dontrun{
@@ -40,10 +54,19 @@ p_load(lattice, foreign, boot, rpart)
 p_loaded()
 p_unload(lattice, foreign, boot, rpart)
 p_loaded()
+
+## From GitHub
+p_load(Dasonk/findPackage)
 }
+}
+\references{
+Helper function \code{github_parse_path} taken from
+devtools:
+\url{https://github.com/hadley/devtools/blob/master/R/install-github.r}.
 }
 \seealso{
 \code{\link[base]{library}}, \code{\link[base]{require}},
-\code{\link[utils]{install.packages}}
+\code{\link[utils]{install.packages}},
+\code{\link[devtools]{install_github}}
 }
 
