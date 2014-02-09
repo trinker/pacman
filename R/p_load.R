@@ -26,6 +26,8 @@
 #' \code{build} that's responsible for creating vignettes; this argument makes
 #' sure vignettes are built even if a build never happens (i.e. because 
 #' \code{local = TRUE}.
+#' @param verbose Logical. Dictates whether messages should be displayed
+#' telling the user which packages could be loaded and which failed to load.
 #' @references Helper function \code{github_parse_path} taken from devtools: 
 #' \url{https://github.com/hadley/devtools/blob/master/R/install-github.r}.
 #' @seealso 
@@ -47,8 +49,9 @@
 #' p_load(Dasonk/findPackage)
 #' }
 p_load <- function (..., char, install = TRUE, update = getOption("pac_update"), 
-	quick = FALSE, build_vignettes = !quick, character.only = FALSE){ 
-
+                    quick = FALSE, build_vignettes = !quick, character.only = FALSE,
+                    verbose = getOption("p_verbose")){ 
+    
     if(!missing(char)){
         packages <- char
     }else if(character.only){
@@ -64,7 +67,7 @@ p_load <- function (..., char, install = TRUE, update = getOption("pac_update"),
     
     # Update all packages
     if (is.null(update)) {
-    	update <- FALSE
+        update <- FALSE
     }
     if (update){
         p_update()
@@ -72,27 +75,34 @@ p_load <- function (..., char, install = TRUE, update = getOption("pac_update"),
     
     # Attempt to load packages making note of which don't load
     out <- sapply(packages, p_load_single, install = install, quick = quick, 
-        build_vignettes = build_vignettes, USE.NAMES = FALSE)
-
+                  build_vignettes = build_vignettes, USE.NAMES = FALSE)
+    
     # Attempt to load packages making note of which don't load
     loaded <- sapply(names(out)[out], require, character.only = TRUE)
-
-    # Give a warning if some packags couldn't be installed/loaded
-    if(!all(out)){
-        warning("\n\nFailed to install the following:\n", 
-            paste(names(out)[!out], collapse=", "))
+    
+    if(is.null(verbose)){
+        verbose <- TRUE
     }
-    if(!all(loaded)){
-        warning("\n\nFailed to load the following:\n", 
-            paste(names(loaded)[!loaded], collapse=", "))
+    
+    if(verbose){
+        # Give a warning if some packags couldn't be installed/loaded
+        
+        if(!all(out)){
+            warning("\n\nFailed to install the following:\n", 
+                    paste(names(out)[!out], collapse=", "))
+        }
+        if(!all(loaded)){
+            warning("\n\nFailed to load the following:\n", 
+                    paste(names(loaded)[!loaded], collapse=", "))
+        }
+        if(any(loaded)){
+            message("\n\npacman loaded the following:\n", 
+                    paste(names(loaded)[loaded], collapse=", "))
+        }
     }
-    if(any(loaded)){
-        message("\n\npacman loaded the following:\n", 
-            paste(names(loaded)[loaded], collapse=", "))
-    }
-	return(invisible(
+    return(invisible(
         list(notinstall=names(out)[!out], 
-        notloaded=names(loaded)[!loaded], 
-        loaded=names(loaded)[loaded]
-     )))    
+             notloaded=names(loaded)[!loaded], 
+             loaded=names(loaded)[loaded]
+        )))    
 }

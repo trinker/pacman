@@ -3,7 +3,8 @@
 \title{Load One or More Packages}
 \usage{
 p_load(..., char, install = TRUE, update = getOption("pac_update"),
-  quick = FALSE, build_vignettes = !quick, character.only = FALSE)
+  quick = FALSE, build_vignettes = !quick, character.only = FALSE,
+  verbose = getOption("p_verbose"))
 }
 \arguments{
   \item{\ldots}{name(s) of package(s).}
@@ -35,6 +36,10 @@ p_load(..., char, install = TRUE, update = getOption("pac_update"),
   for creating vignettes; this argument makes sure
   vignettes are built even if a build never happens (i.e.
   because \code{local = TRUE}.}
+
+  \item{verbose}{Logical. Dictates whether messages should
+  be displayed telling the user which packages could be
+  loaded and which failed to load.}
 }
 \description{
 This function is a wrapper for \code{\link[base]{library}},
