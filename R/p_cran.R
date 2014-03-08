@@ -14,7 +14,7 @@
 #' }
 p_cran <-
 function(menu = FALSE){
-    a <- available.packages()
+    a <- utils::available.packages()
     b <- rownames(a)  
     if(menu){
         b <- select.list(b, title = "CRAN packages")
