@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>p_library. pacman 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pacman 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Display library packages</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>p_library(open&nbsp;=&nbsp;FALSE)</div>
+<div>p_lib(open&nbsp;=&nbsp;FALSE)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>open</dt>
+      <dd>logical. If <code>TRUE</code> opens the directory
+  of the add on packages library.</dd>
+    </dl>
+    
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Generates a vector of all available add on packages
+available to the user and optionally opens the user's
+library (this isn't necessarily where all of the available
+packages are stored).</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>p_lib()
+</div>
+<div class='output'>  [1] &quot;acc.roxygen2&quot;     &quot;animation&quot;        &quot;ascii&quot;            &quot;assertthat&quot;       &quot;base&quot;            
+  [6] &quot;BH&quot;               &quot;bibtex&quot;           &quot;BiocGenerics&quot;     &quot;BiocInstaller&quot;    &quot;bitops&quot;          
+ [11] &quot;boot&quot;             &quot;brew&quot;             &quot;ca&quot;               &quot;cacheSweave&quot;      &quot;car&quot;             
+ [16] &quot;caTools&quot;          &quot;cba&quot;              &quot;chron&quot;            &quot;class&quot;            &quot;cluster&quot;         
+ [21] &quot;codetools&quot;        &quot;colorspace&quot;       &quot;compiler&quot;         &quot;data.table&quot;       &quot;datasets&quot;        
+ [26] &quot;DBI&quot;              &quot;devtools&quot;         &quot;dichromat&quot;        &quot;digest&quot;           &quot;dplyr&quot;           
+ [31] &quot;embodied&quot;         &quot;english&quot;          &quot;evaluate&quot;         &quot;filehash&quot;         &quot;foreign&quot;         
+ [36] &quot;formatR&quot;          &quot;Formula&quot;          &quot;fortunes&quot;         &quot;gdata&quot;            &quot;GGally&quot;          
+ [41] &quot;ggdendro&quot;         &quot;ggplot2&quot;          &quot;ggsubplot&quot;        &quot;ggthemes&quot;         &quot;gmailR&quot;          
+ [46] &quot;GMD&quot;              &quot;googleVis&quot;        &quot;gplots&quot;           &quot;graph&quot;            &quot;graphics&quot;        
+ [51] &quot;grDevices&quot;        &quot;grid&quot;             &quot;gridExtra&quot;        &quot;gtable&quot;           &quot;gtools&quot;          
+ [56] &quot;highlight&quot;        &quot;highr&quot;            &quot;Hmisc&quot;            &quot;httpuv&quot;           &quot;httr&quot;            
+ [61] &quot;igraph&quot;           &quot;intergraph&quot;       &quot;KernSmooth&quot;       &quot;knitcitations&quot;    &quot;knitr&quot;           
+ [66] &quot;koRpus&quot;           &quot;labeling&quot;         &quot;lattice&quot;          &quot;latticeExtra&quot;     &quot;lda&quot;             
+ [71] &quot;lmtest&quot;           &quot;log4r&quot;            &quot;lsa&quot;              &quot;lubridate&quot;        &quot;mailR&quot;           
+ [76] &quot;manipulate&quot;       &quot;markdown&quot;         &quot;MASS&quot;             &quot;Matrix&quot;           &quot;memoise&quot;         
+ [81] &quot;methods&quot;          &quot;mgcv&quot;             &quot;modeltools&quot;       &quot;munsell&quot;          &quot;network&quot;         
+ [86] &quot;nlme&quot;             &quot;NLP&quot;              &quot;nnet&quot;             &quot;openNLP&quot;          &quot;openNLPdata&quot;     
+ [91] &quot;pacman&quot;           &quot;pander&quot;           &quot;parallel&quot;         &quot;pastecs&quot;          &quot;penalized&quot;       
+ [96] &quot;pixmap&quot;           &quot;plotflow&quot;         &quot;plotrix&quot;          &quot;plyr&quot;             &quot;png&quot;             
+[101] &quot;ProjectTemplate&quot;  &quot;proto&quot;            &quot;proxy&quot;            &quot;psych&quot;            &quot;pvclust&quot;         
+[106] &quot;qdap&quot;             &quot;qdapDictionaries&quot; &quot;quantemp&quot;         &quot;R2HTML&quot;           &quot;RColorBrewer&quot;    
+[111] &quot;Rcpp&quot;             &quot;RCurl&quot;            &quot;reports&quot;          &quot;reporttools&quot;      &quot;reshape&quot;         
+[116] &quot;reshape2&quot;         &quot;rgl&quot;              &quot;Rgraphviz&quot;        &quot;rJava&quot;            &quot;rjson&quot;           
+[121] &quot;RJSONIO&quot;          &quot;rJython&quot;          &quot;RODBC&quot;            &quot;roxygen2&quot;         &quot;rpart&quot;           
+[126] &quot;RPostgreSQL&quot;      &quot;RSQLite&quot;          &quot;rstudio&quot;          &quot;RWeka&quot;            &quot;RWekajars&quot;       
+[131] &quot;scagnostics&quot;      &quot;scales&quot;           &quot;scatterplot3d&quot;    &quot;shiny&quot;            &quot;signal&quot;          
+[136] &quot;sjPlot&quot;           &quot;slam&quot;             &quot;slidify&quot;          &quot;slidifyLibraries&quot; &quot;sna&quot;             
+[141] &quot;Snowball&quot;         &quot;SnowballC&quot;        &quot;sos&quot;              &quot;spatial&quot;          &quot;splines&quot;         
+[146] &quot;stashR&quot;           &quot;staticdocs&quot;       &quot;stats&quot;            &quot;stats4&quot;           &quot;stringr&quot;         
+[151] &quot;survival&quot;         &quot;tau&quot;              &quot;tcltk&quot;            &quot;testthat&quot;         &quot;tm&quot;              
+[156] &quot;tools&quot;            &quot;topicmodels&quot;      &quot;translations&quot;     &quot;tree&quot;             &quot;tuneR&quot;           
+[161] &quot;utils&quot;            &quot;venneuler&quot;        &quot;whisker&quot;          &quot;wordcloud&quot;        &quot;XLConnect&quot;       
+[166] &quot;xlsx&quot;             &quot;xlsxjars&quot;         &quot;XML&quot;              &quot;xtable&quot;           &quot;yaml&quot;            
+[171] &quot;zipfR&quot;            &quot;zoo&quot;             
+</div>
+<div class='input'>p_library()
+</div>
+<div class='output'>  [1] &quot;acc.roxygen2&quot;     &quot;animation&quot;        &quot;ascii&quot;            &quot;assertthat&quot;       &quot;base&quot;            
+  [6] &quot;BH&quot;               &quot;bibtex&quot;           &quot;BiocGenerics&quot;     &quot;BiocInstaller&quot;    &quot;bitops&quot;          
+ [11] &quot;boot&quot;             &quot;brew&quot;             &quot;ca&quot;               &quot;cacheSweave&quot;      &quot;car&quot;             
+ [16] &quot;caTools&quot;          &quot;cba&quot;              &quot;chron&quot;            &quot;class&quot;            &quot;cluster&quot;         
+ [21] &quot;codetools&quot;        &quot;colorspace&quot;       &quot;compiler&quot;         &quot;data.table&quot;       &quot;datasets&quot;        
+ [26] &quot;DBI&quot;              &quot;devtools&quot;         &quot;dichromat&quot;        &quot;digest&quot;           &quot;dplyr&quot;           
+ [31] &quot;embodied&quot;         &quot;english&quot;          &quot;evaluate&quot;         &quot;filehash&quot;         &quot;foreign&quot;         
+ [36] &quot;formatR&quot;          &quot;Formula&quot;          &quot;fortunes&quot;         &quot;gdata&quot;            &quot;GGally&quot;          
+ [41] &quot;ggdendro&quot;         &quot;ggplot2&quot;          &quot;ggsubplot&quot;        &quot;ggthemes&quot;         &quot;gmailR&quot;          
+ [46] &quot;GMD&quot;              &quot;googleVis&quot;        &quot;gplots&quot;           &quot;graph&quot;            &quot;graphics&quot;        
+ [51] &quot;grDevices&quot;        &quot;grid&quot;             &quot;gridExtra&quot;        &quot;gtable&quot;           &quot;gtools&quot;          
+ [56] &quot;highlight&quot;        &quot;highr&quot;            &quot;Hmisc&quot;            &quot;httpuv&quot;           &quot;httr&quot;            
+ [61] &quot;igraph&quot;           &quot;intergraph&quot;       &quot;KernSmooth&quot;       &quot;knitcitations&quot;    &quot;knitr&quot;           
+ [66] &quot;koRpus&quot;           &quot;labeling&quot;         &quot;lattice&quot;          &quot;latticeExtra&quot;     &quot;lda&quot;             
+ [71] &quot;lmtest&quot;           &quot;log4r&quot;            &quot;lsa&quot;              &quot;lubridate&quot;        &quot;mailR&quot;           
+ [76] &quot;manipulate&quot;       &quot;markdown&quot;         &quot;MASS&quot;             &quot;Matrix&quot;           &quot;memoise&quot;         
+ [81] &quot;methods&quot;          &quot;mgcv&quot;             &quot;modeltools&quot;       &quot;munsell&quot;          &quot;network&quot;         
+ [86] &quot;nlme&quot;             &quot;NLP&quot;              &quot;nnet&quot;             &quot;openNLP&quot;          &quot;openNLPdata&quot;     
+ [91] &quot;pacman&quot;           &quot;pander&quot;           &quot;parallel&quot;         &quot;pastecs&quot;          &quot;penalized&quot;       
+ [96] &quot;pixmap&quot;           &quot;plotflow&quot;         &quot;plotrix&quot;          &quot;plyr&quot;             &quot;png&quot;             
+[101] &quot;ProjectTemplate&quot;  &quot;proto&quot;            &quot;proxy&quot;            &quot;psych&quot;            &quot;pvclust&quot;         
+[106] &quot;qdap&quot;             &quot;qdapDictionaries&quot; &quot;quantemp&quot;         &quot;R2HTML&quot;           &quot;RColorBrewer&quot;    
+[111] &quot;Rcpp&quot;             &quot;RCurl&quot;            &quot;reports&quot;          &quot;reporttools&quot;      &quot;reshape&quot;         
+[116] &quot;reshape2&quot;         &quot;rgl&quot;              &quot;Rgraphviz&quot;        &quot;rJava&quot;            &quot;rjson&quot;           
+[121] &quot;RJSONIO&quot;          &quot;rJython&quot;          &quot;RODBC&quot;            &quot;roxygen2&quot;         &quot;rpart&quot;           
+[126] &quot;RPostgreSQL&quot;      &quot;RSQLite&quot;          &quot;rstudio&quot;          &quot;RWeka&quot;            &quot;RWekajars&quot;       
+[131] &quot;scagnostics&quot;      &quot;scales&quot;           &quot;scatterplot3d&quot;    &quot;shiny&quot;            &quot;signal&quot;          
+[136] &quot;sjPlot&quot;           &quot;slam&quot;             &quot;slidify&quot;          &quot;slidifyLibraries&quot; &quot;sna&quot;             
+[141] &quot;Snowball&quot;         &quot;SnowballC&quot;        &quot;sos&quot;              &quot;spatial&quot;          &quot;splines&quot;         
+[146] &quot;stashR&quot;           &quot;staticdocs&quot;       &quot;stats&quot;            &quot;stats4&quot;           &quot;stringr&quot;         
+[151] &quot;survival&quot;         &quot;tau&quot;              &quot;tcltk&quot;            &quot;testthat&quot;         &quot;tm&quot;              
+[156] &quot;tools&quot;            &quot;topicmodels&quot;      &quot;translations&quot;     &quot;tree&quot;             &quot;tuneR&quot;           
+[161] &quot;utils&quot;            &quot;venneuler&quot;        &quot;whisker&quot;          &quot;wordcloud&quot;        &quot;XLConnect&quot;       
+[166] &quot;xlsx&quot;             &quot;xlsxjars&quot;         &quot;XML&quot;              &quot;xtable&quot;           &quot;yaml&quot;            
+[171] &quot;zipfR&quot;            &quot;zoo&quot;             
+</div>
+<div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: p_lib(TRUE)
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>p_lib</li><li>p_library</li>
+    </ul>
+    <ul>
+      <li>library</li><li>package</li>
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -14,23 +14,31 @@ library(highlight); library(qdap); library(staticdocs); library(acc.roxygen2)
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
 #in the future qdap2 will be the go to source
-build_package(package="C:/Users/trinker/GitHub/pacman", 
-    base_path="C:/Users/trinker/Desktop/pacman/", examples = TRUE)
+build_site(pkg="C:/Users/trinker/GitHub/pacman")
 
 #STEP 2: reshape index
-path <- "C:/Users/trinker/Desktop/pacman"
-path2 <- paste0(path, "/index.html")
+path <- "inst/web"
+path2 <- file.path(path, "index.html")
 rdme <- "C:/Users/trinker/GitHub/pacman/inst/extra_statdoc/readme.R"
 extras <- qcv(p_cite, p_del, p_funs, p_info, p_inter, p_lib, p_sa, p_sl, p_vign,
-	p_tar, p_up, p_ver)
+	p_up, p_ver)
 expand_statdoc(path2, to.icon = extras, readme = rdme)
+
+x <- readLines(path2)
+x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
+    rep("<h2>Author</h2>", 1)),
+    c("Tyler W. Rinker", "Dason Kurkiewicz"))
+
+cat(paste(x, collapse="\n"), file=path2)
 
 
 #STEP 3: move to trinker.guthub
 library(reports)
 file <- "C:/Users/trinker/GitHub/trinker.github.com/"
-delete(paste0(file, "pacman"))
+incoming <- file.path(file, "pacman")
+delete(incoming)
 file.copy(path, file, TRUE, TRUE)
+file.rename(file.path(file, "web"), incoming)
 delete(path)
 
 
