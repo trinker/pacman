@@ -3,7 +3,7 @@
 #' Check if a repo is already set and if not choose an appropriate repo.
 #' 
 #' @param default_repo The default package repository.
-p_set_cranrepo <- function(default_repo = "http://cran.r-project.org/"){
+p_set_cranrepo <- function(default_repo = "http://cran.rstudio.com/"){
     
 	# TODO: make default_repo a package option?
 	
