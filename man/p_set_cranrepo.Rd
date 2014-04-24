@@ -2,7 +2,7 @@
 \alias{p_set_cranrepo}
 \title{Check if Repo is Set}
 \usage{
-p_set_cranrepo(default_repo = "http://cran.r-project.org/")
+p_set_cranrepo(default_repo = "http://cran.rstudio.com/")
 }
 \arguments{
   \item{default_repo}{The default package repository.}
