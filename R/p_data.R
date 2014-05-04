@@ -41,7 +41,7 @@ function(package = "datasets", static = FALSE) {
 #' @param x The wide_table object.
 #' @param \ldots ignored
 #' @method print wide_table
-#' @S3method print wide_table
+#' @export
 print.wide_table <-
 function(x, ...) {
     width <- options()[["width"]]

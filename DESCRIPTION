@@ -24,3 +24,4 @@ Description: This package is a designed to more conveniently perform tasks
     can speed up workflow.
 License: GPL-2
 URL: https://github.com/trinker/pacman
+Roxygen: list(wrap = FALSE)

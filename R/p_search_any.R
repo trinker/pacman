@@ -64,7 +64,7 @@ p_sa <- p_search_any
 #' @param x The search_any object.
 #' @param \ldots ignored
 #' @method print search_any
-#' @S3method print search_any
+#' @export
 print.search_any <-
 function(x, ...) {
     width <- options()[["width"]]
