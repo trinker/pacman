@@ -15,6 +15,7 @@ Depends:
     R (>= 2.13.0)
 Suggests:
     lattice,
+    testthat,
     XML
 BugReports: https://github.com/trinker/pacman/issues?state=open
 Description: This package is a designed to more conveniently perform tasks
