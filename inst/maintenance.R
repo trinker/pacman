@@ -6,6 +6,11 @@
 ###############################################################
 
 #==========================
+# Run unit tests
+#==========================
+devtools::test()
+
+#==========================
 #staticdocs current version
 #==========================
 #packages
@@ -82,8 +87,4 @@ update_news()
 x <- c("BUG FIXES", "NEW FEATURES", "MINOR FEATURES", "IMPROVEMENTS", "CHANGES")
 cat(paste(x, collapse = "\n\n"), file="clipboard")
 
-#==========================
-# Run unit tests
-#==========================
-devtools::test()
 
