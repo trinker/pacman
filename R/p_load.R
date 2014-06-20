@@ -44,7 +44,7 @@ p_load <- function (..., char, install = TRUE, update = getOption("pac_update"),
     
     
     if(length(packages) == 0){
-        invisible()
+        return(invisible())
     }
     
     # Update all packages

@@ -121,4 +121,18 @@ Trim <- function(x){
 }
 
 
+## Check if package exists on the system
+is.installed <- function(x) system.file(package = x) != ""
 
+## Check if package exists on the system
+is.base_package <- function(x) {
+    base_install <- rownames(installed.packages(priority="base"))
+	any(x %in% c(base_install))
+}	
+	
+## Checik if package is loaded
+is.loaded_package <- function(x) {
+	any(x %in% names(sessionInfo()[["otherPkgs"]]))
+}
+	
+	

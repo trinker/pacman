@@ -14,62 +14,49 @@
 #' \dontrun{
 #' p_delete(pacman) # You never want to run this
 #' }
-p_delete <-
-function (...) {
-    mf <- match.call(expand.dots = FALSE)
-    packs <- as.character(mf[[2]]) 
-    pack_check <- sapply(packs, function(x) system.file(package = x))
-  
-    ## Generate list of packages present/absent in a library 
-    absent <- nulls(names(pack_check[pack_check == ""]))
-    base_install <- rownames(installed.packages(priority="base"))
-    bcheck <- basename(pack_check) %in% c(base_install)
-    base <- nulls(basename(pack_check)[bcheck])
-    present <- nulls(pack_check[!bcheck & pack_check != ""])
+p_delete <- function (..., char, character.only = FALSE){ 
 
-    ## Unload any package that will be deleted
-    loaded <- basename(present) %in% names(sessionInfo()[["otherPkgs"]])
-    if (any(loaded)) {
-        unloads <- sprintf("package:%s", basename(present)[loaded])
-        invisible(lapply(unloads, function(package) {
-            suppressWarnings(detach(package, character.only = TRUE, 
-                force = TRUE, unload = TRUE))
-        }))
+    if(!missing(char)){
+        packages <- char
+    }else if(character.only){
+        packages <- eval(match.call()[[2]])
+    }else{
+        packages <- as.character(match.call(expand.dots = FALSE)[[2]])
     }
+	
+    ## use `p_delete_single` to delete packages and save meta info for each
+	meta_list <- invisible(suppressMessages(lapply(packages, p_delete_single)))
+	
+    meta_df <- do.call(rbind, meta_list)
+	
+    ## Message about not package or base package not being removed
+    if (any(!meta_df[["can_delete"]])) {
+    	
+    	not_rm <- meta_df[!is.na(meta_df[["type"]]), ]
+    	bases <- not_rm[["type"]] == "base package"
+        not_insts <- not_rm[["type"]] == "not installed"
 
-    ## Force delete the files
-    if (length(present) > 0){
-        suppressWarnings(remove.packages(pkgs = basename(present), 
-           lib = dirname(present)))
-    }
+        ## Message about base packages
+        if (any(bases)) { 
+            message("The following packages are a base ", 
+                "install and will not be deleted:\n", 
+                paste(not_rm[bases, "package"], collapse = ", "), "\n")
+        }
 
-    ## Message about base package not removed
-    if (!is.null(base)) {
-        message("The following packages are a base ", 
-            "install and will not be deleted:\n", 
-            paste(base, collapse = ", "), "\n")
-    }
-
-    ## Message about files not found
-    if (!is.null(absent)) {
-        message("The following packages not found in library:\n", 
-            paste(absent, collapse = ", "), "\n")
+        ## Message about files not found
+        if (any(not_insts)) {
+            message("The following packages not found in library:\n", 
+                paste(not_rm[not_insts, "package"], collapse = ", "), "\n")
+        }	
     }
 
     ## Message about deleted files
-    if (length(present) > 0) {
+    if (any(meta_df[["can_delete"]])) {
         message("The following packages have been deleted:\n",  
-            paste(basename(present), collapse = ", "))
+            paste(meta_df[meta_df[["can_delete"]], "package"], collapse = ", "))
     }
 }
 
-## Helper to check for as.character(0) and turn to NULL
-nulls <- function(x, ret = NULL) {
-    if (identical(x, character(0))){
-        x <- ret
-    }    
-    x
-}
 
 #' @rdname p_delete
 #' @export

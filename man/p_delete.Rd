@@ -4,9 +4,9 @@
 \alias{p_delete}
 \title{Permanently Remove Package Removal(s) From Library}
 \usage{
-p_delete(...)
+p_delete(..., char, character.only = FALSE)
 
-p_del(...)
+p_del(..., char, character.only = FALSE)
 }
 \arguments{
 \item{\ldots}{name(s) of package(s).}
