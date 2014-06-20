@@ -16,4 +16,6 @@ notifications:
 
 env:
   global:
-    - DISPLAY=:99.0
+     - R_CHECK_ARGS="--as-cran"
+     - DISPLAY=:99.0
+     - BOOTSTRAP_LATEX=1
