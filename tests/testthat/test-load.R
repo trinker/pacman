@@ -23,10 +23,10 @@ test_that("p_load works for a character vector", {
 
 test_that("p_load works for individual string inputs", {
     success <- c(MASS=TRUE, pacman=TRUE)
-    #expect_equal(p_load("MASS", "pacman"), success)
+    expect_equal(p_load("MASS", "pacman"), success)
 })
 
 test_that("p_load works for individual non-string inputs", {
     success <- c(MASS=TRUE, pacman=TRUE)
-    #expect_equal(p_load(MASS, pacman), success)
+    expect_equal(p_load(MASS, pacman), success)
 })
