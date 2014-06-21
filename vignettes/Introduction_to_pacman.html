@@ -164,6 +164,120 @@ hr {
 
 <p>Function names in the pacman package follow the format of <code>p_xxx</code> where &#39;xxx&#39; is the task the function performs.  For instance the <code>p_load</code> function allows the user to load one or more packages as a more generic substitute for the <code>library</code> or <code>require</code> functions and if the package isn&#39;t available locally it will install it for you.</p>
 
+<h2>Installing, Loading, Unloading, Updating, &amp; Deleting</h2>
+
+<p>-Intro here- </p>
+
+<p><strong>Quick Reference</strong> -Need to add better table styling-</p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_load</code></td>
+<td><code>install.packages</code> + <code>library</code></td>
+<td>Loads and Install Packages</td>
+</tr>
+<tr>
+<td><code>p_install</code></td>
+<td><code>install.packages</code></td>
+<td>Install Packages from CRAN</td>
+</tr>
+<tr>
+<td><code>p_temp</code></td>
+<td>NONE</td>
+<td>Install a Package Temporarily</td>
+</tr>
+<tr>
+<td><code>p_unload</code></td>
+<td><code>detach</code></td>
+<td>Unloads Packages from the Search Path</td>
+</tr>
+<tr>
+<td><code>p_update</code></td>
+<td><code>update.packages</code></td>
+<td>Update Out-of-Date Packages</td>
+</tr>
+</tbody></table>
+
+<h3>Installing and Loading</h3>
+
+<ul>
+<li><code>p_load</code> </li>
+<li><code>p_install</code>/<code>p_get</code></li>
+<li><code>p_temp</code></li>
+</ul>
+
+<h3>Unloading*</h3>
+
+<ul>
+<li><code>p_unload</code></li>
+</ul>
+
+<h3>Updating</h3>
+
+<ul>
+<li><code>p_up</code>/<code>p_update</code></li>
+</ul>
+
+<h3>Deleting</h3>
+
+<ul>
+<li><code>p_del</code>/<code>p_delete</code></li>
+</ul>
+
+<h2>Session Information</h2>
+
+<ul>
+<li><code>p_loaded</code></li>
+</ul>
+
+<h2>Local Package Information</h2>
+
+<ul>
+<li> <code>p_author</code></li>
+<li> <code>p_cite</code>/<code>p_citation</code></li>
+<li> <code>p_data</code></li>
+<li> <code>p_exists</code></li>
+<li> <code>p_funs</code>/<code>p_functions</code></li>
+<li> <code>p_help</code></li>
+<li> <code>p_info</code>/<code>p_information</code></li>
+<li> <code>p_inter</code>/<code>p_interactive</code></li>
+<li> <code>p_isloaded</code></li>
+<li> <code>p_news</code></li>
+<li> <code>p_ver</code>/<code>p_version</code></li>
+<li> <code>p_vign</code>/<code>p_vignette</code></li>
+</ul>
+
+<h2>Internet Based Package Information</h2>
+
+<ul>
+<li> <code>p_cran</code></li>
+<li> <code>p_search_any</code>/<code>p_sa</code></li>
+</ul>
+
+<h2>Library Information</h2>
+
+<ul>
+<li><code>p_base</code></li>
+<li><code>p_lib</code>/<code>p_library</code></li>
+<li><code>p_path</code></li>
+<li><code>p_sl</code>/<code>p_search_library</code></li>
+<li><code>p_unlock</code></li>
+</ul>
+
+<h2>pacman Tools</h2>
+
+<ul>
+<li><code>p_detectOS</code><br/></li>
+<li><code>p_isglobal</code><br/></li>
+<li><code>p_opendir</code><br/></li>
+</ul>
+
 <h2>References</h2>
 
 </body>

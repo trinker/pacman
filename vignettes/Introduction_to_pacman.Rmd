@@ -28,7 +28,78 @@ uri_embed("r_pacman.png",
 
 Function names in the pacman package follow the format of `p_xxx` where 'xxx' is the task the function performs.  For instance the `p_load` function allows the user to load one or more packages as a more generic substitute for the `library` or `require` functions and if the package isn't available locally it will install it for you.
 
+## Installing, Loading, Unloading, Updating, & Deleting   
 
+-Intro here- 
+
+**Quick Reference** -Need to add better table styling-
+
+| pacman Function | Base Equivalent | Description |
+|----------------------|----------------------|----------------|
+| `p_load`  |  `install.packages` + `library` | Loads and Install Packages |
+| `p_install` |  `install.packages` | Install Packages from CRAN |
+| `p_temp` |  NONE | Install a Package Temporarily |
+| `p_unload` | `detach` | Unloads Packages from the Search Path |
+| `p_update` | `update.packages` | Update Out-of-Date Packages |
+
+
+
+### Installing and Loading    
+
+- `p_load` 
+- `p_install`/`p_get`
+- `p_temp`
+       
+###  Unloading*
+
+- `p_unload`
+
+### Updating    
+  
+- `p_up`/`p_update`
+
+### Deleting   
+  
+- `p_del`/`p_delete`
+
+## Session Information    
+
+- ` p_loaded`
+
+##  Local Package Information    
+
+-  `p_author`
+-  `p_cite`/`p_citation`
+-  `p_data`
+-  `p_exists`
+-  `p_funs`/`p_functions`
+-  `p_help`
+-  `p_info`/`p_information`
+-  `p_inter`/`p_interactive`
+-  `p_isloaded`
+-  `p_news`
+-  `p_ver`/`p_version`
+-  `p_vign`/`p_vignette`
+
+
+## Internet Based Package Information  
+
+-  `p_cran`
+-  `p_search_any`/`p_sa`
+
+## Library Information     
+
+- `p_base`
+- `p_lib`/`p_library`
+- `p_path`
+- `p_sl`/`p_search_library`
+- `p_unlock`
+
+## pacman Tools   
+
+- `p_detectOS`    
+- `p_isglobal`    
+- `p_opendir`   
 
 
 ## References
