@@ -4,11 +4,6 @@
 # This file is designed to hold small scripts associated with #
 # internal pacman maintenance tasks.                          #
 ###############################################################
-#========
-# BUILD
-#========
-source("inst/build.R")
-
 #==========================
 # Run unit tests
 #==========================

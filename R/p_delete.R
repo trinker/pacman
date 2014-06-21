@@ -4,6 +4,15 @@
 #' 
 #' @rdname p_delete
 #' @param \ldots name(s) of package(s).
+#' @param char Character vector containing packages to load.  If you are calling
+#' \code{p_delete} from within a function (or just having difficulties calling it 
+#' using a character vector input) then pass your character vector of packages 
+#' to load to this parameter directly.
+#' @param character.only logical. If \code{TRUE} then \code{p_load} will only 
+#' accept a single input which is a character vector containing the names of 
+#' packages to load.
+#' @param quiet logical. Passed to \code{print.p_delete} as an attribute.  If 
+#' \code{TRUE} no messages confirming package deletions are printed.
 #' @section Warning:
 #' Using this function will remove the package from your 
 #' library and cannot be loaded again without reinstalling the package.
@@ -14,7 +23,7 @@
 #' \dontrun{
 #' p_delete(pacman) # You never want to run this
 #' }
-p_delete <- function (..., char, character.only = FALSE){ 
+p_delete <- function (..., char, character.only = FALSE, quiet = FALSE){ 
 
     if(!missing(char)){
         packages <- char
@@ -29,10 +38,38 @@ p_delete <- function (..., char, character.only = FALSE){
 	
     meta_df <- do.call(rbind, meta_list)
 	
+	## Create a class and add the quiet attribute to pass to print method
+	class(meta_df) <- c("p_delete", class(meta_df))
+	attributes(meta_df)[["quiet"]] <- quiet
+	
+	meta_df
+}
+
+
+#' @rdname p_delete
+#' @export
+p_del <- p_delete
+
+
+#' Prints a p_delete Object
+#' 
+#' Prints a p_delete object.
+#' 
+#' @param x The p_delete object.
+#' @param quiet logical. If \code{TRUE} no messages confirming package deletions 
+#' are printed.
+#' @param \ldots ignored
+#' @method print p_delete
+#' @export
+print.p_delete <- function(x, quiet = NULL, ...){
+	
+	if (is.null(quiet)) quiet <- attributes(x)[["quiet"]]
+	if (quiet) return(NULL)
+	
     ## Message about not package or base package not being removed
-    if (any(!meta_df[["can_delete"]])) {
+    if (any(!x[["can_delete"]])) {
     	
-    	not_rm <- meta_df[!is.na(meta_df[["type"]]), ]
+    	not_rm <- x[!is.na(x[["type"]]), ]
     	bases <- not_rm[["type"]] == "base package"
         not_insts <- not_rm[["type"]] == "not installed"
 
@@ -51,13 +88,8 @@ p_delete <- function (..., char, character.only = FALSE){
     }
 
     ## Message about deleted files
-    if (any(meta_df[["can_delete"]])) {
+    if (any(x[["can_delete"]])) {
         message("The following packages have been deleted:\n",  
-            paste(meta_df[meta_df[["can_delete"]], "package"], collapse = ", "))
+            paste(x[x[["can_delete"]], "package"], collapse = ", "))
     }
 }
-
-
-#' @rdname p_delete
-#' @export
-p_del <- p_delete

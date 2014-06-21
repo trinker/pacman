@@ -4,12 +4,24 @@
 \alias{p_delete}
 \title{Permanently Remove Package Removal(s) From Library}
 \usage{
-p_delete(..., char, character.only = FALSE)
+p_delete(..., char, character.only = FALSE, quiet = FALSE)
 
-p_del(..., char, character.only = FALSE)
+p_del(..., char, character.only = FALSE, quiet = FALSE)
 }
 \arguments{
 \item{\ldots}{name(s) of package(s).}
+
+\item{char}{Character vector containing packages to load.  If you are calling
+\code{p_delete} from within a function (or just having difficulties calling it
+using a character vector input) then pass your character vector of packages
+to load to this parameter directly.}
+
+\item{character.only}{logical. If \code{TRUE} then \code{p_load} will only
+accept a single input which is a character vector containing the names of
+packages to load.}
+
+\item{quiet}{logical. Passed to \code{print.p_delete} as an attribute.  If
+\code{TRUE} no messages confirming package deletions are printed.}
 }
 \description{
 Remove package(s) from the library permanently.
