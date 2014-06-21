@@ -28,6 +28,10 @@ uri_embed("r_pacman.png",
 ```
 
 
+Function names in the pacman package follow the format of `p_xxx` where 'xxx' is the task the function performs.  For instance the `p_load` function allows the user to load one or more packages as a more generic substitute for the `library` or `require` functions and if the package isn't available locally it will install it for you.
+
+## Installing, Loading, Unloading, Updating, & Deleting   
+
 **Quick Reference Table** 
 
 | pacman Function | Base Equivalent | Description |
@@ -37,11 +41,6 @@ uri_embed("r_pacman.png",
 | `p_temp` |  NONE | Install a Package Temporarily |
 | `p_unload` | `detach` | Unloads Packages from the Search Path |
 | `p_update` | `update.packages` | Update Out-of-Date Packages |
-
-
-Function names in the pacman package follow the format of `p_xxx` where 'xxx' is the task the function performs.  For instance the `p_load` function allows the user to load one or more packages as a more generic substitute for the `library` or `require` functions and if the package isn't available locally it will install it for you.
-
-## Installing, Loading, Unloading, Updating, & Deleting   
 
 The heart of **pacman** is it's ability to reduce typing in package management actions.  The functions in this section greatly reduce typing and increase code readability.  For example, many blog posts begin coding with this sort of package call:
 
