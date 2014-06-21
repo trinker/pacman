@@ -1,4 +1,4 @@
-#' Install a package temporarily
+#' Install a Package Temporarily
 #' 
 #' Installs and loads a package for the current session.
 #' The package won't be available in future sessions and will
@@ -6,8 +6,8 @@
 #' effort needed by the user.  This will also install the necessary
 #' dependencies temporarily as well.
 #' 
-#' @param package - The package we want to install temporarily
-#' @param character.only Logical - Is the input a character string?
+#' @param package The package we want to install temporarily
+#' @param character.only logical. Is the input a character string?
 #' 
 #' @export
 #' @author Idea from juba at stackoverflow.  See references.

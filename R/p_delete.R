@@ -25,7 +25,7 @@
 #' \dontrun{
 #' p_delete(pacman) # You never want to run this
 #' }
-p_delete <- function (..., char, character.only = FALSE, quiet = !is.global(2)){ 
+p_delete <- function (..., char, character.only = FALSE, quiet = !p_global(2)){ 
 
     if(!missing(char)){
         packages <- char
