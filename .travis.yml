@@ -8,6 +8,7 @@ install:
   - sh -e /etc/init.d/xvfb start
   - ./travis-tool.sh aptget_install r-cran-xml 
   - ./travis-tool.sh install_deps
+  - ./travis-tool.sh r_binary_install MASS
 script: ./travis-tool.sh run_tests  
 notifications:
   email:

@@ -1,5 +1,6 @@
 library("testthat")
 library("pacman")
+library("MASS")
 options(repos="http://cran.rstudio.com/")
 
 
