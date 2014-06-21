@@ -14,7 +14,9 @@
 #' function will take some time as the function 
 #' is searching thousands of packages via CRAN's website.
 #' @references \url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
+#' \url{http://stackoverflow.com/a/10082624/1000343}   
 #' @keywords author package search
+#' @author BondedDust (stackoverflow.com) and Tyler Rinker <tyler.rinker@@gmail.com>
 #' @export
 #' @examples
 #' \dontrun{

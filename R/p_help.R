@@ -12,6 +12,7 @@
 #' @keywords help manual package
 #' @seealso \code{\link[utils]{help}}
 #' @export
+#' @references \url{http://r.789695.n4.nabble.com/Opening-package-manual-from-within-R-td3763938.html}
 #' @examples
 #' \dontrun{
 #' p_help()

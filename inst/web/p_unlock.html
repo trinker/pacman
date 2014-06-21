@@ -48,31 +48,34 @@
       <dd>Path to library location.</dd>
     </dl>
     
+    <div class="Delete 00LOCK Directory">
+      <h2>Delete 00LOCK Directory</h2>
+      
+    </div>
+
     <div class="Value">
       <h2>Value</h2>
       
-      <p>Attempts to delete a 00LOCK(s) if it exists.  Returns
-logical <code>TRUE</code> if a 00LOCK existed and <code>FALSE</code> if
-not.</p>
+      <p>Attempts to delete a 00LOCK(s) if it exists.  Returns logical
+<code>TRUE</code> if a 00LOCK existed and <code>FALSE</code> if not.</p>
   
     </div>
 
     <div class="Description">
       <h2>Description</h2>
       
-      <p>Deletes the 00LOCK directory left accidentally left behind
-by fail in <code><a href='http://www.inside-r.org/r-doc/utils/install.packages'>install.packages</a></code>.</p>
+      <p>Deletes the 00LOCK directory left accidentally left behind by fail in
+<code><a href='http://www.inside-r.org/r-doc/utils/install.packages'>install.packages</a></code>.</p>
   
     </div>
 
     <div class="Details">
       <h2>Details</h2>
       
-      <p>Sometimes <code><a href='http://www.inside-r.org/r-doc/utils/install.packages'>install.packages</a></code> can "fail
-so badly that the lock directory is not removed: this
-inhibits any further installs to the library directory (or
-for --pkglock, of the package) until the lock directory is
-removed manually."  <code>p_unlock</code> deletes the directory
+      <p>Sometimes <code><a href='http://www.inside-r.org/r-doc/utils/install.packages'>install.packages</a></code> can "fail so badly
+that the lock directory is not removed: this inhibits any further installs to
+the library directory (or for --pkglock, of the package) until the lock
+directory is removed manually."  <code>p_unlock</code> deletes the directory
 00LOCK that is left behind.</p>
   
     </div>

@@ -9,23 +9,26 @@
 #==========================
 devtools::test()
 
-#==========================
-#staticdocs current version
-#==========================
+#======================
+#staticdocs dev version
+#======================
 #packages
-library(highlight); library(qdap); library(staticdocs); library(acc.roxygen2)
+# library(devtools); install_github("qdap", "trinker"); install_github("staticdocs", "hadley")
+# install_github("acc.roxygen2", "trinker")
+library(highlight); library(staticdocs)
 
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
 #in the future qdap2 will be the go to source
-build_site(pkg="C:/Users/trinker/GitHub/pacman")
+build_site(pkg="C:/Users/trinker/GitHub/pacman",launch = FALSE)
+library(qdap); library(acc.roxygen2)
 
 #STEP 2: reshape index
 path <- "inst/web"
-path2 <- file.path(path, "index.html")
+path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/pacman/inst/extra_statdoc/readme.R"
-extras <- qcv(p_cite, p_del, p_funs, p_info, p_inter, p_lib, p_sa, p_sl, p_vign,
-	p_up, p_ver)
+extras <- qcv(p_del, p_up, p_get, p_cite, p_funs, p_info, p_inter, p_ver, p_vign, 
+	p_sa, p_sl, p_lib)
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
 x <- readLines(path2)
@@ -38,12 +41,50 @@ cat(paste(x, collapse="\n"), file=path2)
 
 #STEP 3: move to trinker.guthub
 library(reports)
-file <- "C:/Users/trinker/GitHub/trinker.github.com/"
+file <- "C:/Users/trinker/GitHub/trinker.github.com"
+incoming <- file.path(file, "pacman_dev")
+delete(incoming)
+file.copy(path, file, TRUE, TRUE)
+file.rename(file.path(file, "web"), incoming)
+
+#==========================
+#staticdocs current version
+#==========================
+#packages
+# library(devtools); install_github("qdap", "trinker"); install_github("staticdocs", "hadley")
+# install_github("acc.roxygen2", "trinker")
+library(highlight); library(staticdocs)
+
+#STEP 1: create static doc  
+#right now examples are FALSE in the future this will be true
+#in the future qdap2 will be the go to source
+build_site(pkg="C:/Users/trinker/GitHub/pacman",launch = FALSE)
+library(qdap); library(acc.roxygen2)
+
+#STEP 2: reshape index
+path <- "inst/web"
+path2 <- file.path(path, "/index.html")
+rdme <- "C:/Users/trinker/GitHub/pacman/inst/extra_statdoc/readme.R"
+extras <- qcv(p_del, p_up, p_get, p_cite, p_funs, p_info, p_inter, p_ver, p_vign, 
+	p_sa, p_sl, p_lib)
+expand_statdoc(path2, to.icon = extras, readme = rdme)
+
+x <- readLines(path2)
+x[grepl("<h2>Authors</h2>", x)] <- paste(c("<h2>Author</h2>", 
+    rep("<h2>Author</h2>", 1)),
+    c("Tyler W. Rinker", "Dason Kurkiewicz"))
+
+cat(paste(x, collapse="\n"), file=path2)
+
+
+#STEP 3: move to trinker.guthub
+library(reports)
+file <- "C:/Users/trinker/GitHub/trinker.github.com"
 incoming <- file.path(file, "pacman")
 delete(incoming)
 file.copy(path, file, TRUE, TRUE)
 file.rename(file.path(file, "web"), incoming)
-delete(path)
+
 
 
 #====================================

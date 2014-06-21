@@ -30,7 +30,9 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 
 ## Help
 
-[Package PDF Help Manual](https://dl.dropbox.com/u/61803503/pacman.pdf)   
+[Web Page](http://trinker.github.com/pacman/)       
+[HTML Vignette: Introduction to qdap](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html) [Incomplete]    
+[Package PDF Help Manual](https://dl.dropbox.com/u/61803503/pacman.pdf)      
 
 ## Contact
 

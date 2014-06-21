@@ -40,15 +40,34 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>p_delete(...)</div>
-<div>p_del(...)</div></pre>
+    <pre><div>p_delete(..., char, character.only&nbsp;=&nbsp;FALSE, quiet&nbsp;=&nbsp;!p_isglobal(2))</div>
+<div>p_del(..., char, character.only&nbsp;=&nbsp;FALSE, quiet&nbsp;=&nbsp;!p_isglobal(2))</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>...</dt>
       <dd>name(s) of package(s).</dd>
+      <dt>char</dt>
+      <dd>Character vector containing packages to load.  If you are calling
+<code>p_delete</code> from within a function (or just having difficulties calling it
+using a character vector input) then pass your character vector of packages
+to load to this parameter directly.</dd>
+      <dt>character.only</dt>
+      <dd>logical. If <code>TRUE</code> then <code>p_load</code> will only
+accept a single input which is a character vector containing the names of
+packages to load.</dd>
+      <dt>quiet</dt>
+      <dd>logical. Passed to <code>print.p_delete</code> as an attribute.  If
+<code>TRUE</code> no messages confirming package deletions are printed.  The
+default is to test if <code>p_delete</code> is being used in the global
+environment, if it is then the messages will be printed.</dd>
     </dl>
     
+    <div class="Permanently Remove Package Removal(s) From Library">
+      <h2>Permanently Remove Package Removal(s) From Library</h2>
+      
+    </div>
+
     <div class="Description">
       <h2>Description</h2>
       
@@ -59,9 +78,10 @@
     <div class="Warning">
       <h2>Warning</h2>
       
+      <p></p>
+  
       <p>Using this function will remove the package from your
-  library and cannot be loaded again without reinstalling
-  the package.</p>
+library and cannot be loaded again without reinstalling the package.</p>
   
     </div>
     

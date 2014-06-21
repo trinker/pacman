@@ -46,31 +46,32 @@
     <h2>Arguments</h2>
     <dl>
       <dt>...</dt>
-      <dd>Optional package names.  Adding package
-  names will check their individual load status.</dd>
+      <dd>Optional package names.  Adding package names will check their
+individual load status.</dd>
       <dt>all</dt>
-      <dd>logical.  If <code>TRUE</code> will show all
-  packages including base install; <code>FALSE</code> will show
-  all packages excluding base install packages that install
-  when R loads.</dd>
+      <dd>logical.  If <code>TRUE</code> will show all packages
+including base install; <code>FALSE</code> will show all packages
+excluding base install packages that install when R loads.</dd>
       <dt>char</dt>
-      <dd>Character vector containing packages to load.
-  If you are calling <code>p_loaded</code> from within a function
-  (or just having difficulties calling it using a character
-  vector input) then pass your character vector of packages
-  to load to this parameter directly.</dd>
+      <dd>Character vector containing packages to load.  If you are calling
+<code>p_loaded</code> from within a function (or just having difficulties calling it
+using a character vector input) then pass your character vector of packages
+to load to this parameter directly.</dd>
       <dt>character.only</dt>
-      <dd>logical. If <code>TRUE</code> then
-  <code>p_loaded</code> will only accept a single input which is
-  a character vector containing the names of packages to
-  load.</dd>
+      <dd>logical. If <code>TRUE</code> then <code>p_loaded</code> will only
+accept a single input which is a character vector containing the names of
+packages to load.</dd>
     </dl>
     
+    <div class="Check for Loaded Packages">
+      <h2>Check for Loaded Packages</h2>
+      
+    </div>
+
     <div class="Description">
       <h2>Description</h2>
       
-      <p><code>p_loaded</code> - Output is a character string of loaded
-packages.</p>
+      <p><code>p_loaded</code> - Output is a character string of loaded packages.</p>
   
       <p><code>p_isloaded</code> - Check if package(s) is loaded.</p>
   
@@ -81,9 +82,9 @@ packages.</p>
 # p_load(lattice, ggplot2)## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 p_loaded()
 </div>
-<div class='output'> [1] &quot;pacman&quot;           &quot;acc.roxygen2&quot;     &quot;staticdocs&quot;       &quot;highlight&quot;        &quot;reports&quot;         
- [6] &quot;roxygen2&quot;         &quot;devtools&quot;         &quot;qdap&quot;             &quot;RColorBrewer&quot;     &quot;qdapDictionaries&quot;
-[11] &quot;ggplot2&quot;         
+<div class='output'> [1] &quot;pacman&quot;           &quot;knitr&quot;            &quot;acc.roxygen2&quot;     &quot;staticdocs&quot;       &quot;highlight&quot;        &quot;reports&quot;         
+ [7] &quot;roxygen2&quot;         &quot;devtools&quot;         &quot;qdap&quot;             &quot;RColorBrewer&quot;     &quot;qdapTools&quot;        &quot;qdapDictionaries&quot;
+[13] &quot;ggplot2&quot;         
 </div>
 <div class='input'>p_loaded(all=TRUE)
 </div>

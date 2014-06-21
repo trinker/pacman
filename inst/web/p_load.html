@@ -47,32 +47,34 @@
       <dt>...</dt>
       <dd>name(s) of package(s).</dd>
       <dt>char</dt>
-      <dd>Character vector containing packages to load.
-  If you are calling <code>p_load</code> from within a function
-  (or just having difficulties calling it using a character
-  vector input) then pass your character vector of packages
-  to load to this parameter directly.</dd>
+      <dd>Character vector containing packages to load.  If you are calling
+<code>p_load</code> from within a function (or just having difficulties calling it
+using a character vector input) then pass your character vector of packages
+to load to this parameter directly.</dd>
       <dt>install</dt>
-      <dd>logical.  If <code>TRUE</code> will attempt to
-  install a package not found in the library.</dd>
+      <dd>logical.  If <code>TRUE</code> will attempt to install a package not
+found in the library.</dd>
       <dt>update</dt>
-      <dd>logical.  If <code>TRUE</code> will attempt to
-  update all out of date packages.  Default allows the user
-  to set a <code>"pac_update"</code> in his/her .Rprofile.</dd>
+      <dd>logical.  If <code>TRUE</code> will attempt to update all out of date
+packages.  Default allows the user to set a <code>"pac_update"</code> in his/her
+.Rprofile.</dd>
       <dt>character.only</dt>
-      <dd>logical. If <code>TRUE</code> then
-  <code>p_load</code> will only accept a single input which is a
-  character vector containing the names of packages to
-  load.</dd>
+      <dd>logical. If <code>TRUE</code> then <code>p_load</code> will only
+accept a single input which is a character vector containing the names of
+packages to load.</dd>
     </dl>
     
+    <div class="Load one or more packages">
+      <h2>Load one or more packages</h2>
+      
+    </div>
+
     <div class="Description">
       <h2>Description</h2>
       
-      <p>This function is a wrapper for library and require.  It
-checks to see if a package is installed, if not it attempts
-to install the package from CRAN and/or any other
-repository in the pacman repository list.</p>
+      <p>This function is a wrapper for library and require.  It checks to see if a
+package is installed, if not it attempts to install the package from CRAN
+and/or any other repository in the pacman repository list.</p>
   
     </div>
     
@@ -89,7 +91,8 @@ repository in the pacman repository list.</p>
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/r-doc/base/library'>library</a></code>, <code><a href='http://www.inside-r.org/r-doc/base/library'>require</a></code>,
+<code><a href='http://www.inside-r.org/r-doc/base/library'>library</a></code>,
+<code><a href='http://www.inside-r.org/r-doc/base/library'>require</a></code>,
 <code><a href='http://www.inside-r.org/r-doc/utils/install.packages'>install.packages</a></code>
 
         

@@ -45,10 +45,14 @@
     <h2>Arguments</h2>
     <dl>
       <dt>package</dt>
-      <dd>Name of package (default is to see news
-  for R).</dd>
+      <dd>Name of package (default is to see news for R).</dd>
     </dl>
     
+    <div class="Package/R News">
+      <h2>Package/R News</h2>
+      
+    </div>
+
     <div class="Description">
       <h2>Description</h2>
       
@@ -59,7 +63,569 @@
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'>p_news()
 </div>
-<div class='output'>Changes in version 3.0.3:
+<div class='output'>Changes in version 3.1.0:
+
+NEW FEATURES
+
+    o   type.convert() (and hence by default read.table()) returns a
+	 character vector or factor when representing a numeric input as a
+	 double would lose accuracy.  Similarly for complex inputs.
+	
+	 If a file contains numeric data with unrepresentable numbers of
+	 decimal places that are intended to be read as numeric, specify
+	 colClasses in read.table() to be &quot;numeric&quot;.
+
+    o   tools::Rdiff(useDiff = FALSE) is closer to the POSIX definition of
+	 diff -b (as distinct from the description in the man pages of most
+	 systems).
+
+    o   New function anyNA(), a version of any(is.na(.)) which is fast for
+	 atomic vectors, based on a proposal by Tim Hesterberg. (Wish of
+	 PR#15239.)
+
+    o   arrayInd(*, useNames = TRUE) and, analogously, which(*, arr.ind =
+	 TRUE) now make use of names(.dimnames) when available.
+
+    o   is.unsorted() now also works for raw vectors.
+
+    o   The &quot;table&quot; method for as.data.frame() (also useful as
+	 as.data.frame.table()) now passes sep and base arguments to
+	 provideDimnames().
+
+    o   uniroot() gets new optional arguments, notably extendInt, allowing
+	 to auto-extend the search interval when needed.  The return value
+	 has an extra component, init.it.
+
+    o   switch(f, ...) now warns when f is a factor, as this typically
+	 happens accidentally where the useR meant to pass a character
+	 string, but f is treated as integer (as always documented).
+
+    o   The parser has been modified to use less memory.
+
+    o   The way the unary operators (+ - !) handle attributes is now more
+	 consistent.  If there is no coercion, all attributes (including
+	 class) are copied from the input to the result: otherwise only
+	 names, dims and dimnames are.
+
+    o   colorRamp() and colorRampPalette() now allow non-opaque colours and
+	 a ramp in opacity via the new argument alpha = TRUE.  (Suggested by
+	 Alberto Krone-Martins, but optionally as there are existing uses
+	 which expect only RGB values.)
+
+    o   grid.show.layout() and grid.show.viewport() get an optional vp.ex
+	 argument.
+
+    o   There is a new function find_gs_cmd() in the tools package to locate
+	 a GhostScript executable.  (This is an enhanced version of a
+	 previously internal function there.)
+
+    o   object.size() gains a format() method.
+
+    o   There is a new family, &quot;ArialMT&quot;, for the pdf() and postscript()
+	 devices.  This will only be rendered correctly on viewers which
+	 have access to Monotype TrueType fonts (which are sometimes
+	 requested by journals).
+
+    o   The text and PDF news files, including NEWS and NEWS.2, have been
+	 moved to the doc directory.
+
+    o   combn(x, simplify = TRUE) now gives a factor result for factor input
+	 x (previously user error).  (Related to PR#15442.)
+
+    o   Added utils::fileSnapshot() and utils::changedFiles() functions to
+	 allow snapshots and comparison of directories of files.
+
+    o   make.names(names, unique=TRUE) now tries to preserve existing names.
+	 (Suggestion of PR#15452.)
+
+    o   New functions cospi(x), sinpi(x), and tanpi(x), for more accurate
+	 computation of cos(pi*x), etc, both in R and the C API.  Using
+	 these gains accuracy in some cases, e.g., inside lgamma() or
+	 besselI().  (Suggested by Morten Welinder in PR#15529.)
+
+    o   print.table(x, zero.print = &quot;.&quot;) now also has an effect when x is
+	 not integer-valued.
+
+    o   There is more support to explore the system&#39;s idea of time-zone
+	 names.  Sys.timezone() tries to give the current system setting by
+	 name (and succeeds at least on Linux, OS X, Solaris and Windows),
+	 and OlsonNames() lists the names in the system&#39;s Olson database.
+	 Sys.timezone(location = FALSE) gives the previous behaviour.
+
+    o   Platforms with a 64-bit time_t type are allowed to handle
+	 conversions between the &quot;POSIXct&quot; and &quot;POSIXlt&quot; classes for
+	 date-times outside the 32-bit range (before 1902 or after 2037):
+	 the existing workarounds are used on other platforms.  (Note that
+	 time-zone information for post-2037 is speculative at best, and the
+	 OS services are tested for known errors and so not used on OS X.)
+	
+	 Currently time_t is usually long and hence 64-bit on Unix-alike
+	 64-bit platforms: however it several cases the time-zone database
+	 is 32-bit.  On R for Windows it is 64-bit (for both architectures
+	 as from this version).
+
+    o   The &quot;save.defaults&quot; option can include a value for
+	 compression_level.  (Wish of PR#15579.)
+
+    o   colSums() and friends now have support for arrays and data-frame
+	 columns with 2^31 or more elements.
+
+    o   as.factor() is faster when f is an unclassed integer vector (for
+	 example, when called from tapply()).
+
+    o   fft() now works with longer inputs, from the 12 million previously
+	 supported up to 2 billion.  (PR#15593)
+
+    o   Complex svd() now uses LAPACK subroutine ZGESDD, the complex
+	 analogue of the routine used for the real case.
+
+    o   Sweave now outputs .tex files in UTF-8 if the input encoding is
+	 declared to be UTF-8, regardless of the local encoding.  The UTF-8
+	 encoding may now be declared using a LaTeX comment containing the
+	 string %\SweaveUTF8 on a line by itself.
+
+    o   file.copy() gains a copy.date argument.
+
+    o   Printing of date-times will make use of the time-zone abbreviation
+	 in use at the time, if known.  For example, for Paris pre-1940 this
+	 could be LMT, PMT, WET or WEST.  To enable this, the &quot;POSIXlt&quot;
+	 class has an optional component &quot;zone&quot; recording the abbreviation
+	 for each element.
+	
+	 For platforms which support it, there is also a component &quot;gmtoff&quot;
+	 recording the offset from GMT where known.
+
+    o   (On Windows, by default on OS X and optionally elsewhere.)  The
+	 system C function strftime has been replaced by a more
+	 comprehensive version with closer conformance to the POSIX 2008
+	 standard.
+
+    o   dnorm(x, log = FALSE) is more accurate (but somewhat slower) for |x|
+	 &gt; 5; as suggested in PR#15620.
+
+    o   Some versions of the tiff() device have further compression options.
+
+    o   read.table(), readLines() and scan() have a new argument to
+	 influence the treatment of embedded nuls.
+
+    o   Avoid duplicating the right hand side values in complex assignments
+	 when possible.  This reduces copying of replacement values in
+	 expressions such as Z$a &lt;- a0 and ans[[i]] &lt;- tmp: some package
+	 code has relied on there being copies.
+	
+	 Also, a number of other changes to reduce copying of objects; all
+	 contributed by or based on suggestions by Michael Lawrence.
+
+    o   The fast argument of KalmanLike(), KalmanRun() and KalmanForecast()
+	 has been replaced by update, which instead of updating mod in
+	 place, optionally returns the updated model in an attribute &quot;mod&quot;
+	 of the return value.
+
+    o   arima() and makeARIMA() get a new optional argument SSinit, allowing
+	 the choice of a different *s*tate *s*pace initialization which has
+	 been observed to be more reliable close to non-stationarity: see
+	 PR#14682.
+
+    o   warning() has a new argument noBreaks., to simplify post-processing
+	 of output with options(warn = 1).
+
+    o   pushBack() gains an argument encoding, to support reading of UTF-8
+	 characters using scan(), read.table() and related functions in a
+	 non-UTF-8 locale.
+
+    o   all.equal.list() gets a new argument use.names which by default
+	 labels differing components by names (if they match) rather than by
+	 integer index.  Saved R output in packages may need to be updated.
+
+    o   The methods for all.equal() and attr.all.equal() now have argument
+	 check.attributes after ... so it cannot be partially nor
+	 positionally matched (as it has been, unintentionally).
+	
+	 A side effect is that some previously undetected errors of passing
+	 empty arguments (no object between commas) to all.equal() are
+	 detected and reported.
+	
+	 There are explicit checks that check.attributes is logical,
+	 tolerance is numeric and scale is NULL or numeric.  This catches
+	 some unintended positional matching.
+	
+	 The message for all.equal.numeric() reports a &quot;scaled difference&quot;
+	 only for scale != 1.
+
+    o   all.equal() now has a &quot;POSIXt&quot; method replacing the &quot;POSIXct&quot;
+	 method.
+
+    o   The &quot;Date&quot; and &quot;POSIXt&quot; methods of seq() allows by = &quot;quarter&quot; for
+	 completeness (by = &quot;3 months&quot; always worked).
+
+    o   file.path() removes any trailing separator on Windows, where they
+	 are invalid (although sometimes accepted).  This is intended to
+	 enhance the portability of code written by those using POSIX file
+	 systems (where a trailing / can be used to confine path matching to
+	 directories).
+
+    o   New function agrepl() which like grepl() returns a logical vector.
+
+    o   fifo() is now supported on Windows. (PR#15600)
+
+    o   sort.list(method = &quot;radix&quot;) now allows negative integers (wish of
+	 PR#15644).
+
+    o   Some functionality of print.ts() is now available in .preformat.ts()
+	 for more modularity.
+
+    o   mcparallel() gains an option detach = TRUE which allows execution of
+	 code independently of the current session.  It is based on a new
+	 estranged = TRUE argument to mcfork() which forks child processes
+	 such that they become independent of the parent process.
+
+    o   The pdf() device omits circles and text at extremely small sizes,
+	 since some viewers were failing on such files.
+
+    o   The rightmost break for the &quot;months&quot;, &quot;quarters&quot; and &quot;years&quot; cases
+	 of hist.POSIXlt() has been increased by a day.  (Inter alia, fixes
+	 PR#15717.)
+
+    o   The handling of DF[i,] &lt;- a where i is of length 0 is improved.
+	 (Inter alia, fixes PR#15718.)
+
+    o   hclust() gains a new method &quot;ward.D2&quot; which implements Ward&#39;s method
+	 correctly.  The previous &quot;ward&quot; method is &quot;ward.D&quot; now, with the
+	 old name still working.  Thanks to research and proposals by Pierre
+	 Legendre.
+
+    o   The sunspot.month dataset has been amended and updated from the
+	 official source, whereas the sunspots and sunspot.year datasets
+	 will remain immutable. The documentation and source links have been
+	 updated correspondingly.
+
+    o   The summary() method for &quot;lm&quot; fits warns if the fit is essentially
+	 perfect, as most of the summary may be computed inaccurately (and
+	 with platform-dependent values).
+	
+	 Programmers who use summary() in order to extract just a component
+	 which will be reliable (e.g. $cov.unscaled) should wrap their calls
+	 in suppressWarnings().
+
+INSTALLATION and INCLUDED SOFTWARE
+
+    o   The included version of LAPACK has been updated to 3.5.0.
+
+    o   There is some support for parallel testing of an installation, by
+	 setting TEST_MC_CORES to an integer greater than one to indicate
+	 the maximum number of cores to be used in parallel. (It is worth
+	 specifying at least 8 cores if available.)  Most of these require a
+	 make program (such as GNU make and dmake) which supports the $MAKE
+	 -j nproc syntax.
+	
+	 Except on Windows: the tests of standard package examples in make
+	 check are done in parallel.  This also applies to running
+	 tools::testInstalledPackages().
+	
+	 The more time-consuming regression tests are done in parallel.
+	
+	 The package checks in make check-devel and make check-recommended
+	 are done in parallel.
+
+    o   More of make check will work if recommended packages are not
+	 installed: but recommended packages remain needed for thorough
+	 checking of an R build.
+
+    o   The version of tzcode included in src/extra/tzone has been updated.
+	 (Formerly used only on Windows.)
+
+    o   The included (64-bit) time-zone conversion code and Olson time-zone
+	 database can be used instead of the system version: use configure
+	 option --with-internal-tzcode.  This is the default on Windows and
+	 OS X.  (Note that this does not currently work if a non-default
+	 rsharedir configure variable is used.)
+	
+	 (It might be necessary to set environment variable TZ on OSes where
+	 this is not already set, although the system timezone is deduced
+	 correctly on at least Linux, OS X and Windows.)
+	
+	 This option also switches to the version of strftime included in
+	 directory src/extra/tzone.
+
+    o   configure now tests for a C++11-compliant compiler by testing some
+	 basic features.  This by default tries flags for the compiler
+	 specified by CXX, but an alternative compiler, options and standard
+	 can be specified by variables CXX1X, CXX1XFLAGS and CXX1XSTD (e.g.
+	 -std=gnu++11).
+
+    o   R can now optionally be compiled to use reference counting instead
+	 of the NAMED mechanism by defining SWITCH_TO_REFCNT in
+	 Rinternals.h. This may become the default in the future.
+
+    o   There is a new option --use-system-tre to use a suitable system tre
+	 library: at present this means a version from their git repository,
+	 after corrections.  (Wish of PR#15660.)
+
+PACKAGE INSTALLATION
+
+    o   The CRANextra repository is no longer a default repository on
+	 Windows: all the binary versions of packages from CRAN are now on
+	 CRAN, although CRANextra contains packages from Omegahat and
+	 elsewhere used by CRAN packages.
+
+    o   Only vignettes sources in directory vignettes are considered to be
+	 vignettes and hence indexed as such.
+
+    o   In the DESCRIPTION file,
+	 
+	     License: X11
+	
+	 is no longer recognized as valid.  Use MIT or BSD_2_clause instead,
+	 both of which need + file LICENSE.
+
+    o   For consistency, entries in .Rinstignore are now matched
+	 case-insensitively on all platforms.
+
+    o   Help for S4 methods with very long signatures now tries harder to
+	 split the description in the Usage field to no more than 80
+	 characters per line (some packages had over 120 characters).
+
+    o   R CMD INSTALL --build (not Windows) now defaults to the internal
+	 tar() unless R_INSTALL_TAR is set.
+
+    o   There is support for compiling C++11 code in packages on suitable
+	 platforms: see ‘Writing R Extensions’.
+
+    o   Fake installs now install the contents of directory inst: some
+	 packages use this to install e.g. C++ headers for use by other
+	 packages that are independent of the package itself.  Option
+	 --no-inst can be used to get the previous behaviour.
+
+DEBUGGING
+
+    o   The behaviour of the code browser has been made more consistent, in
+	 part following the suggestions in PR#14985.
+
+    o   Calls to browser() are now consistent with calls to the browser
+	 triggered by debug(), in that Enter will default to n rather than
+	 c.
+
+    o   A new browser command s has been added, to “step into” function
+	 calls.
+
+    o   A new browser command f has been added, to “finish” the current loop
+	 or function.
+
+    o   Within the browser, the command help will display a short list of
+	 available commands.
+
+UTILITIES
+
+    o   Only vignettes sources in directory vignettes are considered to be
+	 vignettes by R CMD check.  That has been the preferred location
+	 since R 2.14.0 and is now obligatory.
+
+    o   For consistency, R CMD build now matches entries in .Rbuildignore
+	 and vignettes/.install_extras case-insensitively on all platforms
+	 (not just on Windows).
+
+    o   checkFF() (called by R CMD check by default) can optionally check
+	 foreign function calls for consistency with the registered type and
+	 argument count.  This is the default for R CMD check --as-cran or
+	 can be enabled by setting environment variable _R_CHECK_FF_CALLS_
+	 to registration (but is in any case suppressed by --install=no).
+	 Because this checks calls in which .NAME is an R object and not
+	 just a literal character string, some other problems are detected
+	 for such calls.
+	
+	 Functions suppressForeignCheck() and dontCheck() have been added to
+	 allow package authors to suppress false positive reports.
+
+    o   R CMD check --as-cran warns about a false value of the DESCRIPTION
+	 field BuildVignettes for Open Source packages, and ignores it.  (An
+	 Open Source package needs to have complete sources for its
+	 vignettes which should be usable on a suitably well-equipped
+	 system).
+
+    o   R CMD check --no-rebuild-vignettes is defunct:
+	 R CMD check --no-build-vignettes has been preferred since R 3.0.0.
+
+    o   R CMD build --no-vignettes is defunct:
+	 R CMD build --no-build-vignettes has been preferred since R 3.0.0.
+
+    o   R CMD Sweave and R CMD Stangle now process both Sweave and
+	 non-Sweave vignettes.  The tools::buildVignette() function has been
+	 added to do the same tasks from within R.
+
+    o   The flags returned by R CMD config --ldflags and (where installed)
+	 pkg-config --libs libR are now those needed to link a front-end
+	 against the (shared or static) R library.
+
+    o   Sweave.sty has a new option [inconsolata].
+
+    o   R CMD check customizations such as _R_CHECK_DEPENDS_ONLY_ make
+	 available packages only in LinkingTo only for installation, and not
+	 for loading/runtime tests.
+
+    o   tools::checkFF() reports on .C and .Fortran calls with DUP = FALSE
+	 if argument check_DUP is true.  This is selected by R CMD check by
+	 default.
+
+    o   R CMD check --use-gct can be tuned to garbage-collect less
+	 frequently using gctorture2() _via_ the setting of environment
+	 variable _R_CHECK_GCT_N_.
+
+    o   Where supported, tools::texi2dvi() limits the number of passes tried
+	 to 20.
+
+C-LEVEL FACILITIES
+
+    o   (Windows only) A function R_WaitEvent() has been added (with
+	 declaration in headerR.h) to block execution until the next event
+	 is received by R.
+
+    o   Remapping in the Rmath.h header can be suppressed by defining
+	 R_NO_REMAP_RMATH.
+
+    o   The remapping of rround() in header Rmath.h has been removed: use
+	 fround() instead.
+
+    o   ftrunc() in header Rmath.h is now a wrapper for the C99 function
+	 trunc(), which might as well be used in C code: ftrunc() is still
+	 needed for portable C++ code.
+
+    o   The never-documented remapping of prec() to fprec() in header
+	 Rmath.h has been removed.
+
+    o   The included LAPACK subset now contains ZGESDD and ZGELSD.
+
+    o   The function LENGTH() now checks that it is only applied to vector
+	 arguments.  However, in packages length() should be used. (In R
+	 itself LENGTH() is a macro without the function overhead of
+	 length().)
+
+    o   Calls to SET_VECTOR_ELT() and SET_STRING_ELT() are now checked for
+	 indices which are in-range: several packages were writing one
+	 element beyond the allocated length.
+
+    o   allocVector3 has been added which allows custom allocators to be
+	 used for individual vector allocations.
+
+DEPRECATED AND DEFUNCT
+
+    o   chol(pivot = TRUE, LINPACK = TRUE) is defunct.
+	
+	 Arguments EISPACK for eigen() and LINPACK for chol(), chol2inv(),
+	 solve() and svd() are ignored: LAPACK is always used.
+
+    o   .find.package() and .path.package() are defunct: only the versions
+	 without the initial dot introduced in R 2.13.0 have ever been in
+	 the API.
+
+    o   Partial matching when using the $ operator _on data frames_ now
+	 throws a warning and may become defunct in the future. If partial
+	 matching is intended, replace foo$bar by foo[[&quot;bar&quot;, exact =
+	 FALSE]].
+
+    o   The long-deprecated use of \synopsis in the Usage section of .Rd
+	 files has been removed: such sections are now ignored (with a
+	 warning).
+
+    o   package.skeleton()&#39;s deprecated argument namespace has been removed.
+
+    o   Many methods are no longer exported by package stats.  They are all
+	 registered on their generic, which should be called rather than
+	 calling a method directly.
+
+    o   Functions readNEWS() and checkNEWS() in package tools are defunct.
+
+    o   download.file(method = &quot;lynx&quot;) is deprecated.
+
+    o   .C(DUP = FALSE) and .Fortran(DUP = FALSE) are now deprecated, and
+	 may be disabled in future versions of R.  As their help has long
+	 said, .Call() is much preferred.
+	
+	 R CMD check notes such usages (by default).
+
+    o   The workaround of setting R_OSX_VALGRIND has been removed: it is not
+	 needed in current valgrind.
+
+BUG FIXES
+
+    o   Calling lm.wfit() with no non-zero weights gave an array-overrun in
+	 the Fortran code and a not very sensible answer.  It is now
+	 special-cased with a simpler answer (no qr component).
+
+    o   Error messages involving non-syntactic names (e.g. as produced by
+	 `\r` when that object does not exist) now encode the control
+	 characters.  (Reported by Hadley Wickham.)
+
+    o   getGraphicsEvent() caused 100% usage of one CPU in Windows.
+	 (PR#15500)
+
+    o   nls() with no start argument may now work inside another function
+	 (scoping issue).
+
+    o   pbeta() and similar work better for very large (billions) ncp.
+
+    o   Where time zones have changed abbreviations over the years, the
+	 software tries to more consistently use the abbreviation
+	 appropriate to the time or if that is unknown, the current
+	 abbreviation.  On some platforms where the C function localtime
+	 changed the tzname variables the reported abbreviation could have
+	 been that of the last time converted.
+
+    o   all.equal(list(1), identity) now works.
+
+    o   Bug fix for pushing viewports in grid (reported by JJ Allaire and
+	 Kevin Ushey).
+	
+	 NOTE for anyone poking around within the graphics engine display
+	 list (despite the warnings not to) that this changes what is
+	 recorded by grid on the graphics engine display list.
+
+    o   Extra checks have been added for unit resolution and conversion in
+	 grid, to catch instances of division-by-zero.  This may introduce
+	 error messages in existing code and/or produce a different result
+	 in existing code (but only where a non-finite location or dimension
+	 may now become zero).
+
+    o   Some bugs in TRE have been corrected by updating from the git
+	 repository.  This allows R to be installed on some platforms for
+	 which this was a blocker (PR#15087 suggests Linux on ARM and
+	 HP-UX).
+
+    o   ? applied to a call to an S4 generic failed in several cases.
+	 (PR#15680)
+
+    o   The implicit S4 generics for primitives with ... in their argument
+	 list were incorrect. (PR#15690)
+
+    o   Bug fixes to methods::callGeneric(). (PR#15691)
+
+    o   The bug fix to aggregrate() in PR#15004 introduced a new bug in the
+	 case of no grouping variables. (PR#15699)
+
+    o   In rare cases printing deeply nested lists overran a buffer by one
+	 byte and on a few platforms segfaulted. (PR#15679)
+
+    o   The dendrogram method of as.dendrogram() was hidden accidentally,
+	 (PR#15703), and order.dendrogram(d) gave too much for a leaf d.
+	 (PR#15702)
+
+    o   R would try to kill processes on exit that have pids ever used by a
+	 child process spawned by mcparallel even though the current process
+	 with that pid was not actually its child.
+
+    o   cophenetic() applied to a &quot;dendrogram&quot; object sometimes incorrectly
+	 returned a &quot;Labels&quot; attribute with dimensions.  (PR#15706)
+
+    o   printCoefmat() called from quite a few print() methods now obeys
+	 small getOption(&quot;width&quot;) settings, line wrapping the &quot;signif.
+	 codes&quot; legend appropriately.  (PR#15708)
+
+    o   model.matrix() assumed that the stored dimnames for a matrix was
+	 NULL or length 2, but length 1 occurred.
+
+    o   The clipping region for a device was sometimes used in base graphics
+	 before it was set.
+
+Changes in version 3.0.3:
 
 NEW FEATURES
 
@@ -1827,44 +2393,42 @@ BUG FIXES
 <div class='input'>p_news(lattice)
 </div>
 <div class='output'>Version: 0.20
-Text: The primary goal of the 0.20 series is to further improve documentation, building up
-          to an eventual 1.0 release.  Specific major changes are given below.
+Text: The primary goal of the 0.20 series is to further improve documentation, building up to an eventual
+           1.0 release.  Specific major changes are given below.
 
 Version: 0.20
-Text: Use dev.hold()/dev.flush() introduced in R 2.14.0 for smoother displays and
-          transition.
+Text: Use dev.hold()/dev.flush() introduced in R 2.14.0 for smoother displays and transition.
 
 Version: 0.20
 Text: It is now easier to use raster images in levelplot() by specifying top-level argument
-          &#39;useRaster=TRUE&#39;.
+           &#39;useRaster=TRUE&#39;.
 
 Version: 0.20
 Text: &#39;pos&#39; can now be a vector in ltext(), just as it can in text().
 
 Version: 0.20
-Text: Explicit components in &#39;colorkey&#39; (for levelplot()) to specify graphical parameters of
-          boundary and tick marks/labels.
+Text: Explicit components in &#39;colorkey&#39; (for levelplot()) to specify graphical parameters of boundary and
+           tick marks/labels.
 
 Version: 0.20
-Text: &quot;spline&quot; added as a possibly &#39;type&#39; in panel.xyplot(), following a suggestion from
-          Patrick Breheny.
+Text: &quot;spline&quot; added as a possibly &#39;type&#39; in panel.xyplot(), following a suggestion from Patrick Breheny.
 
 Version: 0.20
-Text: Support for traditional graphics-like log scale annotation, using
-          &#39;scales=list(equispaced.log = FALSE)&#39;.
+Text: Support for traditional graphics-like log scale annotation, using &#39;scales=list(equispaced.log =
+           FALSE)&#39;.
 
 Version: 0.20
-Text: parallel() deprecated in favour of parallelplot(), to avoid potential confusion with
-          the parallel package.
+Text: parallel() deprecated in favour of parallelplot(), to avoid potential confusion with the parallel
+           package.
 
 Version: 0.20
-Text: The internal lattice.status list is cleaned up whenever new page starts.  This should
-          fix lattice bug #1629.
+Text: The internal lattice.status list is cleaned up whenever new page starts.  This should fix lattice
+           bug #1629.
 
 Version: 0.19
-Text: The primary goal of the 0.19 series is to improve documentation and fix some obscure
-          but long-standing bugs, building up to an eventual 1.0 release.  Specific major
-          changes are given below.
+Text: The primary goal of the 0.19 series is to improve documentation and fix some obscure but
+           long-standing bugs, building up to an eventual 1.0 release.  Specific major changes are given
+           below.
 
 Version: 0.19
 Text: Added new arguments &#39;grid&#39; and &#39;abline&#39; in panel.xyplot().
@@ -1874,7 +2438,7 @@ Text: Added a &quot;panel.background&quot; setting.
 
 Version: 0.19
 Text: Restructured storage of plot-specific information, fixing bug reported in
-          https://stat.ethz.ch/pipermail/r-help/2007-October/143567.html
+           https://stat.ethz.ch/pipermail/r-help/2007-October/143567.html
 
 Version: 0.19
 Text: Added a CITATION file.
@@ -1883,9 +2447,9 @@ Version: 0.19
 Text: Added a new &quot;axis.text&quot; setting.
 
 Version: 0.19
-Text: Added the option to scale data inside panel.3dscatter() and panel.3dwire() rather than
-          assuming ther are already scaled.  This may be helpful for use in user-written
-          panel functions, with (additional) data specified in the original scale.
+Text: Added the option to scale data inside panel.3dscatter() and panel.3dwire() rather than assuming ther
+           are already scaled.  This may be helpful for use in user-written panel functions, with
+           (additional) data specified in the original scale.
 
 Version: 0.19
 Text: &#39;varnames&#39; can now be expressions in splom()/parallel().
@@ -1906,8 +2470,7 @@ Version: 0.19
 Text: par.[main|sub|xlab|ylab].text parameter settings are more powerful.
 
 Version: 0.19
-Text: Added support for &#39;just&#39; component in draw.key() to allow justification of legend
-          placement.
+Text: Added support for &#39;just&#39; component in draw.key() to allow justification of legend placement.
 
 Version: 0.19
 Text: Graphical arguments in panel.superpose can now be lists.
@@ -1934,27 +2497,27 @@ Version: 0.19
 Text: Improved partial matching of component names in &#39;key&#39; and &#39;scales&#39;.
 
 Version: 0.19
-Text: xyplot.ts() now allows graphical parameters to be given as vectors (inside a list) for
-          each series. Passes lists to panel.superpose.
+Text: xyplot.ts() now allows graphical parameters to be given as vectors (inside a list) for each series.
+           Passes lists to panel.superpose.
 
 Version: 0.19
 Text: panel.axis() now does NOT draw tick marks if &#39;ticks = FALSE&#39;.
 
 Version: 0.18
-Text: Hosting of the upstream sources has moved to R-forge.  This allows, among other
-          things, the use of the R-forge issue tracker.
+Text: Hosting of the upstream sources has moved to R-forge.  This allows, among other things, the use of
+           the R-forge issue tracker.
 
 Version: 0.18
-Text: New xyplot.ts method, merging versions previously available in latticeExtra and zoo
-          (thanks to the efforts of Felix Andrews)
+Text: New xyplot.ts method, merging versions previously available in latticeExtra and zoo (thanks to the
+           efforts of Felix Andrews)
 
 Version: 0.18
-Text: An argument &#39;group.value&#39;, containing the level of the group, is now passed by
-          panel.superpose to the &#39;panel.groups&#39; function
+Text: An argument &#39;group.value&#39;, containing the level of the group, is now passed by panel.superpose to
+           the &#39;panel.groups&#39; function
 
 Version: 0.18
-Text: Specifying &#39;auto.key&#39; as a list now produces a legend even in the absence of &#39;groups&#39;,
-          provided a &#39;text&#39; component has been included
+Text: Specifying &#39;auto.key&#39; as a list now produces a legend even in the absence of &#39;groups&#39;, provided a
+           &#39;text&#39; component has been included
 
 Version: 0.18
 Text: The &#39;layout&#39; argument now accepts NA for number of columns or rows.
@@ -1963,36 +2526,36 @@ Version: 0.18
 Text: Scale limits &#39;xlim&#39; &amp; &#39;ylim&#39; can have one NA to fix only one side.
 
 Version: 0.18
-Text: Date and POSIXt scales now use new methods to calculate axis ticks, and now respond to
-          the &#39;tick.number&#39; component of &#39;scales&#39;.
+Text: Date and POSIXt scales now use new methods to calculate axis ticks, and now respond to the
+           &#39;tick.number&#39; component of &#39;scales&#39;.
 
 Version: 0.18
 Text: &#39;panel.qqmath&#39; gains an argument &#39;tails.n&#39; for exact data on tails.
 
 Version: 0.17
 Category: new features
-Text: New function simpleTheme() for creating nested lists without specifying the nesting
-          structure (which is guessed)
+Text: New function simpleTheme() for creating nested lists without specifying the nesting structure (which
+           is guessed)
 
 Version: 0.17
 Category: new features
-Text: Support for lattice.option(print.function) which is the function actually used when
-          print.trellis() is called
+Text: Support for lattice.option(print.function) which is the function actually used when print.trellis()
+           is called
 
 Version: 0.17
 Category: new features
-Text: New argument &#39;box.width&#39; wherever &#39;box.ratio&#39; is available (e.g., panel.bwplot,
-          panel.barchart, etc.), to specify absolute thickness (of boxes, bars, etc.)
+Text: New argument &#39;box.width&#39; wherever &#39;box.ratio&#39; is available (e.g., panel.bwplot, panel.barchart,
+           etc.), to specify absolute thickness (of boxes, bars, etc.)
 
 Version: 0.17
 Category: new features
-Text: New panel.refline() function, same as panel.abline(), but with default parameters from
-          the &quot;reference.line&quot; settings.
+Text: New panel.refline() function, same as panel.abline(), but with default parameters from the
+           &quot;reference.line&quot; settings.
 
 Version: 0.17
 Category: new features
-Text: parallel() has a new &#39;horizontal.axis&#39; argument; when FALSE, the axes are vertical and
-          are stacked side by side.
+Text: parallel() has a new &#39;horizontal.axis&#39; argument; when FALSE, the axes are vertical and are stacked
+           side by side.
 
 Version: 0.17
 Category: new features
@@ -2004,8 +2567,7 @@ Text: dotplot.table() etc. allow change of orientation (horizontal=FALSE).
 
 Version: 0.17
 Category: new features
-Text: New function panel.identify.cloud() to interactively label three-dimensional
-          scatterplots.
+Text: New function panel.identify.cloud() to interactively label three-dimensional scatterplots.
 
 Version: 0.17
 Category: new features
@@ -2013,8 +2575,7 @@ Text: Added support for notches in panel.bwplot (based on patch from Mike Kay)
 
 Version: 0.17
 Category: new features
-Text: New panel function panel.smoothScatter (relocated from Bioconductor package
-          geneplotter)
+Text: New panel function panel.smoothScatter (relocated from Bioconductor package geneplotter)
 
 Version: 0.17
 Category: new features
@@ -2030,16 +2591,14 @@ Text: Make translations available (they were never actually installed before)
 
 Version: 0.16
 Category: changes in behaviour
-Text: &#39;x&#39; in dotplot(~x, data) etc now gets names(x) set to rownames(data).  Update: this
-          feature has now been removed, as the resulting behaviour is undesirable for
-          bwplot()
+Text: &#39;x&#39; in dotplot(~x, data) etc now gets names(x) set to rownames(data).  Update: this feature has now
+           been removed, as the resulting behaviour is undesirable for bwplot()
 
 Version: 0.16
 Category: changes in behaviour
-Text: the &#39;call&#39; component of a &quot;trellis&quot; object is set to a better value than before (at
-          least for the methods in lattice).  One consequence is that update.default() now
-          works for cases in which update.trellis() doesn&#39;t (i.e. those where data packets
-          need to change)
+Text: the &#39;call&#39; component of a &quot;trellis&quot; object is set to a better value than before (at least for the
+           methods in lattice).  One consequence is that update.default() now works for cases in which
+           update.trellis() doesn&#39;t (i.e. those where data packets need to change)
 
 Version: 0.16
 Category: changes in behaviour
@@ -2047,30 +2606,29 @@ Text: barchart.table now has an &#39;horizontal&#39; argument
 
 Version: 0.16
 Category: changes in behaviour
-Text: levelplot.matrix() now allows specification of column labels or positions through
-          arguments &#39;row.values&#39; and &#39;column.values&#39;
+Text: levelplot.matrix() now allows specification of column labels or positions through arguments
+           &#39;row.values&#39; and &#39;column.values&#39;
 
 Version: 0.16
 Category: changes in behaviour
-Text: width calculation for rectangles changed for levelplot() when &#39;x&#39;, &#39;y&#39; are factors;
-          they are set to 1, rather than trying to accomodate unequally spaced &#39;x&#39; and &#39;y&#39;
-          values.  This is important when there are empty levels
+Text: width calculation for rectangles changed for levelplot() when &#39;x&#39;, &#39;y&#39; are factors; they are set to
+           1, rather than trying to accomodate unequally spaced &#39;x&#39; and &#39;y&#39; values.  This is important
+           when there are empty levels
 
 Version: 0.16
 Category: changes in behaviour
-Text: dimnames() of a &quot;trellis&quot; object is now settable (this allows changing names and
-          levels of conditioning variables)
+Text: dimnames() of a &quot;trellis&quot; object is now settable (this allows changing names and levels of
+           conditioning variables)
 
 Version: 0.16
 Category: changes in behaviour
-Text: labels (&#39;xlab&#39;, &#39;main&#39;, etc) can now be character vectors.  In their list form, they
-          support more graphical parameters as well as finer positioning (justification,
-          rotation, etc.)
+Text: labels (&#39;xlab&#39;, &#39;main&#39;, etc) can now be character vectors.  In their list form, they support more
+           graphical parameters as well as finer positioning (justification, rotation, etc.)
 
 Version: 0.16
 Category: changes in behaviour
-Text: &#39;strip.left&#39; gets called with &#39;horizontal = FALSE&#39;, so &#39;strip.left = strip.default&#39;
-          now works as expected
+Text: &#39;strip.left&#39; gets called with &#39;horizontal = FALSE&#39;, so &#39;strip.left = strip.default&#39; now works as
+           expected
 
 Version: 0.15
 Category: new features
@@ -2090,11 +2648,10 @@ Text: Better support for factors in cloud and wireframe
 
 Version: 0.15
 Category: new features
-Text: More flexible placement of legends with x, y and corner.  In particular, corner can
-          have fractional values, and (x, y) can refer to a position w.r.t. two potential
-          bounding boxes depending on lattice.getOption(&quot;legend.bbox&quot;) (&#39;full&#39;, meaning full
-          plot region, or &#39;panel&#39;, meaning the subregion containing panels and strips. The
-          default is &#39;panel&#39;, which is a change in behaiour)
+Text: More flexible placement of legends with x, y and corner.  In particular, corner can have fractional
+           values, and (x, y) can refer to a position w.r.t. two potential bounding boxes depending on
+           lattice.getOption(&quot;legend.bbox&quot;) (&#39;full&#39;, meaning full plot region, or &#39;panel&#39;, meaning the
+           subregion containing panels and strips. The default is &#39;panel&#39;, which is a change in behaiour)
 
 Version: 0.15
 Category: new features
@@ -2106,8 +2663,8 @@ Text: New interaction functions panel.identify.qqmath() and panel.brush.splom()
 
 Version: 0.15
 Category: new features
-Text: There is now an error handling mechanism for panel functions.  By default, errors in
-          panel functions no longer stop execution.  See ?print.trellis for details.
+Text: There is now an error handling mechanism for panel functions.  By default, errors in panel functions
+           no longer stop execution.  See ?print.trellis for details.
 
 Version: 0.15
 Category: changes in behaviour
@@ -2119,9 +2676,9 @@ Text: the default padding between components has been changed to 0.5 &quot;chars
 
 Version: 0.14
 Category: new features
-Text: support for custom function that determines packet-panel correspondence.  This could
-          be used to fill panels vertically rather than horizontally, or to split layout
-          over two or more pages, etc. (see ?packet.panel.default)
+Text: support for custom function that determines packet-panel correspondence.  This could be used to fill
+           panels vertically rather than horizontally, or to split layout over two or more pages, etc.
+           (see ?packet.panel.default)
 
 Version: 0.14
 Category: new features
@@ -2129,14 +2686,14 @@ Text: support for customizable functions for axis drawing and tick/label determi
 
 Version: 0.14
 Category: new features
-Text: various accessor functions available to panel, strip, axis (etc) functions, e.g.
-          panel.number() and packet.number()
+Text: various accessor functions available to panel, strip, axis (etc) functions, e.g. panel.number() and
+           packet.number()
 
 Version: 0.14
 Category: new features
-Text: arguments to lattice.options and print.trellis arguments can now be attached to
-          trellis objects (as parameter settings already could) through high level arguments
-          &#39;lattice.options&#39; and &#39;plot.args&#39;
+Text: arguments to lattice.options and print.trellis arguments can now be attached to trellis objects (as
+           parameter settings already could) through high level arguments &#39;lattice.options&#39; and
+           &#39;plot.args&#39;
 
 Version: 0.14
 Category: new features
@@ -2144,9 +2701,8 @@ Text: llines, lpoints and ltext are now generic functions
 
 Version: 0.14
 Category: new features
-Text: The high level &#39;key&#39; argument can now have an argument called &#39;reverse.rows&#39; to
-          reverse the order of rows.  This applies to &#39;draw.key&#39;, &#39;auto.key&#39; and &#39;simpleKey&#39;
-          as well.
+Text: The high level &#39;key&#39; argument can now have an argument called &#39;reverse.rows&#39; to reverse the order of
+           rows.  This applies to &#39;draw.key&#39;, &#39;auto.key&#39; and &#39;simpleKey&#39; as well.
 
 Version: 0.14
 Category: new features
@@ -2158,19 +2714,17 @@ Text: matrix methods for &#39;splom&#39; and &#39;parallel&#39; (whose absence w
 
 Version: 0.14
 Category: new features
-Text: support of &#39;alpha&#39; argument in labels and legends, which were previously missing for
-          no good reason
+Text: support of &#39;alpha&#39; argument in labels and legends, which were previously missing for no good reason
 
 Version: 0.14
 Category: new features
-Text: panel.grid() now allows &#39;h&#39; and &#39;v&#39; to have negative values other than -1, in which
-          case &#39;-h&#39; and &#39;-v&#39; will be used as the &#39;n&#39; argument to pretty() when determining
-          line locations
+Text: panel.grid() now allows &#39;h&#39; and &#39;v&#39; to have negative values other than -1, in which case &#39;-h&#39; and
+           &#39;-v&#39; will be used as the &#39;n&#39; argument to pretty() when determining line locations
 
 Version: 0.14
 Category: changes in behaviour
-Text: panel function is no longer given arguments panel.number and packet.number (see above
-          for alternatives)
+Text: panel function is no longer given arguments panel.number and packet.number (see above for
+           alternatives)
 
 Version: 0.14
 Category: changes in behaviour
@@ -2178,22 +2732,20 @@ Text: panel.identify() now has a more useful return value (selected subscripts)
 
 Version: 0.14
 Category: changes in behaviour
-Text: trellis.panelArgs() without any arguments should return meaningful results while a
-          &quot;trellis&quot; object is being printed, and thus should be usable inside panel or axis
-          functions.
+Text: trellis.panelArgs() without any arguments should return meaningful results while a &quot;trellis&quot; object
+           is being printed, and thus should be usable inside panel or axis functions.
 
 Version: 0.14
 Category: changes in behaviour
-Text: For formulae of the form y1 + y2 ~ x1 + x2 + x3, the order of levels of the
-          artificially created grouping variable is now more &#39;intuitive&#39;
+Text: For formulae of the form y1 + y2 ~ x1 + x2 + x3, the order of levels of the artificially created
+           grouping variable is now more &#39;intuitive&#39;
 
 Version: 0.13
 Category: new features
-Text: high level generics like &#39;xyplot&#39; now have both &#39;x&#39; and &#39;data&#39; as arguments.  The only
-          implication for S3 methods is that they will have to include the &#39;data&#39; argument
-          even if they are unused (as they should be when &#39;x&#39; is not a formula).  The reason
-          for doing this is to encourage S4 methods using multiple dispatch where &#39;x&#39; is a
-          formula and &#39;data&#39; is some other data source.
+Text: high level generics like &#39;xyplot&#39; now have both &#39;x&#39; and &#39;data&#39; as arguments.  The only implication
+           for S3 methods is that they will have to include the &#39;data&#39; argument even if they are unused
+           (as they should be when &#39;x&#39; is not a formula).  The reason for doing this is to encourage S4
+           methods using multiple dispatch where &#39;x&#39; is a formula and &#39;data&#39; is some other data source.
 
 Version: 0.13
 Category: new features
@@ -2205,9 +2757,9 @@ Text: French translations courtesy of Philippe Grosjean.
 
 Version: 0.13
 Category: new features
-Text: instead of ignoring it as before, &#39;panel.xyplot&#39; and &#39;panel.densityplot&#39; now deal with
-          a &#39;groups&#39; argument appropriately by calling &#39;panel.superpose&#39;.  Consequently, the
-          default of &#39;panel&#39; in &#39;xyplot&#39; etc does not need to be conditional on &#39;groups&#39;.
+Text: instead of ignoring it as before, &#39;panel.xyplot&#39; and &#39;panel.densityplot&#39; now deal with a &#39;groups&#39;
+           argument appropriately by calling &#39;panel.superpose&#39;.  Consequently, the default of &#39;panel&#39; in
+           &#39;xyplot&#39; etc does not need to be conditional on &#39;groups&#39;.
 
 Version: 0.13
 Category: new features
@@ -2215,8 +2767,7 @@ Text: added &#39;lineheight&#39; as a graphical parameter where appropriate.
 
 Version: 0.13
 Category: new features
-Text: added a &#39;grid.pars&#39; setting for arbitrary grid parameters to be set initially via
-          gpar().
+Text: added a &#39;grid.pars&#39; setting for arbitrary grid parameters to be set initially via gpar().
 
 Version: 0.13
 Category: new features
@@ -2228,14 +2779,13 @@ Text: Shingle levels can now be printed by strip.default.
 
 Version: 0.13
 Category: new features
-Text: The strip function, like the panel function, is now passed arguments &#39;packet.number&#39;
-          and &#39;panel.number&#39; (although the default strip function makes no use of it).
+Text: The strip function, like the panel function, is now passed arguments &#39;packet.number&#39; and
+           &#39;panel.number&#39; (although the default strip function makes no use of it).
 
 Version: 0.13
 Category: new features
-Text: &#39;panel.superpose&#39; has new argument to make it bahave like in S-PLUS (interpretation of
-          &#39;type&#39;).  This makes &#39;panel.superpose.2&#39; unnecessary, although it&#39;s still
-          available.
+Text: &#39;panel.superpose&#39; has new argument to make it bahave like in S-PLUS (interpretation of &#39;type&#39;).
+           This makes &#39;panel.superpose.2&#39; unnecessary, although it&#39;s still available.
 
 Version: 0.13
 Category: new features
@@ -2243,10 +2793,9 @@ Text: Added wrappers lrect, lpolygon (and panel.rect, panel.polygon)
 
 Version: 0.13
 Category: changes in behaviour
-Text: evaluation scope: standard functions with a formula based interface (&#39;lm&#39; etc) look
-          for variables in the formula (that are not found in &#39;data&#39;) in the environment of
-          the formula.  This was done inconsistently for lattice functions, which has been
-          fixed.
+Text: evaluation scope: standard functions with a formula based interface (&#39;lm&#39; etc) look for variables in
+           the formula (that are not found in &#39;data&#39;) in the environment of the formula.  This was done
+           inconsistently for lattice functions, which has been fixed.
 
 Version: 0.13
 Category: changes in behaviour
@@ -2258,13 +2807,13 @@ Text: calls with explicit &#39;formula=&#39; no longer work (used to give a warn
 
 Version: 0.13
 Category: changes in behaviour
-Text: The &#39;bar.fill&#39; and &#39;superpose.fill&#39; settings have been replaced with &#39;plot.polygon&#39;
-          and &#39;superpose.polygon&#39; respectively, which are more consistent with other names.
+Text: The &#39;bar.fill&#39; and &#39;superpose.fill&#39; settings have been replaced with &#39;plot.polygon&#39; and
+           &#39;superpose.polygon&#39; respectively, which are more consistent with other names.
 
 Version: 0.13
 Category: changes in behaviour
-Text: Default of &#39;data&#39; changed from &#39;parent.frame()&#39; to NULL.  This has to do with
-          reasonable non-standard evaluation rules, and probably needs some more thought.
+Text: Default of &#39;data&#39; changed from &#39;parent.frame()&#39; to NULL.  This has to do with reasonable
+           non-standard evaluation rules, and probably needs some more thought.
 
 Version: 0.13
 Category: changes in behaviour
@@ -2292,9 +2841,8 @@ Text: change panel.qq so that most work gets done there
 
 Version: 0.12
 Category: improvements
-Text: panel.bwplot has a new &#39;stats&#39; argument, which is a function used to calculate the
-          statistics in the box and whisker plot.  Defaults to boxplot.stats, which was the
-          hard-coded value earlier.
+Text: panel.bwplot has a new &#39;stats&#39; argument, which is a function used to calculate the statistics in the
+           box and whisker plot.  Defaults to boxplot.stats, which was the hard-coded value earlier.
 
 Version: 0.12
 Category: improvements
@@ -2302,8 +2850,8 @@ Text: panel.bwplot has been re-implemented.  Faster, avoids direct grid calls
 
 Version: 0.12
 Category: improvements
-Text: panel.densityplot now allows more flexible specifications of &#39;plot.points&#39;,
-          specifically, points can be jittered (the new default) or indicated by a `rug&#39;.
+Text: panel.densityplot now allows more flexible specifications of &#39;plot.points&#39;, specifically, points can
+           be jittered (the new default) or indicated by a `rug&#39;.
 
 Version: 0.12
 Category: improvements
@@ -2311,25 +2859,23 @@ Text: (more) changes in NA-handling.
 
 Version: 0.12
 Category: improvements
-Text: panel.superpose handles type=&#39;g&#39; itself so that the grid doesn&#39;t get repeated for
-          every group.
+Text: panel.superpose handles type=&#39;g&#39; itself so that the grid doesn&#39;t get repeated for every group.
 
 Version: 0.12
 Category: new features
-Text: All high level functions are now generic.  This change should be mostly transparent,
-          but there may be some unforeseen side-effects. S3 generics and methods are used
-          (this may change at some point, but not in the near future).  In particular, usage
-          where the first argument is not actually a formula has now been formalized and is
-          handled via method dispatch rather than the clumsy hacks in place earlier.
+Text: All high level functions are now generic.  This change should be mostly transparent, but there may
+           be some unforeseen side-effects. S3 generics and methods are used (this may change at some
+           point, but not in the near future).  In particular, usage where the first argument is not
+           actually a formula has now been formalized and is handled via method dispatch rather than the
+           clumsy hacks in place earlier.
 
 Version: 0.12
 Category: new features
-Text: The first argument of high level lattice functions has been renamed from &#39;formula&#39; to
-          &#39;x&#39;.  This is related to the fact that these functions are now generic, and is
-          intended to avoid long-term confusion.  The first argument is usually not named,
-          so this should not cause many problems.  If the name &#39;formula&#39; is explicitly
-          supplied, it will be used with a warning (as long as there is no argument named
-          &#39;x&#39;) for now, but not in future versions of lattice.
+Text: The first argument of high level lattice functions has been renamed from &#39;formula&#39; to &#39;x&#39;.  This is
+           related to the fact that these functions are now generic, and is intended to avoid long-term
+           confusion.  The first argument is usually not named, so this should not cause many problems.
+           If the name &#39;formula&#39; is explicitly supplied, it will be used with a warning (as long as there
+           is no argument named &#39;x&#39;) for now, but not in future versions of lattice.
 
 Version: 0.12
 Category: new features
@@ -2345,35 +2891,33 @@ Text: there&#39;s now panel.rect and lrect (similar to the base function rect)
 
 Version: 0.12
 Category: new features
-Text: print.trellis has a &#39;draw.in&#39; argument that can be used to specify a grid viewport to
-          draw the plot in.
+Text: print.trellis has a &#39;draw.in&#39; argument that can be used to specify a grid viewport to draw the plot
+           in.
 
 Version: 0.12
 Category: new features
-Text: strips can now be drawn on the left (as well as top) of a panel. This is useful for
-          short wide panels, e.g. time series.
+Text: strips can now be drawn on the left (as well as top) of a panel. This is useful for short wide
+           panels, e.g. time series.
 
 Version: 0.12
 Category: new features
-Text: &#39;Date&#39; objects are recognized and axis labels formatted accordingly (not heavily
-          tested)
+Text: &#39;Date&#39; objects are recognized and axis labels formatted accordingly (not heavily tested)
 
 Version: 0.12
 Category: changes in behaviour
-Text: qqmath has been considerably revamped, primarily to allow grouped displays (the older
-          implementation would not have allowed that even with a custom panel function).  In
-          particular, the (pre)panel function(s) now get the raw data as opposed to already
-          computed quantiles. Some old code may stop working.
+Text: qqmath has been considerably revamped, primarily to allow grouped displays (the older implementation
+           would not have allowed that even with a custom panel function).  In particular, the (pre)panel
+           function(s) now get the raw data as opposed to already computed quantiles. Some old code may
+           stop working.
 
 Version: 0.12
 Category: changes in behaviour
-Text: as a consequence of the above, panel.qqmath, panel.qqmathline etc have been rewritten
-          and have different argument lists
+Text: as a consequence of the above, panel.qqmath, panel.qqmathline etc have been rewritten and have
+           different argument lists
 
 Version: 0.12
 Category: changes in behaviour
-Text: tmd has been rewritten (mostly to deal with qqmath objects), but this shouldn&#39;t be
-          user-visible.
+Text: tmd has been rewritten (mostly to deal with qqmath objects), but this shouldn&#39;t be user-visible.
 
 Version: 0.12
 Category: changes in behaviour
@@ -2381,19 +2925,18 @@ Text: densityplot defaults to showing points with random jitter.
 
 Version: 0.12
 Category: changes in behaviour
-Text: arguments panel.number and panel.counter, passed to panel functions that have those
-          (or the ...) argument(s) have been renamed to &#39;packet.number&#39; and &#39;panel.number&#39;,
-          which are more in line with standard Trellis jargon.
+Text: arguments panel.number and panel.counter, passed to panel functions that have those (or the ...)
+           argument(s) have been renamed to &#39;packet.number&#39; and &#39;panel.number&#39;, which are more in line
+           with standard Trellis jargon.
 
 Version: 0.12
 Category: bug fixes
-Text: identification of when &#39;type&#39; should default to &quot;density&quot; was buggy (inapprpriate
-          rounding)
+Text: identification of when &#39;type&#39; should default to &quot;density&quot; was buggy (inapprpriate rounding)
 
 Version: 0.11
 Category: improvements
-Text: panel.superpose.2 (which replicates behaviour of panel.superpose in S-PLUS) revamped,
-          with new features to boot.
+Text: panel.superpose.2 (which replicates behaviour of panel.superpose in S-PLUS) revamped, with new
+           features to boot.
 
 Version: 0.11
 Category: improvements
@@ -2405,8 +2948,8 @@ Text: larrows improved, slightly different features.
 
 Version: 0.11
 Category: improvements
-Text: [xyz]lab in cloud / wireframe can now be grobs, and honors a &#39;rot&#39; component for
-          rotation (e.g., zlab = list(rot = 90))
+Text: [xyz]lab in cloud / wireframe can now be grobs, and honors a &#39;rot&#39; component for rotation (e.g.,
+           zlab = list(rot = 90))
 
 Version: 0.11
 Category: new features
@@ -2418,13 +2961,12 @@ Text: trellis.last.object(...) now behaves like update(trellis.last.object(), ..
 
 Version: 0.11
 Category: new features
-Text: &quot;trellis&quot; objects now have a plot method that&#39;s essentially an alias to the print
-          method
+Text: &quot;trellis&quot; objects now have a plot method that&#39;s essentially an alias to the print method
 
 Version: 0.11
 Category: new features
-Text: new function &#39;current.panel.limits&#39; to retrieve native scales of current panel (only
-          in later versions)
+Text: new function &#39;current.panel.limits&#39; to retrieve native scales of current panel (only in later
+           versions)
 
 Version: 0.11
 Category: changes in behaviour
@@ -2452,21 +2994,20 @@ Text: several minor fixes
 
 Version: 0.10
 Category: improvements
-Text: relation=&quot;free&quot; and &quot;sliced&quot; now work for factors (at least, as well as can be
-          expected)
+Text: relation=&quot;free&quot; and &quot;sliced&quot; now work for factors (at least, as well as can be expected)
 
 Version: 0.10
 Category: improvements
-Text: the code that constructs the layout of a lattice plot (in the print method for trellis
-          objects) has been completely rewritten.  This is mostly transparent to the user,
-          but as a side effect, it is now possible to control the details of the layout
-          (things like the amount of padding around the plot, the gap between tick marks and
-          labels) via the trellis settings &quot;layout.heights&quot; and &quot;layout.widths&quot;.
+Text: the code that constructs the layout of a lattice plot (in the print method for trellis objects) has
+           been completely rewritten.  This is mostly transparent to the user, but as a side effect, it
+           is now possible to control the details of the layout (things like the amount of padding around
+           the plot, the gap between tick marks and labels) via the trellis settings &quot;layout.heights&quot; and
+           &quot;layout.widths&quot;.
 
 Version: 0.10
 Category: improvements
-Text: col.regions and colorkey in levelplot and wireframe now honour settings in effect when
-          the object is printed, and not when the object was created.
+Text: col.regions and colorkey in levelplot and wireframe now honour settings in effect when the object is
+           printed, and not when the object was created.
 
 Version: 0.10
 Category: improvements
@@ -2478,19 +3019,18 @@ Text: datasets get separate documentation, contributed by Kevin Wright
 
 Version: 0.10
 Category: new features
-Text: lattice.options(), similar to options(), to control various aspects of lattice plots.
-          This is mostly for easier code maintainance, but can be useful for the user too.
+Text: lattice.options(), similar to options(), to control various aspects of lattice plots.  This is
+           mostly for easier code maintainance, but can be useful for the user too.
 
 Version: 0.10
 Category: new features
-Text: API now supports alpha-transparency (actual support is device dependent) where
-          appropriate (some cases might have been missed, and reports of omissions would be
-          appreciated).
+Text: API now supports alpha-transparency (actual support is device dependent) where appropriate (some
+           cases might have been missed, and reports of omissions would be appreciated).
 
 Version: 0.10
 Category: new features
-Text: API for interacting with and enhancing Trellis plots AFTER they are drawn, based on
-          grid functions seekViewport, grid.locator, etc. See ?trellis.focus
+Text: API for interacting with and enhancing Trellis plots AFTER they are drawn, based on grid functions
+           seekViewport, grid.locator, etc. See ?trellis.focus
 
 Version: 0.10
 Category: new features
@@ -2502,13 +3042,13 @@ Text: new &#39;default.scales&#39; argument to high level functions, useful when
 
 Version: 0.10
 Category: new features
-Text: convenience function &#39;strip.custom&#39; to create strip functions from strip.default just
-          by overriding one or more arguments
+Text: convenience function &#39;strip.custom&#39; to create strip functions from strip.default just by overriding
+           one or more arguments
 
 Version: 0.10
 Category: new features
-Text: type=&quot;H&quot; in lplot.xy (for horizontal line).  New argument &#39;horizontal&#39; for
-          panel.xyplot, which affects what happens for various &#39;type&#39;-s.
+Text: type=&quot;H&quot; in lplot.xy (for horizontal line).  New argument &#39;horizontal&#39; for panel.xyplot, which
+           affects what happens for various &#39;type&#39;-s.
 
 Version: 0.10
 Category: new features
@@ -2516,10 +3056,10 @@ Text: type=&quot;g&quot; in panel.xyplot, which draws a reference grid
 
 Version: 0.10
 Category: new features
-Text: the print method now (optionally) saves the (last) object printed in a non-visible
-          environment.  This allows retrieval of the last printed object for &#39;update&#39;-ing,
-          and more importantly, to retrieve panel specific data for use while interacting
-          with and enhancing plots after they are printed
+Text: the print method now (optionally) saves the (last) object printed in a non-visible environment.
+           This allows retrieval of the last printed object for &#39;update&#39;-ing, and more importantly, to
+           retrieve panel specific data for use while interacting with and enhancing plots after they are
+           printed
 
 Version: 0.10
 Category: new features
@@ -2531,18 +3071,18 @@ Text: lset has been deprecated, and trellis.par.set has been enhanced with equiv
 
 Version: 0.10
 Category: changes in behaviour
-Text: the strip function now gets the whole strip area to work with, and is responsible for
-          using it appropriately.  strip.default has been updated accordingly
+Text: the strip function now gets the whole strip area to work with, and is responsible for using it
+           appropriately.  strip.default has been updated accordingly
 
 Version: 0.10
 Category: changes in behaviour
-Text: choice of color for grouped barcharts now taken from a new setting parameter
-          &#39;superpose.fill&#39; and not &#39;regions&#39; as previously
+Text: choice of color for grouped barcharts now taken from a new setting parameter &#39;superpose.fill&#39; and
+           not &#39;regions&#39; as previously
 
 Version: 0.10
 Category: changes in behaviour
-Text: arguments to panel.levelplot has changed (this is related to how default colors are
-          obtained, as described above).
+Text: arguments to panel.levelplot has changed (this is related to how default colors are obtained, as
+           described above).
 
 Version: 0.10
 Category: bug fixes
@@ -2554,26 +3094,26 @@ Text: many other miscellaneous fixes, see SvnLog for some details
 
 Version: 0.9
 Category: improvements
-Text: Axis labelling code has been rewritten to internally use S3 method dispatch, with
-          (unexported) methods for numeric (default), character (for factors), POSIXct and
-          date. More methods can be considered on request.  reversed limits are now allowed.
+Text: Axis labelling code has been rewritten to internally use S3 method dispatch, with (unexported)
+           methods for numeric (default), character (for factors), POSIXct and date. More methods can be
+           considered on request.  reversed limits are now allowed.
 
 Version: 0.9
 Category: improvements
-Text: contourplot can now handle missing rows in the data frame (equivalent to NA&#39;s in z).
-          contourplot now uses contourLines().
+Text: contourplot can now handle missing rows in the data frame (equivalent to NA&#39;s in z). contourplot now
+           uses contourLines().
 
 Version: 0.9
 Category: improvements
-Text: cloud and wireframe now use better 3-D projection calculations, and are generally much
-          better than before.  wireframe is much faster, and has a better shading algorithm.
-          It can also handle NA&#39;s and missing rows.
+Text: cloud and wireframe now use better 3-D projection calculations, and are generally much better than
+           before.  wireframe is much faster, and has a better shading algorithm. It can also handle NA&#39;s
+           and missing rows.
 
 Version: 0.9
 Category: improvements
-Text: splom (specifically panel.pairs) has more functionality, including the option of using
-          different panel functions below and above the diagonal, user defined diagonal
-          panels, and a table-like layout (similar to pairs)
+Text: splom (specifically panel.pairs) has more functionality, including the option of using different
+           panel functions below and above the diagonal, user defined diagonal panels, and a table-like
+           layout (similar to pairs)
 
 Version: 0.9
 Category: improvements
@@ -2585,54 +3125,50 @@ Text: much improved update method for trellis objects
 
 Version: 0.9
 Category: improvements
-Text: setting auto.key = TRUE now computes key at printing time, honouring any changes in
-          trellis settings
+Text: setting auto.key = TRUE now computes key at printing time, honouring any changes in trellis settings
 
 Version: 0.9
 Category: new features
-Text: arbitrary reordering of conditioning variables, as well as of levels within a
-          conditioning variable. This works in the update method (as well as high-level
-          plots), making it easy to examine parts of a multipanel trellis display and view
-          it in different conditioning orders.
+Text: arbitrary reordering of conditioning variables, as well as of levels within a conditioning variable.
+           This works in the update method (as well as high-level plots), making it easy to examine parts
+           of a multipanel trellis display and view it in different conditioning orders.
 
 Version: 0.9
 Category: new features
-Text: extended key functionality (via the legend argument) that allows multiple legends and
-          the use of arbitrary grid objects as keys
+Text: extended key functionality (via the legend argument) that allows multiple legends and the use of
+           arbitrary grid objects as keys
 
 Version: 0.9
 Category: new features
-Text: option to NOT drop unused factor levels when subsetting, by setting drop.unused.levels
-          = FALSE or drop.unused.levels = list(cond = FALSE, data = FALSE) in high-level
-          functions like xyplot.
+Text: option to NOT drop unused factor levels when subsetting, by setting drop.unused.levels = FALSE or
+           drop.unused.levels = list(cond = FALSE, data = FALSE) in high-level functions like xyplot.
 
 Version: 0.9
 Category: new features
-Text: Ability to attach settings to a trellis object (rather than changing the global
-          settings), via argument par.settings in high level calls.
+Text: Ability to attach settings to a trellis object (rather than changing the global settings), via
+           argument par.settings in high level calls.
 
 Version: 0.9
 Category: new features
-Text: Wireframe can now draw parametrized 3-D surfaces like spheres (generally of the form
-          f(u,v) = (x(u,v), y(u,v), z(u,v)), for (u,v) in the square [0,1] x [0,1]).
+Text: Wireframe can now draw parametrized 3-D surfaces like spheres (generally of the form f(u,v) =
+           (x(u,v), y(u,v), z(u,v)), for (u,v) in the square [0,1] x [0,1]).
 
 Version: 0.9
 Category: new features
-Text: Functionality similar to locator() (possible due to recently added features of grid).
-          All panels should have predictable viewport names, which can be used in
-          seekViewport() to grab a particular viewport. grid.locator() can subsequently be
-          used to locate points in the native coordinate system of that panel.
+Text: Functionality similar to locator() (possible due to recently added features of grid). All panels
+           should have predictable viewport names, which can be used in seekViewport() to grab a
+           particular viewport. grid.locator() can subsequently be used to locate points in the native
+           coordinate system of that panel.
 
 Version: 0.9
 Category: changes in behaviour
-Text: allow.multiple now defaults to TRUE (whenever it makes sense), since &#39;+&#39; in a formula
-          is interpreted differently than S-PLUS anyway. As in model formulae, I(x+y) works
-          as expected.
+Text: allow.multiple now defaults to TRUE (whenever it makes sense), since &#39;+&#39; in a formula is interpreted
+           differently than S-PLUS anyway. As in model formulae, I(x+y) works as expected.
 
 Version: 0.9
 Category: changes in behaviour
-Text: default behaviour of qq and qqmath changed (from S-PLUS behaviour) to match
-          corresponding base functions qqplot and qqnorm
+Text: default behaviour of qq and qqmath changed (from S-PLUS behaviour) to match corresponding base
+           functions qqplot and qqnorm
 
 Version: 0.9
 Category: bug fixes
@@ -2643,80 +3179,74 @@ Category: bug fixes
 Text: lots of other fixes, mostly obscure
 
 Version: 0.8
-Text: Major change is the addition of a NAMESPACE. grid is now not &#39;require()-d&#39;, but
-          imported only. To use grid functions directly in lattice calls (which is a very
-          reasonable thing to do), one needs to explicitly call library(grid).
+Text: Major change is the addition of a NAMESPACE. grid is now not &#39;require()-d&#39;, but imported only. To
+           use grid functions directly in lattice calls (which is a very reasonable thing to do), one
+           needs to explicitly call library(grid).
 
 Version: 0.8
-Text: contourplot() has improved when data has NA&#39;s. Still doesn&#39;t work when the NA rows are
-          completely omitted (in other words, the full &quot;matrix&quot; has to be specified, even
-          the entries with NA).
+Text: contourplot() has improved when data has NA&#39;s. Still doesn&#39;t work when the NA rows are completely
+           omitted (in other words, the full &quot;matrix&quot; has to be specified, even the entries with NA).
 
 Version: 0.8
-Text: Clipping can now be turned off in panels and strips via the trellis.par.get(&quot;clip&quot;)
-          setting. See the Changelog for other minor changes.
+Text: Clipping can now be turned off in panels and strips via the trellis.par.get(&quot;clip&quot;) setting. See the
+           Changelog for other minor changes.
 
 Version: 0.7
 Category: grouping variables
-Text: The handling of Grouped displays has been made more consistent (and different from
-          S-Plus). Whenever a groups= argument is specified, it is assumed that the user
-          wants a grouped display and an attempt is made to honour this whenever appropriate
-          (this ultimately depends on the panel function). A non-trivial addition to the
-          list of functions that support this is barchart.
+Text: The handling of Grouped displays has been made more consistent (and different from S-Plus). Whenever
+           a groups= argument is specified, it is assumed that the user wants a grouped display and an
+           attempt is made to honour this whenever appropriate (this ultimately depends on the panel
+           function). A non-trivial addition to the list of functions that support this is barchart.
 
 Version: 0.7
 Category: grouping variables
-Text: Specification of legend (key) has been made slightly easier in the most common cases.
-          The key is used most often in conjunction with the groups argument, and using the
-          global trellis settings. The simpleKey function (and the auto.key argument to high
-          level functions) uses the global settings to create a key with a not very flexible
-          but simple interface.
+Text: Specification of legend (key) has been made slightly easier in the most common cases. The key is
+           used most often in conjunction with the groups argument, and using the global trellis
+           settings. The simpleKey function (and the auto.key argument to high level functions) uses the
+           global settings to create a key with a not very flexible but simple interface.
 
 Version: 0.7
 Category: grouping variables
-Text: Handling of the formula argument has been extended to allow multiple variables on
-          either side of the formula (with allow.multiple = TRUE), e.g. xyplot(y1 + y2 ~ x,
-          data, allow.m = TRUE). These are treated as grouped displays.
+Text: Handling of the formula argument has been extended to allow multiple variables on either side of the
+           formula (with allow.multiple = TRUE), e.g. xyplot(y1 + y2 ~ x, data, allow.m = TRUE). These
+           are treated as grouped displays.
 
 Version: 0.7
 Category: scales
-Text: Some components of scales, namely tck, rot and cex, can now be length 2 vectors,
-          controlling left/bottom and right/top separately.
+Text: Some components of scales, namely tck, rot and cex, can now be length 2 vectors, controlling
+           left/bottom and right/top separately.
 
 Version: 0.7
 Category: scales
-Text: Some more functions (not all) now handle factors in the formula correctly (i.e.,
-          coerce them to numeric when factors are not appropriate, but use levels of the
-          factor for labelling).
+Text: Some more functions (not all) now handle factors in the formula correctly (i.e., coerce them to
+           numeric when factors are not appropriate, but use levels of the factor for labelling).
 
 Version: 0.6
 Category: API change
-Text: panel functions: In earlier versions, panel functions and prepanel functions were
-          guaranteed to be passed numeric vectors as x,y (and z) arguments. This is no
-          longer true. All panel functions are now expected to handle other possibilities.
-          This has been done in all the predefined panel functions in lattice (but not in
-          llines, lpoints, etc.). In practice, the only changes required are (unless I have
-          overlooked something) to add calls like x &lt;- as.numeric(x) y &lt;- as.numeric(y) at
-          the beginning. prepanel functions can now return, as their xlim or ylim
-          components, either a numeric vector of length 2 (possibly a DateTime object), or a
-          character vector. The latter implies that the elements of this vector should be
-          the respective axis labels, associated with tick marks at 1:length_of_this_vector.
+Text: panel functions: In earlier versions, panel functions and prepanel functions were guaranteed to be
+           passed numeric vectors as x,y (and z) arguments. This is no longer true. All panel functions
+           are now expected to handle other possibilities. This has been done in all the predefined panel
+           functions in lattice (but not in llines, lpoints, etc.). In practice, the only changes
+           required are (unless I have overlooked something) to add calls like x &lt;- as.numeric(x) y &lt;-
+           as.numeric(y) at the beginning. prepanel functions can now return, as their xlim or ylim
+           components, either a numeric vector of length 2 (possibly a DateTime object), or a character
+           vector. The latter implies that the elements of this vector should be the respective axis
+           labels, associated with tick marks at 1:length_of_this_vector.
 
 Version: 0.6
 Category: API change
-Text: high-level functions: The default panel functions of high level functions can now be
-          different, depending on whether a groups argument was passed. In practice, this
-          now happens for xyplot, splom and densityplot.  (densityplot has an additional
-          high-level argument specifically for this, called panel.groups, which is passed to
-          the panel function.)  This is a convenience feature, (and is inconsistent with
-          S-Plus) in that it presumes that if the user has specified a groups argument, she
-          wants it to be used, where appropriate.
+Text: high-level functions: The default panel functions of high level functions can now be different,
+           depending on whether a groups argument was passed. In practice, this now happens for xyplot,
+           splom and densityplot.  (densityplot has an additional high-level argument specifically for
+           this, called panel.groups, which is passed to the panel function.)  This is a convenience
+           feature, (and is inconsistent with S-Plus) in that it presumes that if the user has specified
+           a groups argument, she wants it to be used, where appropriate.
 
 Version: 0.6
 Category: API change
-Text: scales: In anticipation of future use (in nlme, for example), the at and labels
-          components of scales can now be a list. Each element corresponds to a panel. This
-          is thoroughly untested and not guaranteed to work.
+Text: scales: In anticipation of future use (in nlme, for example), the at and labels components of scales
+           can now be a list. Each element corresponds to a panel. This is thoroughly untested and not
+           guaranteed to work.
 
 Version: 0.6
 Category: There are also some other API changes associated with cloud and
@@ -2728,42 +3258,38 @@ Text:
 
 Version: 0.6
 Category: New Features and Fixes
-Text: Mathematical Annotation; Following changes in grid 0.7, lattice now supports
-          latex-style labelling using expressions. These can be used in almost all sensible
-          places (an exception being in colorkey axis labels in levelplot/contourplot, and
-          this is not expected to change).
+Text: Mathematical Annotation; Following changes in grid 0.7, lattice now supports latex-style labelling
+           using expressions. These can be used in almost all sensible places (an exception being in
+           colorkey axis labels in levelplot/contourplot, and this is not expected to change).
 
 Version: 0.6
 Category: New Features and Fixes
-Text: Date-Time Labelling: Axis labelling procedures did not recognize DateTime objects in
-          earlier versions. This has been fixed. The routine currently used is a hack of
-          axis.POSIXt (without the format option), but will hopefully improve in future.
+Text: Date-Time Labelling: Axis labelling procedures did not recognize DateTime objects in earlier
+           versions. This has been fixed. The routine currently used is a hack of axis.POSIXt (without
+           the format option), but will hopefully improve in future.
 
 Version: 0.6
 Category: New Features and Fixes
-Text: 3-D functions: The 3-D functions cloud and wireframe have been greatly improved in
-          terms of extensibility. The code is much cleaner, and writing new panel functions
-          are much simpler. Earlier versions had a problem with the default placement of the
-          labels (x/y/z-lab) and scales (arrows/ticks), which has been fixed. [The only
-          major problem that still remains is when, in a perspective plot, the projection of
-          the distant face is fully contained inside the projection of the near face.]
-          Earlier wireframe code used an unnecessarily large amount of memory. This has been
-          fixed, although speed is still not good (fixes are in the planing stage, and would
-          involve changes in grid). drape=TRUE used to give wrong coloring, which is now
-          fixed. The &#39;group&#39; argument now works with wireframe, resulting in multiple
-          surfaces. This is mostly satisfactory, but is not sophisticated enough to render
-          intersecting surfaces properly (might be approximated by a fine enough grid).
-          There are also some rudimentary lighting options, which can render the surface as
-          being illuminated from a light source. No shadows. (Try shade=TRUE in wireframe.)
-          Although these changes go a long way towards stabilizing cloud/wireframe, some
-          further changes, especially in how the panel function handles the groups argument,
-          are expected in the future.
+Text: 3-D functions: The 3-D functions cloud and wireframe have been greatly improved in terms of
+           extensibility. The code is much cleaner, and writing new panel functions are much simpler.
+           Earlier versions had a problem with the default placement of the labels (x/y/z-lab) and scales
+           (arrows/ticks), which has been fixed. [The only major problem that still remains is when, in a
+           perspective plot, the projection of the distant face is fully contained inside the projection
+           of the near face.] Earlier wireframe code used an unnecessarily large amount of memory. This
+           has been fixed, although speed is still not good (fixes are in the planing stage, and would
+           involve changes in grid). drape=TRUE used to give wrong coloring, which is now fixed. The
+           &#39;group&#39; argument now works with wireframe, resulting in multiple surfaces. This is mostly
+           satisfactory, but is not sophisticated enough to render intersecting surfaces properly (might
+           be approximated by a fine enough grid). There are also some rudimentary lighting options,
+           which can render the surface as being illuminated from a light source. No shadows. (Try
+           shade=TRUE in wireframe.) Although these changes go a long way towards stabilizing
+           cloud/wireframe, some further changes, especially in how the panel function handles the groups
+           argument, are expected in the future.
 
 Version: 0.6
 Category: Known bugs
-Text: Handling of NA values are often inconsistent and buggy. Some of these are not easily
-          fixable (particularly one in contourplot), but some are, so bug reports on this
-          are still welcome.
+Text: Handling of NA values are often inconsistent and buggy. Some of these are not easily fixable
+           (particularly one in contourplot), but some are, so bug reports on this are still welcome.
 
 Version: 0.6
 Category: Known bugs
@@ -2771,29 +3297,28 @@ Text: Fonts specified in the new R font specification may not work yet.
 
 Version: 0.5
 Category: Not many
-Text: Biggest change in the way settings are handled. Settings are now stored in a global
-          list called lattice.theme, and is truly device-specific (i.e., settings for more
-          than one device can be used concurrently). Improved theme management via lset and
-          show.settings. Changed defaults for color postscript/pdf.
+Text: Biggest change in the way settings are handled. Settings are now stored in a global list called
+           lattice.theme, and is truly device-specific (i.e., settings for more than one device can be
+           used concurrently). Improved theme management via lset and show.settings. Changed defaults for
+           color postscript/pdf.
 
 Version: 0.5
 Category: Not many
-Text: bwplot and friends which had to have the grouping factor/shingle on the y-axis, can
-          now have it on the x-axis as well. Far from perfect, though, since long labels can
-          overlap with default settings.
+Text: bwplot and friends which had to have the grouping factor/shingle on the y-axis, can now have it on
+           the x-axis as well. Far from perfect, though, since long labels can overlap with default
+           settings.
 
 Version: 0.5
 Category: Not many
-Text: panel.superpose now accepts an additional argument called panel.groups (by default
-          panel.xyplot), which is the panel function actually called for each subset of the
-          data determined by groups. Avoids having to write something as big as
-          panel.superpose for natural generalizations like interaction plots. (Related new
-          panel function: panel.linejoin)
+Text: panel.superpose now accepts an additional argument called panel.groups (by default panel.xyplot),
+           which is the panel function actually called for each subset of the data determined by groups.
+           Avoids having to write something as big as panel.superpose for natural generalizations like
+           interaction plots. (Related new panel function: panel.linejoin)
 
 Version: 0.5
 Category: Not many
-Text: colorkey in levelplot on all sides. Rendering of large key&#39;s much much faster (using
-          grid.place suggested by Paul)
+Text: colorkey in levelplot on all sides. Rendering of large key&#39;s much much faster (using grid.place
+           suggested by Paul)
 
 Version: 0.5
 Category: Not many
@@ -2801,8 +3326,7 @@ Text: Other minor changes (doc, more arguments etc)
 
 Version: 0.5
 Category: Not many
-Text: Following changes in grid, calls to base R graphics and lattice functions can now be
-          mixed.
+Text: Following changes in grid, calls to base R graphics and lattice functions can now be mixed.
 
 Version: 0.4
 Category: Some of the implementation details have changed a lot. This might
@@ -2818,15 +3342,15 @@ Text:
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: documentation restructured. There is no topic called `trellis.args&#39; any more. The
-          detailed description of the arguments common to all high level trellis functions
-          can be found under help(xyplot)
+Text: documentation restructured. There is no topic called `trellis.args&#39; any more. The detailed
+           description of the arguments common to all high level trellis functions can be found under
+           help(xyplot)
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: once trellis.device() is called, Lattice graphics and base R graphics should mix more
-          or less seamlessly. There is an optional argument in trellis.device() that can
-          deal with the first blank page problem, with certain restrictions.
+Text: once trellis.device() is called, Lattice graphics and base R graphics should mix more or less
+           seamlessly. There is an optional argument in trellis.device() that can deal with the first
+           blank page problem, with certain restrictions.
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
@@ -2834,13 +3358,12 @@ Text: a (as yet very small) demo, called by demo(&quot;lattice&quot;)
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: Clipping: whatever is drawn by the panel function is now clipped to inside the panel
-          region. Strip texts are clipped to inside the strips.
+Text: Clipping: whatever is drawn by the panel function is now clipped to inside the panel region. Strip
+           texts are clipped to inside the strips.
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: Axis tick labels by default do not overlap, some tick marks are left unlabelled if
-          necessary.
+Text: Axis tick labels by default do not overlap, some tick marks are left unlabelled if necessary.
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
@@ -2848,23 +3371,22 @@ Text: The argument list for strip.default changed to be like S
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: levels() and nlevels() give sensible answers for shingles. new print methods for
-          shingles and levels of shingles
+Text: levels() and nlevels() give sensible answers for shingles. new print methods for shingles and levels
+           of shingles
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: colorkey (currently used only in levelplot) can now be placed to the left, top or
-          bottom as well
+Text: colorkey (currently used only in levelplot) can now be placed to the left, top or bottom as well
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: new ``lines&#39;&#39; component in the par.strip.text argument that can be used to change the
-          height of strips
+Text: new ``lines&#39;&#39; component in the par.strip.text argument that can be used to change the height of
+           strips
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: xlab, main etc can be double height strings (containing &quot;\n&quot;-s), the spaces allocated
-          for these would be automatically adjusted
+Text: xlab, main etc can be double height strings (containing &quot;\n&quot;-s), the spaces allocated for these
+           would be automatically adjusted
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
@@ -2876,11 +3398,11 @@ Text: new panel.superpose.2 (suggested by Neil Klepeis)
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
-Text: the default colour settings sometimes seem too light on a white background. To deal
-          with this, there is a new setting with some darker colours that can be set by
-          calling lset(theme = &quot;white.bg&quot;). see ?lset for details. This is currently in a
-          proof-of-concept stage (the colors in &quot;white.bg&quot; were chosen just because I liked
-          their names), and suggestions for better color schemes would be most welcome.
+Text: the default colour settings sometimes seem too light on a white background. To deal with this, there
+           is a new setting with some darker colours that can be set by calling lset(theme = &quot;white.bg&quot;).
+           see ?lset for details. This is currently in a proof-of-concept stage (the colors in &quot;white.bg&quot;
+           were chosen just because I liked their names), and suggestions for better color schemes would
+           be most welcome.
 
 Version: 0.4
 Category: bugfixes (notably in levelplot). The important changes are
@@ -2916,8 +3438,7 @@ Text: Support for log scales
 
 Version: 0.3
 Category: New Features
-Text: levelplot (but no contourplot. In particular, the contour = T option in levelplot does
-          not work)
+Text: levelplot (but no contourplot. In particular, the contour = T option in levelplot does not work)
 
 Version: 0.3
 Category: New Features
@@ -2929,27 +3450,25 @@ Text: panel function names can now be quoted strings
 
 Version: 0.3
 Category: New Features
-Text: scales and its x and y components can now be just a character string like &quot;free&quot; or
-          &quot;sliced&quot;, i.e., the relation tag can be omitted.
+Text: scales and its x and y components can now be just a character string like &quot;free&quot; or &quot;sliced&quot;, i.e.,
+           the relation tag can be omitted.
 
 Version: 0.3
 Category: New Features
-Text: extension to the `type&#39; argument in panel.xyplot and panel.superpose to allow
-          stair-like and histogram-like plots (type=&quot;s&quot; and &quot;h&quot; in plot), as well as loess
-          smooths (using the loess.smooth function in the modreg package).  Also, more than
-          one of these options can now be used concurrently.  This allows, for example, a
-          grouped plot where a grouping variable can be used to fit separate loess curves
-          along with the scatter for each group. See example(xyplot)
+Text: extension to the `type&#39; argument in panel.xyplot and panel.superpose to allow stair-like and
+           histogram-like plots (type=&quot;s&quot; and &quot;h&quot; in plot), as well as loess smooths (using the
+           loess.smooth function in the modreg package).  Also, more than one of these options can now be
+           used concurrently.  This allows, for example, a grouped plot where a grouping variable can be
+           used to fit separate loess curves along with the scatter for each group. See example(xyplot)
 
 Version: 0.3
 Category: New Features
-Text: wrappers around grid functions with API-s of traditional graphics functions to help
-          port existing S-Plus Trellis code. See below for details.
+Text: wrappers around grid functions with API-s of traditional graphics functions to help port existing
+           S-Plus Trellis code. See below for details.
 
 Version: 0.3
 Category: New Features
-Text: changes in print.trellis to allow mixing of Lattice and usual R graphics. See below
-          for details.
+Text: changes in print.trellis to allow mixing of Lattice and usual R graphics. See below for details.
 
 Version: 0.3
 Category: Porting S-Plus Trellis code to Lattice
@@ -3029,8 +3548,7 @@ Text: contourplot, wireframe, cloud (partially implemented) and of course, piech
 
 Version: 0.3
 Category: Still Missing [OBSOLETE, except for the parts about piechart and scale
-Text: Some components of scale (I haven&#39;t found a full list, so can&#39;t say exactly which are
-          missing)
+Text: Some components of scale (I haven&#39;t found a full list, so can&#39;t say exactly which are missing)
 
 Version: 0.3
 Category: Still Missing [OBSOLETE, except for the parts about piechart and scale
