@@ -14,6 +14,7 @@ Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends:
     R (>= 2.13.0)
 Suggests:
+    knitr,
     lattice,
     testthat,
     XML
@@ -26,3 +27,4 @@ Description: This package is a designed to more conveniently perform tasks
 License: GPL-2
 URL: https://github.com/trinker/pacman
 Roxygen: list(wrap = FALSE)
+VignetteBuilder: knitr
