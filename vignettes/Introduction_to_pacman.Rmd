@@ -13,7 +13,6 @@ uri_embed <- function(path, add="") {
     uri <- knitr::image_uri(path)
     cat(paste0("<img ", add, " src=\"", uri, "\" />"))
 }
-# knitr::knit2html("vignettes/Introduction_to_pacman.Rmd", "vignettes/Introduction_to_pacman.html")
 ```
 
 # Introduction to pacman
