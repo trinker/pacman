@@ -32,7 +32,7 @@ Function names in the pacman package follow the format of `p_xxx` where 'xxx' is
 
 -Intro here- 
 
-**Quick Reference** -Need to add better table styling-
+**Quick Reference Table** -Need to add better table styling-
 
 | pacman Function | Base Equivalent | Description |
 |----------------------|----------------------|----------------|
