@@ -12,7 +12,9 @@
 #' accept a single input which is a character vector containing the names of 
 #' packages to load.
 #' @param quiet logical. Passed to \code{print.p_delete} as an attribute.  If 
-#' \code{TRUE} no messages confirming package deletions are printed.
+#' \code{TRUE} no messages confirming package deletions are printed.  The 
+#' default is to test if \code{p_delete} is being used in the global 
+#' environment, if it is then the messages will be printed.
 #' @section Warning:
 #' Using this function will remove the package from your 
 #' library and cannot be loaded again without reinstalling the package.
@@ -23,7 +25,7 @@
 #' \dontrun{
 #' p_delete(pacman) # You never want to run this
 #' }
-p_delete <- function (..., char, character.only = FALSE, quiet = FALSE){ 
+p_delete <- function (..., char, character.only = FALSE, quiet = !is.global(2)){ 
 
     if(!missing(char)){
         packages <- char
@@ -34,15 +36,15 @@ p_delete <- function (..., char, character.only = FALSE, quiet = FALSE){
     }
 	
     ## use `p_delete_single` to delete packages and save meta info for each
-	meta_list <- invisible(suppressMessages(lapply(packages, p_delete_single)))
-	
+        meta_list <- invisible(suppressMessages(lapply(packages, p_delete_single)))
     meta_df <- do.call(rbind, meta_list)
 	
-	## Create a class and add the quiet attribute to pass to print method
-	class(meta_df) <- c("p_delete", class(meta_df))
-	attributes(meta_df)[["quiet"]] <- quiet
+    ## handle warnings if not quiet
+    if (!quiet){
+        p_delete_warning(meta_df)
+    }
 	
-	meta_df
+    return(invisible(meta_df))
 }
 
 
@@ -51,22 +53,10 @@ p_delete <- function (..., char, character.only = FALSE, quiet = FALSE){
 p_del <- p_delete
 
 
-#' Prints a p_delete Object
-#' 
-#' Prints a p_delete object.
-#' 
-#' @param x The p_delete object.
-#' @param quiet logical. If \code{TRUE} no messages confirming package deletions 
-#' are printed.
-#' @param \ldots ignored
-#' @method print p_delete
-#' @export
-print.p_delete <- function(x, quiet = NULL, ...){
-	
-	if (is.null(quiet)) quiet <- attributes(x)[["quiet"]]
-	if (quiet) return(NULL)
-	
-    ## Message about not package or base package not being removed
+# Helper function to print warnins in `p_delete`
+p_delete_warning <- function(x){
+
+    ## Messages about not found package or base package not being removed
     if (any(!x[["can_delete"]])) {
     	
     	not_rm <- x[!is.na(x[["type"]]), ]
