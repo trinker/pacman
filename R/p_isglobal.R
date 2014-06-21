@@ -12,13 +12,13 @@
 #' @seealso \code{\link[base]{globalenv}},
 #' \code{\link[base]{parent.frame}}
 #' @examples
-#' p_global()
-#' lapply(1:3, function(i) p_global())
-#' FUN <- function() p_global(); FUN()
+#' p_isglobal()
+#' lapply(1:3, function(i) p_isglobal())
+#' FUN <- function() p_isglobal(); FUN()
 #' 
-#' FUN2 <- function(x = p_global(2)) x
+#' FUN2 <- function(x = p_isglobal(2)) x
 #' FUN2()
 #' FUN3 <- function() FUN2(); FUN3()
-p_global <- function(n = 1) {
+p_isglobal <- function(n = 1) {
     identical(parent.frame(n = n) , globalenv())
 }
