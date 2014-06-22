@@ -40,7 +40,7 @@ You are welcome to:
 * send a pull request on: <https://github.com/trinker/pacman/>
 * compose a friendly e-mail to: <tyler.rinker@gmail.com>
 
-## Installing, Loading, Unloading, Updating, & Deleting with pacman 
+## Installing, Loading, Unloading, Updating, & Deleting Packages with pacman 
 
 **Quick Reference Table** 
 
