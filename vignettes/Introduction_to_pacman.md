@@ -66,7 +66,7 @@ The user may wish to only install packages.  The `p_install` (aliased as `p_get`
 p_install(dbConnect, qdap, reports)
 ```
 
-#### Installing Temporarily
+### Installing Temporarily
 
 Lastly, `p_temp` enables the user to temporarily install a package.  This allows a session only install for testing out a single package without muddying the user's library.  
 
