@@ -336,3 +336,16 @@ html {
   background: #C8C8C8; /* Fills the page */
   position: relative; /* Fix for absolute positioning */
 }
+
+.textbox {
+    border-radius: 5px; 
+    padding:10px; 
+    border: 1px solid black;
+}
+
+.notebox {
+    border-radius: 5px; 
+    padding:10px; 
+    border: 1px solid #CC3300;
+    font-style:italic;
+}

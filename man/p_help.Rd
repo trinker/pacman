@@ -29,6 +29,9 @@ p_help(pacman, web=TRUE)
 p_help(pacman, pdf=TRUE)
 }
 }
+\references{
+\url{http://r.789695.n4.nabble.com/Opening-package-manual-from-within-R-td3763938.html}
+}
 \seealso{
 \code{\link[utils]{help}}
 }

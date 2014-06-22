@@ -25,7 +25,8 @@ Unloads package(s) or all packages.
 }
 \note{
 \code{p_unload} will not unload the base install packages that load
-when R boots up.
+when R boots up.  See the comments in the help for \code{detach} about some
+issues with unloading and reloading namespaces.
 }
 \examples{
 \dontrun{

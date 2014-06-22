@@ -17,7 +17,7 @@ opts_knit$set(upload.fun = image_uri, self.contained=TRUE)
 ```
 
 <h1 class="title">Introduction to pacman</h1>
-<h1 class="auth">Tyler Rinker & Dason Kurkiewicz</h1>
+<h1 class="auth">Tyler W. Rinker & Dason Kurkiewicz</h1>
 
 The **pacman** package is an R package management tool that combines the functionality of base `library` related functions into intuitively named functions.  This package is ideally added to [.Rprofile](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html) to increase workflow by reducing time recalling obscurely named functions, reducing code, and integrating functionality of base functions to simultaneously perform multiple actions.  The function `p_load` is particulalry well suited for help formums and posts, as it will load and, if necessary, install missing packages.
 
@@ -28,7 +28,7 @@ uri_embed("r_pacman.png",
 ```
 
 
-Function names in the pacman package follow the format of `p_xxx` where 'xxx' is the task the function performs.  For instance the `p_load` function allows the user to load one or more packages as a more generic substitute for the `library` or `require` functions and if the package isn't available locally it will install it for you.
+Function names in the pacman package follow the format of `p_xxx` where 'xxx' is the task the function performs.  For instance the `p_load` function allows the user to load one or more packages as a more generic substitute for the `library` or `require` functions and if the package isn't available locally it will install it for you.  In keeping with the `library` function, the user need not use quotes around package names for most **pacman* functions.
 
 ## Installing, Loading, Unloading, Updating, & Deleting   
 
@@ -62,13 +62,87 @@ p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
 
 ### Installing and Loading    
 
-- `p_load` 
-- `p_install`/`p_get`
-- `p_temp`
-       
-###  Unloading*
+`p_load` is a general use tool that can install, load, and update packages.  The form for the function is:
 
-- `p_unload`
+```{r, eval = FALSE}
+p_load(..., char, install = TRUE, update = getOption("pac_update"), character.only = FALSE)
+```
+
+where the `...` argument is  allows the user to pass inquoted package names.  
+
+The user may wish to only install packages.  The `p_install` (aliased as `p_get`) will allow the user to install with the same ease of format as `p_load`.  For example: 
+
+```{r eval=FALSE}
+p_install(dbConnect, qdap, reports)
+```
+
+Lastly, `p_temp` enables the user to temporarily install a package.  This allows a session only install for testing out a single package without muddying the user's library.  
+
+```{r eval=FALSE}
+p_temp(aprof)
+
+p_isinstalled(aprof)
+p_isloaded(aprof)
+```
+
+<pre><code>> p_temp(aprof)
+The following packages have been unloaded:
+aprof
+
+trying URL 'http://cran.rstudio.com/bin/windows/contrib/3.1/aprof_0.2.zip'
+Content type 'application/zip' length 34037 bytes (33 Kb)
+opened URL
+downloaded 33 Kb
+
+package 'aprof' successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\you\AppData\Local\Temp\RtmpYh6bSr\downloaded_packages
+
+aprof installed
+Loading required package: aprof
+> 
+> p_isinstalled(aprof)
+[1] FALSE
+> p_isloaded(aprof)
+aprof 
+ TRUE 
+</code></pre>
+
+<div class="notebox", style="background-color: #E6E6E6;"> 
+<b>Note:</b>  When using <code>p_load</code> and friends inside of functions the user may want to explicitly supply the package name(s) as character strings and set <code>character.only = FALSE</code>.
+</div>
+
+       
+###  Unloading
+
+To unload package(s) from the search path use `p_unload`.  `p_unload` will not unload the base install packages that load when R boots up. The form for the function is:
+
+```{r, eval = FALSE}
+p_unload(..., negate = FALSE, char, character.only = FALSE)
+```
+
+where the `...` argument is  allows the user to pass inquoted package names.  USers may also supply `"all"` to `...`  to remove all add on packages.  The `negate` argument negates, unloading all packages except those supplied to `...`.
+
+```{r, eval = FALSE}
+p_load(lattice)
+p_isloaded(lattice)
+p_unload(lattice)
+p_isloaded(lattice)
+```
+
+<pre><code>> p_load(lattice)
+> p_isloaded(lattice)
+lattice 
+   TRUE 
+> p_unload(lattice)
+The following packages have been unloaded:
+lattice
+
+> p_isloaded(lattice)
+lattice 
+  FALSE 
+</code></pre>
 
 ### Updating    
   
@@ -87,7 +161,7 @@ p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
 -  `p_author`
 -  `p_cite`/`p_citation`
 -  `p_data`
--  `p_exists`
+-  `p_exists`/`p_isinstalled`  
 -  `p_funs`/`p_functions`
 -  `p_help`
 -  `p_info`/`p_information`

@@ -34,8 +34,12 @@ p_sa("color", 2)
 p_sa("psych", "package")
 }
 }
+\author{
+BondedDust (stackoverflow.com) and Tyler Rinker <tyler.rinker@gmail.com>
+}
 \references{
 \url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
+\url{http://stackoverflow.com/a/10082624/1000343}
 }
 \keyword{author}
 \keyword{package}

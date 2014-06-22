@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>p_information. pacman 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pacman 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Package Information</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>p_information(package&nbsp;=&nbsp;"base")</div>
+<div>p_info(package&nbsp;=&nbsp;"base")</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>package</dt>
+      <dd>Name of the package to grab information for.  Default is
+<code>"base"</code>.</dd>
+    </dl>
+    
+    <div class="Package Information">
+      <h2>Package Information</h2>
+      
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Provides the information from for a package from
+the <em>NAMESPACE</em>.  Information may include: title,
+version, author, maintainer, description, depends,
+imports, suggests</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>p_information()
+</div>
+<div class='output'>Package: base
+Version: 3.1.0
+Priority: base
+Title: The R Base Package
+Author: R Core Team and contributors worldwide
+Maintainer: R Core Team &lt;R-core@r-project.org&gt;
+Description: Base R functions
+License: Part of R 3.1.0
+Built: R 3.1.0; ; 2014-04-11 14:09:12 UTC; windows
+
+-- File: C:/R/R-31~1.0/library/base/Meta/package.rds 
+</div>
+<div class='input'>p_info()
+</div>
+<div class='output'>Package: base
+Version: 3.1.0
+Priority: base
+Title: The R Base Package
+Author: R Core Team and contributors worldwide
+Maintainer: R Core Team &lt;R-core@r-project.org&gt;
+Description: Base R functions
+License: Part of R 3.1.0
+Built: R 3.1.0; ; 2014-04-11 14:09:12 UTC; windows
+
+-- File: C:/R/R-31~1.0/library/base/Meta/package.rds 
+</div>
+<div class='input'>p_info(pacman)
+</div>
+<div class='output'>Package: pacman
+Type: Package
+Title: Package Management Tool
+Version: 0.2.0
+Date: 2012-06-03
+Authors@R: c(person(&quot;Tyler&quot;, &quot;Rinker&quot;, role = c(&quot;aut&quot;, &quot;cre&quot;, &quot;ctb&quot;), email = &quot;tyler.rinker@gmail.com&quot;),
+           person(&quot;Dason&quot;, &quot;Kurkiewicz&quot;, role = c(&quot;aut&quot;, &quot;ctb&quot;), email = &quot;dasonk@iastate.edu&quot;))
+Author: Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb]
+Maintainer: Tyler Rinker &lt;tyler.rinker@gmail.com&gt;
+Depends: R (&gt;= 2.13.0)
+Suggests: knitr, lattice, testthat, XML
+BugReports: https://github.com/trinker/pacman/issues?state=open
+Description: This package is a designed to more conveniently perform tasks associated with add on
+           packages.  pacman conveniently wraps library and package related functions and names them in
+           an intuitive and consistent fashion.  It seeks to combine functionality from lower level
+           functions that can speed up workflow.
+License: GPL-2
+URL: https://github.com/trinker/pacman
+Roxygen: list(wrap = FALSE)
+VignetteBuilder: knitr
+
+-- File: C:\Users\trinker\GitHub\pacman/DESCRIPTION 
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>p_info</li><li>p_information</li>
+    </ul>
+    <ul>
+      <li>info</li><li>information</li><li>package</li><li>packageDescription</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/r-doc/utils/packageDescription'>packageDescription</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

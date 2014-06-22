@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>p_delete. pacman 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pacman 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Permanently Remove Package Removal(s) From Library</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>p_delete(..., char, character.only&nbsp;=&nbsp;FALSE, quiet&nbsp;=&nbsp;!p_isglobal(2))</div>
+<div>p_del(..., char, character.only&nbsp;=&nbsp;FALSE, quiet&nbsp;=&nbsp;!p_isglobal(2))</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>...</dt>
+      <dd>name(s) of package(s).</dd>
+      <dt>char</dt>
+      <dd>Character vector containing packages to load.  If you are calling
+<code>p_delete</code> from within a function (or just having difficulties calling it
+using a character vector input) then pass your character vector of packages
+to load to this parameter directly.</dd>
+      <dt>character.only</dt>
+      <dd>logical. If <code>TRUE</code> then <code>p_load</code> will only
+accept a single input which is a character vector containing the names of
+packages to load.</dd>
+      <dt>quiet</dt>
+      <dd>logical. Passed to <code>print.p_delete</code> as an attribute.  If
+<code>TRUE</code> no messages confirming package deletions are printed.  The
+default is to test if <code>p_delete</code> is being used in the global
+environment, if it is then the messages will be printed.</dd>
+    </dl>
+    
+    <div class="Permanently Remove Package Removal(s) From Library">
+      <h2>Permanently Remove Package Removal(s) From Library</h2>
+      
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Remove package(s) from the library permanently.</p>
+  
+    </div>
+
+    <div class="Warning">
+      <h2>Warning</h2>
+      
+      <p></p>
+  
+      <p>Using this function will remove the package from your
+library and cannot be loaded again without reinstalling the package.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # p_delete(pacman) # You never want to run this# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>p_del</li><li>p_delete</li>
+    </ul>
+    <ul>
+      <li>delete</li><li>package</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/r-doc/utils/remove.packages'>remove.packages</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

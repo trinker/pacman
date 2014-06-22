@@ -389,19 +389,6 @@ html {
   background: #C8C8C8; /* Fills the page */
   position: relative; /* Fix for absolute positioning */
 }
-
-.textbox {
-    border-radius: 5px; 
-    padding:10px; 
-    border: 1px solid black;
-}
-
-.notebox {
-    border-radius: 5px; 
-    padding:10px; 
-    border: 1px solid #CC3300;
-    font-style:italic;
-}
 </style>
 
 
@@ -492,67 +479,16 @@ p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
 
 <p>Lastly, <code>p_temp</code> enables the user to temporarily install a package.  This allows a session only install for testing out a single package without muddying the user&#39;s library.  </p>
 
-<pre><code class="r">p_temp(aprof)
-
-p_isinstalled(aprof)
-p_isloaded(aprof)
+<pre><code class="r">p_temp(dbConnect, qdap, reports)
 </code></pre>
 
-<pre><code>> p_temp(aprof)
-The following packages have been unloaded:
-aprof
+<p>If using the </p>
 
-trying URL 'http://cran.rstudio.com/bin/windows/contrib/3.1/aprof_0.2.zip'
-Content type 'application/zip' length 34037 bytes (33 Kb)
-opened URL
-downloaded 33 Kb
+<h3>Unloading*</h3>
 
-package 'aprof' successfully unpacked and MD5 sums checked
-
-The downloaded binary packages are in
-        C:\Users\you\AppData\Local\Temp\RtmpYh6bSr\downloaded_packages
-
-aprof installed
-Loading required package: aprof
-> 
-> p_isinstalled(aprof)
-[1] FALSE
-> p_isloaded(aprof)
-aprof 
- TRUE 
-</code></pre>
-
-<div class="notebox", style="background-color: #E6E6E6;"> 
-<b>Note:</b>  When using <code>p_load</code> and friends inside of functions the user may want to explicitly supply the package name(s) as character strings and set <code>character.only = FALSE</code>.
-</div>
-
-<h3>Unloading</h3>
-
-<p>To unload package(s) from the search path use <code>p_unload</code>.  <code>p_unload</code> will not unload the base install packages that load when R boots up. The form for the function is:</p>
-
-<pre><code class="r">p_unload(..., negate = FALSE, char, character.only = FALSE)
-</code></pre>
-
-<p>where the <code>...</code> argument is  allows the user to pass inquoted package names.  USers may also supply <code>&quot;all&quot;</code> to <code>...</code>  to remove all add on packages.  The <code>negate</code> argument negates, unloading all packages except those supplied to <code>...</code>.</p>
-
-<pre><code class="r">p_load(lattice)
-p_isloaded(lattice)
-p_unload(lattice)
-p_isloaded(lattice)
-</code></pre>
-
-<pre><code>> p_load(lattice)
-> p_isloaded(lattice)
-lattice 
-   TRUE 
-> p_unload(lattice)
-The following packages have been unloaded:
-lattice
-
-> p_isloaded(lattice)
-lattice 
-  FALSE 
-</code></pre>
+<ul>
+<li><code>p_unload</code></li>
+</ul>
 
 <h3>Updating</h3>
 

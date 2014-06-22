@@ -10,7 +10,7 @@
 #' @param character.only logical. Is the input a character string?
 #' 
 #' @export
-#' @author Idea from juba at stackoverflow.  See references.
+#' @author juba (stackoverflow.com) and Dason Kurkiewicz
 #' @references \url{http://stackoverflow.com/a/14896943/1003565}
 p_temp <- function(package, character.only = FALSE){
     if(!character.only){

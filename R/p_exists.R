@@ -24,3 +24,8 @@ function (package, cran = TRUE) {
         x %in% list.files(.libPaths())
     }
 }
+
+
+
+	
+	

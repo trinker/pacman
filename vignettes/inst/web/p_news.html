@@ -1,0 +1,3596 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>p_news. pacman 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pacman 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Package/R News</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>p_news(package&nbsp;=&nbsp;NULL)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>package</dt>
+      <dd>Name of package (default is to see news for R).</dd>
+    </dl>
+    
+    <div class="Package/R News">
+      <h2>Package/R News</h2>
+      
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Find out news on a package or R.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>p_news()
+</div>
+<div class='output'>Changes in version 3.1.0:
+
+NEW FEATURES
+
+    o   type.convert() (and hence by default read.table()) returns a
+	 character vector or factor when representing a numeric input as a
+	 double would lose accuracy.  Similarly for complex inputs.
+	
+	 If a file contains numeric data with unrepresentable numbers of
+	 decimal places that are intended to be read as numeric, specify
+	 colClasses in read.table() to be &quot;numeric&quot;.
+
+    o   tools::Rdiff(useDiff = FALSE) is closer to the POSIX definition of
+	 diff -b (as distinct from the description in the man pages of most
+	 systems).
+
+    o   New function anyNA(), a version of any(is.na(.)) which is fast for
+	 atomic vectors, based on a proposal by Tim Hesterberg. (Wish of
+	 PR#15239.)
+
+    o   arrayInd(*, useNames = TRUE) and, analogously, which(*, arr.ind =
+	 TRUE) now make use of names(.dimnames) when available.
+
+    o   is.unsorted() now also works for raw vectors.
+
+    o   The &quot;table&quot; method for as.data.frame() (also useful as
+	 as.data.frame.table()) now passes sep and base arguments to
+	 provideDimnames().
+
+    o   uniroot() gets new optional arguments, notably extendInt, allowing
+	 to auto-extend the search interval when needed.  The return value
+	 has an extra component, init.it.
+
+    o   switch(f, ...) now warns when f is a factor, as this typically
+	 happens accidentally where the useR meant to pass a character
+	 string, but f is treated as integer (as always documented).
+
+    o   The parser has been modified to use less memory.
+
+    o   The way the unary operators (+ - !) handle attributes is now more
+	 consistent.  If there is no coercion, all attributes (including
+	 class) are copied from the input to the result: otherwise only
+	 names, dims and dimnames are.
+
+    o   colorRamp() and colorRampPalette() now allow non-opaque colours and
+	 a ramp in opacity via the new argument alpha = TRUE.  (Suggested by
+	 Alberto Krone-Martins, but optionally as there are existing uses
+	 which expect only RGB values.)
+
+    o   grid.show.layout() and grid.show.viewport() get an optional vp.ex
+	 argument.
+
+    o   There is a new function find_gs_cmd() in the tools package to locate
+	 a GhostScript executable.  (This is an enhanced version of a
+	 previously internal function there.)
+
+    o   object.size() gains a format() method.
+
+    o   There is a new family, &quot;ArialMT&quot;, for the pdf() and postscript()
+	 devices.  This will only be rendered correctly on viewers which
+	 have access to Monotype TrueType fonts (which are sometimes
+	 requested by journals).
+
+    o   The text and PDF news files, including NEWS and NEWS.2, have been
+	 moved to the doc directory.
+
+    o   combn(x, simplify = TRUE) now gives a factor result for factor input
+	 x (previously user error).  (Related to PR#15442.)
+
+    o   Added utils::fileSnapshot() and utils::changedFiles() functions to
+	 allow snapshots and comparison of directories of files.
+
+    o   make.names(names, unique=TRUE) now tries to preserve existing names.
+	 (Suggestion of PR#15452.)
+
+    o   New functions cospi(x), sinpi(x), and tanpi(x), for more accurate
+	 computation of cos(pi*x), etc, both in R and the C API.  Using
+	 these gains accuracy in some cases, e.g., inside lgamma() or
+	 besselI().  (Suggested by Morten Welinder in PR#15529.)
+
+    o   print.table(x, zero.print = &quot;.&quot;) now also has an effect when x is
+	 not integer-valued.
+
+    o   There is more support to explore the system&#39;s idea of time-zone
+	 names.  Sys.timezone() tries to give the current system setting by
+	 name (and succeeds at least on Linux, OS X, Solaris and Windows),
+	 and OlsonNames() lists the names in the system&#39;s Olson database.
+	 Sys.timezone(location = FALSE) gives the previous behaviour.
+
+    o   Platforms with a 64-bit time_t type are allowed to handle
+	 conversions between the &quot;POSIXct&quot; and &quot;POSIXlt&quot; classes for
+	 date-times outside the 32-bit range (before 1902 or after 2037):
+	 the existing workarounds are used on other platforms.  (Note that
+	 time-zone information for post-2037 is speculative at best, and the
+	 OS services are tested for known errors and so not used on OS X.)
+	
+	 Currently time_t is usually long and hence 64-bit on Unix-alike
+	 64-bit platforms: however it several cases the time-zone database
+	 is 32-bit.  On R for Windows it is 64-bit (for both architectures
+	 as from this version).
+
+    o   The &quot;save.defaults&quot; option can include a value for
+	 compression_level.  (Wish of PR#15579.)
+
+    o   colSums() and friends now have support for arrays and data-frame
+	 columns with 2^31 or more elements.
+
+    o   as.factor() is faster when f is an unclassed integer vector (for
+	 example, when called from tapply()).
+
+    o   fft() now works with longer inputs, from the 12 million previously
+	 supported up to 2 billion.  (PR#15593)
+
+    o   Complex svd() now uses LAPACK subroutine ZGESDD, the complex
+	 analogue of the routine used for the real case.
+
+    o   Sweave now outputs .tex files in UTF-8 if the input encoding is
+	 declared to be UTF-8, regardless of the local encoding.  The UTF-8
+	 encoding may now be declared using a LaTeX comment containing the
+	 string %\SweaveUTF8 on a line by itself.
+
+    o   file.copy() gains a copy.date argument.
+
+    o   Printing of date-times will make use of the time-zone abbreviation
+	 in use at the time, if known.  For example, for Paris pre-1940 this
+	 could be LMT, PMT, WET or WEST.  To enable this, the &quot;POSIXlt&quot;
+	 class has an optional component &quot;zone&quot; recording the abbreviation
+	 for each element.
+	
+	 For platforms which support it, there is also a component &quot;gmtoff&quot;
+	 recording the offset from GMT where known.
+
+    o   (On Windows, by default on OS X and optionally elsewhere.)  The
+	 system C function strftime has been replaced by a more
+	 comprehensive version with closer conformance to the POSIX 2008
+	 standard.
+
+    o   dnorm(x, log = FALSE) is more accurate (but somewhat slower) for |x|
+	 &gt; 5; as suggested in PR#15620.
+
+    o   Some versions of the tiff() device have further compression options.
+
+    o   read.table(), readLines() and scan() have a new argument to
+	 influence the treatment of embedded nuls.
+
+    o   Avoid duplicating the right hand side values in complex assignments
+	 when possible.  This reduces copying of replacement values in
+	 expressions such as Z$a &lt;- a0 and ans[[i]] &lt;- tmp: some package
+	 code has relied on there being copies.
+	
+	 Also, a number of other changes to reduce copying of objects; all
+	 contributed by or based on suggestions by Michael Lawrence.
+
+    o   The fast argument of KalmanLike(), KalmanRun() and KalmanForecast()
+	 has been replaced by update, which instead of updating mod in
+	 place, optionally returns the updated model in an attribute &quot;mod&quot;
+	 of the return value.
+
+    o   arima() and makeARIMA() get a new optional argument SSinit, allowing
+	 the choice of a different *s*tate *s*pace initialization which has
+	 been observed to be more reliable close to non-stationarity: see
+	 PR#14682.
+
+    o   warning() has a new argument noBreaks., to simplify post-processing
+	 of output with options(warn = 1).
+
+    o   pushBack() gains an argument encoding, to support reading of UTF-8
+	 characters using scan(), read.table() and related functions in a
+	 non-UTF-8 locale.
+
+    o   all.equal.list() gets a new argument use.names which by default
+	 labels differing components by names (if they match) rather than by
+	 integer index.  Saved R output in packages may need to be updated.
+
+    o   The methods for all.equal() and attr.all.equal() now have argument
+	 check.attributes after ... so it cannot be partially nor
+	 positionally matched (as it has been, unintentionally).
+	
+	 A side effect is that some previously undetected errors of passing
+	 empty arguments (no object between commas) to all.equal() are
+	 detected and reported.
+	
+	 There are explicit checks that check.attributes is logical,
+	 tolerance is numeric and scale is NULL or numeric.  This catches
+	 some unintended positional matching.
+	
+	 The message for all.equal.numeric() reports a &quot;scaled difference&quot;
+	 only for scale != 1.
+
+    o   all.equal() now has a &quot;POSIXt&quot; method replacing the &quot;POSIXct&quot;
+	 method.
+
+    o   The &quot;Date&quot; and &quot;POSIXt&quot; methods of seq() allows by = &quot;quarter&quot; for
+	 completeness (by = &quot;3 months&quot; always worked).
+
+    o   file.path() removes any trailing separator on Windows, where they
+	 are invalid (although sometimes accepted).  This is intended to
+	 enhance the portability of code written by those using POSIX file
+	 systems (where a trailing / can be used to confine path matching to
+	 directories).
+
+    o   New function agrepl() which like grepl() returns a logical vector.
+
+    o   fifo() is now supported on Windows. (PR#15600)
+
+    o   sort.list(method = &quot;radix&quot;) now allows negative integers (wish of
+	 PR#15644).
+
+    o   Some functionality of print.ts() is now available in .preformat.ts()
+	 for more modularity.
+
+    o   mcparallel() gains an option detach = TRUE which allows execution of
+	 code independently of the current session.  It is based on a new
+	 estranged = TRUE argument to mcfork() which forks child processes
+	 such that they become independent of the parent process.
+
+    o   The pdf() device omits circles and text at extremely small sizes,
+	 since some viewers were failing on such files.
+
+    o   The rightmost break for the &quot;months&quot;, &quot;quarters&quot; and &quot;years&quot; cases
+	 of hist.POSIXlt() has been increased by a day.  (Inter alia, fixes
+	 PR#15717.)
+
+    o   The handling of DF[i,] &lt;- a where i is of length 0 is improved.
+	 (Inter alia, fixes PR#15718.)
+
+    o   hclust() gains a new method &quot;ward.D2&quot; which implements Ward&#39;s method
+	 correctly.  The previous &quot;ward&quot; method is &quot;ward.D&quot; now, with the
+	 old name still working.  Thanks to research and proposals by Pierre
+	 Legendre.
+
+    o   The sunspot.month dataset has been amended and updated from the
+	 official source, whereas the sunspots and sunspot.year datasets
+	 will remain immutable. The documentation and source links have been
+	 updated correspondingly.
+
+    o   The summary() method for &quot;lm&quot; fits warns if the fit is essentially
+	 perfect, as most of the summary may be computed inaccurately (and
+	 with platform-dependent values).
+	
+	 Programmers who use summary() in order to extract just a component
+	 which will be reliable (e.g. $cov.unscaled) should wrap their calls
+	 in suppressWarnings().
+
+INSTALLATION and INCLUDED SOFTWARE
+
+    o   The included version of LAPACK has been updated to 3.5.0.
+
+    o   There is some support for parallel testing of an installation, by
+	 setting TEST_MC_CORES to an integer greater than one to indicate
+	 the maximum number of cores to be used in parallel. (It is worth
+	 specifying at least 8 cores if available.)  Most of these require a
+	 make program (such as GNU make and dmake) which supports the $MAKE
+	 -j nproc syntax.
+	
+	 Except on Windows: the tests of standard package examples in make
+	 check are done in parallel.  This also applies to running
+	 tools::testInstalledPackages().
+	
+	 The more time-consuming regression tests are done in parallel.
+	
+	 The package checks in make check-devel and make check-recommended
+	 are done in parallel.
+
+    o   More of make check will work if recommended packages are not
+	 installed: but recommended packages remain needed for thorough
+	 checking of an R build.
+
+    o   The version of tzcode included in src/extra/tzone has been updated.
+	 (Formerly used only on Windows.)
+
+    o   The included (64-bit) time-zone conversion code and Olson time-zone
+	 database can be used instead of the system version: use configure
+	 option --with-internal-tzcode.  This is the default on Windows and
+	 OS X.  (Note that this does not currently work if a non-default
+	 rsharedir configure variable is used.)
+	
+	 (It might be necessary to set environment variable TZ on OSes where
+	 this is not already set, although the system timezone is deduced
+	 correctly on at least Linux, OS X and Windows.)
+	
+	 This option also switches to the version of strftime included in
+	 directory src/extra/tzone.
+
+    o   configure now tests for a C++11-compliant compiler by testing some
+	 basic features.  This by default tries flags for the compiler
+	 specified by CXX, but an alternative compiler, options and standard
+	 can be specified by variables CXX1X, CXX1XFLAGS and CXX1XSTD (e.g.
+	 -std=gnu++11).
+
+    o   R can now optionally be compiled to use reference counting instead
+	 of the NAMED mechanism by defining SWITCH_TO_REFCNT in
+	 Rinternals.h. This may become the default in the future.
+
+    o   There is a new option --use-system-tre to use a suitable system tre
+	 library: at present this means a version from their git repository,
+	 after corrections.  (Wish of PR#15660.)
+
+PACKAGE INSTALLATION
+
+    o   The CRANextra repository is no longer a default repository on
+	 Windows: all the binary versions of packages from CRAN are now on
+	 CRAN, although CRANextra contains packages from Omegahat and
+	 elsewhere used by CRAN packages.
+
+    o   Only vignettes sources in directory vignettes are considered to be
+	 vignettes and hence indexed as such.
+
+    o   In the DESCRIPTION file,
+	 
+	     License: X11
+	
+	 is no longer recognized as valid.  Use MIT or BSD_2_clause instead,
+	 both of which need + file LICENSE.
+
+    o   For consistency, entries in .Rinstignore are now matched
+	 case-insensitively on all platforms.
+
+    o   Help for S4 methods with very long signatures now tries harder to
+	 split the description in the Usage field to no more than 80
+	 characters per line (some packages had over 120 characters).
+
+    o   R CMD INSTALL --build (not Windows) now defaults to the internal
+	 tar() unless R_INSTALL_TAR is set.
+
+    o   There is support for compiling C++11 code in packages on suitable
+	 platforms: see ‘Writing R Extensions’.
+
+    o   Fake installs now install the contents of directory inst: some
+	 packages use this to install e.g. C++ headers for use by other
+	 packages that are independent of the package itself.  Option
+	 --no-inst can be used to get the previous behaviour.
+
+DEBUGGING
+
+    o   The behaviour of the code browser has been made more consistent, in
+	 part following the suggestions in PR#14985.
+
+    o   Calls to browser() are now consistent with calls to the browser
+	 triggered by debug(), in that Enter will default to n rather than
+	 c.
+
+    o   A new browser command s has been added, to “step into” function
+	 calls.
+
+    o   A new browser command f has been added, to “finish” the current loop
+	 or function.
+
+    o   Within the browser, the command help will display a short list of
+	 available commands.
+
+UTILITIES
+
+    o   Only vignettes sources in directory vignettes are considered to be
+	 vignettes by R CMD check.  That has been the preferred location
+	 since R 2.14.0 and is now obligatory.
+
+    o   For consistency, R CMD build now matches entries in .Rbuildignore
+	 and vignettes/.install_extras case-insensitively on all platforms
+	 (not just on Windows).
+
+    o   checkFF() (called by R CMD check by default) can optionally check
+	 foreign function calls for consistency with the registered type and
+	 argument count.  This is the default for R CMD check --as-cran or
+	 can be enabled by setting environment variable _R_CHECK_FF_CALLS_
+	 to registration (but is in any case suppressed by --install=no).
+	 Because this checks calls in which .NAME is an R object and not
+	 just a literal character string, some other problems are detected
+	 for such calls.
+	
+	 Functions suppressForeignCheck() and dontCheck() have been added to
+	 allow package authors to suppress false positive reports.
+
+    o   R CMD check --as-cran warns about a false value of the DESCRIPTION
+	 field BuildVignettes for Open Source packages, and ignores it.  (An
+	 Open Source package needs to have complete sources for its
+	 vignettes which should be usable on a suitably well-equipped
+	 system).
+
+    o   R CMD check --no-rebuild-vignettes is defunct:
+	 R CMD check --no-build-vignettes has been preferred since R 3.0.0.
+
+    o   R CMD build --no-vignettes is defunct:
+	 R CMD build --no-build-vignettes has been preferred since R 3.0.0.
+
+    o   R CMD Sweave and R CMD Stangle now process both Sweave and
+	 non-Sweave vignettes.  The tools::buildVignette() function has been
+	 added to do the same tasks from within R.
+
+    o   The flags returned by R CMD config --ldflags and (where installed)
+	 pkg-config --libs libR are now those needed to link a front-end
+	 against the (shared or static) R library.
+
+    o   Sweave.sty has a new option [inconsolata].
+
+    o   R CMD check customizations such as _R_CHECK_DEPENDS_ONLY_ make
+	 available packages only in LinkingTo only for installation, and not
+	 for loading/runtime tests.
+
+    o   tools::checkFF() reports on .C and .Fortran calls with DUP = FALSE
+	 if argument check_DUP is true.  This is selected by R CMD check by
+	 default.
+
+    o   R CMD check --use-gct can be tuned to garbage-collect less
+	 frequently using gctorture2() _via_ the setting of environment
+	 variable _R_CHECK_GCT_N_.
+
+    o   Where supported, tools::texi2dvi() limits the number of passes tried
+	 to 20.
+
+C-LEVEL FACILITIES
+
+    o   (Windows only) A function R_WaitEvent() has been added (with
+	 declaration in headerR.h) to block execution until the next event
+	 is received by R.
+
+    o   Remapping in the Rmath.h header can be suppressed by defining
+	 R_NO_REMAP_RMATH.
+
+    o   The remapping of rround() in header Rmath.h has been removed: use
+	 fround() instead.
+
+    o   ftrunc() in header Rmath.h is now a wrapper for the C99 function
+	 trunc(), which might as well be used in C code: ftrunc() is still
+	 needed for portable C++ code.
+
+    o   The never-documented remapping of prec() to fprec() in header
+	 Rmath.h has been removed.
+
+    o   The included LAPACK subset now contains ZGESDD and ZGELSD.
+
+    o   The function LENGTH() now checks that it is only applied to vector
+	 arguments.  However, in packages length() should be used. (In R
+	 itself LENGTH() is a macro without the function overhead of
+	 length().)
+
+    o   Calls to SET_VECTOR_ELT() and SET_STRING_ELT() are now checked for
+	 indices which are in-range: several packages were writing one
+	 element beyond the allocated length.
+
+    o   allocVector3 has been added which allows custom allocators to be
+	 used for individual vector allocations.
+
+DEPRECATED AND DEFUNCT
+
+    o   chol(pivot = TRUE, LINPACK = TRUE) is defunct.
+	
+	 Arguments EISPACK for eigen() and LINPACK for chol(), chol2inv(),
+	 solve() and svd() are ignored: LAPACK is always used.
+
+    o   .find.package() and .path.package() are defunct: only the versions
+	 without the initial dot introduced in R 2.13.0 have ever been in
+	 the API.
+
+    o   Partial matching when using the $ operator _on data frames_ now
+	 throws a warning and may become defunct in the future. If partial
+	 matching is intended, replace foo$bar by foo[[&quot;bar&quot;, exact =
+	 FALSE]].
+
+    o   The long-deprecated use of \synopsis in the Usage section of .Rd
+	 files has been removed: such sections are now ignored (with a
+	 warning).
+
+    o   package.skeleton()&#39;s deprecated argument namespace has been removed.
+
+    o   Many methods are no longer exported by package stats.  They are all
+	 registered on their generic, which should be called rather than
+	 calling a method directly.
+
+    o   Functions readNEWS() and checkNEWS() in package tools are defunct.
+
+    o   download.file(method = &quot;lynx&quot;) is deprecated.
+
+    o   .C(DUP = FALSE) and .Fortran(DUP = FALSE) are now deprecated, and
+	 may be disabled in future versions of R.  As their help has long
+	 said, .Call() is much preferred.
+	
+	 R CMD check notes such usages (by default).
+
+    o   The workaround of setting R_OSX_VALGRIND has been removed: it is not
+	 needed in current valgrind.
+
+BUG FIXES
+
+    o   Calling lm.wfit() with no non-zero weights gave an array-overrun in
+	 the Fortran code and a not very sensible answer.  It is now
+	 special-cased with a simpler answer (no qr component).
+
+    o   Error messages involving non-syntactic names (e.g. as produced by
+	 `\r` when that object does not exist) now encode the control
+	 characters.  (Reported by Hadley Wickham.)
+
+    o   getGraphicsEvent() caused 100% usage of one CPU in Windows.
+	 (PR#15500)
+
+    o   nls() with no start argument may now work inside another function
+	 (scoping issue).
+
+    o   pbeta() and similar work better for very large (billions) ncp.
+
+    o   Where time zones have changed abbreviations over the years, the
+	 software tries to more consistently use the abbreviation
+	 appropriate to the time or if that is unknown, the current
+	 abbreviation.  On some platforms where the C function localtime
+	 changed the tzname variables the reported abbreviation could have
+	 been that of the last time converted.
+
+    o   all.equal(list(1), identity) now works.
+
+    o   Bug fix for pushing viewports in grid (reported by JJ Allaire and
+	 Kevin Ushey).
+	
+	 NOTE for anyone poking around within the graphics engine display
+	 list (despite the warnings not to) that this changes what is
+	 recorded by grid on the graphics engine display list.
+
+    o   Extra checks have been added for unit resolution and conversion in
+	 grid, to catch instances of division-by-zero.  This may introduce
+	 error messages in existing code and/or produce a different result
+	 in existing code (but only where a non-finite location or dimension
+	 may now become zero).
+
+    o   Some bugs in TRE have been corrected by updating from the git
+	 repository.  This allows R to be installed on some platforms for
+	 which this was a blocker (PR#15087 suggests Linux on ARM and
+	 HP-UX).
+
+    o   ? applied to a call to an S4 generic failed in several cases.
+	 (PR#15680)
+
+    o   The implicit S4 generics for primitives with ... in their argument
+	 list were incorrect. (PR#15690)
+
+    o   Bug fixes to methods::callGeneric(). (PR#15691)
+
+    o   The bug fix to aggregrate() in PR#15004 introduced a new bug in the
+	 case of no grouping variables. (PR#15699)
+
+    o   In rare cases printing deeply nested lists overran a buffer by one
+	 byte and on a few platforms segfaulted. (PR#15679)
+
+    o   The dendrogram method of as.dendrogram() was hidden accidentally,
+	 (PR#15703), and order.dendrogram(d) gave too much for a leaf d.
+	 (PR#15702)
+
+    o   R would try to kill processes on exit that have pids ever used by a
+	 child process spawned by mcparallel even though the current process
+	 with that pid was not actually its child.
+
+    o   cophenetic() applied to a &quot;dendrogram&quot; object sometimes incorrectly
+	 returned a &quot;Labels&quot; attribute with dimensions.  (PR#15706)
+
+    o   printCoefmat() called from quite a few print() methods now obeys
+	 small getOption(&quot;width&quot;) settings, line wrapping the &quot;signif.
+	 codes&quot; legend appropriately.  (PR#15708)
+
+    o   model.matrix() assumed that the stored dimnames for a matrix was
+	 NULL or length 2, but length 1 occurred.
+
+    o   The clipping region for a device was sometimes used in base graphics
+	 before it was set.
+
+Changes in version 3.0.3:
+
+NEW FEATURES
+
+    o   On Windows there is support for making .texi manuals using texinfo
+	 5.0 or later: the setting is in file src/gnuwin32/MkRules.dist.
+	
+	 A packaging of the Perl script and modules for texinfo 5.2 has been
+	 made available at &lt;URL: http://www.stats.ox.ac.uk/pub/Rtools/&gt;.
+
+    o   write.table() now handles matrices of 2^31 or more elements, for
+	 those with large amounts of patience and disc space.
+
+    o   There is a new function, La_version(), to report the version of
+	 LAPACK in use.
+
+    o   The HTML version of ‘An Introduction to R’ now has links to PNG
+	 versions of the figures.
+
+    o   There is some support to produce manuals in ebook formats. (See
+	 doc/manual/Makefile.  Suggested by Mauro Cavalcanti.)
+
+    o   On a Unix-alike Sys.timezone() returns NA if the environment
+	 variable TZ is unset, to distinguish it from an empty string which
+	 on some OSes means the UTC time zone.
+
+    o   The backtick may now be escaped in strings, to allow names
+	 containing them to be constructed, e.g. `\``.  (PR#15621)
+
+    o   read.table(), readLines() and scan() now warn when an embedded nul
+	 is found in the input.  (Related to PR#15625 which was puzzled by
+	 the behaviour in this unsupported case.)
+
+    o   (Windows only.)  file.symlink() works around the undocumented
+	 restriction of the Windows system call to backslashes.  (Wish of
+	 PR#15631.)
+
+    o   KalmanForecast(fast = FALSE) is now the default, and the help
+	 contains an example of how fast = TRUE can be used in this version.
+	 (The usage will change in 3.1.0.)
+
+    o   strptime() now checks the locale only when locale-specific formats
+	 are used and caches the locale in use: this can halve the time
+	 taken on OSes with slow system functions (e.g. OS X).
+
+    o   strptime() and the format() methods for classes &quot;POSIXct&quot;, &quot;POSIXlt&quot;
+	 and &quot;Date&quot; recognize strings with marked encodings: this allows,
+	 for example, UTF-8 French month names to be read on (French)
+	 Windows.
+
+    o   iconv(to = &quot;utf8&quot;) is now accepted on all platforms (some
+	 implementations did already, but GNU libiconv did not: however
+	 converted strings were not marked as being in UTF-8).  The official
+	 name, &quot;UTF-8&quot; is still preferred.
+
+    o   available.packages() is better protected against corrupt metadata
+	 files.  (A recurring problem with Debian package shogun-r:
+	 PR#14713.)
+
+    o   Finalizers are marked to be run at garbage collection, but run only
+	 at a somewhat safer later time (when interrupts are checked).  This
+	 circumvents some problems with finalizers running arbitrary code
+	 during garbage collection (the known instances being running
+	 options() and (C-level) path.expand() re-entrantly).
+
+INSTALLATION and INCLUDED SOFTWARE
+
+    o   The included version of PCRE has been updated to 8.34.  This fixes
+	 bugs and makes the behaviour closer to Perl 5.18.  In particular,
+	 the concept of ‘space’ includes VT and hence agrees with POSIX&#39;s.
+
+PACKAGE INSTALLATION
+
+    o   The new field SysDataCompression in the DESCRIPTION file allows user
+	 control over the compression used for sysdata.rda objects in the
+	 lazy-load database.
+
+    o   install.packages(dependencies = value) for value = NA (the default)
+	 or value = TRUE omits packages only in LinkingTo for binary package
+	 installs.
+
+C-LEVEL FACILITIES
+
+    o   The long undocumented remapping of rround() to Rf_fround() in header
+	 Rmath.h is now formally deprecated: use fround() directly.
+
+    o   Remapping of prec() and trunc() in the Rmath.h header has been
+	 disabled in C++ code (it has caused breakage with libc++ headers).
+
+BUG FIXES
+
+    o   getParseData() truncated the imaginary part of complex number
+	 constants.  (Reported by Yihui Xie.)
+
+    o   dbeta(x, a, b) with a or b within a factor of 2 of the largest
+	 representable number could infinite-loop.  (Reported by Ioannis
+	 Kosmidis.)
+
+    o   provideDimnames() failed for arrays with a 0 dimension. (PR#15465)
+
+    o   rbind() and cbind() did not handle list objects correctly.
+	 (PR#15468)
+
+    o   replayPlot() now checks if it is replaying a plot from the same
+	 session.
+
+    o   rasterImage() and grid.raster() now give error on an empty
+	 (zero-length) raster.  (Reported by Ben North.)
+
+    o   plot.lm() would sometimes scramble the labels in plot type 5.
+	 (PR#15458 and PR#14837)
+
+    o   min() did not handle NA_character_ values properly.  (Reported by
+	 Magnus Thor Torfason.)
+
+    o   (Windows only.)  readRegistry() would duplicate default values for
+	 keys.  (PR#15455)
+
+    o   str(..., strict.width = &quot;cut&quot;) did not handle it properly when more
+	 than one line needed to be cut.  (Reported by Gerrit Eichner.)
+
+    o   Removing subclass back-references when S4 classes were removed or
+	 their namespace unloaded had several bugs (e.g., PR#15481).
+
+    o   aggregate() could fail when there were too many levels present in
+	 the by argument.  (PR#15004)
+
+    o   namespaceImportFrom() needed to detect primitive functions when
+	 checking for duplicated imports (reported by Karl Forner).
+
+    o   getGraphicsEvent() did not exit when a user closed the graphics
+	 window.  (PR#15208)
+
+    o   Errors in vignettes were not always captured and displayed properly.
+	 (PR#15495)
+
+    o   contour() could fail when dealing with extremely small z values.
+	 (PR#15454)
+
+    o   Several functions did not handle zero-length vectors properly,
+	 including browseEnv(), format(), gl(), relist() and
+	 summary.data.frame().  (E.g., PR#15499)
+
+    o   Sweave() did not restore the R output to the console if it was
+	 interrupted by a user in the middle of evaluating a code chunk.
+	 (Reported by Michael Sumner.)
+
+    o   Fake installs of packages with vignettes work again.
+
+    o   Illegal characters in the input caused parse() (and thus source())
+	 to segfault.  (PR#15518)
+
+    o   The nonsensical use of nmax = 1 in duplicated() or unique() is now
+	 silently ignored.
+
+    o   qcauchy(p, *) is now fully accurate even when p is very close to 1.
+	 (PR#15521)
+
+    o   The validmu() and valideta() functions in the standard glm()
+	 families now also report non-finite values, rather than failing.
+
+    o   Saved vignette results (in a .Rout.save file) were not being
+	 compared to the new ones during R CMD check.
+
+    o   Double-clicking outside of the list box (e.g. on the scrollbar) of a
+	 Tk listbox widget generated by tk_select.list() no longer causes
+	 the window to close. (PR#15407)
+
+    o   Improved handling of edge cases in parallel::splitindices().
+	 (PR#15552)
+
+    o   HTML display of results from help.search() and ?? sometimes
+	 contained badly constructed links.
+
+    o   c() and related functions such as unlist() converted raw vectors to
+	 invalid logical vectors. (PR#15535)
+
+    o   (Windows only) When a call to system2() specified one of stdin,
+	 stdout or stderr to be a file, but the command was not found (e.g.
+	 it contained its arguments, or the program was not on the PATH), it
+	 left the file open and unusable until R terminated.  (Reported by
+	 Mathew McLean.)
+
+    o   The bmp() device was not recording res = NA correctly: it is now
+	 recorded as 72 ppi.
+
+    o   Several potential problems with compiler-specific behaviour have
+	 been identified using the ‘Undefined Behaviour Sanitizer’ in
+	 conjunction with the clang compiler.
+
+    o   hcl() now honours NA inputs (previously they were mapped to black).
+
+    o   Some translations in base packages were being looked up in the main
+	 catalog rather than that for the package.
+
+    o   As a result of the 3.0.2 change about ‘the last second before the
+	 epoch’, most conversions which should have given NA returned that
+	 time.  (The platforms affected include Linux and OS X, but not
+	 Windows nor Solaris.)
+
+    o   rowsum() has more support for matrices and dataframes with 2^31 or
+	 more elements. (PR#15587)
+
+    o   predict(&lt;lm object&gt;, interval = &quot;confidence&quot;, scale = &lt;something&gt;)
+	 now works.  (PR#15564)
+
+    o   The bug fix in 3.0.2 for PR#15411 was too aggressive, and sometimes
+	 removed spaces that should not have been removed.  (PR#15583)
+
+    o   Running R code in a tcltk callback failed to set the busy flag,
+	 which will be needed to tell OS X not to ‘App Nap’.
+
+    o   The code for date-times before 1902 assumed that the offset from GMT
+	 in 1902 was a whole number of minutes: that was not true of Paris
+	 (as recorded on some platforms).
+
+    o   Using Sys.setlocale to set LC_NUMERIC to &quot;C&quot; (to restore the sane
+	 behavior) no longer gives a warning.
+
+    o   deparse() now deparses complex vectors in a way that re-parses to
+	 the original values.  (PR#15534, patch based on code submitted by
+	 Alex Bertram.)
+
+    o   In some extreme cases (more than 10^15) integer inputs to dpqrxxx()
+	 functions might have been rounded up by one (with a warning about
+	 being non-integer).  (PR#15624)
+
+    o   Plotting symbol pch = 14 had the triangle upside down on some
+	 devices (typically screen devices). The triangle is supposed to be
+	 point up.  (Reported by Bill Venables.)
+
+    o   getSrcref() did not work on method definitions if
+	 rematchDefinition() had been used.
+
+    o   KalmanForecast(fast = FALSE) reported a (harmless) stack imbalance.
+
+    o   The count of observations used by KalmanRun() did not take missing
+	 values into account.
+
+    o   In locales where the abbreviated name of one month is a partial
+	 match for the full name of a later one, the %B format in strptime()
+	 could fail.  An example was French on OS X, where juin is
+	 abbreviated to jui and partially matches juillet.  Similarly for
+	 weekday names.
+
+    o   pbeta(x, a, b, log.p = TRUE) sometimes underflowed to zero for very
+	 small and very differently sized a, b.  (PR#15641)
+
+    o   approx() and approxfun() now handle infinite values with the
+	 &quot;constant&quot; method. (PR#15655)
+
+    o   stripchart() again respects reversed limits in xlim and ylim.
+	 (PR#15664)
+
+Changes in version 3.0.2:
+
+NEW FEATURES
+
+    o   The NEWS files have been re-organized.
+	
+	 This file contains news for R &gt;= 3.0.0: news for the 0.x.y, 1.x.y
+	 and 2.x.y releases is in files NEWS.0, NEWS.1 and NEWS.2.  The
+	 latter files are now installed when R is installed.  An HTML
+	 version of news from 2.10.0 to 2.15.3 is available as
+	 doc/html/NEWS.2.html.
+
+    o   sum() for integer arguments now uses an integer accumulator of at
+	 least 64 bits and so will be more accurate in the very rare case
+	 that a cumulative sum exceeds 2^53 (necessarily summing more than 4
+	 million elements).
+
+    o   The example() and tools::Rd2ex() functions now have parameters to
+	 allow them to ignore \dontrun markup in examples.  (Suggested by
+	 Peter Solymos.)
+
+    o   str(x) is considerably faster for very large lists, or factors with
+	 100,000 levels, the latter as in PR#15337.
+
+    o   col2rgb() now converts factors to character strings not integer
+	 codes (suggested by Bryan Hanson).
+
+    o   tail(warnings()) now works, via the new `[` method.
+
+    o   There is now support for the LaTeX style file zi4.sty which has in
+	 some distributions replaced inconsolata.sty.
+
+    o   unlist(x) now typically returns all non-list xs unchanged, not just
+	 the “vector” ones.  Consequently, format(lst) now also works when
+	 the list lst has non-vector elements.
+
+    o   The tools::getVignetteInfo() function has been added to give
+	 information about installed vignettes.
+
+    o   New assertCondition(), etc. utilities in tools, useful for testing.
+
+    o   Profiling now records non-inlined calls from byte-compiled code to
+	 BUILTIN functions.
+
+    o   Various functions in stats and elsewhere that use non-standard
+	 evaluation are now more careful to follow the namespace scoping
+	 rules.  E.g. stats::lm() can now find stats::model.frame() even if
+	 stats is not on the search path or if some package defines a
+	 function of that name.
+
+    o   If an invalid/corrupt .Random.seed object is encountered in the
+	 workspace it is ignored with a warning rather than giving an error.
+	 (This allows R itself to rely on a working RNG, e.g. to choose a
+	 random port.)
+
+    o   seq() and seq.int() give more explicit error messages if called with
+	 invalid (e.g. NaN) inputs.
+
+    o   When parse() finds a syntax error, it now makes partial parse
+	 information available up to the location of the error.  (Request of
+	 Reijo Sund.)
+
+    o   Methods invoked by NextMethod() had a different dynamic parent to
+	 the generic. This was causing trouble where S3 methods invoked via
+	 lazy evaluation could lose track of their generic.  (PR#15267)
+
+    o   Code for the negative binomial distribution now treats the case size
+	 == 0 as a one-point distribution at zero.
+
+    o   abbreviate() handles without warning non-ASCII input strings which
+	 require no abbreviation.
+
+    o   read.dcf() no longer has a limit of 8191 bytes per line. (Wish of
+	 PR#15250.)
+
+    o   formatC(x) no longer copies the class of x to the result, to avoid
+	 misuse creating invalid objects as in PR#15303.  A warning is given
+	 if a class is discarded.
+
+    o   Dataset npk has been copied from MASS to allow more tests to be run
+	 without recommended packages being installed.
+
+    o   The initialization of the regression coefficients for non-degenerate
+	 differenced models in arima() has been changed and in some examples
+	 avoids a local maximum.  (PR#15396)
+
+    o   termplot() now has an argument transform.x to control the display of
+	 individual terms in the plot.  (PR#15329)
+
+    o   format() now supports digits = 0, to display nsmall decimal places.
+
+    o   There is a new read-only par() parameter called &quot;page&quot;, which
+	 returns a logical value indicating whether the next plot.new() call
+	 will start a new page.
+
+    o   Processing Sweave and Rd documents to PDF now renders backticks and
+	 single quotes better in several instances, including in \code and
+	 \samp expressions.
+
+    o   utils::modifyList() gets a new argument keep.null allowing NULL
+	 components in the replacement to be retained, instead of causing
+	 corresponding components to be deleted.
+
+    o   tools::pkgVignettes() gains argument check; if set to TRUE, it will
+	 warn when it appears a vignette requests a non-existent vignette
+	 engine.
+
+UTILITIES
+
+    o   R CMD check --as-cran checks the line widths in usage and examples
+	 sections of the package Rd files.
+
+    o   R CMD check --as-cran now implies --timings.
+
+    o   R CMD check looks for command gfile if a suitable file is not found.
+	 (Although file is not from GNU, OpenCSW on Solaris installs it as
+	 gfile.)
+
+    o   R CMD build (with the internal tar) checks the permissions of
+	 configure and cleanup files and adds execute permission to the
+	 recorded permissions for these files if needed, with a warning.
+	 This is useful on OSes and file systems which do not support
+	 execute permissions (notably, on Windows).
+
+    o   R CMD build now weaves and tangles all vignettes, so suggested
+	 packages are not required during package installation if the source
+	 tarball was prepared with current R CMD build.
+
+    o   checkFF() (used by R CMD check) does a better job of detecting calls
+	 from other packages, including not reporting those where a function
+	 has been copied from another namespace (e.g. as a default method).
+	 It now reports calls where .NAME is a symbol registered in another
+	 package.
+
+    o   On Unix-alike systems, R CMD INSTALL now installs packages group
+	 writably whenever the library (lib.loc) is group writable.  Hence,
+	 update.packages() works for other group members (suggested
+	 originally and from a patch by Dirk Eddelbuettel).
+
+    o   R CMD javareconf now supports the use of symbolic links for
+	 JAVA_HOME on platforms which have realpath.  So it is now possible
+	 to use
+	 
+	 R CMD javareconf JAVA_HOME=/usr/lib/jvm/java-1.7.0
+	
+	 on a Linux system and record that value rather than the
+	 frequently-changing full path such as
+	 /usr/lib/jvm/java-1.7.0-openjdk-1.7.0.25.x86_64.
+
+    o   (Windows only.) Rscript -e requires a non-empty argument for
+	 consistency with Unix versions of R.  (Also Rterm -e and R -e.)
+
+    o   R CMD check does more thorough checking of declared packages and
+	 namespaces.  It reports
+	
+	  * packages declared in more than one of the Depends, Imports,
+	     Suggests and Enhances fields of the DESCRIPTION file.
+	
+	  * namespaces declared in Imports but not imported from, neither in
+	     the NAMESPACE file nor using the :: nor ::: operators.
+	
+	  * packages which are used in library() or requires() calls in the
+	     R code but were already put on the search path _via_ Depends.
+	
+	  * packages declared in Depends not imported _via_ the NAMESPACE
+	     file (except the standard packages).  Objects used from Depends
+	     packages should be imported to avoid conflicts and to allow
+	     correct operation when the namespace is loaded but not
+	     attached.
+	
+	  * objects imported _via_ ::: calls where :: would do.
+	
+	  * objects imported by :: which are not exported.
+	
+	  * objects imported by ::: calls which do not exist.
+	
+	 See ‘Writing R Extensions’ for good practice.
+
+    o   R CMD check optionally checks for non-standard top-level files and
+	 directories (which are often mistakes): this is enabled for
+	 --as-cran.
+
+    o   LaTeX style file upquote.sty is no longer included (the version was
+	 several years old): it is no longer used in R.  A much later
+	 version is commonly included in LaTeX distributions but does not
+	 play well with the ae fonts which are the default for Sweave
+	 vignettes.
+
+    o   R CMD build makes more use of the build sub-directory of package
+	 sources, for example to record information about the vignettes.
+
+    o   R CMD check analyses ::: calls.
+
+INSTALLATION and INCLUDED SOFTWARE
+
+    o   The macros used for the texinfo manuals have been changed to work
+	 better with the incompatible changes made in texinfo 5.x.
+
+    o   The minimum version for a system xz library is now 5.0.3 (was
+	 4.999).  This is in part to avoid 5.0.2, which can compress in ways
+	 other versions cannot decompress.
+
+    o   The included version of PCRE has been updated to 8.33.
+
+    o   The included version of zlib has been updated to 1.2.8, a bug-fix
+	 release.
+
+    o   The included version of xz utils&#39;s liblzma has been updated to
+	 5.0.5.
+
+    o   Since javareconf (see above) is used when R is installed, a stable
+	 link for JAVA_HOME can be supplied then.
+
+    o   Configuring with --disable-byte-compilation will override the
+	 DESCRIPTION files of recommended packages, which typically require
+	 byte-compilation.
+
+    o   More of the installation and checking process will work even when
+	 TMPDIR is set to a path containing spaces, but this is not
+	 recommended and external software (such as texi2dvi) may fail.
+
+PACKAGE INSTALLATION
+
+    o   Installation is aborted immediately if a LinkingTo package is not
+	 installed.
+
+    o   R CMD INSTALL has a new option --no-byte-compile which will override
+	 a ByteCompile field in the package&#39;s DESCRIPTION file.
+
+    o   License BSD is deprecated: use BSD_3_clause or BSD_2_clause instead.
+	
+	 License X11 is deprecated: use MIT or BSD_2_clause instead.
+
+    o   Version requirements for LinkingTo packages are now recognized: they
+	 are checked at installation.  (Fields with version requirements
+	 were previously silently ignored.)
+
+    o   The limit of 500 S3method entries in a NAMESPACE file has been
+	 removed.
+
+    o   The default ‘version’ of Bioconductor for its packages has been
+	 changed to the upcoming 2.13, but this can be set by the
+	 environment variable R_BIOC_VERSION, e.g.  in file Renviron.site.
+
+C-LEVEL FACILITIES
+
+    o   Rdefines.h has been tweaked so it can be included in C++ code after
+	 R_ext/Boolean.h (which is included by R.h).
+	
+	 Note that Rdefines.h is not kept up-to-date, and Rinternals.h is
+	 preferred for new code.
+
+    o   eval and applyClosure are now protected against package code
+	 supplying an invalid rho.
+
+DEPRECATED AND DEFUNCT
+
+    o   The unused namespace argument to package.skeleton() is now formally
+	 deprecated and will be removed in R 3.1.0.
+
+    o   plclust() is deprecated: use the plot() method for class &quot;hclust&quot;
+	 instead.
+
+    o   Functions readNEWS() and checkNEWS() in package tools are deprecated
+	 (and they have not worked with current NEWS files for a long time).
+
+DOCUMENTATION
+
+    o   ‘An Introduction to R’ has a new chapter on using R as a scripting
+	 language including interacting with the OS.
+
+BUG FIXES
+
+    o   help.request() could not determine the current version of R on CRAN.
+	 (PR#15241)
+
+    o   On Windows, file.info() failed on root directories unless the path
+	 was terminated with an explicit &quot;.&quot;.  (PR#15302)
+
+    o   The regmatches&lt;-() replacement function mishandled results coming
+	 from regexpr().  (PR#15311)
+
+    o   The help for setClass() and representation() still suggested the
+	 deprecated argument representation=. (PR#15312)
+
+    o   R CMD config failed in an installed build of R 3.0.1 (only) when a
+	 sub-architecture was used.  (Reported by Berwin Turlach.)
+
+    o   On Windows, the installer modified the etc/Rconsole and
+	 etc/Rprofile.site files even when default options were chosen, so
+	 the MD5 sums did not refer to the installed versions.  (Reported by
+	 Tal Galili.)
+
+    o   plot(hclust(), cex =) respects cex again (and possibly others
+	 similarly).  (Reported by Peter Langfelder.)
+
+    o   If multiple packages were checked by R CMD check, and one was
+	 written for a different OS, it would set --no-install for all
+	 following packages as well as itself.
+
+    o   qr.coef() and related functions did not properly coerce real vectors
+	 to complex when necessary.  (PR#15332)
+
+    o   ftable(a) now fixes up empty dimnames such that the result is
+	 printable.
+
+    o   package.skeleton() was not starting its search for function objects
+	 in the correct place if environment was supplied.  (Reported by
+	 Karl Forner.)
+
+    o   Parsing code was changing the length field of vectors and confusing
+	 the memory manager.  (PR#15345)
+
+    o   The Fortran routine ZHER2K in the reference BLAS had a comment-out
+	 bug in two places.  This caused trouble with eigen() for Hermitian
+	 matrices.  (PR#15345 and report from Robin Hankin)
+
+    o   vignette() and browseVignettes() did not display non-Sweave
+	 vignettes properly.
+
+    o   Two warning/error messages have been corrected: the (optional)
+	 warning produced by a partial name match with a pairlist, the error
+	 message from a zero-length argument to the : operator.  (Found by
+	 Radford Neal; PR#15358, PR#15356)
+
+    o   svd() returned NULL rather than omitting components as documented.
+	 (Found by Radford Neal; PR#15360)
+
+    o   mclapply() and mcparallel() with silent = TRUE could break a process
+	 that uses stdout output unguarded against broken pipes (e.g., zip
+	 will fail silently). To work around such issues, they now replace
+	 stdout with a descriptor pointed to /dev/null instead. For this
+	 purpose, internal closeStdout and closeStderr functions have gained
+	 the to.null flag.
+
+    o   log(), signif() and round() now raise an error if a single named
+	 argument is not named x.  (PR#15361)
+
+    o   deparse() now deparses raw vectors in a form that is syntactically
+	 correct. (PR#15369)
+
+    o   The jpeg driver in Sweave created a JPEG file, but gave it a .png
+	 extension. (PR#15370)
+
+    o   Deparsing of infix operators with named arguments is improved.
+	 (PR#15350)
+
+    o   mget(), seq.int() and numericDeriv() did not duplicate arguments
+	 properly. (PR#15352, PR#15353, PR#15354)
+
+    o   kmeans(algorithm = &quot;Hartigan-Wong&quot;) now always stops iterating in
+	 the QTran stage. (PR#15364).
+
+    o   read.dcf() re-allocated incorrectly and so could segfault when
+	 called on a file with lines of more than 100 bytes.
+
+    o   On systems where mktime() does not set errno, the last second before
+	 the epoch could not be converted from POSIXlt to POSIXct. (Reported
+	 by Bill Dunlap.)
+
+    o   add1.glm() miscalculated F-statistics when df &gt; 1. (Bill Dunlap,
+	 PR#15386).
+
+    o   stem() now discards infinite inputs rather than hanging.  (PR#15376)
+
+    o   The parser now enforces C99 syntax for floating point hexadecimal
+	 constants (e.g. 0x1.1p0), rather than returning unintended values
+	 for malformed constants. (PR#15234)
+
+    o   model.matrix() now works with very long LHS names (more than 500
+	 bytes).  (PR#15377)
+
+    o   integrate() reverts to the pre-2.12.0 behaviour: from 2.12.0 to
+	 3.0.1 it sometimes failed to achieve the requested tolerance and
+	 reported error estimates that were exceeded.  (PR#15219)
+
+    o   strptime() now handles %W fields with value 0. (PR#15915)
+
+    o   R is now better protected against people trying to interact with the
+	 console in startup code.  (PR#15325)
+
+    o   Subsetting 1D arrays often lost dimnames (PR#15301).
+
+    o   Unary + on a logical vector did not coerce to integer, although
+	 unary - did.
+
+    o   na.omit() and na.exclude() added a row to a zero-row data frame.
+	 (PR#15399)
+
+    o   All the (where necessary cut-down) vignettes are installed if R was
+	 configured with --without-recommended-packages.
+
+    o   source() did not display filenames when reporting syntax errors.
+
+    o   Syntax error reports misplaced the caret pointing out the bad token.
+
+    o   (Windows only) Starting R with R (instead of Rterm or Rgui) would
+	 lose any zero-length strings from the command line arguments.
+	 (PR#15406)
+
+    o   Errors in the encoding specified on the command line via
+	 --encoding=foo were not handled properly.  (PR#15405)
+
+    o   If x is a symbol, is.vector(x, &quot;name&quot;) now returns TRUE, since
+	 &quot;name&quot; and &quot;symbol&quot; should be synonyms.  (Reported by Hervé Pagès.)
+
+    o   R CMD rtags works on platforms (such as OS X) with a XSI-conformant
+	 shell command echo. (PR#15231)
+
+    o   is.unsorted(NA) returns false as documented (rather than NA).
+
+    o   R CMD LINK did not know about sub-architectures.
+
+    o   system() and system2() are better protected against users who
+	 misguidedly have spaces in the temporary directory path.
+
+    o   file.show() and edit() are now more likely to work on file paths
+	 containing spaces.  (Where external utilities are used, not the
+	 norm on Windows nor in R.app which should previously have worked.)
+
+    o   Packages using the methods package are more likely to work when they
+	 import it but it is not attached.  (Several parts of its C code
+	 were looking for its R functions on the search path rather than in
+	 its namespace.)
+
+    o   lgamma(-x) is no longer NaN for very small x.
+
+    o   (Windows) system2() now respects specifying stdout and stderr as
+	 files if called from Rgui. (PR#15393)
+
+    o   Closing an x11() device whilst locator() or identify() is in
+	 progress no longer hangs R.  (PR#15253)
+
+    o   list.dirs(full.names = FALSE) was not implemented.  (PR#15170)
+
+    o   format() sometimes added unnecessary spaces.  (PR#15411)
+
+    o   all.equal(check.names = FALSE) would ignore the request to ignore
+	 the names and would check them as attributes.
+
+    o   The symbol set by tools::Rd2txt_options(itemBullet=) was not
+	 respected in some locales. (PR#15435)
+
+    o   mcMap() was not exported by package parallel. (PR#15439)
+
+    o   plot() for TukeyHSD objects did not balance dev.hold() and
+	 dev.flush() calls on multi-page plots.  (PR#15449)
+
+Changes in version 3.0.1:
+
+NEW FEATURES
+
+    o   chooseCRANmirror() and chooseBioCmirror() gain an ind argument (like
+	 setRepositories()).
+
+    o   mcparallel has a new argument mc.interactive which can modify the
+	 interactive flag in the child process. The new default is FALSE
+	 which makes child processes non-interactive by default (this
+	 prevents lock-ups due to children waiting for interactive input).
+
+    o   scan() now warns when end-of-file occurs within a quoted string.
+
+    o   count.fields() is now consistent with scan() in its handling of
+	 newlines in quoted strings.  Instead of triggering an error, this
+	 results in the current line receiving NA as the field count, with
+	 the next line getting the total count of the two lines.
+
+    o   The default method of image() will plot axes of the class of xlim
+	 and ylim (and hence of x and y if there is a suitable range()
+	 method).  Based on a suggestion of Michael Sumner.
+
+    o   load() now has a verbose argument for debugging support, to print
+	 the names of objects just before loading them.
+
+    o   When loading a serialized object encounters a reference to a
+	 namespace which cannot be loaded, this is replaced by a reference
+	 to the global environment, with a warning.
+
+    o   pairs() gains a line.main option for title placement.
+
+    o   The remaining instances in which serialization to a raw vector was
+	 limited to 2GB have been unlimited on a 64-bit platform, and in
+	 most cases serialization to a vector of more than 1GB will be
+	 substantially faster.
+
+UTILITIES
+
+    o   R CMD config now make use of personal Makevars files under ~/.R and
+	 a site file Makevars.site, in the same way as R CMD SHLIB and R CMD
+	 INSTALL.  This makes the utility more useful in package configure
+	 scripts.
+	
+	 On Windows finding the personal files may require the environment
+	 variable HOME set.
+	
+	 The old behaviour can be obtained with the new options
+	 --no-user-files and --no-site-files.
+
+PACKAGE INSTALLATION
+
+    o   Alternatives to the site and user customization files Makevars.site
+	 and ~/.R/Makevars can be specified _via_ the environment variables
+	 R_MAKEVARS_SITE and R_MAKEVARS_USER respectively.  These can be
+	 used to suppress the use of the default files by setting an empty
+	 value (where possible) or a non-existent path.
+
+BUG FIXES
+
+    o   sys.source() did not report error locations when keep.source = TRUE.
+
+    o   as.POSIXct.numeric was coercing origin using the tz argument and not
+	 &quot;GMT&quot; as documented (PR#14973).
+
+    o   The active binding to assign fields in reference classes has been
+	 cleaned up to reduce dependence on the class&#39; package environment,
+	 also fixing bug in initializing read-only fields (inspired by a
+	 report from Hadley Wickham).
+
+    o   str(d) no longer gives an error when names(d) contain illegal
+	 multibyte strings (PR#15247).
+
+    o   Profiling of built-in functions with line.profiling= TRUE did not
+	 record the line from which they were called.
+
+    o   citation(pkg) dropped the header and footer specified in the
+	 CITATION file (PR#15257).
+
+    o   Quotes were handled differently when reading the first line and
+	 reading the rest, so read.table() misread some files that contained
+	 quote characters (PR#15245).
+
+    o   cat() with sep a character vector of length greater than one and
+	 more than one argument was using separators inconsistently
+	 (PR#15261).
+
+    o   On Windows in R 3.0.0, savePlot() failed because of an incorrect
+	 check on the argument count.
+
+    o   unzip(list = TRUE) returned Names as a factor and not a character
+	 vector (as documented) for the internal method.  (Noticed by Sean
+	 O&#39;Riordain.)
+
+    o   contourLines() now checks more comprehensively for conformance of
+	 its x, y and z arguments (it was used incorrectly in package R2G2).
+
+    o   Saved graphics display lists are R version-specific.  Attempting to
+	 load workspaces containing them (or some other version-specific
+	 objects) aborted the load in R 3.0.0 and earlier; now it does a
+	 partial load and generates a warning instead.
+
+    o   In R 3.0.0, identify() and locator() did not record information
+	 correctly, so replaying a graph (e.g. by copying it to another
+	 device) would fail. (PR#15271)
+
+    o   Calling file.copy() or dirname() with the invalid input &quot;&quot; (which
+	 was being used in packages, despite not being a file path) could
+	 have caused a segfault.
+	
+	 dirname(&quot;&quot;) is now &quot;&quot; rather than &quot;.&quot; (unless it segfaulted).
+
+    o   supsmu() could read/write outside its input vectors for very short
+	 inputs (seen in package rms for n = 4).
+
+    o   as.dendrogram()&#39;s hclust method uses less memory and hence gets
+	 considerably faster for large (n ~ 1000) clusterings, thanks to
+	 Daniel Müllner. (PR#15174)
+
+    o   The return value when all workers failed from
+	 parallel::mclapply(mc.preschedule = TRUE) was a list of strings and
+	 not of error objects.  (Spotted by Karl Forner and Bernd Bischl.)
+
+    o   In R 3.0.0, when help() found multiple pages with the same alias,
+	 the HTML display of all the selections was not produced.
+	 (PR#15282)
+
+    o   splinefun(method=&quot;monoH.FC&quot;) now produces a function with first
+	 argument named x and allows deriv=3, as documented. (PR#15273)
+
+    o   summaryRprof() would only read the first chunksize lines of an Rprof
+	 file produced with line.profiling=TRUE. By default, this is the
+	 first 100 seconds.  (PR#15288)
+
+    o   lsfit() produced an incorrect error message when argument x had more
+	 columns than rows or x had a different number of rows than y.
+	 (Spotted by Renaud Gaujoux.)
+
+    o   Binary operations on equal length vectors copied the class name from
+	 the second operand when the first had no class name, but did not
+	 set the object bit. (PR#15299)
+
+    o   The trace() method for reference generator objects failed after
+	 those objects became function definitions.
+
+    o   write.table() did not check that factors were constructed correctly,
+	 and so caused a segment fault when writing bad ones. (PR#15300)
+
+    o   The internal HTTP server no longer chokes on POST requests without
+	 body. It will also pass-through other request types for custom
+	 handlers (with the method stored in Request-Method header) instead
+	 of failing.
+
+Changes in version 3.0.0:
+
+SIGNIFICANT USER-VISIBLE CHANGES
+
+    o   Packages need to be (re-)installed under this version (3.0.0) of R.
+
+    o   There is a subtle change in behaviour for numeric index values 2^31
+	 and larger.  These never used to be legitimate and so were treated
+	 as NA, sometimes with a warning.  They are now legal for long
+	 vectors so there is no longer a warning, and x[2^31] &lt;- y will now
+	 extend the vector on a 64-bit platform and give an error on a
+	 32-bit one.
+
+    o   It is now possible for 64-bit builds to allocate amounts of memory
+	 limited only by the OS.  It may be wise to use OS facilities (e.g.
+	 ulimit in a bash shell, limit in csh), to set limits on overall
+	 memory consumption of an R process, particularly in a multi-user
+	 environment.  A number of packages need a limit of at least 4GB of
+	 virtual memory to load.
+	
+	 64-bit Windows builds of R are by default limited in memory usage
+	 to the amount of RAM installed: this limit can be changed by
+	 command-line option --max-mem-size or setting environment variable
+	 R_MAX_MEM_SIZE.
+
+    o   Negative numbers for colours are consistently an error: previously
+	 they were sometimes taken as transparent, sometimes mapped into the
+	 current palette and sometimes an error.
+
+NEW FEATURES
+
+    o   identical() has a new argument, ignore.environment, used when
+	 comparing functions (with default FALSE as before).
+
+    o   There is a new option, options(CBoundsCheck=), which controls how
+	 .C() and .Fortran() pass arguments to compiled code.  If true
+	 (which can be enabled by setting the environment variable
+	 R_C_BOUNDS_CHECK to yes), raw, integer, double and complex
+	 arguments are always copied, and checked for writing off either end
+	 of the array on return from the compiled code (when a second copy
+	 is made).  This also checks individual elements of character
+	 vectors passed to .C().
+	
+	 This is not intended for routine use, but can be very helpful in
+	 finding segfaults in package code.
+
+    o   In layout(), the limits on the grid size have been raised (again).
+
+    o   New simple provideDimnames() utility function.
+
+    o   Where methods for length() return a double value which is
+	 representable as an integer (as often happens for package Matrix),
+	 this is converted to an integer.
+
+    o   Matrix indexing of dataframes by two-column numeric indices is now
+	 supported for replacement as well as extraction.
+
+    o   setNames() now has a default for its object argument, useful for a
+	 character result.
+
+    o   StructTS() has a revised additive constant in the loglik component
+	 of the result: the previous definition is returned as the loglik0
+	 component.  However, the help page has always warned of a lack of
+	 comparability of log-likelihoods for non-stationary models.
+	 (Suggested by Jouni Helske.)
+
+    o   The logic in aggregate.formula() has been revised.  It is now
+	 possible to use a formula stored in a variable; previously, it had
+	 to be given explicitly in the function call.
+
+    o   install.packages() has a new argument quiet to reduce the amount of
+	 output shown.
+
+    o   Setting an element of the graphics argument lwd to a negative or
+	 infinite value is now an error.  Lines corresponding to elements
+	 with values NA or NaN are silently omitted.
+	
+	 Previously the behaviour was device-dependent.
+
+    o   Setting graphical parameters cex, col, lty, lwd and pch in par() now
+	 requires a length-one argument.  Previously some silently took the
+	 first element of a longer vector, but not always when documented to
+	 do so.
+
+    o   Sys.which() when used with inputs which would be unsafe in a shell
+	 (e.g. absolute paths containing spaces) now uses appropriate
+	 quoting.
+
+    o   as.tclObj() has been extended to handle raw vectors.  Previously, it
+	 only worked in the other direction.  (Contributed by Charlie
+	 Friedemann, PR#14939.)
+
+    o   New functions cite() and citeNatbib() have been added, to allow
+	 generation of in-text citations from &quot;bibentry&quot; objects.  A cite()
+	 function may be added to bibstyle() environments.
+
+    o   A sort() method has been added for &quot;bibentry&quot; objects.
+
+    o   The bibstyle() function now defaults to setting the default
+	 bibliography style. The getBibstyle() function has been added to
+	 report the name of the current default style.
+
+    o   scatter.smooth() now has an argument lpars to pass arguments to
+	 lines().
+
+    o   pairs() has a new log argument, to allow some or all variables to be
+	 plotted on logarithmic scale.  (In part, wish of PR#14919.)
+
+    o   split() gains a sep argument.
+
+    o   termplot() does a better job when given a model with interactions
+	 (and no longer attempts to plot interaction terms).
+
+    o   The parser now incorporates code from Romain Francois&#39; parser
+	 package, to support more detailed computation on the code, such as
+	 syntax highlighting, comment-based documentation, etc.  Functions
+	 getParseData() and getParseText() access the data.
+
+    o   There is a new function rep_len() analogous to rep.int() for when
+	 speed is required (and names are not).
+
+    o   The undocumented use rep(NULL, length.out = n) for n &gt; 0 (which
+	 returns NULL) now gives a warning.
+
+    o   demo() gains an encoding argument for those packages with non-ASCII
+	 demos: it defaults to the package encoding where there is one.
+
+    o   strwrap() converts inputs with a marked encoding to the current
+	 locale: previously it made some attempt to pass through as bytes
+	 inputs invalid in the current locale.
+
+    o   Specifying both rate and scale to [dpqr]gamma is a warning (if they
+	 are essentially the same value) or an error.
+
+    o   merge() works in more cases where the data frames include matrices.
+	 (Wish of PR#14974.)
+
+    o   optimize() and uniroot() no longer use a shared parameter object
+	 across calls.  (nlm(), nlminb() and optim() with numerical
+	 derivatives still do, as documented.)
+
+    o   The all.equal() method for date-times is now documented: times are
+	 regarded as equal (by default) if they differ by up to 1 msec.
+
+    o   duplicated() and unique() gain a nmax argument which can be used to
+	 make them much more efficient when it is known that there are only
+	 a small number of unique entries.  This is done automatically for
+	 factors.
+
+    o   Functions rbinom(), rgeom(), rhyper(), rpois(), rnbinom(),
+	 rsignrank() and rwilcox() now return integer (not double) vectors.
+	 This halves the storage requirements for large simulations.
+
+    o   sort(), sort.int() and sort.list() now use radix sorting for factors
+	 of less than 100,000 levels when method is not supplied.  So does
+	 order() if called with a single factor, unless na.last = NA.
+
+    o   diag() as used to generate a diagonal matrix has been re-written in
+	 C for speed and less memory usage.  It now forces the result to be
+	 numeric in the case diag(x) since it is said to have ‘zero
+	 off-diagonal entries’.
+
+    o   backsolve() (and forwardsolve()) are now internal functions, for
+	 speed and support for large matrices.
+
+    o   More matrix algebra functions (e.g. chol() and solve()) accept
+	 logical matrices (and coerce to numeric).
+
+    o   sample.int() has some support for n &gt;= 2^31: see its help for the
+	 limitations.
+	
+	 A different algorithm is used for (n, size, replace = FALSE, prob =
+	 NULL) for n &gt; 1e7 and size &lt;= n/2.  This is much faster and uses
+	 less memory, but does give different results.
+
+    o   approxfun() and splinefun() now return a wrapper to an internal
+	 function in the stats namespace rather than a .C() or .Call() call.
+	 This is more likely to work if the function is saved and used in a
+	 different session.
+
+    o   The functions .C(), .Call(), .External() and .Fortran() now give an
+	 error (rather than a warning) if called with a named first
+	 argument.
+
+    o   Sweave() by default now reports the locations in the source file(s)
+	 of each chunk.
+
+    o   clearPushBack() is now a documented interface to a long-existing
+	 internal call.
+
+    o   aspell() gains filters for R code, Debian Control Format and message
+	 catalog files, and support for R level dictionaries.  In addition,
+	 package utils now provides functions aspell_package_R_files() and
+	 aspell_package_C_files() for spell checking R and C level message
+	 strings in packages.
+
+    o   bibentry() gains some support for “incomplete” entries with a
+	 crossref field.
+
+    o   gray() and gray.colors() finally allow alpha to be specified.
+
+    o   monthplot() gains parameters to control the look of the reference
+	 lines.  (Suggestion of Ian McLeod.)
+
+    o   Added support for new %~% relation (“is distributed as”) in
+	 plotmath.
+
+    o   domain = NA is accepted by gettext() and ngettext(), analogously to
+	 stop() etc.
+
+    o   termplot() gains a new argument plot = FALSE which returns
+	 information to allow the plots to be modified for use as part of
+	 other plots, but does not plot them.  (Contributed by Terry
+	 Therneau, PR#15076.)
+
+    o   quartz.save(), formerly an undocumented part of R.app, is now
+	 available to copy a device to a quartz() device.  dev.copy2pdf()
+	 optionally does this for PDF output: quartz.save() defaults to PNG.
+
+    o   The default method of pairs() now allows text.panel = NULL and the
+	 use of &lt;foo&gt;.panel = NULL is now documented.
+
+    o   setRefClass() and getRefClass() now return class generator
+	 functions, similar to setClass(), but still with the reference
+	 fields and methods as before (suggestion of Romain Francois).
+
+    o   New functions bitwNot(), bitwAnd(), bitwOr() and bitwXor(), using
+	 the internal interfaces previously used for classes &quot;octmode&quot; and
+	 &quot;hexmode&quot;.
+	
+	 Also bitwShiftL() and bitwShiftR() for shifting bits in elements of
+	 integer vectors.
+
+    o   New option &quot;deparse.cutoff&quot; to control the deparsing of language
+	 objects such as calls and formulae when printing.  (Suggested by a
+	 comment of Sarah Goslee.)
+
+    o   colors() gains an argument distinct.
+
+    o   New demo(colors) and demo(hclColors), with utility functions.
+
+    o   list.files() (aka dir()) gains a new optional argument no.. which
+	 allows to exclude &quot;.&quot; and &quot;..&quot; from listings.
+
+    o   Multiple time series are also of class &quot;matrix&quot;; consequently,
+	 head(), e.g., is more useful.
+
+    o   encodeString() preserves UTF-8 marked encodings.  Thus if factor
+	 levels are marked as UTF-8 an attempt is made to print them in
+	 UTF-8 in RGui on Windows.
+
+    o   readLines() and scan() (and hence read.table()) in a UTF-8 locale
+	 now discard a UTF-8 byte-order-mark (BOM).  Such BOMs are allowed
+	 but not recommended by the Unicode Standard: however Microsoft
+	 applications can produce them and so they are sometimes found on
+	 websites.
+	
+	 The encoding name &quot;UTF-8-BOM&quot; for a connection will ensure that a
+	 UTF-8 BOM is discarded.
+
+    o   mapply(FUN, a1, ..) now also works when a1 (or a further such
+	 argument) needs a length() method (which the documented arguments
+	 never do).  (Requested by Hervé Pagès; with a patch.)
+
+    o   .onDetach() is supported as an alternative to .Last.lib.  Unlike
+	 .Last.lib, this does not need to be exported from the package&#39;s
+	 namespace.
+
+    o   The srcfile argument to parse() may now be a character string, to be
+	 used in error messages.
+
+    o   The format() method for ftable objects gains a method argument,
+	 propagated to write.ftable() and print(), allowing more compact
+	 output, notably for LaTeX formatting, thanks to Marius Hofert.
+
+    o   The utils::process.events() function has been added to trigger
+	 immediate event handling.
+
+    o   Sys.which() now returns NA (not &quot;&quot;) for NA inputs (related to
+	 PR#15147).
+
+    o   The print() method for class &quot;htest&quot; gives fewer trailing spaces
+	 (wish of PR#15124).
+	
+	 Also print output from HoltWinters(), nls() and others.
+
+    o   loadNamespace() allows a version specification to be given, and this
+	 is used to check version specifications given in the Imports field
+	 when a namespace is loaded.
+
+    o   setClass() has a new argument, slots, clearer and less ambiguous
+	 than representation.  It is recommended for future code, but should
+	 be back-compatible.  At the same time, the allowed slot
+	 specification is slightly more general.  See the documentation for
+	 details.
+
+    o   mget() now has a default for envir (the frame from which it is
+	 called), for consistency with get() and assign().
+
+    o   close() now returns an integer status where available, invisibly.
+	 (Wish of PR#15088.)
+
+    o   The internal method of tar() can now store paths too long for the
+	 ustar format, using the (widely supported) GNU extension.  It can
+	 also store long link names, but these are much less widely
+	 supported.  There is support for larger files, up to the ustar
+	 limit of 8GB.
+
+    o   Local reference classes have been added to package methods.  These
+	 are a technique for avoiding unneeded copying of large components
+	 of objects while retaining standard R functional behavior.  See
+	 ?LocalReferenceClasses.
+
+    o   untar() has a new argument restore_times which if false (not the
+	 default) discards the times in the tarball.  This is useful if they
+	 are incorrect (some tarballs submitted to CRAN have times in a
+	 local time zone or many years in the past even though the standard
+	 required them to be in UTC).
+
+    o   replayplot() cannot (and will not attempt to) replay plots recorded
+	 under R &lt; 3.0.0.  It may crash the R session if an attempt is made
+	 to replay plots created in a different build of R &gt;= 3.0.0.
+
+    o   Palette changes get recorded on the display list, so replaying plots
+	 (including when resizing screen devices and using dev.copy()) will
+	 work better when the palette is changed during a plot.
+
+    o   chol(pivot = TRUE) now defaults to LAPACK, not LINPACK.
+
+    o   The parse() function has a new parameter keep.source, which defaults
+	 to options(&quot;keep.source&quot;).
+
+    o   Profiling via Rprof() now optionally records information at the
+	 statement level, not just the function level.
+
+    o   The Rprof() function now quotes function names in in its output file
+	 on Windows, to be consistent with the quoting in Unix.
+
+    o   Profiling via Rprof() now optionally records information about time
+	 spent in GC.
+
+    o   The HTML help page for a package now displays non-vignette
+	 documentation files in a more accessible format.
+
+    o   To support options(stringsAsFactors = FALSE), model.frame(),
+	 model.matrix() and replications() now automatically convert
+	 character vectors to factors without a warning.
+
+    o   The print method for objects of class &quot;table&quot; now detects tables
+	 with 0-extents and prints the results as, e.g., &lt; table of extent 0
+	 x 1 x 2 &gt;. (Wish of PR#15198.)
+
+    o   Deparsing involving calls to anonymous functions has been made
+	 closer to reversible by the addition of extra parentheses.
+
+    o   The function utils::packageName() has been added as a lightweight
+	 version of methods::getPackageName().
+
+    o   find.package(lib.loc = NULL) now treats loaded namespaces
+	 preferentially in the same way as attached packages have been for a
+	 long time.
+
+    o   In Windows, the Change Directory dialog now defaults to the current
+	 working directory, rather than to the last directory chosen in that
+	 dialog.
+
+    o   available.packages() gains a &quot;license/restricts_use&quot; filter which
+	 retains only packages for which installation can proceed solely
+	 based on packages which are guaranteed not to restrict use.
+
+    o   New check_packages_in_dir() function in package tools for
+	 conveniently checking source packages along with their reverse
+	 dependencies.
+
+    o   R&#39;s completion mechanism has been improved to handle help requests
+	 (starting with a question mark).  In particular, help prefixes are
+	 now supported, as well as quoted help topics.  To support this,
+	 completion inside quotes are now handled by R by default on all
+	 platforms.
+
+    o   The memory manager now allows the strategy used to balance garbage
+	 collection and memory growth to be controlled by setting the
+	 environment variable R_GC_MEM_GROW. See ?Memory for more details.
+
+    o   (‘For experts only’, as the introductory manual says.)  The use of
+	 environment variables R_NSIZE and R_VSIZE to control the initial (=
+	 minimum) garbage collection trigger for number of cons cels and
+	 size of heap has been restored: they can be overridden by the
+	 command-line options --min-nsize and --min-vsize; see ?Memory.
+
+    o   On Windows, the device name for bitmap devices as reported by
+	 .Device and .Devices no longer includes the file name.  This is for
+	 consistency with other platforms and was requested by the lattice
+	 maintainer.
+	
+	 win.metafile() still uses the file name: the exact form is used by
+	 package tkrplot.
+
+    o   set.seed(NULL) re-initializes .Random.seed as done at the beginning
+	 of the session if not already set.  (Suggestion of Bill Dunlap.)
+
+    o   The breaks argument in hist.default() can now be a function that
+	 returns the breakpoints to be used (previously it could only return
+	 the suggested number of breakpoints).
+
+    o   File share/licenses/licenses.db has some clarifications, especially
+	 as to which variants of ‘BSD’ and ‘MIT’ is intended and how to
+	 apply them to packages.  The problematic licence ‘Artistic-1.0’ has
+	 been removed.
+
+LONG VECTORS
+
+    o   There is support for vectors longer than 2^31 - 1 elements.  This
+	 applies to raw, logical, integer, double, complex and character
+	 vectors, as well as lists.  (Elements of character vectors remain
+	 limited to 2^31 - 1 bytes.)
+
+    o   Most operations which can sensibly be done with long vectors work:
+	 others may return the error ‘long vectors not supported yet’.  Most
+	 of these are because they explicitly work with integer indices
+	 (e.g. anyDuplicated() and match()) or because other limits (e.g. of
+	 character strings or matrix dimensions) would be exceeded or the
+	 operations would be extremely slow.
+
+    o   length() returns a double for long vectors, and lengths can be set
+	 to 2^31 or more by the replacement function with a double value.
+
+    o   Most aspects of indexing are available.  Generally double-valued
+	 indices can be used to access elements beyond 2^31 - 1.
+
+    o   There is some support for matrices and arrays with each dimension
+	 less than 2^31 but total number of elements more than that.  Only
+	 some aspects of matrix algebra work for such matrices, often taking
+	 a very long time.  In other cases the underlying Fortran code has
+	 an unstated restriction (as was found for complex svd()).
+
+    o   dist() can produce dissimilarity objects for more than 65536 rows
+	 (but for example hclust() cannot process such objects).
+
+    o   serialize() to a raw vector is unlimited in size (except by
+	 resources).
+
+    o   The C-level function R_alloc can now allocate 2^35 or more bytes.
+
+    o   agrep() and grep() will return double vectors of indices for long
+	 vector inputs.
+
+    o   Many calls to .C() have been replaced by .Call() to allow long
+	 vectors to be supported (now or in the future).  Regrettably
+	 several packages had copied the non-API .C() calls and so failed.
+
+    o   .C() and .Fortran() do not accept long vector inputs.  This is a
+	 precaution as it is very unlikely that existing code will have been
+	 written to handle long vectors (and the R wrappers often assume
+	 that length(x) is an integer).
+
+    o   Most of the methods for sort() work for long vectors.
+	
+	 rank(), sort.list() and order() support long vectors (slowly except
+	 for radix sorting).
+
+    o   sample() can do uniform sampling from a long vector.
+
+PERFORMANCE IMPROVEMENTS
+
+    o   More use has been made of R objects representing registered entry
+	 points, which is more efficient as the address is provided by the
+	 loader once only when the package is loaded.
+	
+	 This has been done for packages base, methods, splines and tcltk:
+	 it was already in place for the other standard packages.
+	
+	 Since these entry points are always accessed by the R entry points
+	 they do not need to be in the load table which can be substantially
+	 smaller and hence searched faster.  This does mean that .C /
+	 .Fortran / .Call calls copied from earlier versions of R may no
+	 longer work - but they were never part of the API.
+
+    o   Many .Call() calls in package base have been migrated to .Internal()
+	 calls.
+
+    o   solve() makes fewer copies, especially when b is a vector rather
+	 than a matrix.
+
+    o   eigen() makes fewer copies if the input has dimnames.
+
+    o   Most of the linear algebra functions make fewer copies when the
+	 input(s) are not double (e.g. integer or logical).
+
+    o   A foreign function call (.C() etc) in a package without a PACKAGE
+	 argument will only look in the first DLL specified in the NAMESPACE
+	 file of the package rather than searching all loaded DLLs.  A few
+	 packages needed PACKAGE arguments added.
+
+    o   The @&lt;- operator is now implemented as a primitive, which should
+	 reduce some copying of objects when used.  Note that the operator
+	 object must now be in package base: do not try to import it
+	 explicitly from package methods.
+
+PACKAGE INSTALLATION
+
+    o   The transitional support for installing packages without namespaces
+	 (required since R 2.14.0) has been removed.  R CMD build will still
+	 add a namespace, but a .First.lib() function will need to be
+	 converted.
+	
+	 R CMD INSTALL no longer adds a namespace (so installation will
+	 fail), and a .First.lib() function in a package will be ignored
+	 (with an installation warning for now).
+	
+	 As an exception, packages without a R directory and no NAMESPACE
+	 file can still be installed.
+
+    o   Packages can specify in their DESCRIPTION file a line like
+	 
+	      Biarch: yes
+	
+	 to be installed on Windows with --force-biarch.
+
+    o   Package vignettes can now be processed by other engines besides
+	 Sweave; see ‘Writing R Extensions’ and the tools::vignetteEngine
+	 help topic for details.
+
+    o   The *.R tangled source code for vignettes is now included in
+	 tarballs when R CMD build is used to produce them.  In R 3.0.0, *.R
+	 files not in the sources will be produced at install time, but
+	 eventually this will be dropped.
+
+    o   The package type &quot;mac.binary&quot; now looks in a path in the repository
+	 without any Mac subtype (which used to be universal or leopard): it
+	 looks in bin/macosx/contrib/3.0 rather than
+	 bin/macosx/leopard/contrib/2.15).  This is the type used for the
+	 CRAN binary distribution for OS X as from R 3.0.0.
+
+    o   File etc/Makeconf makes more use of the macros $(CC), $(CXX), $(F77)
+	 and $(FC), so the compiler in use can be changed by setting just
+	 these (and if necessary the corresponding flags and FLIBS) in file
+	 ~/.R/Makevars.
+	
+	 This is convenient for those working with binary distributions of
+	 R, e.g. on OS X.
+
+UTILITIES
+
+    o   R CMD check now gives a warning rather than a note if it finds calls
+	 to abort, assert or exit in compiled code, and has been able to
+	 find the .o file in which the calls occur.
+	
+	 Such calls can terminate the R process which loads the package.
+
+    o   The location of the build and check environment files can now be
+	 specified by the environment variables R_BUILD_ENVIRON and
+	 R_CHECK_ENVIRON, respectively.
+
+    o   R CMD Sweave gains a --compact option to control possibly reducing
+	 the size of the PDF file it creates when --pdf is given.
+
+    o   R CMD build now omits Eclipse&#39;s .metadata directories, and R CMD
+	 check warns if it finds them.
+
+    o   R CMD check now does some checks on functions defined within
+	 reference classes, including of .Call() etc calls.
+
+    o   R CMD check --as-cran notes assignments to the global environment,
+	 calls to data() which load into the global environment, and calls
+	 to attach().
+
+    o   R CMD build by default uses the internal method of tar() to prepare
+	 the tarball.  This is more likely to produce a tarball compatible
+	 with R CMD INSTALL and R CMD check: an external tar program,
+	 including options, can be specified _via_ the environment variable
+	 R_BUILD_TAR.
+
+    o   tools::massageExamples() is better protected against packages which
+	 re-define base functions such as cat() and get() and so can cause R
+	 CMD check to fail when checking examples.
+
+    o   R CMD javareconf has been enhanced to be more similar to the code
+	 used by configure.
+	
+	 There is now a test that a JNI program can be compiled (like
+	 configure did) and only working settings are used.
+	
+	 It makes use of custom settings from configuration recorded in
+	 etc/javaconf.
+
+    o   The --no-vignettes argument of R CMD build has been renamed to the
+	 more accurate --no-build-vignettes: its action has always been to
+	 (re)build vignettes and never omitted them.
+	
+	 R CMD check accepts --no-build-vignettes as a preferred synonym for
+	 --no-rebuild-vignettes.
+
+DEPRECATED AND DEFUNCT
+
+    o   The ENCODING argument to .C() is defunct.  Use iconv() instead.
+
+    o   The .Internal(eval.with.vis) non-API function has been removed.
+
+    o   Support for the converters for use with .C() has been removed,
+	 including the oft misused non-API header R_ext/RConverters.h.
+
+    o   The previously deprecated uses of array() with a 0-length dim
+	 argument and tapply() with a 0-length INDEX list are now errors.
+
+    o   Translation packages are defunct.
+
+    o   Calling rep() or rep.int() on a pairlist or other non-vector object
+	 is now an error.
+
+    o   Several non-API entry points have been transferred to packages (e.g.
+	 R_zeroin2) or replaced by different non-API entry points (e.g.
+	 R_tabulate).
+
+    o   The ‘internal’ graphics device invoked by .Call(&quot;R_GD_nullDevice&quot;,
+	 package = &quot;grDevices&quot;) has been removed: use pdf(file = NULL)
+	 instead.
+
+    o   The .Fortran() entry point &quot;dqrls&quot; which has not been used by R
+	 since version 2.15.1 is no longer available.
+
+    o   Functions traceOn() and traceOff() in package methods are now
+	 defunct.
+
+    o   Function CRAN.packages() is finally defunct.
+
+    o   Use of col2rgb(0) is defunct: use par(&quot;bg&quot;) or NA instead.
+
+    o   The long-defunct functions Rd_parse(), anovalist.lm(), categpry(),
+	 clearNames(), gammaCody(), glm.fit.null(), lm.fit.null(),
+	 lm.wfit.null(), manglePackageNames(), mauchley.test(),
+	 package.contents(), print.coefmat(), reshapeLong(), reshapeWide(),
+	 tkclose(), tkcmd(), tkfile.dir(), tkfile.tail(), tkopen(),
+	 tkputs(), tkread(), trySilent() and zip.file.extract() have been
+	 removed entirely (but are still documented in the help system).
+
+    o   The unused dataPath argument to attachNamespace() has been removed.
+
+    o   grid.prompt() has been removed: use devAskNewPage() instead.
+
+    o   The long-deprecated intensities component is no longer returned by
+	 hist().
+
+    o   mean() for data frames and sd() for data frames and matrices are
+	 defunct.
+
+    o   chol(pivot = FALSE, LINPACK = TRUE), ch2inv(LINPACK = TRUE),
+	 eigen(EISPACK = TRUE), solve(LINPACK = TRUE) and svd(LINPACK =
+	 TRUE) are defunct: LAPACK will be used, with a warning.
+
+    o   The keep.source argument to library() and require() is defunct.
+	 This option needs to be set at install time.
+
+    o   Documentation for real(), as.real() and is.real() has been moved to
+	 ‘defunct’ and the functions removed.
+
+    o   The maxRasters argument of pdf() (unused since R 2.14.0) has been
+	 removed.
+
+    o   The unused fontsmooth argument has been removed from the quartz()
+	 device.
+
+    o   All the (non-API) EISPACK entry points in R have been removed.
+
+    o   chol(pivot = TRUE, LINPACK = TRUE) is deprecated.
+
+    o   The long-deprecated use of \synopsis in the Usage section of .Rd
+	 files will be removed in R 3.1.0.
+
+    o   .find.package() and .path.package() are deprecated: only the public
+	 versions without the dot have ever been in the API.
+
+    o   In a package&#39;s DESCRIPTION file,
+	 
+	     License: X11
+	
+	 is deprecated, since it includes ‘Copyright (C) 1996 X Consortium’
+	 which cannot be appropriate for a current R package.  Use ‘MIT’ or
+	 ‘BSD_2_clause’ instead.
+
+CODE MIGRATION
+
+    o   The C code underlying base graphics has been migrated to the
+	 graphics package (and hence no longer uses .Internal() calls).
+
+    o   Most of the .Internal() calls used in the stats package have been
+	 migrated to C code in that package.
+	
+	 This means that a number of .Internal() calls which have been used
+	 by packages no longer exist, including .Internal(cor)
+	 .Internal(cov), .Internal(optimhess) and .Internal(update.formula).
+
+    o   Some .External() calls to the base package (really to the R
+	 executable or shared library) have been moved to more appropriate
+	 packages.  Packages should not have been using such calls, but some
+	 did (mainly those used by integrate()).
+
+PACKAGE parallel
+
+    o   There is a new function mcaffinity() which allows getting or setting
+	 the CPU affinity mask for the current R process on systems that
+	 supports this (currently only Linux has been tested successfully).
+	 It has no effect on systems which do not support process affinity.
+	 Users are not expected to use this function directly (with the
+	 exception of fixing libraries that break affinity settings like
+	 OpenBLAS) - the function is rather intended to support affinity
+	 control in high-level parallel functions.  In the future, R may
+	 supplement lack of affinity control in the OS by its own
+	 bookkeeping via mcaffinity() related to processes and threads it
+	 spawns.
+
+    o   mcparallel() has a new argument mc.affinity which attempts to set
+	 the affinity of the child process according to the specification
+	 contained therein.
+
+    o   The port used by socket clusters is chosen randomly: this should
+	 help to avoid clashes observed when two users of a multi-user
+	 machine try to create a cluster at the same time.  To reproduce the
+	 previous behaviour set environment variable R_PARALLEL_PORT to
+	 10187.
+
+C-LEVEL FACILITIES
+
+    o   There has been some minor re-organization of the non-API header
+	 files.  In particular, Rinternals.h no longer includes the non-API
+	 header R_exts/PrtUtil.h, and that no longer includes
+	 R_exts/Print.h.
+
+    o   Passing NULL to .C() is now an error.
+
+    o   .C() and .Fortran() now warn if &quot;single&quot; arguments are used with DUP
+	 = FALSE, as changes to such arguments are not returned to the
+	 caller.
+
+    o   C entry points R_qsort and R_qsort_I now have start and end as
+	 size_t to allow them to work with longer vectors on 64-bit
+	 platforms.  Code using them should be recompiled.
+
+    o   A few recently added C entry points were missing the remapping to
+	 Rf_, notably [dpq]nbinom_mu.
+
+    o   Some of the interface pointers formerly available only to R.app are
+	 now available to front-ends on all Unix-alikes: one has been added
+	 for the interface to View().
+
+    o   PACKAGE = &quot;&quot; is now an error in .C() etc calls: it was always
+	 contrary to the documentation.
+
+    o   Entry point rcont2 has been migrated to package stats and so is no
+	 longer available.
+
+    o   R_SVN_REVISION in Rversion.h is now an integer (rather than a
+	 string) and hence usable as e.g.  #if R_SVN_REVISION &lt; 70000.
+
+    o   The entry points rgb2hsv and hsv2rgb have been migrated to package
+	 grDevices and so are no longer available.
+
+    o   R_GE_version has been increased to 10 and name2col removed (use
+	 R_GE_str2col instead).  R internal colour codes are now defined
+	 using the typedef rcolor.
+
+    o   The REPROTECT macro now checks that the protect index is valid.
+
+    o   Several non-API entry points no longer used by R have been removed,
+	 including the Fortran entry points chol, chol2inv, cg, ch and rg,
+	 and the C entry points Brent_fmin, fft_factor and fft_work.
+
+    o   If a .External call is registered with a number of arguments (other
+	 than -1), the number of arguments passed is checked for each call
+	 (as for other foreign function calls).
+
+    o   It is now possible to write custom connection implementations
+	 outside core R using R_ext/Connections.h.  Please note that the
+	 implementation of connections is still considered internal and may
+	 change in the future (see the above file for details).
+
+INTERNATIONALIZATION
+
+    o   The management of translations has been converted to R code: see
+	 ?tools::update_pkg_po.
+
+    o   The translations for the R interpreter and RGui.exe are now part of
+	 the base package (rather than having sources in directory po and
+	 being installed to share/locale).  Thus the base package supports
+	 three translation domains, R-base, R and RGui.
+
+    o   The compiled translations which ship with R are all installed to the
+	 new package translations for easier updating.  The first package of
+	 that name found on .libPaths() at the start of the R session will
+	 be used.  (It is possible messages will be used before .libPaths()
+	 is set up in which case the default translations will be used: set
+	 environment variable R_TRANSLATIONS to point to the location of the
+	 intended translations package to use this right from the start.)
+
+    o   The translations form a separate group in the Windows installer, so
+	 can be omitted if desired.
+
+    o   The markup for many messages has been changed to make them easier to
+	 translate, incorporating suggestions from Lukasz Daniel.
+
+INSTALLATION
+
+    o   There is again support for building without using the C ‘long
+	 double’ type.  This is required by C99, but system implementations
+	 can be slow or flawed.  Use configure option --disable-long-double.
+
+    o   make pdf and make install-pdf now make and install the full
+	 reference index (including all base and recommended packages).
+
+    o   The &#39;reference manual&#39; on the Windows GUI menu and included in the
+	 installer is now the full reference index, including all base and
+	 recommended packages.
+
+    o   R help pages and manuals have no ISBNs because ISBN rules no longer
+	 allow constantly changing content to be assigned an ISBN.
+
+    o   The Windows installer no longer installs a Start Menu link to the
+	 static help pages; as most pages are generated dynamically, this
+	 led to a lot of broken links.
+
+    o   Any custom settings for Java configuration are recorded in file
+	 etc/javaconf for subsequent use by R CMD javareconf.
+
+    o   There is now support for makeinfo version 5.0 (which requires a
+	 slightly different .texi syntax).
+
+    o   The minimum versions for --use-system-zlib and --use-system-pcre are
+	 now tested as 1.2.5 and 8.10 respectively.
+
+    o   On Windows, the stack size is reduced to 16MB on 32-bit systems:
+	 misguided users were launching many threads without controlling the
+	 stack size.
+
+    o   configure no longer looks for file ~/.Rconfig: ~/.R/config has long
+	 been preferred.
+
+BUG FIXES
+
+    o   When R CMD build is run in an encoding other than the one specified
+	 in the package&#39;s DESCRIPTION file it tries harder to expand the
+	 authors@R field in the specified encoding.  (PR#14958)
+
+    o   If R CMD INSTALL is required to expand the authors@R field of the
+	 DESCRIPTION file, it tries harder to do so in the encoding
+	 specified for the package (rather than using ASCII escapes).
+
+    o   Fix in package grid for pushing a viewport into a layout cell, where
+	 the layout is within a viewport that has zero physical width OR
+	 where the layout has zero total relative width (likewise for
+	 height).  The layout column widths (or row heights) in this case
+	 were being calculated with non-finite values.  (Reported by Winston
+	 Chang.)
+
+    o   solve(A, b) for a vector b gave the answer names from colnames(A)
+	 for LINPACK = TRUE but not in the default case.
+
+    o   La.svd() accepts logical matrices (as documented, and as svd() did).
+
+    o   legend() now accepts negative pch values, in the same way points()
+	 long has.
+
+    o   Parse errors when installing files now correctly display the name of
+	 the file containing the bad code.
+
+    o   In Windows, tcltk windows were not always properly constructed.
+	 (PR#15150)
+
+    o   The internal functions implementing parse(), tools::parseLatex() and
+	 tools::parse_Rd() were not reentrant, leading to errors in rare
+	 circumstances such as a garbage collection triggering a recursive
+	 call.
+
+    o   Field assignments in reference class objects via $&lt;- were not being
+	 checked because the magic incantation to turn methods on for that
+	 primitive operator had been inadvertently omitted.
+
+    o   setHook(hookname, value, action=&quot;replace&quot;) set the hook to be the
+	 value, rather than a list containing the value as documented.
+	 (PR#15167)
+
+    o   If a package used a NEWS.Rd file, the main HTML package index page
+	 did not link to it.  (Reported by Dirk Eddelbuettel.)
+
+    o   The primitive implementation of @&lt;- was not checking the class of
+	 the replacement.  It now does a check, quicker but less general
+	 than slot&lt;-. See the help.
+
+    o   split(x, f) now recycles classed objects x in the same way as
+	 vectors.  (Reported by Martin Morgan.)
+
+    o   pbeta(.28, 1/2, 2200, lower.tail=FALSE, log.p=TRUE) is no longer
+	 -Inf; ditto for corresponding pt() and pf() calls, such as pt(45,
+	 df=5000, lower.tail=FALSE, log.p=TRUE). (PR#15162)
+
+    o   The Windows graphics device would crash R if a user attempted to
+	 load the graphics history from a variable that was not a saved
+	 history. (PR#15230)
+
+    o   The workspace size for the predict() method for loess() could exceed
+	 the maximum integer size.  (Reported by Hiroyuki Kawakatsu.)
+
+    o   ftable(x, row.vars, col.vars) now also works when the *.vars
+	 arguments are (integer or character vectors) of length zero.
+
+    o   Calling cat() on a malformed UTF-8 string could cause the Windows
+	 GUI to lock up. (PR#15227)
+
+    o   removeClass(cc) gave &quot;node stack overflow&quot; for some class
+	 definitions containing &quot;array&quot; or &quot;matrix&quot;.
+</div>
+<div class='input'>p_news(lattice)
+</div>
+<div class='output'>Version: 0.20
+Text: The primary goal of the 0.20 series is to further improve documentation, building up to an eventual
+           1.0 release.  Specific major changes are given below.
+
+Version: 0.20
+Text: Use dev.hold()/dev.flush() introduced in R 2.14.0 for smoother displays and transition.
+
+Version: 0.20
+Text: It is now easier to use raster images in levelplot() by specifying top-level argument
+           &#39;useRaster=TRUE&#39;.
+
+Version: 0.20
+Text: &#39;pos&#39; can now be a vector in ltext(), just as it can in text().
+
+Version: 0.20
+Text: Explicit components in &#39;colorkey&#39; (for levelplot()) to specify graphical parameters of boundary and
+           tick marks/labels.
+
+Version: 0.20
+Text: &quot;spline&quot; added as a possibly &#39;type&#39; in panel.xyplot(), following a suggestion from Patrick Breheny.
+
+Version: 0.20
+Text: Support for traditional graphics-like log scale annotation, using &#39;scales=list(equispaced.log =
+           FALSE)&#39;.
+
+Version: 0.20
+Text: parallel() deprecated in favour of parallelplot(), to avoid potential confusion with the parallel
+           package.
+
+Version: 0.20
+Text: The internal lattice.status list is cleaned up whenever new page starts.  This should fix lattice
+           bug #1629.
+
+Version: 0.19
+Text: The primary goal of the 0.19 series is to improve documentation and fix some obscure but
+           long-standing bugs, building up to an eventual 1.0 release.  Specific major changes are given
+           below.
+
+Version: 0.19
+Text: Added new arguments &#39;grid&#39; and &#39;abline&#39; in panel.xyplot().
+
+Version: 0.19
+Text: Added a &quot;panel.background&quot; setting.
+
+Version: 0.19
+Text: Restructured storage of plot-specific information, fixing bug reported in
+           https://stat.ethz.ch/pipermail/r-help/2007-October/143567.html
+
+Version: 0.19
+Text: Added a CITATION file.
+
+Version: 0.19
+Text: Added a new &quot;axis.text&quot; setting.
+
+Version: 0.19
+Text: Added the option to scale data inside panel.3dscatter() and panel.3dwire() rather than assuming ther
+           are already scaled.  This may be helpful for use in user-written panel functions, with
+           (additional) data specified in the original scale.
+
+Version: 0.19
+Text: &#39;varnames&#39; can now be expressions in splom()/parallel().
+
+Version: 0.19
+Text: Added support for &#39;xlab.top&#39; and &#39;ylab.right&#39; arguments.
+
+Version: 0.19
+Text: Improved axis labelling in splom(), including support for date-time data.
+
+Version: 0.19
+Text: panel.pairs() now passes arguments i and j to (sub)panel and diag.panel functions.
+
+Version: 0.19
+Text: Default prepanel functions are now user-settable through lattice.options()
+
+Version: 0.19
+Text: par.[main|sub|xlab|ylab].text parameter settings are more powerful.
+
+Version: 0.19
+Text: Added support for &#39;just&#39; component in draw.key() to allow justification of legend placement.
+
+Version: 0.19
+Text: Graphical arguments in panel.superpose can now be lists.
+
+Version: 0.19
+Text: Added support for raster colorkeys.
+
+Version: 0.19
+Text: Added new &#39;height&#39; component for keys.
+
+Version: 0.19
+Text: Improved vectorization of graphical parameters in panel.bwplot.
+
+Version: 0.19
+Text: Expanded trellis.grobname() and used it to provide a name for all grobs.
+
+Version: 0.19
+Text: New panel.spline() function. bug fixes
+
+Version: 0.19
+Text: More realistic check for equispaced grid in panel.levelplot.raster().
+
+Version: 0.19
+Text: Improved partial matching of component names in &#39;key&#39; and &#39;scales&#39;.
+
+Version: 0.19
+Text: xyplot.ts() now allows graphical parameters to be given as vectors (inside a list) for each series.
+           Passes lists to panel.superpose.
+
+Version: 0.19
+Text: panel.axis() now does NOT draw tick marks if &#39;ticks = FALSE&#39;.
+
+Version: 0.18
+Text: Hosting of the upstream sources has moved to R-forge.  This allows, among other things, the use of
+           the R-forge issue tracker.
+
+Version: 0.18
+Text: New xyplot.ts method, merging versions previously available in latticeExtra and zoo (thanks to the
+           efforts of Felix Andrews)
+
+Version: 0.18
+Text: An argument &#39;group.value&#39;, containing the level of the group, is now passed by panel.superpose to
+           the &#39;panel.groups&#39; function
+
+Version: 0.18
+Text: Specifying &#39;auto.key&#39; as a list now produces a legend even in the absence of &#39;groups&#39;, provided a
+           &#39;text&#39; component has been included
+
+Version: 0.18
+Text: The &#39;layout&#39; argument now accepts NA for number of columns or rows.
+
+Version: 0.18
+Text: Scale limits &#39;xlim&#39; &amp; &#39;ylim&#39; can have one NA to fix only one side.
+
+Version: 0.18
+Text: Date and POSIXt scales now use new methods to calculate axis ticks, and now respond to the
+           &#39;tick.number&#39; component of &#39;scales&#39;.
+
+Version: 0.18
+Text: &#39;panel.qqmath&#39; gains an argument &#39;tails.n&#39; for exact data on tails.
+
+Version: 0.17
+Category: new features
+Text: New function simpleTheme() for creating nested lists without specifying the nesting structure (which
+           is guessed)
+
+Version: 0.17
+Category: new features
+Text: Support for lattice.option(print.function) which is the function actually used when print.trellis()
+           is called
+
+Version: 0.17
+Category: new features
+Text: New argument &#39;box.width&#39; wherever &#39;box.ratio&#39; is available (e.g., panel.bwplot, panel.barchart,
+           etc.), to specify absolute thickness (of boxes, bars, etc.)
+
+Version: 0.17
+Category: new features
+Text: New panel.refline() function, same as panel.abline(), but with default parameters from the
+           &quot;reference.line&quot; settings.
+
+Version: 0.17
+Category: new features
+Text: parallel() has a new &#39;horizontal.axis&#39; argument; when FALSE, the axes are vertical and are stacked
+           side by side.
+
+Version: 0.17
+Category: new features
+Text: densityplot() now supports weights.
+
+Version: 0.17
+Category: new features
+Text: dotplot.table() etc. allow change of orientation (horizontal=FALSE).
+
+Version: 0.17
+Category: new features
+Text: New function panel.identify.cloud() to interactively label three-dimensional scatterplots.
+
+Version: 0.17
+Category: new features
+Text: Added support for notches in panel.bwplot (based on patch from Mike Kay)
+
+Version: 0.17
+Category: new features
+Text: New panel function panel.smoothScatter (relocated from Bioconductor package geneplotter)
+
+Version: 0.17
+Category: new features
+Text: Added German translations (contributed by Chris Leick)
+
+Version: 0.17
+Category: new features
+Text: reordered documentation to make PDF manual more readable
+
+Version: 0.17
+Category: bug fixes
+Text: Make translations available (they were never actually installed before)
+
+Version: 0.16
+Category: changes in behaviour
+Text: &#39;x&#39; in dotplot(~x, data) etc now gets names(x) set to rownames(data).  Update: this feature has now
+           been removed, as the resulting behaviour is undesirable for bwplot()
+
+Version: 0.16
+Category: changes in behaviour
+Text: the &#39;call&#39; component of a &quot;trellis&quot; object is set to a better value than before (at least for the
+           methods in lattice).  One consequence is that update.default() now works for cases in which
+           update.trellis() doesn&#39;t (i.e. those where data packets need to change)
+
+Version: 0.16
+Category: changes in behaviour
+Text: barchart.table now has an &#39;horizontal&#39; argument
+
+Version: 0.16
+Category: changes in behaviour
+Text: levelplot.matrix() now allows specification of column labels or positions through arguments
+           &#39;row.values&#39; and &#39;column.values&#39;
+
+Version: 0.16
+Category: changes in behaviour
+Text: width calculation for rectangles changed for levelplot() when &#39;x&#39;, &#39;y&#39; are factors; they are set to
+           1, rather than trying to accomodate unequally spaced &#39;x&#39; and &#39;y&#39; values.  This is important
+           when there are empty levels
+
+Version: 0.16
+Category: changes in behaviour
+Text: dimnames() of a &quot;trellis&quot; object is now settable (this allows changing names and levels of
+           conditioning variables)
+
+Version: 0.16
+Category: changes in behaviour
+Text: labels (&#39;xlab&#39;, &#39;main&#39;, etc) can now be character vectors.  In their list form, they support more
+           graphical parameters as well as finer positioning (justification, rotation, etc.)
+
+Version: 0.16
+Category: changes in behaviour
+Text: &#39;strip.left&#39; gets called with &#39;horizontal = FALSE&#39;, so &#39;strip.left = strip.default&#39; now works as
+           expected
+
+Version: 0.15
+Category: new features
+Text: Default panel functions are now settable options
+
+Version: 0.15
+Category: new features
+Text: Limits of a parallel coordinates plot can now be controlled via functions
+
+Version: 0.15
+Category: new features
+Text: New &#39;panel.aspect&#39; argument for cloud and wireframe
+
+Version: 0.15
+Category: new features
+Text: Better support for factors in cloud and wireframe
+
+Version: 0.15
+Category: new features
+Text: More flexible placement of legends with x, y and corner.  In particular, corner can have fractional
+           values, and (x, y) can refer to a position w.r.t. two potential bounding boxes depending on
+           lattice.getOption(&quot;legend.bbox&quot;) (&#39;full&#39;, meaning full plot region, or &#39;panel&#39;, meaning the
+           subregion containing panels and strips. The default is &#39;panel&#39;, which is a change in behaiour)
+
+Version: 0.15
+Category: new features
+Text: trellis.focus() now allows choosing panels interactively.
+
+Version: 0.15
+Category: new features
+Text: New interaction functions panel.identify.qqmath() and panel.brush.splom()
+
+Version: 0.15
+Category: new features
+Text: There is now an error handling mechanism for panel functions.  By default, errors in panel functions
+           no longer stop execution.  See ?print.trellis for details.
+
+Version: 0.15
+Category: changes in behaviour
+Text: non-numeric data no longer cause warnings in bwplot
+
+Version: 0.15
+Category: changes in behaviour
+Text: the default padding between components has been changed to 0.5 &quot;chars&quot;
+
+Version: 0.14
+Category: new features
+Text: support for custom function that determines packet-panel correspondence.  This could be used to fill
+           panels vertically rather than horizontally, or to split layout over two or more pages, etc.
+           (see ?packet.panel.default)
+
+Version: 0.14
+Category: new features
+Text: support for customizable functions for axis drawing and tick/label determination
+
+Version: 0.14
+Category: new features
+Text: various accessor functions available to panel, strip, axis (etc) functions, e.g. panel.number() and
+           packet.number()
+
+Version: 0.14
+Category: new features
+Text: arguments to lattice.options and print.trellis arguments can now be attached to trellis objects (as
+           parameter settings already could) through high level arguments &#39;lattice.options&#39; and
+           &#39;plot.args&#39;
+
+Version: 0.14
+Category: new features
+Text: llines, lpoints and ltext are now generic functions
+
+Version: 0.14
+Category: new features
+Text: The high level &#39;key&#39; argument can now have an argument called &#39;reverse.rows&#39; to reverse the order of
+           rows.  This applies to &#39;draw.key&#39;, &#39;auto.key&#39; and &#39;simpleKey&#39; as well.
+
+Version: 0.14
+Category: new features
+Text: extended interpretation of &#39;breaks&#39; in histogram()
+
+Version: 0.14
+Category: new features
+Text: matrix methods for &#39;splom&#39; and &#39;parallel&#39; (whose absence was an oversight)
+
+Version: 0.14
+Category: new features
+Text: support of &#39;alpha&#39; argument in labels and legends, which were previously missing for no good reason
+
+Version: 0.14
+Category: new features
+Text: panel.grid() now allows &#39;h&#39; and &#39;v&#39; to have negative values other than -1, in which case &#39;-h&#39; and
+           &#39;-v&#39; will be used as the &#39;n&#39; argument to pretty() when determining line locations
+
+Version: 0.14
+Category: changes in behaviour
+Text: panel function is no longer given arguments panel.number and packet.number (see above for
+           alternatives)
+
+Version: 0.14
+Category: changes in behaviour
+Text: panel.identify() now has a more useful return value (selected subscripts)
+
+Version: 0.14
+Category: changes in behaviour
+Text: trellis.panelArgs() without any arguments should return meaningful results while a &quot;trellis&quot; object
+           is being printed, and thus should be usable inside panel or axis functions.
+
+Version: 0.14
+Category: changes in behaviour
+Text: For formulae of the form y1 + y2 ~ x1 + x2 + x3, the order of levels of the artificially created
+           grouping variable is now more &#39;intuitive&#39;
+
+Version: 0.13
+Category: new features
+Text: high level generics like &#39;xyplot&#39; now have both &#39;x&#39; and &#39;data&#39; as arguments.  The only implication
+           for S3 methods is that they will have to include the &#39;data&#39; argument even if they are unused
+           (as they should be when &#39;x&#39; is not a formula).  The reason for doing this is to encourage S4
+           methods using multiple dispatch where &#39;x&#39; is a formula and &#39;data&#39; is some other data source.
+
+Version: 0.13
+Category: new features
+Text: R messages are now translatable.
+
+Version: 0.13
+Category: new features
+Text: French translations courtesy of Philippe Grosjean.
+
+Version: 0.13
+Category: new features
+Text: instead of ignoring it as before, &#39;panel.xyplot&#39; and &#39;panel.densityplot&#39; now deal with a &#39;groups&#39;
+           argument appropriately by calling &#39;panel.superpose&#39;.  Consequently, the default of &#39;panel&#39; in
+           &#39;xyplot&#39; etc does not need to be conditional on &#39;groups&#39;.
+
+Version: 0.13
+Category: new features
+Text: added &#39;lineheight&#39; as a graphical parameter where appropriate.
+
+Version: 0.13
+Category: new features
+Text: added a &#39;grid.pars&#39; setting for arbitrary grid parameters to be set initially via gpar().
+
+Version: 0.13
+Category: new features
+Text: For a shingle &#39;x&#39;, &#39;as.character(levels(x))&#39; creates meaningful labels.
+
+Version: 0.13
+Category: new features
+Text: Shingle levels can now be printed by strip.default.
+
+Version: 0.13
+Category: new features
+Text: The strip function, like the panel function, is now passed arguments &#39;packet.number&#39; and
+           &#39;panel.number&#39; (although the default strip function makes no use of it).
+
+Version: 0.13
+Category: new features
+Text: &#39;panel.superpose&#39; has new argument to make it bahave like in S-PLUS (interpretation of &#39;type&#39;).
+           This makes &#39;panel.superpose.2&#39; unnecessary, although it&#39;s still available.
+
+Version: 0.13
+Category: new features
+Text: Added wrappers lrect, lpolygon (and panel.rect, panel.polygon)
+
+Version: 0.13
+Category: changes in behaviour
+Text: evaluation scope: standard functions with a formula based interface (&#39;lm&#39; etc) look for variables in
+           the formula (that are not found in &#39;data&#39;) in the environment of the formula.  This was done
+           inconsistently for lattice functions, which has been fixed.
+
+Version: 0.13
+Category: changes in behaviour
+Text: &#39;summary.trellis&#39; is now more informative
+
+Version: 0.13
+Category: changes in behaviour
+Text: calls with explicit &#39;formula=&#39; no longer work (used to give a warning before)
+
+Version: 0.13
+Category: changes in behaviour
+Text: The &#39;bar.fill&#39; and &#39;superpose.fill&#39; settings have been replaced with &#39;plot.polygon&#39; and
+           &#39;superpose.polygon&#39; respectively, which are more consistent with other names.
+
+Version: 0.13
+Category: changes in behaviour
+Text: Default of &#39;data&#39; changed from &#39;parent.frame()&#39; to NULL.  This has to do with reasonable
+           non-standard evaluation rules, and probably needs some more thought.
+
+Version: 0.13
+Category: changes in behaviour
+Text: Default Trellis settings (a.k.a. theme) changed.  See ?trellis.device for details
+
+Version: 0.13
+Category: bug fixes
+Text: NA-handling
+
+Version: 0.13
+Category: bug fixes
+Text: ltext now supports more &#39;adj&#39; values
+
+Version: 0.13
+Category: bug fixes
+Text: scales$y$alternating now counts row numbers from top if as.table = TRUE
+
+Version: 0.13
+Category: bug fixes
+Text: miscellaneous improvements in strip.default
+
+Version: 0.13
+Category: Todo (planned
+Text: change panel.qq so that most work gets done there
+
+Version: 0.12
+Category: improvements
+Text: panel.bwplot has a new &#39;stats&#39; argument, which is a function used to calculate the statistics in the
+           box and whisker plot.  Defaults to boxplot.stats, which was the hard-coded value earlier.
+
+Version: 0.12
+Category: improvements
+Text: panel.bwplot has been re-implemented.  Faster, avoids direct grid calls
+
+Version: 0.12
+Category: improvements
+Text: panel.densityplot now allows more flexible specifications of &#39;plot.points&#39;, specifically, points can
+           be jittered (the new default) or indicated by a `rug&#39;.
+
+Version: 0.12
+Category: improvements
+Text: (more) changes in NA-handling.
+
+Version: 0.12
+Category: improvements
+Text: panel.superpose handles type=&#39;g&#39; itself so that the grid doesn&#39;t get repeated for every group.
+
+Version: 0.12
+Category: new features
+Text: All high level functions are now generic.  This change should be mostly transparent, but there may
+           be some unforeseen side-effects. S3 generics and methods are used (this may change at some
+           point, but not in the near future).  In particular, usage where the first argument is not
+           actually a formula has now been formalized and is handled via method dispatch rather than the
+           clumsy hacks in place earlier.
+
+Version: 0.12
+Category: new features
+Text: The first argument of high level lattice functions has been renamed from &#39;formula&#39; to &#39;x&#39;.  This is
+           related to the fact that these functions are now generic, and is intended to avoid long-term
+           confusion.  The first argument is usually not named, so this should not cause many problems.
+           If the name &#39;formula&#39; is explicitly supplied, it will be used with a warning (as long as there
+           is no argument named &#39;x&#39;) for now, but not in future versions of lattice.
+
+Version: 0.12
+Category: new features
+Text: aspect=&#39;xy&#39; is now allowed when relation=&#39;free&#39;
+
+Version: 0.12
+Category: new features
+Text: A new function make.groups (present in S-PLUS) has been added.
+
+Version: 0.12
+Category: new features
+Text: there&#39;s now panel.rect and lrect (similar to the base function rect)
+
+Version: 0.12
+Category: new features
+Text: print.trellis has a &#39;draw.in&#39; argument that can be used to specify a grid viewport to draw the plot
+           in.
+
+Version: 0.12
+Category: new features
+Text: strips can now be drawn on the left (as well as top) of a panel. This is useful for short wide
+           panels, e.g. time series.
+
+Version: 0.12
+Category: new features
+Text: &#39;Date&#39; objects are recognized and axis labels formatted accordingly (not heavily tested)
+
+Version: 0.12
+Category: changes in behaviour
+Text: qqmath has been considerably revamped, primarily to allow grouped displays (the older implementation
+           would not have allowed that even with a custom panel function).  In particular, the (pre)panel
+           function(s) now get the raw data as opposed to already computed quantiles. Some old code may
+           stop working.
+
+Version: 0.12
+Category: changes in behaviour
+Text: as a consequence of the above, panel.qqmath, panel.qqmathline etc have been rewritten and have
+           different argument lists
+
+Version: 0.12
+Category: changes in behaviour
+Text: tmd has been rewritten (mostly to deal with qqmath objects), but this shouldn&#39;t be user-visible.
+
+Version: 0.12
+Category: changes in behaviour
+Text: densityplot defaults to showing points with random jitter.
+
+Version: 0.12
+Category: changes in behaviour
+Text: arguments panel.number and panel.counter, passed to panel functions that have those (or the ...)
+           argument(s) have been renamed to &#39;packet.number&#39; and &#39;panel.number&#39;, which are more in line
+           with standard Trellis jargon.
+
+Version: 0.12
+Category: bug fixes
+Text: identification of when &#39;type&#39; should default to &quot;density&quot; was buggy (inapprpriate rounding)
+
+Version: 0.11
+Category: improvements
+Text: panel.superpose.2 (which replicates behaviour of panel.superpose in S-PLUS) revamped, with new
+           features to boot.
+
+Version: 0.11
+Category: improvements
+Text: panel.identify improved
+
+Version: 0.11
+Category: improvements
+Text: larrows improved, slightly different features.
+
+Version: 0.11
+Category: improvements
+Text: [xyz]lab in cloud / wireframe can now be grobs, and honors a &#39;rot&#39; component for rotation (e.g.,
+           zlab = list(rot = 90))
+
+Version: 0.11
+Category: new features
+Text: some finer controls added to parallel (actually panel.parallel)
+
+Version: 0.11
+Category: new features
+Text: trellis.last.object(...) now behaves like update(trellis.last.object(), ...))
+
+Version: 0.11
+Category: new features
+Text: &quot;trellis&quot; objects now have a plot method that&#39;s essentially an alias to the print method
+
+Version: 0.11
+Category: new features
+Text: new function &#39;current.panel.limits&#39; to retrieve native scales of current panel (only in later
+           versions)
+
+Version: 0.11
+Category: changes in behaviour
+Text: behaviour of auto.key = TRUE now function specific
+
+Version: 0.11
+Category: changes in behaviour
+Text: auto.key list now allows a &#39;text&#39; component
+
+Version: 0.11
+Category: changes in behaviour
+Text: defaults of several standard arguments now taken from lattice.options()
+
+Version: 0.11
+Category: changes in behaviour
+Text: type=&#39;g&#39; now calls panel.grid(h = -1, v = -1) rather thanjust panel.grid()
+
+Version: 0.11
+Category: changes in behaviour
+Text: NA-handling (may have undesirable effects)
+
+Version: 0.11
+Category: bug fixes
+Text: several minor fixes
+
+Version: 0.10
+Category: improvements
+Text: relation=&quot;free&quot; and &quot;sliced&quot; now work for factors (at least, as well as can be expected)
+
+Version: 0.10
+Category: improvements
+Text: the code that constructs the layout of a lattice plot (in the print method for trellis objects) has
+           been completely rewritten.  This is mostly transparent to the user, but as a side effect, it
+           is now possible to control the details of the layout (things like the amount of padding around
+           the plot, the gap between tick marks and labels) via the trellis settings &quot;layout.heights&quot; and
+           &quot;layout.widths&quot;.
+
+Version: 0.10
+Category: improvements
+Text: col.regions and colorkey in levelplot and wireframe now honour settings in effect when the object is
+           printed, and not when the object was created.
+
+Version: 0.10
+Category: improvements
+Text: xlab, ylab, main and sub can now be grobs
+
+Version: 0.10
+Category: improvements
+Text: datasets get separate documentation, contributed by Kevin Wright
+
+Version: 0.10
+Category: new features
+Text: lattice.options(), similar to options(), to control various aspects of lattice plots.  This is
+           mostly for easier code maintainance, but can be useful for the user too.
+
+Version: 0.10
+Category: new features
+Text: API now supports alpha-transparency (actual support is device dependent) where appropriate (some
+           cases might have been missed, and reports of omissions would be appreciated).
+
+Version: 0.10
+Category: new features
+Text: API for interacting with and enhancing Trellis plots AFTER they are drawn, based on grid functions
+           seekViewport, grid.locator, etc. See ?trellis.focus
+
+Version: 0.10
+Category: new features
+Text: aspect=&quot;iso&quot; for `isometric&#39; x- and y-axes.
+
+Version: 0.10
+Category: new features
+Text: new &#39;default.scales&#39; argument to high level functions, useful when writing wrappers
+
+Version: 0.10
+Category: new features
+Text: convenience function &#39;strip.custom&#39; to create strip functions from strip.default just by overriding
+           one or more arguments
+
+Version: 0.10
+Category: new features
+Text: type=&quot;H&quot; in lplot.xy (for horizontal line).  New argument &#39;horizontal&#39; for panel.xyplot, which
+           affects what happens for various &#39;type&#39;-s.
+
+Version: 0.10
+Category: new features
+Text: type=&quot;g&quot; in panel.xyplot, which draws a reference grid
+
+Version: 0.10
+Category: new features
+Text: the print method now (optionally) saves the (last) object printed in a non-visible environment.
+           This allows retrieval of the last printed object for &#39;update&#39;-ing, and more importantly, to
+           retrieve panel specific data for use while interacting with and enhancing plots after they are
+           printed
+
+Version: 0.10
+Category: new features
+Text: a summary method for trellis objects (currently pretty basic)
+
+Version: 0.10
+Category: changes in behaviour
+Text: lset has been deprecated, and trellis.par.set has been enhanced with equivalent usage
+
+Version: 0.10
+Category: changes in behaviour
+Text: the strip function now gets the whole strip area to work with, and is responsible for using it
+           appropriately.  strip.default has been updated accordingly
+
+Version: 0.10
+Category: changes in behaviour
+Text: choice of color for grouped barcharts now taken from a new setting parameter &#39;superpose.fill&#39; and
+           not &#39;regions&#39; as previously
+
+Version: 0.10
+Category: changes in behaviour
+Text: arguments to panel.levelplot has changed (this is related to how default colors are obtained, as
+           described above).
+
+Version: 0.10
+Category: bug fixes
+Text: axes now drawn on last panel even if it doesn&#39;t fall on the border of the layout
+
+Version: 0.10
+Category: bug fixes
+Text: many other miscellaneous fixes, see SvnLog for some details
+
+Version: 0.9
+Category: improvements
+Text: Axis labelling code has been rewritten to internally use S3 method dispatch, with (unexported)
+           methods for numeric (default), character (for factors), POSIXct and date. More methods can be
+           considered on request.  reversed limits are now allowed.
+
+Version: 0.9
+Category: improvements
+Text: contourplot can now handle missing rows in the data frame (equivalent to NA&#39;s in z). contourplot now
+           uses contourLines().
+
+Version: 0.9
+Category: improvements
+Text: cloud and wireframe now use better 3-D projection calculations, and are generally much better than
+           before.  wireframe is much faster, and has a better shading algorithm. It can also handle NA&#39;s
+           and missing rows.
+
+Version: 0.9
+Category: improvements
+Text: splom (specifically panel.pairs) has more functionality, including the option of using different
+           panel functions below and above the diagonal, user defined diagonal panels, and a table-like
+           layout (similar to pairs)
+
+Version: 0.9
+Category: improvements
+Text: font specifications now allow for fontface and fontfamily
+
+Version: 0.9
+Category: improvements
+Text: much improved update method for trellis objects
+
+Version: 0.9
+Category: improvements
+Text: setting auto.key = TRUE now computes key at printing time, honouring any changes in trellis settings
+
+Version: 0.9
+Category: new features
+Text: arbitrary reordering of conditioning variables, as well as of levels within a conditioning variable.
+           This works in the update method (as well as high-level plots), making it easy to examine parts
+           of a multipanel trellis display and view it in different conditioning orders.
+
+Version: 0.9
+Category: new features
+Text: extended key functionality (via the legend argument) that allows multiple legends and the use of
+           arbitrary grid objects as keys
+
+Version: 0.9
+Category: new features
+Text: option to NOT drop unused factor levels when subsetting, by setting drop.unused.levels = FALSE or
+           drop.unused.levels = list(cond = FALSE, data = FALSE) in high-level functions like xyplot.
+
+Version: 0.9
+Category: new features
+Text: Ability to attach settings to a trellis object (rather than changing the global settings), via
+           argument par.settings in high level calls.
+
+Version: 0.9
+Category: new features
+Text: Wireframe can now draw parametrized 3-D surfaces like spheres (generally of the form f(u,v) =
+           (x(u,v), y(u,v), z(u,v)), for (u,v) in the square [0,1] x [0,1]).
+
+Version: 0.9
+Category: new features
+Text: Functionality similar to locator() (possible due to recently added features of grid). All panels
+           should have predictable viewport names, which can be used in seekViewport() to grab a
+           particular viewport. grid.locator() can subsequently be used to locate points in the native
+           coordinate system of that panel.
+
+Version: 0.9
+Category: changes in behaviour
+Text: allow.multiple now defaults to TRUE (whenever it makes sense), since &#39;+&#39; in a formula is interpreted
+           differently than S-PLUS anyway. As in model formulae, I(x+y) works as expected.
+
+Version: 0.9
+Category: changes in behaviour
+Text: default behaviour of qq and qqmath changed (from S-PLUS behaviour) to match corresponding base
+           functions qqplot and qqnorm
+
+Version: 0.9
+Category: bug fixes
+Text: Fixed important bug concerning interaction of subscripts and subsets
+
+Version: 0.9
+Category: bug fixes
+Text: lots of other fixes, mostly obscure
+
+Version: 0.8
+Text: Major change is the addition of a NAMESPACE. grid is now not &#39;require()-d&#39;, but imported only. To
+           use grid functions directly in lattice calls (which is a very reasonable thing to do), one
+           needs to explicitly call library(grid).
+
+Version: 0.8
+Text: contourplot() has improved when data has NA&#39;s. Still doesn&#39;t work when the NA rows are completely
+           omitted (in other words, the full &quot;matrix&quot; has to be specified, even the entries with NA).
+
+Version: 0.8
+Text: Clipping can now be turned off in panels and strips via the trellis.par.get(&quot;clip&quot;) setting. See the
+           Changelog for other minor changes.
+
+Version: 0.7
+Category: grouping variables
+Text: The handling of Grouped displays has been made more consistent (and different from S-Plus). Whenever
+           a groups= argument is specified, it is assumed that the user wants a grouped display and an
+           attempt is made to honour this whenever appropriate (this ultimately depends on the panel
+           function). A non-trivial addition to the list of functions that support this is barchart.
+
+Version: 0.7
+Category: grouping variables
+Text: Specification of legend (key) has been made slightly easier in the most common cases. The key is
+           used most often in conjunction with the groups argument, and using the global trellis
+           settings. The simpleKey function (and the auto.key argument to high level functions) uses the
+           global settings to create a key with a not very flexible but simple interface.
+
+Version: 0.7
+Category: grouping variables
+Text: Handling of the formula argument has been extended to allow multiple variables on either side of the
+           formula (with allow.multiple = TRUE), e.g. xyplot(y1 + y2 ~ x, data, allow.m = TRUE). These
+           are treated as grouped displays.
+
+Version: 0.7
+Category: scales
+Text: Some components of scales, namely tck, rot and cex, can now be length 2 vectors, controlling
+           left/bottom and right/top separately.
+
+Version: 0.7
+Category: scales
+Text: Some more functions (not all) now handle factors in the formula correctly (i.e., coerce them to
+           numeric when factors are not appropriate, but use levels of the factor for labelling).
+
+Version: 0.6
+Category: API change
+Text: panel functions: In earlier versions, panel functions and prepanel functions were guaranteed to be
+           passed numeric vectors as x,y (and z) arguments. This is no longer true. All panel functions
+           are now expected to handle other possibilities. This has been done in all the predefined panel
+           functions in lattice (but not in llines, lpoints, etc.). In practice, the only changes
+           required are (unless I have overlooked something) to add calls like x &lt;- as.numeric(x) y &lt;-
+           as.numeric(y) at the beginning. prepanel functions can now return, as their xlim or ylim
+           components, either a numeric vector of length 2 (possibly a DateTime object), or a character
+           vector. The latter implies that the elements of this vector should be the respective axis
+           labels, associated with tick marks at 1:length_of_this_vector.
+
+Version: 0.6
+Category: API change
+Text: high-level functions: The default panel functions of high level functions can now be different,
+           depending on whether a groups argument was passed. In practice, this now happens for xyplot,
+           splom and densityplot.  (densityplot has an additional high-level argument specifically for
+           this, called panel.groups, which is passed to the panel function.)  This is a convenience
+           feature, (and is inconsistent with S-Plus) in that it presumes that if the user has specified
+           a groups argument, she wants it to be used, where appropriate.
+
+Version: 0.6
+Category: API change
+Text: scales: In anticipation of future use (in nlme, for example), the at and labels components of scales
+           can now be a list. Each element corresponds to a panel. This is thoroughly untested and not
+           guaranteed to work.
+
+Version: 0.6
+Category: There are also some other API changes associated with cloud and
+Text:
+
+Version: 0.6
+Category: wireframe, discussed below
+Text:
+
+Version: 0.6
+Category: New Features and Fixes
+Text: Mathematical Annotation; Following changes in grid 0.7, lattice now supports latex-style labelling
+           using expressions. These can be used in almost all sensible places (an exception being in
+           colorkey axis labels in levelplot/contourplot, and this is not expected to change).
+
+Version: 0.6
+Category: New Features and Fixes
+Text: Date-Time Labelling: Axis labelling procedures did not recognize DateTime objects in earlier
+           versions. This has been fixed. The routine currently used is a hack of axis.POSIXt (without
+           the format option), but will hopefully improve in future.
+
+Version: 0.6
+Category: New Features and Fixes
+Text: 3-D functions: The 3-D functions cloud and wireframe have been greatly improved in terms of
+           extensibility. The code is much cleaner, and writing new panel functions are much simpler.
+           Earlier versions had a problem with the default placement of the labels (x/y/z-lab) and scales
+           (arrows/ticks), which has been fixed. [The only major problem that still remains is when, in a
+           perspective plot, the projection of the distant face is fully contained inside the projection
+           of the near face.] Earlier wireframe code used an unnecessarily large amount of memory. This
+           has been fixed, although speed is still not good (fixes are in the planing stage, and would
+           involve changes in grid). drape=TRUE used to give wrong coloring, which is now fixed. The
+           &#39;group&#39; argument now works with wireframe, resulting in multiple surfaces. This is mostly
+           satisfactory, but is not sophisticated enough to render intersecting surfaces properly (might
+           be approximated by a fine enough grid). There are also some rudimentary lighting options,
+           which can render the surface as being illuminated from a light source. No shadows. (Try
+           shade=TRUE in wireframe.) Although these changes go a long way towards stabilizing
+           cloud/wireframe, some further changes, especially in how the panel function handles the groups
+           argument, are expected in the future.
+
+Version: 0.6
+Category: Known bugs
+Text: Handling of NA values are often inconsistent and buggy. Some of these are not easily fixable
+           (particularly one in contourplot), but some are, so bug reports on this are still welcome.
+
+Version: 0.6
+Category: Known bugs
+Text: Fonts specified in the new R font specification may not work yet.
+
+Version: 0.5
+Category: Not many
+Text: Biggest change in the way settings are handled. Settings are now stored in a global list called
+           lattice.theme, and is truly device-specific (i.e., settings for more than one device can be
+           used concurrently). Improved theme management via lset and show.settings. Changed defaults for
+           color postscript/pdf.
+
+Version: 0.5
+Category: Not many
+Text: bwplot and friends which had to have the grouping factor/shingle on the y-axis, can now have it on
+           the x-axis as well. Far from perfect, though, since long labels can overlap with default
+           settings.
+
+Version: 0.5
+Category: Not many
+Text: panel.superpose now accepts an additional argument called panel.groups (by default panel.xyplot),
+           which is the panel function actually called for each subset of the data determined by groups.
+           Avoids having to write something as big as panel.superpose for natural generalizations like
+           interaction plots. (Related new panel function: panel.linejoin)
+
+Version: 0.5
+Category: Not many
+Text: colorkey in levelplot on all sides. Rendering of large key&#39;s much much faster (using grid.place
+           suggested by Paul)
+
+Version: 0.5
+Category: Not many
+Text: Other minor changes (doc, more arguments etc)
+
+Version: 0.5
+Category: Not many
+Text: Following changes in grid, calls to base R graphics and lattice functions can now be mixed.
+
+Version: 0.4
+Category: Some of the implementation details have changed a lot. This might
+Text:
+
+Version: 0.4
+Category: cause some old code to fail, though no such instances are known
+Text:
+
+Version: 0.4
+Category: No significant new features have been added, but there are several
+Text:
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: documentation restructured. There is no topic called `trellis.args&#39; any more. The detailed
+           description of the arguments common to all high level trellis functions can be found under
+           help(xyplot)
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: once trellis.device() is called, Lattice graphics and base R graphics should mix more or less
+           seamlessly. There is an optional argument in trellis.device() that can deal with the first
+           blank page problem, with certain restrictions.
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: a (as yet very small) demo, called by demo(&quot;lattice&quot;)
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: Clipping: whatever is drawn by the panel function is now clipped to inside the panel region. Strip
+           texts are clipped to inside the strips.
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: Axis tick labels by default do not overlap, some tick marks are left unlabelled if necessary.
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: The argument list for strip.default changed to be like S
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: levels() and nlevels() give sensible answers for shingles. new print methods for shingles and levels
+           of shingles
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: colorkey (currently used only in levelplot) can now be placed to the left, top or bottom as well
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: new ``lines&#39;&#39; component in the par.strip.text argument that can be used to change the height of
+           strips
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: xlab, main etc can be double height strings (containing &quot;\n&quot;-s), the spaces allocated for these
+           would be automatically adjusted
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: strip.default now has style=5
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: new panel.superpose.2 (suggested by Neil Klepeis)
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: the default colour settings sometimes seem too light on a white background. To deal with this, there
+           is a new setting with some darker colours that can be set by calling lset(theme = &quot;white.bg&quot;).
+           see ?lset for details. This is currently in a proof-of-concept stage (the colors in &quot;white.bg&quot;
+           were chosen just because I liked their names), and suggestions for better color schemes would
+           be most welcome.
+
+Version: 0.4
+Category: bugfixes (notably in levelplot). The important changes are
+Text: show.settings() added
+
+Version: 0.3
+Category: The overall internal structure of the lattice library has changed
+Text:
+
+Version: 0.3
+Category: considerably in verion 0.3, in particular making it far more readable
+Text:
+
+Version: 0.3
+Category: and debuggable. However, this also means that some code which had
+Text:
+
+Version: 0.3
+Category: worked with the earlier version might now fail. (This is just a
+Text:
+
+Version: 0.3
+Category: discalimer, there are no known instances
+Text:
+
+Version: 0.3
+Category: New Features
+Text: (Almost) full support for the `key&#39; argument for drawing legends
+
+Version: 0.3
+Category: New Features
+Text: Support for log scales
+
+Version: 0.3
+Category: New Features
+Text: levelplot (but no contourplot. In particular, the contour = T option in levelplot does not work)
+
+Version: 0.3
+Category: New Features
+Text: tmd now works on the output from qq
+
+Version: 0.3
+Category: New Features
+Text: panel function names can now be quoted strings
+
+Version: 0.3
+Category: New Features
+Text: scales and its x and y components can now be just a character string like &quot;free&quot; or &quot;sliced&quot;, i.e.,
+           the relation tag can be omitted.
+
+Version: 0.3
+Category: New Features
+Text: extension to the `type&#39; argument in panel.xyplot and panel.superpose to allow stair-like and
+           histogram-like plots (type=&quot;s&quot; and &quot;h&quot; in plot), as well as loess smooths (using the
+           loess.smooth function in the modreg package).  Also, more than one of these options can now be
+           used concurrently.  This allows, for example, a grouped plot where a grouping variable can be
+           used to fit separate loess curves along with the scatter for each group. See example(xyplot)
+
+Version: 0.3
+Category: New Features
+Text: wrappers around grid functions with API-s of traditional graphics functions to help port existing
+           S-Plus Trellis code. See below for details.
+
+Version: 0.3
+Category: New Features
+Text: changes in print.trellis to allow mixing of Lattice and usual R graphics. See below for details.
+
+Version: 0.3
+Category: Porting S-Plus Trellis code to Lattice
+Text:
+
+Version: 0.3
+Category: One of the basic problems in porting existing Trellis code to R is the
+Text:
+
+Version: 0.3
+Category: unusability of the base R functions like lines and points inside panel
+Text:
+
+Version: 0.3
+Category: functions. To help make the changes more transparently, lattice now
+Text:
+
+Version: 0.3
+Category: includes several wrappers around grid functions that provide an API
+Text:
+
+Version: 0.3
+Category: similar to the corresponding base R functions. The list currently
+Text:
+
+Version: 0.3
+Category: includes lpoints, llines, ltext and lsegments [update: larrows
+Text:
+
+Version: 0.3
+Category: Using Lattice and base R graphics concurrently [OBSOLETE
+Text:
+
+Version: 0.3
+Category: Grid graphics normally do not mix with usual R graphics. However
+Text:
+
+Version: 0.3
+Category: end-users typically might want to use lattice functions concurrently
+Text:
+
+Version: 0.3
+Category: with traditional R graphics. To allow this without intermittent calls
+Text:
+
+Version: 0.3
+Category: to grid.stop() and grid.start(), print.trellis (which ultimately does
+Text:
+
+Version: 0.3
+Category: all the plotting in lattice) now tries to preserve the state of the
+Text:
+
+Version: 0.3
+Category: device on which it plots. By default, library(lattice) opens a device
+Text:
+
+Version: 0.3
+Category: in grid enabled mode. It can be reverted to non grid mode by
+Text:
+
+Version: 0.3
+Category: grid.stop(). Subsequently, both Lattice functions and traditional
+Text:
+
+Version: 0.3
+Category: graphics functions can be used. Devices opened by trellis.device
+Text:
+
+Version: 0.3
+Category: start in non-grid mode, unless grid.start() is called
+Text:
+
+Version: 0.3
+Category: Still Missing [OBSOLETE, except for the parts about piechart and scale
+Text: contourplot, wireframe, cloud (partially implemented) and of course, piechart
+
+Version: 0.3
+Category: Still Missing [OBSOLETE, except for the parts about piechart and scale
+Text: Some components of scale (I haven&#39;t found a full list, so can&#39;t say exactly which are missing)
+
+Version: 0.3
+Category: Still Missing [OBSOLETE, except for the parts about piechart and scale
+Text: Fonts
+
+Version: 0.3
+Category: Still Missing [OBSOLETE, except for the parts about piechart and scale
+Text: axis labels badly implemented, no checking for overlaps.
+
+Version: 0.3
+Category: Local variables
+Text:
+
+Version: 0.3
+Category: mode: indented-text
+Text:
+
+Version: 0.3
+Category: End
+Text:
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>p_news</li>
+    </ul>
+    <ul>
+      <li>news</li><li>packages</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/r-doc/utils/news'>news</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

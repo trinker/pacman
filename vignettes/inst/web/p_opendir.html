@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>p_opendir. pacman 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pacman 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Attempts to open a directory in a file browser</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>p_opendir(dir&nbsp;=&nbsp;getwd())</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>dir</dt>
+      <dd>A character string representing the path
+(either relative or absolute) to the directory to be opened.
+Defaults to the working directory.</dd>
+    </dl>
+    
+    <div class="Attempts to open a directory in a file browser">
+      <h2>Attempts to open a directory in a file browser</h2>
+      
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>Attempts to open a directory in a file browser.
+Opening a directory isn't a platform independent
+but it is used in more than one function so moving
+this functionality to its own non-exported function
+makes sense.</p>
+  
+    </div>
+
+    <div class="Note">
+      <h2>Note</h2>
+      
+      <p>Most likely this function will move to a different
+package at some point as it's not specifically package related...</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # p_opendir() # opens working directory# p_opendir(path.expand(&quot;~&quot;)) # opens home directory# p_opendir(pacman:::p_basepath())# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>p_opendir</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
