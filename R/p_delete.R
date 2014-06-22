@@ -36,7 +36,7 @@ p_delete <- function (..., char, character.only = FALSE, quiet = !p_isglobal(2))
     }
 	
     ## use `p_delete_single` to delete packages and save meta info for each
-        meta_list <- invisible(suppressMessages(lapply(packages, p_delete_single)))
+    meta_list <- invisible(suppressMessages(lapply(packages, p_delete_single)))
     meta_df <- do.call(rbind, meta_list)
 	
     ## handle warnings if not quiet

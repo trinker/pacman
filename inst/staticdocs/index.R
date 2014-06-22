@@ -15,6 +15,7 @@ sd_section("Installing, Loading, Unloading, Updating, & Deleting",
 sd_section("Session Information",
   "Functions to obtain package session information.",  
   c(
+    "p_isloaded",  	
     "p_loaded"
   )
 )
@@ -31,7 +32,6 @@ sd_section("Local Package Information",
     "p_information",
     "p_interactive",
     "p_isinstalled",  	
-    "p_isloaded",
     "p_news",
     "p_version",
     "p_vignette"

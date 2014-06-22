@@ -4,13 +4,21 @@
 \alias{p_information}
 \title{Package Information}
 \usage{
-p_information(package = "base")
+p_information(package = "base", ..., fields = NULL)
 
-p_info(package = "base")
+p_info(package = "base", ..., fields = NULL)
 }
 \arguments{
 \item{package}{Name of the package to grab information for.  Default is
 \code{"base"}.}
+
+\item{\dots}{Names of fields (see \code{fields} argument) to extract.}
+
+\item{fields}{A character vector giving the tags of fields to return (for use
+inside of functions rather than \ldots).}
+}
+\value{
+Returns a list of fields.
 }
 \description{
 Provides the information from for a package from
@@ -18,10 +26,20 @@ the \emph{NAMESPACE}.  Information may include: title,
 version, author, maintainer, description, depends,
 imports, suggests
 }
+\note{
+Note that the output from \code{\link[pacman]{p_information}} (when no
+fields are passed) prints pretty but is actually an accessible list (use
+\code{names(p_info())} test).
+}
 \examples{
 p_information()
 p_info()
+names(p_info())
+p_info()[names(p_info())]
 p_info(pacman)
+p_info(pacman, Author)
+p_info(pacman, BugReports, URL)
+p_info(pacman, fields = "Version")
 }
 \seealso{
 \code{\link[utils]{packageDescription}}

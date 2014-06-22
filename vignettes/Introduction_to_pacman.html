@@ -133,7 +133,9 @@ h3 {
   font-size: 18px; }
 
 h4 {
-  font-size: 16px; }
+  font-size: 16px; 
+  font-style: italic;    
+}
 
 h5 {
   font-size: 14px; }
@@ -462,7 +464,16 @@ html {
 </tr>
 </tbody></table>
 
-<p>The heart of <strong>pacman</strong> is it&#39;s ability to reduce typing in package management actions.  The functions in this section greatly reduce typing and increase code readability.  For example, many blog posts begin coding with this sort of package call:</p>
+<p>The heart of <strong>pacman</strong> is it&#39;s ability to reduce typing in package management actions.  The functions in this section The functions in this section <strong><em>act</em></strong> on packages.  </p>
+
+<h3>Installing and Loading</h3>
+
+<p><code>p_load</code> is a general use tool that can install, load, and update packages.  The form for the function is:</p>
+
+<pre><code class="r">p_load(..., char, install = TRUE, update = getOption(&quot;pac_update&quot;), character.only = FALSE)
+</code></pre>
+
+<p>where the <code>...</code> argument is  allows the user to pass inquoted package names.  For example, many blog posts begin coding with this sort of package call:</p>
 
 <pre><code class="r">packs &lt;- c(&quot;XML&quot;, &quot;devtools&quot;, &quot;RCurl&quot;, &quot;fakePackage&quot;, &quot;SPSSemulate&quot;)
 success &lt;- suppressWarnings(sapply(packs, require, character.only = TRUE))
@@ -476,19 +487,14 @@ sapply(names(success)[!success], require, character.only = TRUE)
 p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
 </code></pre>
 
-<h3>Installing and Loading</h3>
-
-<p><code>p_load</code> is a general use tool that can install, load, and update packages.  The form for the function is:</p>
-
-<pre><code class="r">p_load(..., char, install = TRUE, update = getOption(&quot;pac_update&quot;), character.only = FALSE)
-</code></pre>
-
-<p>where the <code>...</code> argument is  allows the user to pass inquoted package names.  </p>
+<h4>Just Installing</h4>
 
 <p>The user may wish to only install packages.  The <code>p_install</code> (aliased as <code>p_get</code>) will allow the user to install with the same ease of format as <code>p_load</code>.  For example: </p>
 
 <pre><code class="r">p_install(dbConnect, qdap, reports)
 </code></pre>
+
+<h4>Installing Temporarily</h4>
 
 <p>Lastly, <code>p_temp</code> enables the user to temporarily install a package.  This allows a session only install for testing out a single package without muddying the user&#39;s library.  </p>
 
@@ -556,20 +562,35 @@ lattice
 
 <h3>Updating</h3>
 
-<ul>
-<li><code>p_up</code>/<code>p_update</code></li>
-</ul>
+<p>The <code>p_update</code> (aliased as <code>p_up</code>) is a wrapper for <code>update.packages</code> (defaults to <code>ask = FALSE</code>) and <code>old.packages</code>. To update packages use:</p>
+
+<pre><code class="r">p_update() 
+</code></pre>
+
+<p>The user may just query (not actually update) for out-of-date packages using:</p>
+
+<pre><code class="r">p_update(FALSE) 
+</code></pre>
 
 <h3>Deleting</h3>
 
-<ul>
-<li><code>p_del</code>/<code>p_delete</code></li>
-</ul>
+<p>The task of recalling the name <code>remove.packages</code> for permantly deleting a package from your library has been replaced by the more consistently named <code>p_delete</code> (aliased as <code>p_del</code>).  Additionally, the user may delete multiple packages in a single call.  The function protects the user from accidental attempted base package deletion as it will not delete base installed packages (see <code>installed.packages(priority = &quot;base&quot;)</code>).  Try it out:</p>
+
+<pre><code class="r">p_delete(fakePackage, stats)
+</code></pre>
+
+<pre><code>> p_delete(fakePackage, stats)
+The following packages are a base install and will not be deleted:
+stats
+
+The following packages not found in library:
+fakePackage
+</code></pre>
 
 <h2>Session Information</h2>
 
 <ul>
-<li><code>p_loaded</code></li>
+<li> <code>p_loaded</code>/<code>p_isloaded</code></li>
 </ul>
 
 <h2>Local Package Information</h2>
@@ -583,7 +604,6 @@ lattice
 <li> <code>p_help</code></li>
 <li> <code>p_info</code>/<code>p_information</code></li>
 <li> <code>p_inter</code>/<code>p_interactive</code></li>
-<li> <code>p_isloaded</code></li>
 <li> <code>p_news</code></li>
 <li> <code>p_ver</code>/<code>p_version</code></li>
 <li> <code>p_vign</code>/<code>p_vignette</code></li>

@@ -40,19 +40,31 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>p_information(package&nbsp;=&nbsp;"base")</div>
-<div>p_info(package&nbsp;=&nbsp;"base")</div></pre>
+    <pre><div>p_information(package&nbsp;=&nbsp;"base", ..., fields&nbsp;=&nbsp;NULL)</div>
+<div>p_info(package&nbsp;=&nbsp;"base", ..., fields&nbsp;=&nbsp;NULL)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>package</dt>
       <dd>Name of the package to grab information for.  Default is
 <code>"base"</code>.</dd>
+      <dt>...</dt>
+      <dd>Names of fields (see <code>fields</code> argument) to extract.</dd>
+      <dt>fields</dt>
+      <dd>A character vector giving the tags of fields to return (for use
+inside of functions rather than ...).</dd>
     </dl>
     
     <div class="Package Information">
       <h2>Package Information</h2>
       
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a list of fields.</p>
+  
     </div>
 
     <div class="Description">
@@ -62,6 +74,15 @@
 the <em>NAMESPACE</em>.  Information may include: title,
 version, author, maintainer, description, depends,
 imports, suggests</p>
+  
+    </div>
+
+    <div class="Note">
+      <h2>Note</h2>
+      
+      <p>Note that the output from <code>p_information</code> (when no
+fields are passed) prints pretty but is actually an accessible list (use
+<code>names(p_info())</code> test).</p>
   
     </div>
     
@@ -94,6 +115,41 @@ Built: R 3.1.0; ; 2014-04-11 14:09:12 UTC; windows
 
 -- File: C:/R/R-31~1.0/library/base/Meta/package.rds 
 </div>
+<div class='input'>names(p_info())
+</div>
+<div class='output'>[1] &quot;Package&quot;     &quot;Version&quot;     &quot;Priority&quot;    &quot;Title&quot;       &quot;Author&quot;      &quot;Maintainer&quot;  &quot;Description&quot; &quot;License&quot;    
+[9] &quot;Built&quot;      
+</div>
+<div class='input'>p_info()[names(p_info())]
+</div>
+<div class='output'>$Package
+[1] &quot;base&quot;
+
+$Version
+[1] &quot;3.1.0&quot;
+
+$Priority
+[1] &quot;base&quot;
+
+$Title
+[1] &quot;The R Base Package&quot;
+
+$Author
+[1] &quot;R Core Team and contributors worldwide&quot;
+
+$Maintainer
+[1] &quot;R Core Team &lt;R-core@r-project.org&gt;&quot;
+
+$Description
+[1] &quot;Base R functions&quot;
+
+$License
+[1] &quot;Part of R 3.1.0&quot;
+
+$Built
+[1] &quot;R 3.1.0; ; 2014-04-11 14:09:12 UTC; windows&quot;
+
+</div>
 <div class='input'>p_info(pacman)
 </div>
 <div class='output'>Package: pacman
@@ -118,6 +174,27 @@ Roxygen: list(wrap = FALSE)
 VignetteBuilder: knitr
 
 -- File: C:\Users\trinker\GitHub\pacman/DESCRIPTION 
+</div>
+<div class='input'>p_info(pacman, Author)
+</div>
+<div class='output'>$Author
+[1] &quot;Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb]&quot;
+
+</div>
+<div class='input'>p_info(pacman, BugReports, URL)
+</div>
+<div class='output'>$BugReports
+[1] &quot;https://github.com/trinker/pacman/issues?state=open&quot;
+
+$URL
+[1] &quot;https://github.com/trinker/pacman&quot;
+
+</div>
+<div class='input'>p_info(pacman, fields = &quot;Version&quot;)
+</div>
+<div class='output'>$Version
+[1] &quot;0.2.0&quot;
+
 </div></pre>
   </div>
   <div class="span4">

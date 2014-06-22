@@ -24,8 +24,7 @@ p_update <-
 function (update = TRUE, ask = FALSE, ...) {
 	
     p_set_cranrepo()
-    out <- old.packages()[, 1]
-    names(out) <- NULL
+    out <- unname(old.packages()[, 1])
 	
     if (update){ 
         # TODO: Add package options

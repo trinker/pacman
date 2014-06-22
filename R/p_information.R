@@ -8,20 +8,48 @@
 #' @rdname p_information
 #' @param package Name of the package to grab information for.  Default is 
 #' \code{"base"}.
+#' @param \dots Names of fields (see \code{fields} argument) to extract.
+#' @param fields A character vector giving the tags of fields to return (for use
+#' inside of functions rather than \ldots).
+#' @note Note that the output from \code{\link[pacman]{p_information}} (when no
+#' fields are passed) prints pretty but is actually an accessible list (use
+#' \code{names(p_info())} test).
+#' @return Returns a list of fields.
 #' @keywords packageDescription info information package
 #' @seealso \code{\link[utils]{packageDescription}}
 #' @export
 #' @examples
 #' p_information()
 #' p_info()
+#' names(p_info())
+#' p_info()[names(p_info())]
 #' p_info(pacman)
+#' p_info(pacman, Author)
+#' p_info(pacman, BugReports, URL)
+#' p_info(pacman, fields = "Version")
 p_information <-
-function(package = "base") {
+function(package = "base", ..., fields = NULL) {
+
+    ## check if any fields have been supplied
+    info <- try(as.character(match.call(expand.dots = FALSE)[[3]]), 
+        silent = TRUE)
+    if(inherits(info, "try-error")) info <- NULL
+    fields <- unique(c(info, fields))
+
     x <- as.character(substitute(package))
     if(identical(x, character(0))){
         x <- "base"
     }
-    packageDescription(x)
+
+    ## grab the information and return it if not fields supplied
+    out <- packageDescription(x)
+    if (is.null(fields)) return(out)
+
+	## clean up extra space and \n from pretty printing
+    lapply(out[intersect(names(out), fields)], function(x){
+        gsub("\\s+", " ", gsub("\n", " ", x))
+    })
+    
 }
 
 #' @rdname p_information

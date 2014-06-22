@@ -28,7 +28,18 @@ Function names in the pacman package follow the format of `p_xxx` where 'xxx' is
 | `p_unload` | `detach` | Unloads Packages from the Search Path |
 | `p_update` | `update.packages` | Update Out-of-Date Packages |
 
-The heart of **pacman** is it's ability to reduce typing in package management actions.  The functions in this section greatly reduce typing and increase code readability.  For example, many blog posts begin coding with this sort of package call:
+The heart of **pacman** is it's ability to reduce typing in package management actions.  The functions in this section The functions in this section ***act*** on packages.  
+
+### Installing and Loading    
+
+`p_load` is a general use tool that can install, load, and update packages.  The form for the function is:
+
+
+```r
+p_load(..., char, install = TRUE, update = getOption("pac_update"), character.only = FALSE)
+```
+
+where the `...` argument is  allows the user to pass inquoted package names.  For example, many blog posts begin coding with this sort of package call:
 
 
 ```r
@@ -46,18 +57,7 @@ library(pacman)
 p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
 ```
 
-
-
-### Installing and Loading    
-
-`p_load` is a general use tool that can install, load, and update packages.  The form for the function is:
-
-
-```r
-p_load(..., char, install = TRUE, update = getOption("pac_update"), character.only = FALSE)
-```
-
-where the `...` argument is  allows the user to pass inquoted package names.  
+#### Just Installing 
 
 The user may wish to only install packages.  The `p_install` (aliased as `p_get`) will allow the user to install with the same ease of format as `p_load`.  For example: 
 
@@ -65,6 +65,8 @@ The user may wish to only install packages.  The `p_install` (aliased as `p_get`
 ```r
 p_install(dbConnect, qdap, reports)
 ```
+
+#### Installing Temporarily
 
 Lastly, `p_temp` enables the user to temporarily install a package.  This allows a session only install for testing out a single package without muddying the user's library.  
 
@@ -139,15 +141,40 @@ lattice
 
 ### Updating    
   
-- `p_up`/`p_update`
+The `p_update` (aliased as `p_up`) is a wrapper for `update.packages` (defaults to `ask = FALSE`) and `old.packages`. To update packages use:
+
+
+```r
+p_update() 
+```
+
+The user may just query (not actually update) for out-of-date packages using:
+
+
+```r
+p_update(FALSE) 
+```
 
 ### Deleting   
   
-- `p_del`/`p_delete`
+The task of recalling the name `remove.packages` for permantly deleting a package from your library has been replaced by the more consistently named `p_delete` (aliased as `p_del`).  Additionally, the user may delete multiple packages in a single call.  The function protects the user from accidental attempted base package deletion as it will not delete base installed packages (see `installed.packages(priority = "base")`).  Try it out:
+
+
+```r
+p_delete(fakePackage, stats)
+```
+
+<pre><code>> p_delete(fakePackage, stats)
+The following packages are a base install and will not be deleted:
+stats
+
+The following packages not found in library:
+fakePackage
+</code></pre>
 
 ## Session Information    
 
-- ` p_loaded`
+-  `p_loaded`/`p_isloaded`
 
 ##  Local Package Information    
 
@@ -159,7 +186,6 @@ lattice
 -  `p_help`
 -  `p_info`/`p_information`
 -  `p_inter`/`p_interactive`
--  `p_isloaded`
 -  `p_news`
 -  `p_ver`/`p_version`
 -  `p_vign`/`p_vignette`
