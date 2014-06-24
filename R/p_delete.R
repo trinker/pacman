@@ -12,9 +12,7 @@
 #' accept a single input which is a character vector containing the names of 
 #' packages to load.
 #' @param quiet logical. Passed to \code{print.p_delete} as an attribute.  If 
-#' \code{TRUE} no messages confirming package deletions are printed.  The 
-#' default is to test if \code{p_delete} is being used in the global 
-#' environment, if it is then the messages will be printed.
+#' \code{TRUE} no messages confirming package deletions are printed.  
 #' @section Warning:
 #' Using this function will remove the package from your 
 #' library and cannot be loaded again without reinstalling the package.
@@ -25,7 +23,7 @@
 #' \dontrun{
 #' p_delete(pacman) # You never want to run this
 #' }
-p_delete <- function (..., char, character.only = FALSE, quiet = !p_isglobal(2)){ 
+p_delete <- function (..., char, character.only = FALSE, quiet = FALSE){ 
 
     if(!missing(char)){
         packages <- char

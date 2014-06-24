@@ -4,9 +4,9 @@
 \alias{p_delete}
 \title{Permanently Remove Package Removal(s) From Library}
 \usage{
-p_delete(..., char, character.only = FALSE, quiet = !p_isglobal(2))
+p_delete(..., char, character.only = FALSE, quiet = FALSE)
 
-p_del(..., char, character.only = FALSE, quiet = !p_isglobal(2))
+p_del(..., char, character.only = FALSE, quiet = FALSE)
 }
 \arguments{
 \item{\ldots}{name(s) of package(s).}
@@ -21,9 +21,7 @@ accept a single input which is a character vector containing the names of
 packages to load.}
 
 \item{quiet}{logical. Passed to \code{print.p_delete} as an attribute.  If
-\code{TRUE} no messages confirming package deletions are printed.  The
-default is to test if \code{p_delete} is being used in the global
-environment, if it is then the messages will be printed.}
+\code{TRUE} no messages confirming package deletions are printed.}
 }
 \description{
 Remove package(s) from the library permanently.
