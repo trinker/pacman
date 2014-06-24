@@ -19,7 +19,7 @@ opts_knit$set(upload.fun = image_uri, self.contained=TRUE)
 <h1 class="title">Introduction to pacman</h1>
 <h1 class="auth">Tyler W. Rinker & Dason Kurkiewicz</h1>
 
-The **pacman** package is an R package management tool that combines the functionality of base `library` related functions into intuitively named functions.  This package is ideally added to [.Rprofile](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html) to increase workflow by reducing time recalling obscurely named functions, reducing code, and integrating functionality of base functions to simultaneously perform multiple actions.  The function `p_load` is particulalry well suited for help formums and posts, as it will load and, if necessary, install missing packages.
+The **pacman** package is an R package management tool that combines the functionality of base `library` related functions into intuitively named functions.  This package is ideally added to [.Rprofile](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html) to increase workflow by reducing time recalling obscurely named functions, reducing code, and integrating functionality of base functions to simultaneously perform multiple actions.  The function `p_load` is particularly well suited for help forums and posts, as it will load and, if necessary, install missing packages.
 
 
 ```{r, echo=FALSE, results='asis'}
@@ -52,7 +52,7 @@ The heart of **pacman** is it's ability to reduce typing in package management a
 p_load(..., char, install = TRUE, update = getOption("pac_update"), character.only = FALSE)
 ```
 
-where the `...` argument is  allows the user to pass inquoted package names.  For example, many blog posts begin coding with this sort of package call:
+where the `...` argument allows the user to pass in quoted (or unquoted) package names.  For example, many blog posts begin coding with this sort of package call:
 
 ```{r eval=FALSE}
 packs <- c("XML", "devtools", "RCurl", "fakePackage", "SPSSemulate")
@@ -88,9 +88,6 @@ p_isloaded(aprof)
 ```
 
 <pre><code>> p_temp(aprof)
-The following packages have been unloaded:
-aprof
-
 trying URL 'http://cran.rstudio.com/bin/windows/contrib/3.1/aprof_0.2.zip'
 Content type 'application/zip' length 34037 bytes (33 Kb)
 opened URL
@@ -124,7 +121,7 @@ To unload package(s) from the search path use `p_unload`.  `p_unload` will not u
 p_unload(..., negate = FALSE, char, character.only = FALSE)
 ```
 
-where the `...` argument is  allows the user to pass inquoted package names.  USers may also supply `"all"` to `...`  to remove all add on packages.  The `negate` argument negates, unloading all packages except those supplied to `...`.
+where the `...` argument is  allows the user to pass in quoted package names.  Users may also supply `"all"` to `...`  to remove all add on packages.  The `negate` argument negates, unloading all packages except those supplied to `...`.
 
 ```{r, eval = FALSE}
 p_load(lattice)
@@ -162,7 +159,7 @@ p_update(FALSE)
 
 ### Deleting   
   
-The task of recalling the name `remove.packages` for permantly deleting a package from your library has been replaced by the more consistently named `p_delete` (aliased as `p_del`).  Additionally, the user may delete multiple packages in a single call.  The function protects the user from accidental attempted base package deletion as it will not delete base installed packages (see `installed.packages(priority = "base")`).  Try it out:
+The task of recalling the name `remove.packages` for permanently deleting a package from your library has been replaced by the more consistently named `p_delete` (aliased as `p_del`).  Additionally, the user may delete multiple packages in a single call.  The function protects the user from accidental attempted base package deletion as it will not delete base installed packages (see `installed.packages(priority = "base")`).  Try it out:
 
 ```{r, eval = FALSE}
 p_delete(fakePackage, stats)
