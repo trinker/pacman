@@ -29,7 +29,7 @@ function(open = FALSE,  basemarker = "***"){
     if (open) { 
         p_opendir(basepath)
     }
-    message('\npackages with an', basemarker, 'are loaded when R starts\n\n')
+    message('\npackages marked with ', basemarker, ' are loaded when R starts\n\n')
     print(noquote(modified_output))
     invisible(basefiles)
 }
