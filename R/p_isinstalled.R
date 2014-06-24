@@ -2,7 +2,7 @@
 #' 
 #' Check if package is installed locally.
 #' 
-#' @param package Name of package.
+#' @param ... Name of package you want to check.  This can be quoted or unquoted.
 #' @keywords installed package
 #' @export
 #' @examples
@@ -10,6 +10,6 @@
 #' p_installed(pacman)
 #' p_installed(fakePackage)
 #' }
-p_isinstalled <- function(package) {
-	p_exists(package, cran = FALSE) 
+p_isinstalled <- function(...) {
+	p_exists(..., cran = FALSE) 
 }
