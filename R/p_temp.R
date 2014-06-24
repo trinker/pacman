@@ -30,5 +30,7 @@ p_temp <- function(package, character.only = FALSE){
     # load the package
     # NOTE: Is there a reason to use or not to use p_load?
     require(package, character.only = TRUE)
+    
+    invisible(p_load_single(package))
 
 }
