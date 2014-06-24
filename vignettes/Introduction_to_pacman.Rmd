@@ -121,7 +121,7 @@ To unload package(s) from the search path use `p_unload`.  `p_unload` will not u
 p_unload(..., negate = FALSE, char, character.only = FALSE)
 ```
 
-where the `...` argument is  allows the user to pass in quoted package names.  Users may also supply `"all"` to `...`  to remove all add on packages.  The `negate` argument negates, unloading all packages except those supplied to `...`.
+where the `...` argument allows the user to pass in quoted package names.  Users may also supply `"all"` to `...`  to remove all add on packages.  The `negate` argument negates, unloading all packages except those supplied to `...`.
 
 ```{r, eval = FALSE}
 p_load(lattice)
