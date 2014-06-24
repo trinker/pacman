@@ -15,13 +15,13 @@
 #' }
 p_exists <-
 function (package, cran = TRUE) {
-    x <- as.character(substitute(package))
+    package <- as.character(substitute(package))
     if (cran){
-        a <- available.packages()
-        b <- rownames(a)
-        x %in% b
+        available_packages <- rownames(available.packages())
+        package %in% available_packages
     } else {
-        x %in% list.files(.libPaths())
+        local_packages <- list.files(.libPaths())
+        package %in% local_packages
     }
 }
 
