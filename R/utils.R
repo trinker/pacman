@@ -131,8 +131,14 @@ is.base_package <- function(x) {
 }	
 	
 ## Checik if package is loaded
-is.loaded_package <- function(x) {
-	any(x %in% names(sessionInfo()[["otherPkgs"]]))
+is.loaded_package <- function(x, include.via.namespace = FALSE) {
+    
+      fields <- c("basePkgs",  "otherPkgs")
+      if (!include.via.namespace) {
+          fields[3] <- "loadedOnly"  
+      } 
+      the_packages_loaded <- unlist(lapply(fields, function(x) names(sessionInfo()[[x]])))
+      any(x %in% the_packages_loaded)
 }
 	
 	
