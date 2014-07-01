@@ -40,12 +40,12 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>p_isinstalled(package)</div></pre>
+    <pre><div>p_isinstalled(...)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
-      <dt>package</dt>
-      <dd>Name of package.</dd>
+      <dt>...</dt>
+      <dd>Name of package you want to check.  This can be quoted or unquoted.</dd>
     </dl>
     
     <div class="Checks if Package is Installed">
@@ -61,7 +61,11 @@
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # p_installed(pacman)# p_installed(fakePackage)# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# p_installed(pacman)
+# p_installed(fakePackage)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
   </div>
   <div class="span4">
     <!-- <ul>

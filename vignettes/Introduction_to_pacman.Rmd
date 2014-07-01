@@ -64,8 +64,7 @@ sapply(names(success)[!success], require, character.only = TRUE)
 With pacman this call can be reduced to:
 
 ```{r eval=FALSE}
-library(pacman)
-p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
+pacman::p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
 ```
 
 #### Just Installing 

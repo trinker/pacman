@@ -82,7 +82,24 @@ issues with unloading and reloading namespaces.</p>
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: # p_load(lattice)# p_loaded()# p_unload(lattice)# p_loaded()# # p_load(&quot;lattice&quot;, &quot;MASS&quot;)# p_loaded()# p_unload(all)# p_loaded() # will not work as you unloaded pacman# # library(pacman)# p_load(lattice, MASS, foreign)# p_loaded()# p_unload(pacman, negate=TRUE)# p_loaded()# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;</div></pre>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# p_load(lattice)
+# p_loaded()
+# p_unload(lattice)
+# p_loaded()
+# 
+# p_load(&quot;lattice&quot;, &quot;MASS&quot;)
+# p_loaded()
+# p_unload(all)
+# p_loaded() # will not work as you unloaded pacman
+# 
+# library(pacman)
+# p_load(lattice, MASS, foreign)
+# p_loaded()
+# p_unload(pacman, negate=TRUE)
+# p_loaded()
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
@@ -94,7 +111,7 @@ issues with unloading and reloading namespaces.</p>
       
     <h2>See also</h2>
     
-<code><a href='http://www.inside-r.org/r-doc/base/detach'>detach</a></code>
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/detach'>detach</a></code>
 
         
   </div>

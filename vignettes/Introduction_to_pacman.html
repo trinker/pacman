@@ -483,8 +483,7 @@ sapply(names(success)[!success], require, character.only = TRUE)
 
 <p>With pacman this call can be reduced to:</p>
 
-<pre><code class="r">library(pacman)
-p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
+<pre><code class="r">pacman::p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
 </code></pre>
 
 <h4>Just Installing</h4>
