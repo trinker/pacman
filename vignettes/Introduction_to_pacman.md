@@ -278,7 +278,7 @@ The following subsections discuss **pacman** functions that are used to grab pac
 
 
 
-`p_information` (aliased as `p_info`) is a more general use function to grab information about a package including: (a) Package, (b) Version, (c) Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.
+`p_information` (aliased as `p_info`) is a more general use function to grab information about a package including: (a) Package, (b) Version, &#40;c) Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.
 
 
 #### Package Author   

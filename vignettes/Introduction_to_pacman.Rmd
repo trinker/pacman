@@ -245,6 +245,7 @@ The following subsections discuss **pacman** functions that are used to grab pac
 .pinfo <- names(p_info())
 .right_paren <- c(rep("(", length(.pinfo) - 1 ), "and (")
 .fields <- paste(.right_paren, letters[1:length(.pinfo)], ") ", .pinfo, sep = "", collapse = ", ")
+.fields <- gsub("(c)", "&#40;c)", .fields, fixed = TRUE)
 ```
 
 `p_information` (aliased as `p_info`) is a more general use function to grab information about a package including: `r .fields`.
