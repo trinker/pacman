@@ -16,22 +16,29 @@
 #' p_funs(pacman)
 p_functions <- 
 function (package = "base", all = FALSE, character.only = FALSE){
-    # deparse is a little better/safer than as.character
-    # but it messes something up.  I don't remember what though...
-    if(!character.only){
-        package <- as.character(substitute(package))[1]
+
+    if (!character.only & is.name(substitute(package))) {
+        package <- deparse(substitute(package))
     }
     
+    
     # Shouldn't have to check for this with deparse
+    # Guess it can't hurt though...
     if (identical(package, character(0))) {
         package <- "base"
     }
     
+    ## We should probably do some error checking 
+    ## TODO: Add some error checking and display custom
+    ##       message if user asks for a package that
+    ##       doesn't exist
+    ns <- loadNamespace(package)
+    
     ## Should we mark non-exported functions with asterisks or something?
     if(all){
-        packagefunctions <- ls(loadNamespace(package))
+        packagefunctions <- ls(ns)
     }else{
-        packagefunctions <- getNamespaceExports(loadNamespace(package))
+        packagefunctions <- getNamespaceExports(ns)
     }
 
     datas <- suppressWarnings(data(package = package)[["results"]][, 3])
