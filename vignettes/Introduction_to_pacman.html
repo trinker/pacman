@@ -586,11 +586,94 @@ fakePackage
 
 <h2>Session Information</h2>
 
-<ul>
-<li> <code>p_loaded</code>/<code>p_isloaded</code></li>
-</ul>
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_loaded</code></td>
+<td><code>.packages</code> &amp; <code>sessionInfo</code></td>
+<td>List Attached Packages</td>
+</tr>
+<tr>
+<td><code>p_isloaded</code></td>
+<td>NONE</td>
+<td>Logical Test of Attached Package</td>
+</tr>
+</tbody></table>
 
 <h2>Local Package Information</h2>
+
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_author</code></td>
+<td><code>packageDescription</code></td>
+<td>Author of Package</td>
+</tr>
+<tr>
+<td><code>p_citation</code></td>
+<td><code>citation</code></td>
+<td>Citation for Package</td>
+</tr>
+<tr>
+<td><code>p_data</code></td>
+<td><code>data</code></td>
+<td>List Package Data Sets</td>
+</tr>
+<tr>
+<td><code>p_exists</code></td>
+<td><code>available.packages</code> &amp; <br><code>list.files</code> + <code>.libPaths</code></td>
+<td>Logical Check if Package Exists Locally/on CRAN</td>
+</tr>
+<tr>
+<td><code>p_functions</code></td>
+<td><code>loadNamespace</code> + <code>getNamespaceExports</code></td>
+<td>Functions from Package</td>
+</tr>
+<tr>
+<td><code>p_help</code></td>
+<td>NONE</td>
+<td>HTML/PDF Manuals Viewing</td>
+</tr>
+<tr>
+<td><code>p_information</code></td>
+<td><code>packageDescription</code></td>
+<td>Information for Package</td>
+</tr>
+<tr>
+<td><code>p_interactive</code></td>
+<td>NONE</td>
+<td>Search Packages Interactively</td>
+</tr>
+<tr>
+<td><code>p_news</code></td>
+<td><code>news</code></td>
+<td>Package NEWS</td>
+</tr>
+<tr>
+<td><code>p_version</code></td>
+<td><code>packageDescription</code> &amp; <code>R.Version</code></td>
+<td>Version of Package</td>
+</tr>
+<tr>
+<td><code>p_vignette</code></td>
+<td><code>browseVignettes</code></td>
+<td>Package Vignettes Viewing</td>
+</tr>
+</tbody></table>
 
 <ul>
 <li> <code>p_author</code></li>
@@ -608,12 +691,69 @@ fakePackage
 
 <h2>Internet Based Package Information</h2>
 
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_cran</code></td>
+<td><code>available.package</code></td>
+<td>List CRAN Package</td>
+</tr>
+<tr>
+<td><code>p_search_any</code></td>
+<td>NONE</td>
+<td>Search for Package by Author</td>
+</tr>
+</tbody></table>
+
 <ul>
 <li> <code>p_cran</code></li>
 <li> <code>p_search_any</code>/<code>p_sa</code></li>
 </ul>
 
 <h2>Library Information</h2>
+
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_base</code></td>
+<td>NONE</td>
+<td>List Base Package</td>
+</tr>
+<tr>
+<td><code>p_library</code></td>
+<td><code>Sys.getenv</code> + <code>.packages</code></td>
+<td>List Packages in User&#39;s Library</td>
+</tr>
+<tr>
+<td><code>p_path</code></td>
+<td><code>.libPaths</code></td>
+<td>Path to User&#39;s Package Library</td>
+</tr>
+<tr>
+<td><code>p_search_library</code></td>
+<td>NONE</td>
+<td>Search Library Packages Via Partial Matching</td>
+</tr>
+<tr>
+<td><code>p_unlock</code></td>
+<td>NONE</td>
+<td>Deletes 00LOCK Directory</td>
+</tr>
+</tbody></table>
 
 <ul>
 <li><code>p_base</code></li>
@@ -625,9 +765,29 @@ fakePackage
 
 <h2>pacman Tools</h2>
 
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_detectOS</code></td>
+<td><code>Sys.info</code></td>
+<td>Detect Operating System</td>
+</tr>
+<tr>
+<td><code>p_opendir</code></td>
+<td><code>system</code>/<code>shell</code></td>
+<td>Open a Directory</td>
+</tr>
+</tbody></table>
+
 <ul>
 <li><code>p_detectOS</code><br/></li>
-<li><code>p_isglobal</code><br/></li>
 <li><code>p_opendir</code><br/></li>
 </ul>
 

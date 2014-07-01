@@ -173,11 +173,34 @@ The following packages not found in library:
 fakePackage
 </code></pre>
 
-## Session Information    
+## Session Information   
 
--  `p_loaded`/`p_isloaded`
+**Quick Reference Table** 
+
+| pacman Function | Base Equivalent | Description |
+|----------------------|----------------------|----------------|
+| `p_loaded`  |  `.packages` & `sessionInfo` | List Attached Packages |
+| `p_isloaded`  |  NONE | Logical Test of Attached Package |
+
 
 ##  Local Package Information    
+
+**Quick Reference Table** 
+
+| pacman Function | Base Equivalent | Description |
+|----------------------|----------------------|----------------|
+| `p_author`  | `packageDescription`  | Author of Package|
+| `p_citation`  | `citation`  | Citation for Package |
+| `p_data`  | `data`  | List Package Data Sets |
+| `p_exists`  | `available.packages` & <br>`list.files` + `.libPaths` | Logical Check if Package Exists Locally/on CRAN |
+| `p_functions`  | `loadNamespace` + `getNamespaceExports`  | Functions from Package |
+| `p_help`  | NONE  | HTML/PDF Manuals Viewing |
+| `p_information`  | `packageDescription`  |Information for Package |
+| `p_interactive` | NONE  | Search Packages Interactively |
+| `p_news`  | `news`  | Package NEWS |
+| `p_version`  | `packageDescription` & `R.Version`  | Version of Package |
+| `p_vignette`  | `browseVignettes`  | Package Vignettes Viewing |
+
 
 -  `p_author`
 -  `p_cite`/`p_citation`
@@ -194,10 +217,29 @@ fakePackage
 
 ## Internet Based Package Information  
 
+**Quick Reference Table** 
+
+| pacman Function | Base Equivalent | Description |
+|----------------------|----------------------|----------------|
+| `p_cran`  | `available.package`  | List CRAN Package |
+| `p_search_any`  | NONE | Search for Package by Author |
+
+
 -  `p_cran`
 -  `p_search_any`/`p_sa`
 
 ## Library Information     
+
+**Quick Reference Table** 
+
+| pacman Function | Base Equivalent | Description |
+|----------------------|----------------------|----------------|
+| `p_base`  | NONE | List Base Package |
+| `p_library`  | `Sys.getenv` + `.packages` | List Packages in User's Library |
+| `p_path`  | `.libPaths`  | Path to User's Package Library |
+| `p_search_library`  | NONE | Search Library Packages Via Partial Matching |
+| `p_unlock` | NONE  | Deletes 00LOCK Directory |
+
 
 - `p_base`
 - `p_lib`/`p_library`
@@ -207,8 +249,15 @@ fakePackage
 
 ## pacman Tools   
 
-- `p_detectOS`    
-- `p_isglobal`    
+**Quick Reference Table** 
+
+| pacman Function | Base Equivalent | Description |
+|----------------------|----------------------|----------------|
+| `p_detectOS`   | `Sys.info` | Detect Operating System |
+| `p_opendir`  | `system`/`shell`  | Open a Directory |
+
+
+- `p_detectOS`        
 - `p_opendir`   
 
 ```{r css, echo = FALSE}
