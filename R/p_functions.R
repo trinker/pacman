@@ -6,7 +6,6 @@
 #' @param package Name of the package you want the list of functions for.
 #' @param all logical.  If \code{TRUE} all of the functions from the package 
 #' will be displayed regardless of whether they're exported or not.
-#' @param load logical.  If \code{TRUE} loads the package.
 #' @param character.only logical. If \code{TRUE} the input is a variable 
 #' containing the package name.
 #' @keywords function package
@@ -16,7 +15,7 @@
 #' p_funs()
 #' p_funs(pacman)
 p_functions <- 
-function (package = "base", all = FALSE, load = FALSE, character.only = FALSE){
+function (package = "base", all = FALSE, character.only = FALSE){
     # deparse is a little better/safer than as.character
     # but it messes something up.  I don't remember what though...
     if(!character.only){
@@ -28,47 +27,16 @@ function (package = "base", all = FALSE, load = FALSE, character.only = FALSE){
         package <- "base"
     }
     
-    if (package %in% (.packages())) {  
-        load <- TRUE
-    } else {
-        
-        ## We could replace this with p_load since
-        ## p_load installs if it isn't found...
-        
-        ##TODO: Find a way to look at functions without loading
-        if (!package %in% list.files(.libPaths())) {
-            suppressWarnings(suppressPackageStartupMessages(
-                install.packages(package)
-            ))
-        } else {
-            suppressWarnings(suppressPackageStartupMessages(
-                require(package, character.only = TRUE) 
-            ))
-        }
-    }
-    
-    w <- paste0("package:", package)
-    
     ## Should we mark non-exported functions with asterisks or something?
     if(all){
-        packagefunctions <- unclass(lsf.str(envir = asNamespace(package), 
-        	all = TRUE))
-        # Removes pesky attributes.
-        attributes(packagefunctions) <- NULL
+        packagefunctions <- ls(loadNamespace(package))
     }else{
-        packagefunctions <- objects(w)        
+        packagefunctions <- getNamespaceExports(loadNamespace(package))
     }
 
     datas <- suppressWarnings(data(package = package)[["results"]][, 3])
     packagefunctions <- packagefunctions[!packagefunctions %in% datas]
 
-    # If we didn't want to load then unload the packages
-    # we needed to load.
-    # TODO: Check if package was already loaded and don't unload those packages
-    if (!load){
-        detach(w, unload = TRUE, character.only = TRUE, force = TRUE)
-    }
-    
     return(packagefunctions)
 }
 
