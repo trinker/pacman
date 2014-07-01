@@ -177,6 +177,40 @@ fakePackage
 | `p_loaded`  |  `.packages` & `sessionInfo` | List Attached Packages |
 | `p_isloaded`  |  NONE | Logical Test of Attached Package |
 
+The `p_loaded` function allows the user to quickly determine what packages are attached.  
+
+
+```r
+p_loaded()
+```
+
+This returns non-base packages that are attached.  Adding `all = TRUE` will return the base packages as well.
+
+
+```r
+p_loaded(all = TRUE)
+```
+
+Supplying a package name to `p_loaded` (or alternatively `p_isloaded()`) provides a logical check of whether package(s) are attached:
+
+
+```r
+p_loaded(base, MASS)
+```
+
+```
+ base  MASS 
+ TRUE FALSE 
+```
+
+```r
+p_isloaded(methods, stats)
+```
+
+```
+methods   stats 
+   TRUE    TRUE 
+```
 
 ##  Local Package Information    
 
@@ -196,6 +230,78 @@ fakePackage
 | `p_version`  | `packageDescription` & `R.Version`  | Version of Package |
 | `p_vignette`  | `browseVignettes`  | Package Vignettes Viewing |
 
+The finctions in this section provide information about a user's local packages.
+
+### Package Existence (CRAN & Locally)
+
+The `p_exists` cehcks if a package exists either on CRAN (default) or locally.  `p_isinstalled` is a convenience wrapper for `p_exists` that is defaulted to check local existence.
+
+
+```r
+p_exists(pacman)  
+```
+
+```
+## [1] FALSE
+```
+
+```r
+p_exists(pacman, cran = FALSE)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+p_exists(I_dont_exist)
+```
+
+```
+## [1] FALSE
+```
+
+```r
+## wrapper for `p_exists(cran = FALSE)`
+p_isinstalled(pacman)
+```
+
+```
+## [1] TRUE
+```
+
+### Package Attributes
+
+The following subsections discuss **pacman** functions that are used to grab package information.
+
+#### Package Information 
+
+
+
+`p_information` (aliased as `p_info`) is a more general use function to grab information about a package including: (a) Package, (b) Version, (c) Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.
+
+
+#### Package Author   
+
+
+
+#### Package Citation
+
+#### Package Data   
+
+#### Package Functions
+
+### Package Version
+
+### Documentation
+
+#### Package Help Manual
+
+#### Package News
+
+#### Package Vignette
+
+### Interactive Package Exploration 
 
 -  `p_author`
 -  `p_cite`/`p_citation`

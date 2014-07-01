@@ -91,6 +91,10 @@ h6 {
   color: #777777;
   font-size: 14px; }
 
+h3 ~ *:not(h3) {
+    margin-left: 10px;
+}
+
 p, blockquote, ul, ol, dl, li, pre {
   margin: 15px 0; }
 
@@ -351,3 +355,5 @@ html {
     border: 1px solid #CC3300;
     font-style:italic;
 }
+
+

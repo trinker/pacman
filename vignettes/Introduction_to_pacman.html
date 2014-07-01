@@ -144,6 +144,10 @@ h6 {
   color: #777777;
   font-size: 14px; }
 
+h3 ~ *:not(h3) {
+    margin-left: 10px;
+}
+
 p, blockquote, ul, ol, dl, li, pre {
   margin: 15px 0; }
 
@@ -404,6 +408,8 @@ html {
     border: 1px solid #CC3300;
     font-style:italic;
 }
+
+
 </style>
 
 
@@ -606,6 +612,32 @@ fakePackage
 </tr>
 </tbody></table>
 
+<p>The <code>p_loaded</code> function allows the user to quickly determine what packages are attached.  </p>
+
+<pre><code class="r">p_loaded()
+</code></pre>
+
+<p>This returns non-base packages that are attached.  Adding <code>all = TRUE</code> will return the base packages as well.</p>
+
+<pre><code class="r">p_loaded(all = TRUE)
+</code></pre>
+
+<p>Supplying a package name to <code>p_loaded</code> (or alternatively <code>p_isloaded()</code>) provides a logical check of whether package(s) are attached:</p>
+
+<pre><code class="r">p_loaded(base, MASS)
+</code></pre>
+
+<pre><code> base  MASS 
+ TRUE FALSE 
+</code></pre>
+
+<pre><code class="r">p_isloaded(methods, stats)
+</code></pre>
+
+<pre><code>methods   stats 
+   TRUE    TRUE 
+</code></pre>
+
 <h2>Local Package Information</h2>
 
 <p><strong>Quick Reference Table</strong> </p>
@@ -673,6 +705,65 @@ fakePackage
 <td>Package Vignettes Viewing</td>
 </tr>
 </tbody></table>
+
+<p>The finctions in this section provide information about a user&#39;s local packages.</p>
+
+<h3>Package Existence (CRAN &amp; Locally)</h3>
+
+<p>The <code>p_exists</code> cehcks if a package exists either on CRAN (default) or locally.  <code>p_isinstalled</code> is a convenience wrapper for <code>p_exists</code> that is defaulted to check local existence.</p>
+
+<pre><code class="r">p_exists(pacman)  
+</code></pre>
+
+<pre><code>## [1] FALSE
+</code></pre>
+
+<pre><code class="r">p_exists(pacman, cran = FALSE)
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<pre><code class="r">p_exists(I_dont_exist)
+</code></pre>
+
+<pre><code>## [1] FALSE
+</code></pre>
+
+<pre><code class="r">## wrapper for `p_exists(cran = FALSE)`
+p_isinstalled(pacman)
+</code></pre>
+
+<pre><code>## [1] TRUE
+</code></pre>
+
+<h3>Package Attributes</h3>
+
+<p>The following subsections discuss <strong>pacman</strong> functions that are used to grab package information.</p>
+
+<h4>Package Information</h4>
+
+<p><code>p_information</code> (aliased as <code>p_info</code>) is a more general use function to grab information about a package including: (a) Package, (b) Version, &copy; Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.</p>
+
+<h4>Package Author</h4>
+
+<h4>Package Citation</h4>
+
+<h4>Package Data</h4>
+
+<h4>Package Functions</h4>
+
+<h3>Package Version</h3>
+
+<h3>Documentation</h3>
+
+<h4>Package Help Manual</h4>
+
+<h4>Package News</h4>
+
+<h4>Package Vignette</h4>
+
+<h3>Interactive Package Exploration</h3>
 
 <ul>
 <li> <code>p_author</code></li>
