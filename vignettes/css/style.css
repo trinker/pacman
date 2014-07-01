@@ -85,15 +85,19 @@ h4 {
 }
 
 h5 {
-  font-size: 14px; }
+  font-size: 14px; 
+}
 
 h6 {
   color: #777777;
-  font-size: 14px; }
+  font-size: 14px; 
+  }
 
 h3 ~ *:not(h3) {
-    margin-left: 10px;
+    margin-left: 15px;
 }
+
+
 
 p, blockquote, ul, ol, dl, li, pre {
   margin: 15px 0; }

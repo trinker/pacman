@@ -138,15 +138,19 @@ h4 {
 }
 
 h5 {
-  font-size: 14px; }
+  font-size: 14px; 
+}
 
 h6 {
   color: #777777;
-  font-size: 14px; }
+  font-size: 14px; 
+  }
 
 h3 ~ *:not(h3) {
-    margin-left: 10px;
+    margin-left: 15px;
 }
+
+
 
 p, blockquote, ul, ol, dl, li, pre {
   margin: 15px 0; }
@@ -715,26 +719,26 @@ fakePackage
 <pre><code class="r">p_exists(pacman)  
 </code></pre>
 
-<pre><code>## [1] FALSE
+<pre><code>[1] FALSE
 </code></pre>
 
 <pre><code class="r">p_exists(pacman, cran = FALSE)
 </code></pre>
 
-<pre><code>## [1] TRUE
+<pre><code>[1] TRUE
 </code></pre>
 
 <pre><code class="r">p_exists(I_dont_exist)
 </code></pre>
 
-<pre><code>## [1] FALSE
+<pre><code>[1] FALSE
 </code></pre>
 
 <pre><code class="r">## wrapper for `p_exists(cran = FALSE)`
 p_isinstalled(pacman)
 </code></pre>
 
-<pre><code>## [1] TRUE
+<pre><code>[1] TRUE
 </code></pre>
 
 <h3>Package Attributes</h3>
@@ -743,7 +747,88 @@ p_isinstalled(pacman)
 
 <h4>Package Information</h4>
 
-<p><code>p_information</code> (aliased as <code>p_info</code>) is a more general use function to grab information about a package including: (a) Package, (b) Version, &#40;c) Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.</p>
+<p><code>p_information</code> (aliased as <code>p_info</code>) is a more general use function to grab information about a package from its &#39;DESCRIPTION&#39; file; for example, the following <em>fields</em> come from the <strong>base</strong> package: (a) Package, (b) Version, &#40;c) Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.  </p>
+
+<p>The form for the function is:</p>
+
+<pre><code class="r">p_info(package, ..., fields = NULL)
+</code></pre>
+
+<p>where <code>package</code> is a package name and <code>...</code> argument allows the user to request specific fields (the <code>fields</code> argument is a character only <a href="http://adv-r.had.co.nz/Computing-on-the-language.html#calling-from-another-function">&#39;escape hatch&#39;</a> for fields to use inside of functions). If both <code>...</code> and <code>fields</code> are blank, <code>p_info</code> returns a list of all package fields from the package &#39;DESCRIPTION&#39; file.  <code>p_info</code> returns a <code>list</code>.</p>
+
+<pre><code class="r">## Defaults to supply a list of fields with information about R&#39;s base package
+p_info()
+</code></pre>
+
+<pre><code>Package: base
+Version: 3.1.0
+Priority: base
+Title: The R Base Package
+Author: R Core Team and contributors worldwide
+Maintainer: R Core Team &lt;R-core@r-project.org&gt;
+Description: Base R functions
+License: Part of R 3.1.0
+Built: R 3.1.0; ; 2014-04-11 14:09:12 UTC; windows
+
+-- File: C:/R/R-31~1.0/library/base/Meta/package.rds 
+</code></pre>
+
+<pre><code class="r">names(p_info())
+</code></pre>
+
+<pre><code>[1] &quot;Package&quot;     &quot;Version&quot;     &quot;Priority&quot;    &quot;Title&quot;       &quot;Author&quot;     
+[6] &quot;Maintainer&quot;  &quot;Description&quot; &quot;License&quot;     &quot;Built&quot;      
+</code></pre>
+
+<pre><code class="r">p_info(pacman, Author)
+</code></pre>
+
+<pre><code>$Author
+[1] &quot;Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb]&quot;
+</code></pre>
+
+<pre><code class="r">p_info(pacman, BugReports, URL)
+</code></pre>
+
+<pre><code>$BugReports
+[1] &quot;https://github.com/trinker/pacman/issues?state=open&quot;
+
+$URL
+[1] &quot;https://github.com/trinker/pacman&quot;
+</code></pre>
+
+<pre><code class="r">p_info(pacman, fields = &quot;Version&quot;)
+</code></pre>
+
+<pre><code>$Version
+[1] &quot;0.2.0&quot;
+</code></pre>
+
+<h5>Extracting Package Names</h5>
+
+<p><b><em>*Note</em></b> the <code>p_extract</code> function is particularly useful for converting the &ldquo;Depends&rdquo;, &ldquo;Imports&rdquo;, and, &ldquo;Suggests&rdquo; fields from a single string into a vector of package names.</p>
+
+<pre><code class="r">## without `p_extract`
+p_info(MASS, &quot;Depends&quot;)  
+</code></pre>
+
+<pre><code>$Depends
+[1] &quot;R (&gt;= 3.0.0), grDevices, graphics, stats, utils&quot;
+</code></pre>
+
+<pre><code class="r">p_extract(p_info(MASS, &quot;Depends&quot;))
+</code></pre>
+
+<pre><code>R (&gt;= 3.0.0)    grDevices     graphics        stats        utils 
+         &quot;R&quot;  &quot;grDevices&quot;   &quot;graphics&quot;      &quot;stats&quot;      &quot;utils&quot; 
+</code></pre>
+
+<pre><code class="r">p_extract(p_info(methods, &quot;Imports&quot;))
+</code></pre>
+
+<pre><code>  utils 
+&quot;utils&quot; 
+</code></pre>
 
 <h4>Package Author</h4>
 

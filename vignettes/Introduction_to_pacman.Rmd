@@ -5,8 +5,8 @@
 
 ```{r setup, include=FALSE}
 # set global chunk options
-library(knitr); library(pacman)
-opts_chunk$set(cache=FALSE)
+library(knitr); library(pacman); library(methods)
+opts_chunk$set(cache=FALSE, comment=NA)
 
 ## Function for embedding high qual text images:
 uri_embed <- function(path, add="") {
@@ -198,7 +198,7 @@ p_loaded(all = TRUE)
 
 Supplying a package name to `p_loaded` (or alternatively `p_isloaded()`) provides a logical check of whether package(s) are attached:
 
-```{r, comment=NA}
+```{r}
 p_loaded(base, MASS)
 p_isloaded(methods, stats)
 ```
@@ -248,7 +248,39 @@ The following subsections discuss **pacman** functions that are used to grab pac
 .fields <- gsub("(c)", "&#40;c)", .fields, fixed = TRUE)
 ```
 
-`p_information` (aliased as `p_info`) is a more general use function to grab information about a package including: `r .fields`.
+`p_information` (aliased as `p_info`) is a more general use function to grab information about a package from its 'DESCRIPTION' file; for example, the following *fields* come from the **base** package: `r .fields`.  
+
+The form for the function is:
+
+```{r, eval = FALSE}
+p_info(package, ..., fields = NULL)
+```
+
+where `package` is a package name and `...` argument allows the user to request specific fields (the `fields` argument is a character only ['escape hatch'](http://adv-r.had.co.nz/Computing-on-the-language.html#calling-from-another-function) for fields to use inside of functions). If both `...` and `fields` are blank, `p_info` returns a list of all package fields from the package 'DESCRIPTION' file.  `p_info` returns a `list`.
+
+
+```{r}
+## Defaults to supply a list of fields with information about R's base package
+p_info()
+names(p_info())
+```
+
+```{r}
+p_info(pacman, Author)
+p_info(pacman, BugReports, URL)
+p_info(pacman, fields = "Version")
+```
+
+##### Extracting Package Names
+
+<b><em>*Note</em></b> the `p_extract` function is particularly useful for converting the "Depends", "Imports", and, "Suggests" fields from a single string into a vector of package names.
+
+```{r}
+## without `p_extract`
+p_info(MASS, "Depends")  
+p_extract(p_info(MASS, "Depends"))
+p_extract(p_info(methods, "Imports"))
+```
 
 
 #### Package Author   

@@ -242,7 +242,7 @@ p_exists(pacman)
 ```
 
 ```
-## [1] FALSE
+[1] FALSE
 ```
 
 ```r
@@ -250,7 +250,7 @@ p_exists(pacman, cran = FALSE)
 ```
 
 ```
-## [1] TRUE
+[1] TRUE
 ```
 
 ```r
@@ -258,7 +258,7 @@ p_exists(I_dont_exist)
 ```
 
 ```
-## [1] FALSE
+[1] FALSE
 ```
 
 ```r
@@ -267,7 +267,7 @@ p_isinstalled(pacman)
 ```
 
 ```
-## [1] TRUE
+[1] TRUE
 ```
 
 ### Package Attributes
@@ -278,7 +278,110 @@ The following subsections discuss **pacman** functions that are used to grab pac
 
 
 
-`p_information` (aliased as `p_info`) is a more general use function to grab information about a package including: (a) Package, (b) Version, &#40;c) Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.
+`p_information` (aliased as `p_info`) is a more general use function to grab information about a package from its 'DESCRIPTION' file; for example, the following *fields* come from the **base** package: (a) Package, (b) Version, &#40;c) Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.  
+
+The form for the function is:
+
+
+```r
+p_info(package, ..., fields = NULL)
+```
+
+where `package` is a package name and `...` argument allows the user to request specific fields (the `fields` argument is a character only ['escape hatch'](http://adv-r.had.co.nz/Computing-on-the-language.html#calling-from-another-function) for fields to use inside of functions). If both `...` and `fields` are blank, `p_info` returns a list of all package fields from the package 'DESCRIPTION' file.  `p_info` returns a `list`.
+
+
+
+```r
+## Defaults to supply a list of fields with information about R's base package
+p_info()
+```
+
+```
+Package: base
+Version: 3.1.0
+Priority: base
+Title: The R Base Package
+Author: R Core Team and contributors worldwide
+Maintainer: R Core Team <R-core@r-project.org>
+Description: Base R functions
+License: Part of R 3.1.0
+Built: R 3.1.0; ; 2014-04-11 14:09:12 UTC; windows
+
+-- File: C:/R/R-31~1.0/library/base/Meta/package.rds 
+```
+
+```r
+names(p_info())
+```
+
+```
+[1] "Package"     "Version"     "Priority"    "Title"       "Author"     
+[6] "Maintainer"  "Description" "License"     "Built"      
+```
+
+
+```r
+p_info(pacman, Author)
+```
+
+```
+$Author
+[1] "Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb]"
+```
+
+```r
+p_info(pacman, BugReports, URL)
+```
+
+```
+$BugReports
+[1] "https://github.com/trinker/pacman/issues?state=open"
+
+$URL
+[1] "https://github.com/trinker/pacman"
+```
+
+```r
+p_info(pacman, fields = "Version")
+```
+
+```
+$Version
+[1] "0.2.0"
+```
+
+##### Extracting Package Names
+
+<b><em>*Note</em></b> the `p_extract` function is particularly useful for converting the "Depends", "Imports", and, "Suggests" fields from a single string into a vector of package names.
+
+
+```r
+## without `p_extract`
+p_info(MASS, "Depends")  
+```
+
+```
+$Depends
+[1] "R (>= 3.0.0), grDevices, graphics, stats, utils"
+```
+
+```r
+p_extract(p_info(MASS, "Depends"))
+```
+
+```
+R (>= 3.0.0)    grDevices     graphics        stats        utils 
+         "R"  "grDevices"   "graphics"      "stats"      "utils" 
+```
+
+```r
+p_extract(p_info(methods, "Imports"))
+```
+
+```
+  utils 
+"utils" 
+```
 
 
 #### Package Author   
