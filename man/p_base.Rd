@@ -13,7 +13,7 @@ packages.}
 packages are part of the default packages.}
 }
 \description{
-List all the packages and marks those in a base install.
+List all the packages and mark those in a base install.
 }
 \note{
 Packages that are installed when R starts are marked with an asterisk(*).

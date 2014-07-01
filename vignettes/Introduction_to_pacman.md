@@ -190,7 +190,7 @@ fakePackage
 | `p_data`  | `data`  | List Package Data Sets |
 | `p_exists`  | `available.packages` & <br>`list.files` + `.libPaths` | Logical Check if Package Exists Locally/on CRAN |
 | `p_functions`  | `loadNamespace` + `getNamespaceExports`  | Functions from Package |
-| `p_help`  | NONE  | HTML/PDF Manuals Viewing |
+| `p_help`  | `help`  | HTML/PDF Manuals Viewing |
 | `p_information`  | `packageDescription`  |Information for Package |
 | `p_interactive` | NONE  | Search Packages Interactively |
 | `p_news`  | `news`  | Package NEWS |
@@ -250,10 +250,12 @@ fakePackage
 | pacman Function | Base Equivalent | Description |
 |----------------------|----------------------|----------------|
 | `p_detectOS`   | `Sys.info` | Detect Operating System |
+| `p_extract`   | NONE | Extract Packages from String |
 | `p_opendir`  | `system`/`shell`  | Open a Directory |
 
 
-- `p_detectOS`        
+- `p_detectOS` 
+- `p_extract`
 - `p_opendir`   
 
 

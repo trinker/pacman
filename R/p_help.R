@@ -6,7 +6,7 @@
 #' @param web logical.  If \code{TRUE} grabs current help manual from the web.
 #' @param pdf logical.  If \code{TRUE} uses a LaTeX compiler to generate a pdf.
 #' @section Warning:
-#' To use the pdf argument you must have a pdf compiler (e.g. 
+#' To use the pdf argument you must have a pdf compiler (e.g., 
 #' \href{http://miktex.org/}{MikTex} or 
 #' \href{https://www.tug.org/texlive/}{Tex Live}) installed.
 #' @keywords help manual package

@@ -61,7 +61,7 @@ sd_section("pacman Tools",
   "General pacman tools/functions.",  
   c(
     "p_detectOS",
-    "p_isglobal",
+  	"p_extract",
     "p_opendir" 
   )
 )

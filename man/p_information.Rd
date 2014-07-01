@@ -40,9 +40,13 @@ p_info(pacman)
 p_info(pacman, Author)
 p_info(pacman, BugReports, URL)
 p_info(pacman, fields = "Version")
+p_extract(p_info(ggplot2, "Depends"))
+p_extract(p_info(ggplot2, "Imports"))
+lapply(p_info(ggplot2, "Imports", "Depends", "Suggests"), p_extract)
 }
 \seealso{
-\code{\link[utils]{packageDescription}}
+\code{\link[utils]{packageDescription}},
+\code{\link[pacman]{p_information}}
 }
 \keyword{info}
 \keyword{information}

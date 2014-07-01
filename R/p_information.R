@@ -16,7 +16,8 @@
 #' \code{names(p_info())} test).
 #' @return Returns a list of fields.
 #' @keywords packageDescription info information package
-#' @seealso \code{\link[utils]{packageDescription}}
+#' @seealso \code{\link[utils]{packageDescription}}, 
+#' \code{\link[pacman]{p_information}}
 #' @export
 #' @examples
 #' p_information()
@@ -27,6 +28,9 @@
 #' p_info(pacman, Author)
 #' p_info(pacman, BugReports, URL)
 #' p_info(pacman, fields = "Version")
+#' p_extract(p_info(ggplot2, "Depends"))
+#' p_extract(p_info(ggplot2, "Imports"))
+#' lapply(p_info(ggplot2, "Imports", "Depends", "Suggests"), p_extract) 
 p_information <-
 function(package = "base", ..., fields = NULL) {
 
