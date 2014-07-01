@@ -130,9 +130,48 @@ is.base_package <- function(x) {
 	any(x %in% c(base_install))
 }	
 	
-## Checik if package is loaded
-is.loaded_package <- function(x) {
-	any(x %in% names(sessionInfo()[["otherPkgs"]]))
+## check if a package is loaded also includes namespace
+is.loaded_package <- function(x = NULL, include.via.namespace = FALSE) {
+    
+    fields <- c("basePkgs",  "otherPkgs")
+    if (include.via.namespace) {
+        fields[3] <- "loadedOnly"  
+    } 
+
+    the_packages_loaded <- unlist(lapply(fields, function(x) {
+        names(sessionInfo()[[x]])
+    }))
+    if (!is.null(the_packages_loaded)) {
+        the_packages_loaded <- sort(the_packages_loaded)
+    }      
+    if (is.null(x)) return(the_packages_loaded)
+    any(x %in% the_packages_loaded)
 }
-	
+
+## Check the dependencies (what a package imports)
+## p_dependencies("gplots")
+## p_dependencies("pacman") # returns NULL
+p_dependencies_single <- function(x, all=FALSE, fields = c("Depends", "Imports")) {
+
+    ## grab Depends and Imports for package
+    ## remove parenthesis, unlist, and individual character vector of packages
+    depends <- comma_string2vector(unlist(packageDescription(x)[fields], 
+        use.names=FALSE))
+
+    ## return package dependencies (all includes "R" and base install packages)
+    if (all) return(depends)
+    out <- depends[!depends %in% c(depends[sapply(depends, is.base_package)], "R")]
+    if (identical(character(0), out)) return(NULL)
+    out
+}
+
+## turn strings with commas and parenthesis into elements
+## Example
+## comma_string2vector("one, two (>=R2D2), three")
+## yields
+## 1] "one"   "two"   "three"
+comma_string2vector <- function(x){
+     Trim(unlist(strsplit(gsub("\\(.*?\\)", "", x), ",")))
+}
+
 	
