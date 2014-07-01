@@ -38,18 +38,22 @@ function(..., all = FALSE, char, character.only = FALSE) {
     }else if(character.only){
         packs <- eval(match.call()[[2]])
     }else{
-        packs <- tryCatch(as.character(match.call(expand.dots = FALSE)[[2]]), error=function(err) NA)
+        packs <- tryCatch(as.character(match.call(expand.dots = FALSE)[[2]]), 
+        	error=function(err) NA)
     }
 	
     if (is.logical(packs)) {
         packs <- NA
     } 
+    
+    ## check if all = TRUE & supply `.packages` or `sessionInfo`
     if (all) {
         loaded <- .packages()
     } else {
         loaded <- names(sessionInfo()[["otherPkgs"]])
     }
-    if (length(packs) > 1 || !is.na(packs)) {
+
+    if (!all && (length(packs) > 1 || !is.na(packs))) {
        packs <- as.character(packs)
        
        #output <- packs %in% loaded
