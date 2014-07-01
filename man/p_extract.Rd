@@ -21,9 +21,11 @@ Returns a character vector of packages.
 string into a vector of package names.
 }
 \examples{
+\dontrun{
 p_extract(p_info(ggplot2, "Depends"))
 p_extract(p_info(ggplot2, "Imports"))
 lapply(p_info(ggplot2, "Imports", "Depends", "Suggests"), p_extract)
+}
 }
 \seealso{
 \code{\link[pacman]{p_information}}

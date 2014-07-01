@@ -28,9 +28,11 @@
 #' p_info(pacman, Author)
 #' p_info(pacman, BugReports, URL)
 #' p_info(pacman, fields = "Version")
+#' \dontrun{
 #' p_extract(p_info(ggplot2, "Depends"))
 #' p_extract(p_info(ggplot2, "Imports"))
-#' lapply(p_info(ggplot2, "Imports", "Depends", "Suggests"), p_extract) 
+#' lapply(p_info(ggplot2, "Imports", "Depends", "Suggests"), p_extract)
+#' }
 p_information <-
 function(package = "base", ..., fields = NULL) {
 
@@ -50,9 +52,12 @@ function(package = "base", ..., fields = NULL) {
     if (is.null(fields)) return(out)
 
 	## clean up extra space and \n from pretty printing
-    lapply(out[intersect(names(out), fields)], function(x){
+    out <- lapply(out[intersect(names(out), fields)], function(x){
         gsub("\\s+", " ", gsub("\n", " ", x))
     })
+	
+	if(identical(unname(out), list())) return(NULL)
+	out
     
 }
 

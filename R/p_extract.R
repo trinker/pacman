@@ -12,9 +12,11 @@
 #' @export
 #' @seealso \code{\link[pacman]{p_information}}
 #' @examples
+#' \dontrun{
 #' p_extract(p_info(ggplot2, "Depends"))
 #' p_extract(p_info(ggplot2, "Imports"))
 #' lapply(p_info(ggplot2, "Imports", "Depends", "Suggests"), p_extract)
+#' }
 p_extract <- function(x, use.names = TRUE){
 
     out <- comma_string2vector(x)
