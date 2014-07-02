@@ -16,6 +16,7 @@
 p_exists <-
 function (package, cran = TRUE) {
     package <- as.character(substitute(package))
+	p_egg(package)
     if (cran){
         available_packages <- rownames(available.packages())
         package %in% available_packages

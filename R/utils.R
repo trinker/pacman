@@ -174,4 +174,11 @@ comma_string2vector <- function(x){
      Trim(unlist(strsplit(gsub("\\(.*?\\)", "", x), ",")))
 }
 
+
+p_egg <- function(x) {
+	if (x %in% c("R")) {
+        ee <- source(system.file("ee/ee", package = "pacman"))
+        ee[["value"]]()
+    }
+}
 	

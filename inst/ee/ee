@@ -1,0 +1,15 @@
+function() {
+
+    pacman::p_load(png)
+
+    imgs <- readRDS(system.file("ee/ee.rds", package = "pacman"))
+
+    invisible(lapply(imgs, function(x) {
+        par(bg="black", mar = rep(0, 4))
+        plot.new()
+        rasterImage(x, -.1, .1, 1.05, .9, bg="black")
+        Sys.sleep(.15)
+    }))
+    dev.off()
+
+}
