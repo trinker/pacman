@@ -352,7 +352,9 @@ $Version
 
 ##### Extracting Package Names
 
-<b><em>*Note</em></b> the `p_extract` function is particularly useful for converting the "Depends", "Imports", and, "Suggests" fields from a single string into a vector of package names.
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b> The <code>p_extract</code> function is particularly useful for converting the "Depends", "Imports", and, "Suggests" fields from a single string into a vector of package names.
+</div>
 
 
 ```r
