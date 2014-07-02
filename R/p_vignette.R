@@ -22,6 +22,7 @@
 #' p_vignette(interactive = FALSE)
 #' p_vignette()
 #' p_vign()
+#' p_vign(pacman)
 #' p_vign(grid, utils)
 #' p_vign(grid, utils, interactive = FALSE)
 #' p_vign(fortunes)

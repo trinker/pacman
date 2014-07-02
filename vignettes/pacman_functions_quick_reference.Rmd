@@ -1,0 +1,75 @@
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{pacman Functions: Quick Reference}
+-->
+
+```{r setup, include=FALSE}
+# set global chunk options
+library(knitr); library(pacman); library(methods)
+opts_chunk$set(cache=FALSE, comment=NA, warning=FALSE)
+
+## Function for embedding high qual text images:
+uri_embed <- function(path, add="") {
+    uri <- knitr::image_uri(path)
+    cat(paste0("<img ", add, " src=\"", uri, "\" />"))
+}
+opts_knit$set(upload.fun = image_uri, self.contained=TRUE)
+
+## set mirror
+options(repos="http://cran.rstudio.com/")
+```
+
+<h1 class="title">pacman Functions: Quick Reference</h1>
+<h1 class="auth">Tyler W. Rinker & Dason Kurkiewicz</h1>
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+uri_embed("r_pacman.png", 
+    "width=\"350\", height=\"150\" style=\"display:block; margin-left:auto; margin-right:auto;\"")
+```
+
+<h2 id="loading"> Installing, Loading, Unloading, Updating, & Deleting </h2>
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/01_installing_loading_deleting.R")
+cat(paste(installing_tab, collapse="\n"))
+```
+
+<h2 id="session_info"> Session Information  </h2>  
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/02_session_information.R")
+cat(paste(installing_tab, collapse="\n"))
+```
+
+<h2 id="local_package_info"> Local Package Information </h2>   
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/03_local_package_information.R")
+cat(paste(installing_tab, collapse="\n"))
+```
+
+<h2 id="internet_package_info"> Internet Based Package Information  </h2> 
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/04_internet_based_info.R")
+cat(paste(installing_tab, collapse="\n"))
+```
+
+<h2 id="library_info"> Library Information  </h2>   
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/05_library_information.R")
+cat(paste(installing_tab, collapse="\n"))
+```
+
+<h2 id="pacman_tools"> pacman Tools  </h2>  
+
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/06_pacman_tools.R")
+cat(paste(installing_tab, collapse="\n"))
+```
+
+```{r clean-up, include=FALSE}
+# R compiles all vignettes in the same session, which can be bad
+rm(list = ls(all = TRUE))
+```

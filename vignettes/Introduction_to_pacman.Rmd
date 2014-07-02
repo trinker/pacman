@@ -1,6 +1,6 @@
 <!--
 %\VignetteEngine{knitr}
-%\VignetteIndexEntry{A Markdown Vignette with knitr}
+%\VignetteIndexEntry{Introduction to pacman}
 -->
 
 ```{r setup, include=FALSE}
@@ -25,7 +25,7 @@ options(repos="http://cran.rstudio.com/")
 The **pacman** package is an R package management tool that combines the functionality of base `library` related functions into intuitively named functions.  This package is ideally added to [.Rprofile](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html) to increase workflow by reducing time recalling obscurely named functions, reducing code, and integrating functionality of base functions to simultaneously perform multiple actions.  The function `p_load` is particularly well suited for help forums and posts, as it will load and, if necessary, install missing packages.
 
 
-```{r, echo=FALSE, results='asis'}
+```{r, echo=FALSE, results='asis', warning=FALSE}
 uri_embed("r_pacman.png", 
     "width=\"350\", height=\"150\" style=\"display:block; margin-left:auto; margin-right:auto;\"")
 ```
@@ -33,17 +33,14 @@ uri_embed("r_pacman.png",
 
 Function names in the pacman package follow the format of `p_xxx` where 'xxx' is the task the function performs.  For instance the `p_load` function allows the user to load one or more packages as a more generic substitute for the `library` or `require` functions and if the package isn't available locally it will install it for you.  In keeping with the `library` function, the user need not use quotes around package names for most **pacman* functions.
 
-## Installing, Loading, Unloading, Updating, & Deleting   
+<h2 id="loading"> Installing, Loading, Unloading, Updating, & Deleting </h2>
 
 **Quick Reference Table** 
 
-| pacman Function | Base Equivalent | Description |
-|----------------------|----------------------|----------------|
-| `p_load`  |  `install.packages` + `library` | Loads and Install Packages |
-| `p_install` |  `install.packages` | Install Packages from CRAN |
-| `p_temp` |  NONE | Install a Package Temporarily |
-| `p_unload` | `detach` | Unloads Packages from the Search Path |
-| `p_update` | `update.packages` | Update Out-of-Date Packages |
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/01_installing_loading_deleting.R")
+cat(paste(installing_tab, collapse="\n"))
+```
 
 The heart of **pacman** is it's ability to reduce typing in package management actions.  The functions in this section The functions in this section ***act*** on packages.  
 
@@ -175,14 +172,14 @@ The following packages not found in library:
 fakePackage
 </code></pre>
 
-## Session Information   
+<h2 id="session_info"> Session Information  </h2>  
 
 **Quick Reference Table** 
 
-| pacman Function | Base Equivalent | Description |
-|----------------------|----------------------|----------------|
-| `p_loaded`  |  `.packages` & `sessionInfo` | List Attached Packages |
-| `p_isloaded`  |  NONE | Logical Test of Attached Package |
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/02_session_information.R")
+cat(paste(installing_tab, collapse="\n"))
+```
 
 The `p_loaded` function allows the user to quickly determine what packages are attached.  
 
@@ -203,23 +200,14 @@ p_loaded(base, MASS)
 p_isloaded(methods, stats)
 ```
 
-##  Local Package Information    
+<h2 id="local_package_info"> Local Package Information </h2>   
 
 **Quick Reference Table** 
 
-| pacman Function | Base Equivalent | Description |
-|----------------------|----------------------|----------------|
-| `p_author`  | `packageDescription`  | Author of Package|
-| `p_citation`  | `citation`  | Citation for Package |
-| `p_data`  | `data`  | List Package Data Sets |
-| `p_exists`  | `available.packages` & <br>`list.files` + `.libPaths` | Logical Check if Package Exists Locally/on CRAN |
-| `p_functions`  | `loadNamespace` + `getNamespaceExports`  | Functions from Package |
-| `p_help`  | `help`  | HTML/PDF Manuals Viewing |
-| `p_information`  | `packageDescription`  |Information for Package |
-| `p_interactive` | NONE  | Search Packages Interactively |
-| `p_news`  | `news`  | Package NEWS |
-| `p_version`  | `packageDescription` & `R.Version`  | Version of Package |
-| `p_vignette`  | `browseVignettes`  | Package Vignettes Viewing |
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/03_local_package_information.R")
+cat(paste(installing_tab, collapse="\n"))
+```
 
 The finctions in this section provide information about a user's local packages.
 
@@ -318,31 +306,26 @@ p_extract(p_info(methods, "Imports"))
 -  `p_vign`/`p_vignette`
 
 
-## Internet Based Package Information  
+<h2 id="internet_package_info"> Internet Based Package Information  </h2> 
 
 **Quick Reference Table** 
 
-| pacman Function | Base Equivalent | Description |
-|----------------------|----------------------|----------------|
-| `p_cran`  | `available.package`  | List CRAN Package |
-| `p_search_any`  | NONE | Search for Package by Author |
-
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/04_internet_based_info.R")
+cat(paste(installing_tab, collapse="\n"))
+```
 
 -  `p_cran`
 -  `p_search_any`/`p_sa`
 
-## Library Information     
+<h2 id="library_info"> Library Information  </h2>   
 
 **Quick Reference Table** 
 
-| pacman Function | Base Equivalent | Description |
-|----------------------|----------------------|----------------|
-| `p_base`  | NONE | List Base Package |
-| `p_library`  | `Sys.getenv` + `.packages` | List Packages in User's Library |
-| `p_path`  | `.libPaths`  | Path to User's Package Library |
-| `p_search_library`  | NONE | Search Library Packages Via Partial Matching |
-| `p_unlock` | NONE  | Deletes 00LOCK Directory |
-
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/05_library_information.R")
+cat(paste(installing_tab, collapse="\n"))
+```
 
 - `p_base`
 - `p_lib`/`p_library`
@@ -350,16 +333,14 @@ p_extract(p_info(methods, "Imports"))
 - `p_sl`/`p_search_library`
 - `p_unlock`
 
-## pacman Tools   
+<h2 id="pacman_tools"> pacman Tools  </h2>  
 
 **Quick Reference Table** 
 
-| pacman Function | Base Equivalent | Description |
-|----------------------|----------------------|----------------|
-| `p_detectOS`   | `Sys.info` | Detect Operating System |
-| `p_extract`   | NONE | Extract Packages from String |
-| `p_opendir`  | `system`/`shell`  | Open a Directory |
-
+```{r, echo=FALSE, results='asis', warning=FALSE}
+installing_tab <- readLines("tables/06_pacman_tools.R")
+cat(paste(installing_tab, collapse="\n"))
+```
 
 - `p_detectOS` 
 - `p_extract`
