@@ -8,8 +8,10 @@ function() {
         par(bg="black", mar = rep(0, 4))
         plot.new()
         rasterImage(x, -.1, .1, 1.05, .9, bg="black")
+        text(0.95, 0, "pacman", cex = 1, col="grey60")
+        text
         Sys.sleep(.15)
     }))
+    Sys.sleep(.5)
     dev.off()
-
 }
