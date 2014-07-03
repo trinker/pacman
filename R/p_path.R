@@ -1,6 +1,6 @@
-#' See path to library of add on package
+#' Path to Library of Add-On Packages
 #' 
-#' See path to library of add on package
+#' Path to library of add-on packages.
 #' 
 #' @seealso \code{\link[base]{.libPaths}}
 #' @keywords package library location path

@@ -14,36 +14,45 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' p_search_library(begins.with = ma, contains = NULL)
-#' p_search_library(begins.with = MA, contains = NULL)
-#' p_search_library(begins.with = r, contains = t) #gives an error
-#' p_search_library(contains = att) 
+#' p_search_library(begins.with = "ma")
+#' p_search_library(begins.with = "r", contains = "ar")
+#' p_search_library(contains = "att")
 #' }
 p_search_library<-
 function(begins.with = NULL, contains = NULL){
-    begins.with <- as.character(substitute(begins.with))
-    contains <- as.character(substitute(contains))
-    
-    if (!identical(begins.with, character(0)) & 
-        !identical(contains, character(0))) {
-        stop("Can not use both 'begins.with' & 'contains' arguments")
-    }
-    
+   
     y <- sort(.packages(all.available = TRUE))
+    y1 <- y2 <- NULL
+  
+    ## search for packages starting with...
+    if (!is.null(begins.with)) {
+        y_first <- tolower(substring(y, 1, nchar(begins.with)))
+        y1 <- y[y_first %in% tolower(begins.with)]
+    }
 
-    if (!identical(begins.with, character(0))) {
-        begins.with <- c(tolower(begins.with), toupper(begins.with))
-        y <- y[substring(y, 1, nchar(begins.with)) %in% begins.with]
-        if(length(y)==0) stop("No packages match")
+    ## search for packages containing...
+    if (!is.null(contains)) {
+        y2 <- grep(contains, y, ignore.case = TRUE, value=TRUE)
     }
-    if (!identical(contains, character(0))) {
-        y <- y[grep(contains, y, ignore.case = TRUE)]
-        if(length(y)==0) stop("No packages match")
+
+    ## combine begins with and contains hits
+    matches <- sort(unique(c(y1, y2)))
+
+    if(is.null(matches)) {
+        message("No packages match")
+    	return(invisible(NULL))
     }
-    x <- select.list(y, title = "packages")
-    library(x, character.only = TRUE)
-    cat(x, "loaded\n")
+
+    ## allow for interactive choice from matches and load
+    choice <- select.list(c("EXIT p_search_library", matches), 
+        title = "packages")
+    if (choice == "EXIT p_search_library") {
+        return(invisible(NULL))
+    }
+    library(choice, character.only = TRUE)
+    message(choice, "loaded\n")
 }
+
 
 #' @rdname p_search_library
 #' @export

@@ -13,7 +13,7 @@ Attempts to delete a 00LOCK(s) if it exists.  Returns logical
 \code{TRUE} if a 00LOCK existed and \code{FALSE} if not.
 }
 \description{
-Deletes the 00LOCK directory left accidentally left behind by fail in
+Deletes the 00LOCK directory accidentally left behind by a fail in
 \code{\link[utils]{install.packages}}.
 }
 \details{

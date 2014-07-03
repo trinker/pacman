@@ -2,7 +2,7 @@
 \name{p_library}
 \alias{p_lib}
 \alias{p_library}
-\title{Display library packages}
+\title{Display Library Packages}
 \usage{
 p_library(open = FALSE)
 
@@ -13,9 +13,8 @@ p_lib(open = FALSE)
 packages library.}
 }
 \description{
-Generates a vector of all available add on packages
-available to the user and optionally opens the user's
-library (this isn't necessarily where all of the available
+Generates a vector of all packages available to the user and optionally opens
+the user's library (this isn't necessarily where all of the available
 packages are stored).
 }
 \examples{

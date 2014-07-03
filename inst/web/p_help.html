@@ -40,16 +40,18 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>p_help(package&nbsp;=&nbsp;NULL, web&nbsp;=&nbsp;FALSE, pdf&nbsp;=&nbsp;FALSE)</div></pre>
+    <pre><div>p_help(package&nbsp;=&nbsp;NULL, web&nbsp;=&nbsp;FALSE, build.pdf&nbsp;=&nbsp;FALSE)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>package</dt>
       <dd>Name of package.</dd>
       <dt>web</dt>
-      <dd>logical.  If <code>TRUE</code> grabs current help manual from the web.</dd>
-      <dt>pdf</dt>
-      <dd>logical.  If <code>TRUE</code> uses a LaTeX compiler to generate a pdf.</dd>
+      <dd>logical.  If <code>TRUE</code> grabs current pdf help manual from the
+web (<code>pdf</code> argument is ignored).</dd>
+      <dt>build.pdf</dt>
+      <dd>logical.  If <code>TRUE</code> attempts to locate the file first
+and ten uses a LaTeX compiler to generate a pdf.</dd>
     </dl>
     
     <div class="Package Help Manual">
@@ -69,7 +71,7 @@
       
       <p></p>
   
-      <p>To use the pdf argument you must have a pdf compiler (e.g.,
+      <p>Setting <code>build.pdf = TRUE</code> requires the user to have a pdf compiler (e.g.,
 <a href = 'http://miktex.org/'>MikTex</a> or
 <a href = 'https://www.tug.org/texlive/'>Tex Live</a>) installed.</p>
   
@@ -87,7 +89,7 @@
 # p_help()
 # p_help(pacman)
 # p_help(pacman, web=TRUE)
-# p_help(pacman, pdf=TRUE)
+# p_help(pacman, build.pdf=TRUE)
 # ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>

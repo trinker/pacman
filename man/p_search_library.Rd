@@ -23,10 +23,9 @@ you know ``it starts with...''
 }
 \examples{
 \dontrun{
-p_search_library(begins.with = ma, contains = NULL)
-p_search_library(begins.with = MA, contains = NULL)
-p_search_library(begins.with = r, contains = t) #gives an error
-p_search_library(contains = att)
+p_search_library(begins.with = "ma")
+p_search_library(begins.with = "r", contains = "ar")
+p_search_library(contains = "att")
 }
 }
 \keyword{library}

@@ -28,7 +28,7 @@ path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/pacman/inst/extra_statdoc/readme.R"
 extras <- qcv(p_del, p_up, p_get, p_cite, p_funs, p_info, p_inter, p_ver, p_vign, 
-	p_sa, p_sl, p_lib)
+	p_sa, p_sl, p_lib, p_iscran)
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
 x <- readLines(path2)
@@ -66,7 +66,7 @@ path <- "inst/web"
 path2 <- file.path(path, "/index.html")
 rdme <- "C:/Users/trinker/GitHub/pacman/inst/extra_statdoc/readme.R"
 extras <- qcv(p_del, p_up, p_get, p_cite, p_funs, p_info, p_inter, p_ver, p_vign, 
-	p_sa, p_sl, p_lib)
+	p_sa, p_sl, p_lib, p_iscran)
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
 x <- readLines(path2)

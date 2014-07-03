@@ -1,6 +1,6 @@
 #' Delete 00LOCK Directory
 #' 
-#' Deletes the 00LOCK directory left accidentally left behind by fail in 
+#' Deletes the 00LOCK directory accidentally left behind by a fail in 
 #' \code{\link[utils]{install.packages}}.
 #' 
 #' @param lib.loc Path to library location.

@@ -40,13 +40,16 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>p_cran(menu&nbsp;=&nbsp;FALSE)</div></pre>
+    <pre><div>p_cran(menu&nbsp;=&nbsp;FALSE)</div>
+<div>p_iscran(package)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>menu</dt>
       <dd>logical.  If <code>TRUE</code> allows user to select the package and
 return that package name.</dd>
+      <dt>package</dt>
+      <dd>Name of package.</dd>
     </dl>
     
     <div class="CRAN Packages">
@@ -57,7 +60,9 @@ return that package name.</dd>
     <div class="Description">
       <h2>Description</h2>
       
-      <p>Generate a vector of all available packages.</p>
+      <p><code>p_cran</code> - Generate a vector of all available packages.</p>
+  
+      <p><code>p_iscran</code> - Logical check if a package is available on CRAN.</p>
   
     </div>
     
@@ -65,12 +70,13 @@ return that package name.</dd>
     <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
 # p_cran()
 # p_cran(TRUE)
+# p_iscran(pacman)
 # ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 </div></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>p_cran</li>
+      <li>p_cran</li><li>p_iscran</li>
     </ul>
     <ul>
       <li>CRAN</li><li>package</li>

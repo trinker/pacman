@@ -1,8 +1,7 @@
-#' Display library packages
+#' Display Library Packages
 #'
-#' Generates a vector of all available add on packages 
-#' available to the user and optionally opens the user's
-#' library (this isn't necessarily where all of the available
+#' Generates a vector of all packages available to the user and optionally opens 
+#' the user's library (this isn't necessarily where all of the available 
 #' packages are stored).
 #' 
 #' @rdname p_library

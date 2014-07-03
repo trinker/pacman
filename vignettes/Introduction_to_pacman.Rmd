@@ -209,11 +209,11 @@ installing_tab <- readLines("tables/03_local_package_information.R")
 cat(paste(installing_tab, collapse="\n"))
 ```
 
-The finctions in this section provide information about a user's local packages.
+The functions in this section provide information about a user's local packages.
 
 ### Package Existence (CRAN & Locally)
 
-The `p_exists` cehcks if a package exists either on CRAN (default) or locally.  `p_isinstalled` is a convenience wrapper for `p_exists` that is defaulted to check local existence.
+The `p_exists` checks if a package exists either on CRAN (default) or locally.  `p_isinstalled` is a convenience wrapper for `p_exists` that is defaulted to check local existence.
 
 ```{r}
 p_exists(pacman)  
@@ -285,7 +285,7 @@ p_author()
 
 #### Package Citation
 
-`p_citation` (aliased as `p_cite`) provides citation information for a package to the console and in interactive sessions, attempts to copy to the users clipboard (OS dependant).
+`p_citation` (aliased as `p_cite`) provides citation information for a package to the console and in interactive sessions, attempts to copy to the users clipboard (OS dependent).
 
 ```{r}
 p_cite(pacman)
@@ -302,7 +302,8 @@ p_data(lattice)
 
 #### Package Functions
 
-`p_functions` (aliased as `p_funs`) provides a list of the functions utilized by a package.
+`p_functions` (aliased as `p_funs`) provides a list of the functions utilized by a package.  Setting `all = TRUE` will yield the non-exported functions as well.
+
 
 ```{r}
 p_functions(pacman)
@@ -324,7 +325,7 @@ The following subsections discuss **pacman** functions that are used to view hel
 
 #### Package Help Manual
 
-The `p_help` function accesses a package's help documentation in HTML or PDF form.  If no Internet conection is available the pdf can be built from the package's files.
+The `p_help` function accesses a package's help documentation in HTML or PDF form.  If no Internet connection is available the pdf can be built from the package's files.
 
 ```{r, eval=FALSE}
 p_help(pacman)
@@ -339,6 +340,8 @@ p_help(pacman, build.pdf = TRUE)
 ```{r, eval=FALSE}
 p_news()
 p_news(pacman)
+## Grab specfic version subsets
+subset(p_news(lattice), Version == 0.7)  
 ```
 
 
@@ -357,9 +360,12 @@ p_vign(pacman)
 
 ### Interactive Package Exploration 
 
+Lastly, the user may explore packages and package functions more interactively with `p_interactive` (aliased as `p_inter`).  This function is an interactive mix of `p_library` and `p_functions`.  `p_interactive` provides the user's local packages (their library) to choose to explore and then displays available functions for the chosen package.  The user may optionally view the documentation for the chosen function from the chosen package.  This function has no arguments as this information is passed interactively.
 
 
--  `p_inter`/`p_interactive`
+```{r, eval=FALSE}
+p_interactive()
+```
 
 
 
@@ -372,8 +378,31 @@ installing_tab <- readLines("tables/04_internet_based_info.R")
 cat(paste(installing_tab, collapse="\n"))
 ```
 
--  `p_cran`
--  `p_search_any`/`p_sa`
+The functions in this section are Internet based and provide information about available CRAN packages.
+
+### CRAN Packages
+
+`p_cran` provides a list of available [CRAN](http://cran.r-project.org/) packages.  Its counterpart, p_iscran` provides a logical check whether a package is available on CRAN.
+
+```{r, eval=FALSE}
+p_cran()
+```
+
+```{r}
+length(p_cran())
+p_iscran("qdap")
+```
+
+### Search CRAN 
+
+`p_search_any` (aliased as `p_sa`) enables approximate matching by package or author/maintainer names containing the search term.  The first argument to `p_search_any`, `term`, is the word or name to search for.  The second argument `search.by` tells the function what fields to search through: `1`-`"Maintainer"`, `1`-`"Author"`, `2`-`"Package"`, `3`-`"Version"`.
+
+For example, we may choose to search for packages with the word **"color"** in the package name or packages with authors/maintainers named **"hadley"**.  We could accomplish these tasks as follows:
+
+```{r, eval=FALSE}
+p_sa("color", "package")
+p_sa("hadley", "author")
+```
 
 <h2 id="library_info"> Library Information  </h2>   
 
@@ -384,11 +413,49 @@ installing_tab <- readLines("tables/05_library_information.R")
 cat(paste(installing_tab, collapse="\n"))
 ```
 
-- `p_base`
-- `p_lib`/`p_library`
-- `p_path`
-- `p_sl`/`p_search_library`
-- `p_unlock`
+The functions in this section interact with the user's local library.
+
+### Library Location
+
+`p_path`, a wrapper for `.libPaths`, provides the location to the user's library of add-on packages.  
+
+```{r}
+p_path()
+```
+
+### Available Packages
+
+`p_library` (aliased as `p_lib`) yields a vector of a user's packages and optionally opens the library location.  `p_base`, similarly, provides the user's packages, but, marks base install packages with a marker (defaults to `**`).
+
+```{r, eval=FALSE}
+p_lib()
+p_base()
+```
+
+### Search Library
+
+`p_search_library` (aliased `p_sl`) is a handy function to search the library for a package that's on the tip of your tongue but you can't remember the full name or how to spell it.  `p_search_library` takes then form:
+
+```{r, eval=FALSE}
+p_search_library(begins.with = NULL, contains = NULL)
+```
+
+The first argument, `begins.with` allows the user to search for a package by initial characters.  The `contains` argument allows the user to search for character strings within the package name.  This will yield a list of matching packages that the user can then choose one to load.
+
+
+```{r, eval=FALSE}
+p_sl("pa")
+p_sl(contains = "man")
+p_sl(begins.with ="pa", contains = "man")
+```
+
+### Unlock Library
+
+`p_unlock` deletes the **00LOCK** directory that is accidentally left behind by a fail in `install.packages`.  The documentation for `install.packages` states that sometimes `install.packages` can: 
+
+>fail so badly that the lock directory is not removed: this inhibits any further installs to the library directory (or for --pkglock, of the package) until the lock directory is removed manually.
+
+When this occurs simply enter `p_unlock()` and the **00LOCK** directory is removed.
 
 <h2 id="pacman_tools"> pacman Tools  </h2>  
 
@@ -399,9 +466,8 @@ installing_tab <- readLines("tables/06_pacman_tools.R")
 cat(paste(installing_tab, collapse="\n"))
 ```
 
-- `p_detectOS` 
-- `p_extract`
-- `p_opendir`   
+The functions in this section are general tools used within the **pacman** package.  They are not *package* specific functions.  Discussion of their functionality is beyond the scope of this vignette.
+
 
 ```{r css, echo = FALSE}
 options(markdown.HTML.stylesheet = "css/style.css")

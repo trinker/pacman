@@ -4,14 +4,12 @@
 #' maintainer (often this is the author as well) or by name.
 #' 
 #' @rdname p_search_any
-#' @param term A search character string
+#' @param term A search term (character string).
 #' @param search.by The variable to search by (takes 
 #' a integer or a character string): 1-\code{"Maintainer"}, 
 #' 1-\code{"Author"}, 2-\code{"Package"}, 3-\code{"Version"}
-#' @section details:
-#' Useful for finding packages by the same author 
-#' (usually the same as the maintainer).  This 
-#' function will take some time as the function 
+#' @details Useful for finding packages by the same author (usually the same as 
+#' the maintainer).  This function will take some time as the function 
 #' is searching thousands of packages via CRAN's website.
 #' @references \url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
 #' \url{http://stackoverflow.com/a/10082624/1000343}   

@@ -9,7 +9,7 @@ p_search_any(term, search.by = "Maintainer")
 p_sa(term, search.by = "Maintainer")
 }
 \arguments{
-\item{term}{A search character string}
+\item{term}{A search term (character string).}
 
 \item{search.by}{The variable to search by (takes
 a integer or a character string): 1-\code{"Maintainer"},
@@ -19,11 +19,9 @@ a integer or a character string): 1-\code{"Maintainer"},
 Uses \code{\link[base]{agrep}} to find packages by
 maintainer (often this is the author as well) or by name.
 }
-\section{details}{
-
-Useful for finding packages by the same author
-(usually the same as the maintainer).  This
-function will take some time as the function
+\details{
+Useful for finding packages by the same author (usually the same as
+the maintainer).  This function will take some time as the function
 is searching thousands of packages via CRAN's website.
 }
 \examples{
