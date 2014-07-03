@@ -11,8 +11,9 @@
 #' p_author()
 p_author <- 
 function (package = "base") {
-    if(!object_check(package)){
-        package<- as.character(substitute(package))
+    ## check if package is an object
+    if(!object_check(package) || !is.character(package)){
+        package <- as.character(substitute(package))
     }
     packageDescription(package)[["Author"]]
 }

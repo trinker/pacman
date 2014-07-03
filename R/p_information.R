@@ -43,7 +43,7 @@ function(package = "base", ..., fields = NULL) {
     fields <- unique(c(info, fields))
 
     ## check if package is an object
-    if(!object_check(package)){
+    if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
     if(identical(package, character(0))){

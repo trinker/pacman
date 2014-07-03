@@ -17,7 +17,7 @@ function(package = NULL){
         package <- as.character(substitute(package))
     }
 
-    if( identical(package, character(0)) || package == "r"){
+    if( is.null(package) || package == "r"){
         package <- "R"
     }
     # the extra parenthesis allows us to pass in object

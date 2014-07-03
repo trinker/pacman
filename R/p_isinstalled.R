@@ -12,10 +12,7 @@
 #' }
 p_isinstalled <- function(package) {
     ## check if package is an object
-    if(!object_check(package)){
-        package <- as.character(substitute(package))
-    }
-    if (is.function(package)) {
+    if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
     local_packages <- list.files(.libPaths())
