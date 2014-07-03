@@ -995,19 +995,41 @@ cite it when using it for data analysis. See also
 
 <h3>Documentation</h3>
 
+<p>The following subsections discuss <strong>pacman</strong> functions that are used to view help manuals, news, and vignettes for a package.</p>
+
 <h4>Package Help Manual</h4>
+
+<p>The <code>p_help</code> function accesses a package&#39;s help documentation in HTML or PDF form.  If no Internet conection is available the pdf can be built from the package&#39;s files.</p>
+
+<pre><code class="r">p_help(pacman)
+p_help(pacman, web = FALSE)
+p_help(pacman, build.pdf = TRUE)
+</code></pre>
 
 <h4>Package News</h4>
 
+<p><code>p_news</code> provides the NEWS file for for R or an add-on packages.</p>
+
+<pre><code class="r">p_news()
+p_news(pacman)
+</code></pre>
+
 <h4>Package Vignette</h4>
+
+<p><code>p_vignette</code> (aliased as <code>p_vign</code>) enables interactive HTML version exploration of packages&#39; vignettes.  The default (no package supplied) is to interact with all of the package vignettes available from a user&#39;s local library. </p>
+
+<pre><code class="r">p_vignette()
+p_vign(pacman)
+</code></pre>
+
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b>  <code>p_news</code> yields an object of class: &ldquo;news_db_from_Rd&rdquo;, &ldquo;news_db&rdquo;, and &ldquo;data.frame&rdquo; and can be coerced to an ordinary data.frame via: <code>as.data.frame</code>.
+</div>
 
 <h3>Interactive Package Exploration</h3>
 
 <ul>
-<li> <code>p_help</code></li>
 <li> <code>p_inter</code>/<code>p_interactive</code></li>
-<li> <code>p_news</code></li>
-<li> <code>p_vign</code>/<code>p_vignette</code></li>
 </ul>
 
 <h2 id="internet_package_info"> Internet Based Package Information  </h2> 

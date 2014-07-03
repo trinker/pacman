@@ -572,19 +572,50 @@ $Version
 
 ### Documentation
 
+The following subsections discuss **pacman** functions that are used to view help manuals, news, and vignettes for a package.
+
 #### Package Help Manual
+
+The `p_help` function accesses a package's help documentation in HTML or PDF form.  If no Internet conection is available the pdf can be built from the package's files.
+
+
+```r
+p_help(pacman)
+p_help(pacman, web = FALSE)
+p_help(pacman, build.pdf = TRUE)
+```
 
 #### Package News
 
+`p_news` provides the NEWS file for for R or an add-on packages.
+
+
+```r
+p_news()
+p_news(pacman)
+```
+
+
 #### Package Vignette
+
+`p_vignette` (aliased as `p_vign`) enables interactive HTML version exploration of packages' vignettes.  The default (no package supplied) is to interact with all of the package vignettes available from a user's local library. 
+
+
+```r
+p_vignette()
+p_vign(pacman)
+```
+
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b>  <code>p_news</code> yields an object of class: "news_db_from_Rd", "news_db", and "data.frame" and can be coerced to an ordinary data.frame via: <code>as.data.frame</code>.
+</div>
 
 ### Interactive Package Exploration 
 
 
--  `p_help`
+
 -  `p_inter`/`p_interactive`
--  `p_news`
--  `p_vign`/`p_vignette`
+
 
 
 <h2 id="internet_package_info"> Internet Based Package Information  </h2> 
