@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/trinker/pacman.png?branch=master)](https://travis-ci.org/trinker/pacman)
 
-The pacman package is an R package management tool that combines the functionality of base library related functions into intuitively named functions.  This package is ideally added to .Rprofile to increase workflow by reducing time recalling obscurely named functions, reducing code and integrating functionality of base functions to simultaneously perform multiple actions.  
+The [pacman](http://trinker.github.io/pacman_dev/) package is an R package management tool that combines the functionality of base library related functions into intuitively named functions.  This package is ideally added to .Rprofile to increase workflow by reducing time recalling obscurely named functions, reducing code and integrating functionality of base functions to simultaneously perform multiple actions.  
 
 <img src="inst/pacman_logo/r_pacman.png" width="45%">
 
@@ -30,7 +30,7 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 ## Help
 
 [Web Page](http://trinker.github.com/pacman/)       
-[HTML Vignette: Introduction to qdap](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html) [Incomplete]    
+[HTML Vignette: Introduction to qdap](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html)    
 [Package PDF Help Manual](https://dl.dropbox.com/u/61803503/pacman.pdf)      
 
 ## Contact
