@@ -320,7 +320,17 @@ p_ver(pacman)
 
 ### Documentation
 
+The following subsections discuss **pacman** functions that are used to view help manuals, news, and vignettes for a package.
+
 #### Package Help Manual
+
+The `p_help` function accesses a package's help documentation in HTML or PDF form.  If no Internet conection is available the pdf can be built from the package's files.
+
+```{r, eval=FALSE}
+p_help(pacman)
+p_help(pacman, web = FALSE)
+p_help(pacman, pdf = TRUE)
+```
 
 #### Package News
 
