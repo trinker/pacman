@@ -29,11 +29,11 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 
 ## Help
 
-[Web Page](http://trinker.github.com/pacman/)       
-Vignettes:     
-  [HTML Vignette: Introduction to qdap](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html)      
-  [pacman Functions: Quick Reference](http://trinker.github.io/pacman_dev/vignettes/pacman_functions_quick_reference.html)       
-[Package PDF Help Manual](https://dl.dropbox.com/u/61803503/pacman.pdf)      
+- [Web Page](http://trinker.github.com/pacman/)       
+- Vignettes:     
+  - [HTML Vignette: Introduction to qdap](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html)      
+  - [pacman Functions: Quick Reference](http://trinker.github.io/pacman_dev/vignettes/pacman_functions_quick_reference.html)       
+-[Package PDF Help Manual](https://dl.dropbox.com/u/61803503/pacman.pdf)      
 
 ## Contact
 
