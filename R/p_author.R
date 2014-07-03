@@ -9,8 +9,10 @@
 #' @examples
 #' p_author(pacman)
 #' p_author()
-p_author <-
-function(package = "base"){
-    x <- as.character(substitute(package))
-    packageDescription(x)[["Author"]]
+p_author <- 
+function (package = "base") {
+    if(!object_check(package)){
+        package<- as.character(substitute(package))
+    }
+    packageDescription(package)[["Author"]]
 }

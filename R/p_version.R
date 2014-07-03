@@ -16,11 +16,16 @@
 #' }
 p_version <-
 function(package="R") {
-    x <- as.character(substitute(package))
-    if (x %in% c("r", "R")){
+
+    ## check if package is an object
+    if(!object_check(package)){
+        package <- as.character(substitute(package))
+    }
+
+    if (package %in% c("r", "R")){
         R.Version()[["version.string"]]
     } else {
-        packageDescription(x)["Version"]
+        packageDescription(package)["Version"]
     }
 }
 

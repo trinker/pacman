@@ -11,11 +11,16 @@
 #' p_news(lattice)
 p_news <-
 function(package = NULL){   
-    x <- as.character(substitute(package))
-    if( identical(x, character(0)) || x == "r"){
-        x <- "R"
+
+    ## check if package is an object
+    if(!object_check(package)){
+        package <- as.character(substitute(package))
+    }
+
+    if( identical(package, character(0)) || package == "r"){
+        package <- "R"
     }
     # the extra parenthesis allows us to pass in object
     # containing the string of interest.
-    news(package = (x))
+    news(package = (package))
 }

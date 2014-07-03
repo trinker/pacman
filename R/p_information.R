@@ -42,13 +42,16 @@ function(package = "base", ..., fields = NULL) {
     if(inherits(info, "try-error")) info <- NULL
     fields <- unique(c(info, fields))
 
-    x <- as.character(substitute(package))
-    if(identical(x, character(0))){
-        x <- "base"
+    ## check if package is an object
+    if(!object_check(package)){
+        package <- as.character(substitute(package))
+    }
+    if(identical(package, character(0))){
+        package <- "base"
     }
 
     ## grab the information and return it if not fields supplied
-    out <- packageDescription(x)
+    out <- packageDescription(package)
     if (is.null(fields)) return(out)
 
 	## clean up extra space and \n from pretty printing

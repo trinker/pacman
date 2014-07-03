@@ -3,10 +3,10 @@
 \alias{p_isinstalled}
 \title{Checks if Package is Installed}
 \usage{
-p_isinstalled(...)
+p_isinstalled(package)
 }
 \arguments{
-\item{...}{Name of package you want to check.  This can be quoted or unquoted.}
+\item{package}{Name of package you want to check.  This can be quoted or unquoted.}
 }
 \description{
 Check if package is installed locally.

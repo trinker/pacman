@@ -15,8 +15,16 @@
 #' }
 p_exists <-
 function (package, cran = TRUE) {
-    package <- as.character(substitute(package))
-	p_egg(package)
+
+    ## check if package is an object
+    if(!object_check(package)){
+        package <- as.character(substitute(package))
+    }
+    if (is.function(package)) {
+        package <- as.character(substitute(package))
+    }
+    p_egg(package)
+
     if (cran){
         available_packages <- rownames(available.packages())
         package %in% available_packages
@@ -25,8 +33,6 @@ function (package, cran = TRUE) {
         package %in% local_packages
     }
 }
-
-
 
 	
 	

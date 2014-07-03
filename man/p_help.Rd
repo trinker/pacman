@@ -8,7 +8,8 @@ p_help(package = NULL, web = FALSE, pdf = FALSE)
 \arguments{
 \item{package}{Name of package.}
 
-\item{web}{logical.  If \code{TRUE} grabs current help manual from the web.}
+\item{web}{logical.  If \code{TRUE} grabs current pdf help manual from the
+web (\code{pdf} argument is ignored).}
 
 \item{pdf}{logical.  If \code{TRUE} uses a LaTeX compiler to generate a pdf.}
 }
@@ -17,7 +18,7 @@ Generate an html, web or pdf of a package's help manual.
 }
 \section{Warning}{
 
-To use the pdf argument you must have a pdf compiler (e.g.,
+To use the pdf (\code{TRUE}) argument you must have a pdf compiler (e.g.,
 \href{http://miktex.org/}{MikTex} or
 \href{https://www.tug.org/texlive/}{Tex Live}) installed.
 }

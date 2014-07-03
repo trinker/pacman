@@ -275,7 +275,7 @@ p_extract(p_info(methods, "Imports"))
 
 #### Package Author   
 
-
+`p_author` is a shortcut means of 
 
 #### Package Citation
 
@@ -301,7 +301,6 @@ p_extract(p_info(methods, "Imports"))
 -  `p_exists`/`p_isinstalled`  
 -  `p_funs`/`p_functions`
 -  `p_help`
--  `p_info`/`p_information`
 -  `p_inter`/`p_interactive`
 -  `p_news`
 -  `p_ver`/`p_version`

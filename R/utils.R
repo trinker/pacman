@@ -182,3 +182,10 @@ p_egg <- function(x) {
     }
 }
 	
+
+## utility function to see if an call is 
+## is an object
+object_check <- function(x) {
+    !inherits(try(x,silent = TRUE), "try-error")
+}
+

@@ -17,22 +17,33 @@
 #' \dontrun{p_data(static=TRUE)}
 p_data <-
 function(package = "datasets", static = FALSE) {
-    pack <- as.character(substitute(package))
-    
-    results <- data(package = pack)[["results"]]
-    
-    o <- data.frame(results[, 3:4], 
-        stringsAsFactors = FALSE
-    )
-	colnames(o) <- c("Data", "Description")
+
+    ## check if package is an object
+    if(!object_check(package)){
+        package <- as.character(substitute(package))
+    }
+
     if (static) {
         return(data(package = pack))
-    } else {
-        class(o) <- c("wide_table", "data.frame")
+    } else {    
+        ## grab the data sets
+        results <- data(package = package)[["results"]]
+    
+        ## if 0 rows return NULL and message
+        if (nrow(results) == 0) {
+            message("no data sets found")
+            return(invisible(NULL))
+        }
+    
+        ## make results into a dataframe and add anmes
+        o <- setNames(data.frame(results[, 3:4], 
+            stringsAsFactors = FALSE
+        ), c("Data", "Description"))
+    
+        class(o) <- c("wide_table", class(o))
         return(o)
     }
 }
-
 
 #' Prints a wide_table Object
 #' 

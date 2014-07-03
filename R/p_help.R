@@ -3,10 +3,11 @@
 #' Generate an html, web or pdf of a package's help manual.
 #' 
 #' @param package Name of package.
-#' @param web logical.  If \code{TRUE} grabs current help manual from the web.
+#' @param web logical.  If \code{TRUE} grabs current pdf help manual from the 
+#' web (\code{pdf} argument is ignored).
 #' @param pdf logical.  If \code{TRUE} uses a LaTeX compiler to generate a pdf.
 #' @section Warning:
-#' To use the pdf argument you must have a pdf compiler (e.g., 
+#' To use the pdf (\code{TRUE}) argument you must have a pdf compiler (e.g., 
 #' \href{http://miktex.org/}{MikTex} or 
 #' \href{https://www.tug.org/texlive/}{Tex Live}) installed.
 #' @keywords help manual package
@@ -22,17 +23,22 @@
 #' }
 p_help <- 
 function (package = NULL, web = FALSE, pdf = FALSE) {
-    x <- as.character(substitute(package))
-    if (identical(x, character(0))) 
-        x <- "base"
+
+    ## check if package is an object
+    if(!object_check(package)){
+        package <- as.character(substitute(package))
+    }
+	
+    if (identical(package, character(0))) 
+        package <- "base"
     y <- list.files(.libPaths())
     if (web) {
 
-	    ## Load and check XML package
+        ## Load and check XML package
         xml_mess <- suppressPackageStartupMessages(p_load(char="XML"))
-	    if (!xml_mess) stop("Unable to install/load the XML package")
+	  if (!xml_mess) stop("Unable to install/load the XML package")
     	
-    	url <- "http://stat.ethz.ch/R-manual/R-patched/library/"
+    	  url <- "http://stat.ethz.ch/R-manual/R-patched/library/"
         doc <- htmlTreeParse(url, useInternalNodes = TRUE)
         content <- getNodeSet(doc, "//pre//text()")
         content <- sapply(content, xmlValue)
@@ -40,31 +46,31 @@ function (package = NULL, web = FALSE, pdf = FALSE) {
         content <- data.frame(x = content[c(TRUE, FALSE)], 
             y = content[c(F, T)], stringsAsFactors = FALSE)[, 1]
         base <- gsub("/", "", content, fixed = TRUE)
-        if (!(x %in% base)) {
+        if (!(package %in% base)) {
             p1 <- "http://cran.r-project.org/web/packages/"
-            browseURL(paste0(p1, x, "/", x, ".pdf"))
+            browseURL(paste0(p1, package, "/", package, ".pdf"))
         } else {
             p1 <- "http://stat.ethz.ch/R-manual/"
             p2 <- "R-patched/library/"
-            browseURL(paste0(p1, p2, x, "/html/00Index.html"))
+            browseURL(paste0(p1, p2, package, "/html/00Index.html"))
         }
     } else {
         if (!pdf) {
-            if (x %in% y) {
+            if (package %in% y) {
                 j <- options()[["help_type"]]
                 on.exit(options(help_type = j))
                 options(help_type = "html")
-                help(package = (x))
+                help(package = (package))
             } else {
                 z <- "http://cran.r-project.org/web/packages/"
-                browseURL(paste0(z, x, "/", x, ".pdf"))
+                browseURL(paste0(z, package, "/", package, ".pdf"))
             }
         } else {
-            w <- paste0(x, ".pdf")
+            w <- paste0(package, ".pdf")
             if (file.exists(w)) {
                 shell.exec(w)
             } else {
-                path <- find.package(x)
+                path <- find.package(package)
                 system(paste(shQuote(file.path(R.home("bin"), 
                     "R")), "CMD", "Rd2pdf", shQuote(path)))
             }

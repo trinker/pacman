@@ -27,11 +27,15 @@ p_citation <- function(package = "r", copy2clip = interactive(),
 
     ## Try to get tex options otherwise default to TRUE
     tex <- ifelse(is.null(tex), TRUE, tex)
-    x <- as.character(substitute(package))
+
+    ## check if package is an object
+    if(!object_check(package)){
+        package <- as.character(substitute(package))
+    }
     
-    if(x %in% c("R", "r")){
+    if(package %in% c("R", "r")){
         # To cite R we need to use package = "base"
-        x <- "base"
+        package <- "base"
     }
 
     ## Default variable set to FALSE.  
@@ -42,7 +46,7 @@ p_citation <- function(package = "r", copy2clip = interactive(),
 
         ## Grab citation to optionally manipulate 
         ## and copy to clipboard
-        out <- capture.output(citation(package = x, ...))
+        out <- capture.output(citation(package = package, ...))
 
         ## check for BiBTex Entry
         loc <- grep("BibTeX entry for LaTeX", out)
@@ -83,7 +87,7 @@ p_citation <- function(package = "r", copy2clip = interactive(),
         }
         writeToClipboard(out)            
     }   
-    citation(package = x, ...)
+    citation(package = package, ...)
 }
 
 #' @rdname p_citation
