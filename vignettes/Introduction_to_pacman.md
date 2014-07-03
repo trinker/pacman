@@ -388,15 +388,187 @@ p_extract(p_info(methods, "Imports"))
 
 #### Package Author   
 
+`p_author` provides author information for a package as a string.
+
+
+```r
+p_author(pacman)
+```
+
+```
+[1] "Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb]"
+```
+
+```r
+p_author()
+```
+
+```
+[1] "R Core Team and contributors worldwide"
+```
 
 
 #### Package Citation
 
-#### Package Data   
+`p_citation` (aliased as `p_cite`) provides citation information for a package to the console and in interactive sessions, attempts to copy to the users clipboard (OS dependant).
+
+
+```r
+p_cite(pacman)
+```
+
+```
+
+To cite pacman in publications, please use:
+
+  Rinker, T. W. & Kurkiewicz, D. (2013). pacman: Package
+  Management for R version 0.2.0. University at Buffalo. Buffalo,
+  New York. http://github.com/trinker/pacman
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {{pacman}: {P}ackage Management for R},
+    author = {Tyler W. Rinker and Dason Kurkiewicz},
+    organization = {University at Buffalo/SUNY},
+    address = {Buffalo, New York},
+    note = {version 0.2.0},
+    year = {2013},
+    url = {http://github.com/trinker/pacman},
+  }
+```
+
+```r
+p_citation()
+```
+
+```
+
+To cite R in publications use:
+
+  R Core Team (2014). R: A language and environment for
+  statistical computing. R Foundation for Statistical Computing,
+  Vienna, Austria. URL http://www.R-project.org/.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2014},
+    url = {http://www.R-project.org/},
+  }
+
+We have invested a lot of time and effort in creating R, please
+cite it when using it for data analysis. See also
+'citation("pkgname")' for citing R packages.
+```
+
+#### Package Data 
+
+`p_data` provides a `data.frame` of a package's data sets and a description.
+
+
+```r
+p_data(lattice)
+```
+
+```
+  Data          Description                                          
+1 barley        Yield data from a Minnesota barley trial             
+2 environmental Atmospheric environmental conditions in New York City
+3 ethanol       Engine exhaust fumes from burning ethanol            
+4 melanoma      Melanoma skin cancer incidence                       
+5 singer        Heights of New York Choral Society singers           
+```
 
 #### Package Functions
 
-### Package Version
+`p_functions` (aliased as `p_funs`) provides a list of the functions utilized by a package.
+
+
+```r
+p_functions(pacman)
+```
+
+```
+ [1] "p_author"         "p_base"           "p_citation"      
+ [4] "p_cite"           "p_cran"           "p_data"          
+ [7] "p_del"            "p_delete"         "p_detectOS"      
+[10] "p_exists"         "p_extract"        "p_functions"     
+[13] "p_funs"           "p_get"            "p_help"          
+[16] "p_info"           "p_information"    "p_install"       
+[19] "p_inter"          "p_interactive"    "p_isinstalled"   
+[22] "p_isloaded"       "p_lib"            "p_library"       
+[25] "p_load"           "p_loaded"         "p_news"          
+[28] "p_opendir"        "p_path"           "p_sa"            
+[31] "p_search_any"     "p_search_library" "p_sl"            
+[34] "p_temp"           "p_unload"         "p_unlock"        
+[37] "p_up"             "p_update"         "p_ver"           
+[40] "p_version"        "p_vign"           "p_vignette"      
+```
+
+```r
+p_funs(pacman, all=TRUE)
+```
+
+```
+ [1] "comma_string2vector"   "is.base_package"      
+ [3] "is.installed"          "is.loaded_package"    
+ [5] "left.just"             "object_check"         
+ [7] "p_author"              "p_base"               
+ [9] "p_basepath"            "p_citation"           
+[11] "p_cite"                "p_cran"               
+[13] "p_data"                "p_del"                
+[15] "p_delete"              "p_delete_single"      
+[17] "p_delete_warning"      "p_dependencies_single"
+[19] "p_detectOS"            "p_egg"                
+[21] "p_exists"              "p_extract"            
+[23] "p_functions"           "p_funs"               
+[25] "p_get"                 "p_help"               
+[27] "p_info"                "p_information"        
+[29] "p_install"             "p_inter"              
+[31] "p_interactive"         "p_isinstalled"        
+[33] "p_isloaded"            "p_lib"                
+[35] "p_library"             "p_load"               
+[37] "p_load_single"         "p_loaded"             
+[39] "p_news"                "p_opendir"            
+[41] "p_path"                "p_sa"                 
+[43] "p_search_any"          "p_search_library"     
+[45] "p_set_cranrepo"        "p_sl"                 
+[47] "p_tar"                 "p_temp"               
+[49] "p_unload"              "p_unlock"             
+[51] "p_up"                  "p_update"             
+[53] "p_ver"                 "p_version"            
+[55] "p_vign"                "p_vignette"           
+[57] "paste0"                "print.search_any"     
+[59] "print.wide_table"      "Trim"                 
+[61] "writeToClipboard"     
+```
+
+#### Package Version
+
+`p_version` (aliased as `p_ver`) gives the version of a package.
+
+
+```r
+p_version()
+```
+
+```
+[1] "R version 3.1.0 (2014-04-10)"
+```
+
+```r
+p_ver(pacman)
+```
+
+```
+$Version
+[1] "0.2.0"
+```
 
 ### Documentation
 
@@ -408,16 +580,10 @@ p_extract(p_info(methods, "Imports"))
 
 ### Interactive Package Exploration 
 
--  `p_author`
--  `p_cite`/`p_citation`
--  `p_data`
--  `p_exists`/`p_isinstalled`  
--  `p_funs`/`p_functions`
+
 -  `p_help`
--  `p_info`/`p_information`
 -  `p_inter`/`p_interactive`
 -  `p_news`
--  `p_ver`/`p_version`
 -  `p_vign`/`p_vignette`
 
 

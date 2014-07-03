@@ -835,13 +835,163 @@ p_info(MASS, &quot;Depends&quot;)
 
 <h4>Package Author</h4>
 
+<p><code>p_author</code> provides author information for a package as a string.</p>
+
+<pre><code class="r">p_author(pacman)
+</code></pre>
+
+<pre><code>[1] &quot;Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb]&quot;
+</code></pre>
+
+<pre><code class="r">p_author()
+</code></pre>
+
+<pre><code>[1] &quot;R Core Team and contributors worldwide&quot;
+</code></pre>
+
 <h4>Package Citation</h4>
+
+<p><code>p_citation</code> (aliased as <code>p_cite</code>) provides citation information for a package to the console and in interactive sessions, attempts to copy to the users clipboard (OS dependant).</p>
+
+<pre><code class="r">p_cite(pacman)
+</code></pre>
+
+<pre><code>
+To cite pacman in publications, please use:
+
+  Rinker, T. W. &amp; Kurkiewicz, D. (2013). pacman: Package
+  Management for R version 0.2.0. University at Buffalo. Buffalo,
+  New York. http://github.com/trinker/pacman
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {{pacman}: {P}ackage Management for R},
+    author = {Tyler W. Rinker and Dason Kurkiewicz},
+    organization = {University at Buffalo/SUNY},
+    address = {Buffalo, New York},
+    note = {version 0.2.0},
+    year = {2013},
+    url = {http://github.com/trinker/pacman},
+  }
+</code></pre>
+
+<pre><code class="r">p_citation()
+</code></pre>
+
+<pre><code>
+To cite R in publications use:
+
+  R Core Team (2014). R: A language and environment for
+  statistical computing. R Foundation for Statistical Computing,
+  Vienna, Austria. URL http://www.R-project.org/.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2014},
+    url = {http://www.R-project.org/},
+  }
+
+We have invested a lot of time and effort in creating R, please
+cite it when using it for data analysis. See also
+&#39;citation(&quot;pkgname&quot;)&#39; for citing R packages.
+</code></pre>
 
 <h4>Package Data</h4>
 
+<p><code>p_data</code> provides a <code>data.frame</code> of a package&#39;s data sets and a description.</p>
+
+<pre><code class="r">p_data(lattice)
+</code></pre>
+
+<pre><code>  Data          Description                                          
+1 barley        Yield data from a Minnesota barley trial             
+2 environmental Atmospheric environmental conditions in New York City
+3 ethanol       Engine exhaust fumes from burning ethanol            
+4 melanoma      Melanoma skin cancer incidence                       
+5 singer        Heights of New York Choral Society singers           
+</code></pre>
+
 <h4>Package Functions</h4>
 
-<h3>Package Version</h3>
+<p><code>p_functions</code> (aliased as <code>p_funs</code>) provides a list of the functions utilized by a package.</p>
+
+<pre><code class="r">p_functions(pacman)
+</code></pre>
+
+<pre><code> [1] &quot;p_author&quot;         &quot;p_base&quot;           &quot;p_citation&quot;      
+ [4] &quot;p_cite&quot;           &quot;p_cran&quot;           &quot;p_data&quot;          
+ [7] &quot;p_del&quot;            &quot;p_delete&quot;         &quot;p_detectOS&quot;      
+[10] &quot;p_exists&quot;         &quot;p_extract&quot;        &quot;p_functions&quot;     
+[13] &quot;p_funs&quot;           &quot;p_get&quot;            &quot;p_help&quot;          
+[16] &quot;p_info&quot;           &quot;p_information&quot;    &quot;p_install&quot;       
+[19] &quot;p_inter&quot;          &quot;p_interactive&quot;    &quot;p_isinstalled&quot;   
+[22] &quot;p_isloaded&quot;       &quot;p_lib&quot;            &quot;p_library&quot;       
+[25] &quot;p_load&quot;           &quot;p_loaded&quot;         &quot;p_news&quot;          
+[28] &quot;p_opendir&quot;        &quot;p_path&quot;           &quot;p_sa&quot;            
+[31] &quot;p_search_any&quot;     &quot;p_search_library&quot; &quot;p_sl&quot;            
+[34] &quot;p_temp&quot;           &quot;p_unload&quot;         &quot;p_unlock&quot;        
+[37] &quot;p_up&quot;             &quot;p_update&quot;         &quot;p_ver&quot;           
+[40] &quot;p_version&quot;        &quot;p_vign&quot;           &quot;p_vignette&quot;      
+</code></pre>
+
+<pre><code class="r">p_funs(pacman, all=TRUE)
+</code></pre>
+
+<pre><code> [1] &quot;comma_string2vector&quot;   &quot;is.base_package&quot;      
+ [3] &quot;is.installed&quot;          &quot;is.loaded_package&quot;    
+ [5] &quot;left.just&quot;             &quot;object_check&quot;         
+ [7] &quot;p_author&quot;              &quot;p_base&quot;               
+ [9] &quot;p_basepath&quot;            &quot;p_citation&quot;           
+[11] &quot;p_cite&quot;                &quot;p_cran&quot;               
+[13] &quot;p_data&quot;                &quot;p_del&quot;                
+[15] &quot;p_delete&quot;              &quot;p_delete_single&quot;      
+[17] &quot;p_delete_warning&quot;      &quot;p_dependencies_single&quot;
+[19] &quot;p_detectOS&quot;            &quot;p_egg&quot;                
+[21] &quot;p_exists&quot;              &quot;p_extract&quot;            
+[23] &quot;p_functions&quot;           &quot;p_funs&quot;               
+[25] &quot;p_get&quot;                 &quot;p_help&quot;               
+[27] &quot;p_info&quot;                &quot;p_information&quot;        
+[29] &quot;p_install&quot;             &quot;p_inter&quot;              
+[31] &quot;p_interactive&quot;         &quot;p_isinstalled&quot;        
+[33] &quot;p_isloaded&quot;            &quot;p_lib&quot;                
+[35] &quot;p_library&quot;             &quot;p_load&quot;               
+[37] &quot;p_load_single&quot;         &quot;p_loaded&quot;             
+[39] &quot;p_news&quot;                &quot;p_opendir&quot;            
+[41] &quot;p_path&quot;                &quot;p_sa&quot;                 
+[43] &quot;p_search_any&quot;          &quot;p_search_library&quot;     
+[45] &quot;p_set_cranrepo&quot;        &quot;p_sl&quot;                 
+[47] &quot;p_tar&quot;                 &quot;p_temp&quot;               
+[49] &quot;p_unload&quot;              &quot;p_unlock&quot;             
+[51] &quot;p_up&quot;                  &quot;p_update&quot;             
+[53] &quot;p_ver&quot;                 &quot;p_version&quot;            
+[55] &quot;p_vign&quot;                &quot;p_vignette&quot;           
+[57] &quot;paste0&quot;                &quot;print.search_any&quot;     
+[59] &quot;print.wide_table&quot;      &quot;Trim&quot;                 
+[61] &quot;writeToClipboard&quot;     
+</code></pre>
+
+<h4>Package Version</h4>
+
+<p><code>p_version</code> (aliased as <code>p_ver</code>) gives the version of a package.</p>
+
+<pre><code class="r">p_version()
+</code></pre>
+
+<pre><code>[1] &quot;R version 3.1.0 (2014-04-10)&quot;
+</code></pre>
+
+<pre><code class="r">p_ver(pacman)
+</code></pre>
+
+<pre><code>$Version
+[1] &quot;0.2.0&quot;
+</code></pre>
 
 <h3>Documentation</h3>
 
@@ -854,16 +1004,9 @@ p_info(MASS, &quot;Depends&quot;)
 <h3>Interactive Package Exploration</h3>
 
 <ul>
-<li> <code>p_author</code></li>
-<li> <code>p_cite</code>/<code>p_citation</code></li>
-<li> <code>p_data</code></li>
-<li> <code>p_exists</code>/<code>p_isinstalled</code><br/></li>
-<li> <code>p_funs</code>/<code>p_functions</code></li>
 <li> <code>p_help</code></li>
-<li> <code>p_info</code>/<code>p_information</code></li>
 <li> <code>p_inter</code>/<code>p_interactive</code></li>
 <li> <code>p_news</code></li>
-<li> <code>p_ver</code>/<code>p_version</code></li>
 <li> <code>p_vign</code>/<code>p_vignette</code></li>
 </ul>
 

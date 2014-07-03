@@ -275,15 +275,48 @@ p_extract(p_info(methods, "Imports"))
 
 #### Package Author   
 
-`p_author` is a shortcut means of 
+`p_author` provides author information for a package as a string.
+
+```{r}
+p_author(pacman)
+p_author()
+```
+
 
 #### Package Citation
 
-#### Package Data   
+`p_citation` (aliased as `p_cite`) provides citation information for a package to the console and in interactive sessions, attempts to copy to the users clipboard (OS dependant).
+
+```{r}
+p_cite(pacman)
+p_citation()
+```
+
+#### Package Data 
+
+`p_data` provides a `data.frame` of a package's data sets and a description.
+
+```{r}
+p_data(lattice)
+```
 
 #### Package Functions
 
-### Package Version
+`p_functions` (aliased as `p_funs`) provides a list of the functions utilized by a package.
+
+```{r}
+p_functions(pacman)
+p_funs(pacman, all=TRUE)
+```
+
+#### Package Version
+
+`p_version` (aliased as `p_ver`) gives the version of a package.
+
+```{r}
+p_version()
+p_ver(pacman)
+```
 
 ### Documentation
 
@@ -295,15 +328,10 @@ p_extract(p_info(methods, "Imports"))
 
 ### Interactive Package Exploration 
 
--  `p_author`
--  `p_cite`/`p_citation`
--  `p_data`
--  `p_exists`/`p_isinstalled`  
--  `p_funs`/`p_functions`
+
 -  `p_help`
 -  `p_inter`/`p_interactive`
 -  `p_news`
--  `p_ver`/`p_version`
 -  `p_vign`/`p_vignette`
 
 
