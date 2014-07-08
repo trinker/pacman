@@ -32,60 +32,26 @@ p_citation <- function(package = "r", copy2clip = interactive(),
     if(!object_check(package)){
         package <- as.character(substitute(package))
     }
-    
+
     if(package %in% c("R", "r")){
         # To cite R we need to use package = "base"
         package <- "base"
     }
 
-    ## Default variable set to FALSE.  
-    ## IF not bibtex entry goes to FALSE
-    nobib <- FALSE
-
     if(copy2clip){
-
-        ## Grab citation to optionally manipulate 
-        ## and copy to clipboard
-        out <- capture.output(citation(package = package, ...))
-
-        ## check for BiBTex Entry
-        loc <- grep("BibTeX entry for LaTeX", out)
-        if (identical(loc, integer(0))) {
-            if (isTRUE(tex)) warning("No BibTex entry found")
-            tex <- FALSE
-            loc <- length(out)
-            nobib <- TRUE
+        ## grab the LaTeX, text, or both versions
+        if (is.na(tex)) {
+            out <- unlist(sapply(c("Bibtex", "text"), function(x) {
+                capture.output(print(citation(package), style = x))
+            }))
+            
         } else {
-            ## Remove stuff after last closed curly brace
-            out <- out[1:tail(which(grepl("}", out)), 1)]
+            bibtype <- ifelse(tex, "Bibtex", "text")
+            out <- capture.output(print(citation(package), style = bibtype))
         }
 
-        if (!is.na(tex)) {
-
-            if (isTRUE(tex)) {  
-                ## Grab only the bibtex portion
-                locs <- (1 + loc):length(out)
-            } else {
-
-                ## Remove the `To cite in publications, please use:` 
-                grab <- seq_along(out) != grep("To cite|in publications", out)
-                out <- out[grab]
-                
-                if (!nobib) {
-                    ## Grab only the standard portion
-                    loc <- grep("BibTeX entry for LaTeX", out) 
-                }
-                locs <- 1:(loc - 1)
-            }
-
-            out <- out[locs]
-
-            ## Remove blanks ("") at the begining and end of the vector
-            nonblanks <- which(out != "")
-            out <- out[head(nonblanks, 1): tail(nonblanks, 1)]
-            out <- paste(substring(out, 3), collapse="\n")
-        }
-        writeToClipboard(out)            
+        ## paste elements together and write to clipboard
+        writeToClipboard(paste(out, collapse="\n"))            
     }   
     citation(package = package, ...)
 }
