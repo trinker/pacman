@@ -29,7 +29,7 @@ p_citation <- function(package = "r", copy2clip = interactive(),
     tex <- ifelse(is.null(tex), TRUE, tex)
 
     ## check if package is an object
-    if(!object_check(package)){
+    if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
 

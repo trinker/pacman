@@ -15,7 +15,7 @@ p_news <-
 function(package = NULL){   
 
     ## check if package is an object
-    if(!object_check(package)){
+    if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
 
