@@ -36,7 +36,7 @@ function(package = "datasets", static = FALSE) {
         }
     
         ## make results into a dataframe and add anmes
-        o <- setNames(data.frame(results[, 3:4], 
+        o <- setNames(data.frame(results[, 3:4, drop = FALSE], 
             stringsAsFactors = FALSE
         ), c("Data", "Description"))
     
