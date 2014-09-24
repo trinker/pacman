@@ -40,9 +40,9 @@ function (package = NULL, web = FALSE, build.pdf = FALSE) {
 	  if (!xml_mess) stop("Unable to install/load the XML package")
     	
     	  url <- "http://stat.ethz.ch/R-manual/R-patched/library/"
-        doc <- htmlTreeParse(url, useInternalNodes = TRUE)
-        content <- getNodeSet(doc, "//pre//text()")
-        content <- sapply(content, xmlValue)
+        doc <- XML::htmlTreeParse(url, useInternalNodes = TRUE)
+        content <- XML::getNodeSet(doc, "//pre//text()")
+        content <- sapply(content, XML::xmlValue)
         content <- content[10:length(content)]
         content <- data.frame(x = content[c(TRUE, FALSE)], 
             y = content[c(F, T)], stringsAsFactors = FALSE)[, 1]

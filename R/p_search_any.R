@@ -34,7 +34,7 @@ function (term, search.by = "Maintainer") {
     u1 <- "http://cran.r-project.org/web/checks/check_summary"
     u2 <- "_by_maintainer.html#summary_by_maintainer"
     URL <- paste0(u1, u2)
-    dat <- readHTMLTable(doc = URL, which = 1, header = TRUE, 
+    dat <- XML::readHTMLTable(doc = URL, which = 1, header = TRUE, 
     	strip.white = TRUE, as.is = FALSE, sep = ",", 
     	na.strings = c("999", "NA", " "))
 
