@@ -22,7 +22,7 @@ options(repos="http://cran.rstudio.com/")
 <h1 class="title">Introduction to pacman</h1>
 <h1 class="auth">Tyler W. Rinker & Dason Kurkiewicz</h1>
 
-The **pacman** package is an R package management tool that combines the functionality of base `library` related functions into intuitively named functions.  This package is ideally added to [.Rprofile](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html) to increase workflow by reducing time recalling obscurely named functions, reducing code, and integrating functionality of base functions to simultaneously perform multiple actions.  The function `p_load` is particularly well suited for help forums and posts, as it will load and, if necessary, install missing packages.
+The **pacman** package is an R package management tool that combines the functionality of base `library` related functions into intuitively named functions.  This package is ideally added to [.Rprofile](http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html) to increase workflow by reducing time recalling obscurely named functions, reducing code, and integrating functionality of base functions to simultaneously perform multiple actions.  The function `p_load` is particularly well suited for help forums and blog posts, as it will load and, if necessary, install missing packages.
 
 
 ```{r, echo=FALSE, results='asis', warning=FALSE}
@@ -42,7 +42,7 @@ installing_tab <- readLines("tables/01_installing_loading_deleting.R")
 cat(paste(installing_tab, collapse="\n"))
 ```
 
-The heart of **pacman** is it's ability to reduce typing in package management actions.  The functions in this section The functions in this section ***act*** on packages.  
+The heart of **pacman** is it's ability to reduce typing in package management actions.  The functions in this section ***act*** on packages.  
 
 ### Installing and Loading    
 
@@ -77,7 +77,7 @@ p_install(dbConnect, qdap, reports)
 
 ### Installing Temporarily
 
-Lastly, `p_temp` enables the user to temporarily install a package.  This allows a session only install for testing out a single package without muddying the user's library.  
+Lastly, `p_temp` enables the user to temporarily install a package.  This allows a session-only install for testing out a single package without muddying the user's library.  
 
 ```{r eval=FALSE}
 p_temp(aprof)
@@ -108,7 +108,7 @@ aprof
 </code></pre>
 
 <div class="notebox", style="background-color: #FFFFCC;"> 
-<b>Note:</b>  When using <code>p_load</code> and friends inside of functions the user may want to explicitly supply the package name(s) as character strings and set <code>character.only = FALSE</code> or supply a character vector of package names directly to the <code>char</code> argument if it is available.
+<b>Note:</b>  When using <code>p_load</code> and friends inside of functions, the user may want to explicitly supply the package name(s) as character strings and set <code>character.only = FALSE</code> or supply a character vector of package names directly to the <code>char</code> argument if it is available.
 </div>
 
        
@@ -244,7 +244,7 @@ The form for the function is:
 p_info(package, ..., fields = NULL)
 ```
 
-where `package` is a package name and `...` argument allows the user to request specific fields (the `fields` argument is a character only ['escape hatch'](http://adv-r.had.co.nz/Computing-on-the-language.html#calling-from-another-function) for fields to use inside of functions). If both `...` and `fields` are blank, `p_info` returns a list of all package fields from the package 'DESCRIPTION' file.  `p_info` returns a `list`.
+where `package` is a package name and `...` argument allows the user to request specific fields (the `fields` argument is a character only ['escape hatch'](http://adv-r.had.co.nz/Computing-on-the-language.html#calling-from-another-function) for use of `p_info` inside of functions). If both `...` and `fields` are blank, `p_info` returns a list of all package fields from the package 'DESCRIPTION' file.  `p_info` returns a `list`.
 
 
 ```{r}
@@ -325,7 +325,7 @@ The following subsections discuss **pacman** functions that are used to view hel
 
 #### Package Help Manual
 
-The `p_help` function accesses a package's help documentation in HTML or PDF form.  If no Internet connection is available the pdf can be built from the package's files.
+The `p_help` function accesses a package's help documentation in HTML or PDF form.  If no Internet connection is available the pdf can be built from the package's internal files.
 
 ```{r, eval=FALSE}
 p_help(pacman)
@@ -335,7 +335,7 @@ p_help(pacman, build.pdf = TRUE)
 
 #### Package News
 
-`p_news` provides the NEWS file for for R or an add-on packages.
+`p_news` provides the NEWS file for for R or an add-on package.
 
 ```{r, eval=FALSE}
 p_news()
@@ -345,18 +345,18 @@ subset(p_news(lattice), Version == 0.7)
 ```
 
 
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b>  <code>p_news</code> yields an object of class: "news_db_from_Rd", "news_db", and "data.frame" and can be coerced to an ordinary data.frame via: <code>as.data.frame</code>.
+</div>
+
 #### Package Vignette
 
-`p_vignette` (aliased as `p_vign`) enables interactive HTML version exploration of packages' vignettes.  The default (no package supplied) is to interact with all of the package vignettes available from a user's local library. 
+`p_vignette` (aliased as `p_vign`) enables an interactive HTML exploration of packages' vignettes.  The default (i.e., no package supplied) is to interact with all of the package vignettes available from a user's local library. 
 
 ```{r, eval=FALSE}
 p_vignette()
 p_vign(pacman)
 ```
-
-<div class="notebox", style="background-color: #FFFFCC;"> 
-<b>Note:</b>  <code>p_news</code> yields an object of class: "news_db_from_Rd", "news_db", and "data.frame" and can be coerced to an ordinary data.frame via: <code>as.data.frame</code>.
-</div>
 
 ### Interactive Package Exploration 
 

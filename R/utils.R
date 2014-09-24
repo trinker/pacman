@@ -170,8 +170,8 @@ p_dependencies_single <- function(x, all=FALSE, fields = c("Depends", "Imports")
 ## comma_string2vector("one, two (>=R2D2), three")
 ## yields
 ## 1] "one"   "two"   "three"
-comma_string2vector <- function(x){
-     Trim(unlist(strsplit(gsub("\\(.*?\\)", "", x), ",")))
+comma_string2vector <- function (x) {
+    Trim(unlist(strsplit(gsub("\\s*\\(.*?\\)\\s*", "", x), ",\\s*")))
 }
 
 

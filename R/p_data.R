@@ -24,7 +24,7 @@ function(package = "datasets", static = FALSE) {
     }
 
     if (static) {
-        return(data(package = pack))
+        return(data(package = package))
     } else {    
         ## grab the data sets
         results <- data(package = package)[["results"]]
@@ -50,14 +50,15 @@ function(package = "datasets", static = FALSE) {
 #' Prints a wide_table object.
 #' 
 #' @param x The wide_table object.
+#' @param right logical.  If \code{FALSE} stings will be left-alinged.
 #' @param \ldots ignored
 #' @method print wide_table
 #' @export
 print.wide_table <-
-function(x, ...) {
+function(x, right = FALSE, ...) {
     width <- options()[["width"]]
     options(width=10000)
     on.exit(options(width=width))
-    print.data.frame(left.just(x))
+    print.data.frame(x, right = right, ...)
     return()
 }

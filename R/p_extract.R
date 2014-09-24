@@ -21,8 +21,9 @@ p_extract <- function(x, use.names = TRUE){
 
     out <- comma_string2vector(x)
     if (use.names) {
-        names(out) <- Trim(unlist(strsplit(unlist(x), ",")))
+        names(out) <- Trim(unlist(strsplit(unlist(x), ",\\s*")))
     }
     out
 
 }
+
