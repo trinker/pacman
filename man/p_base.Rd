@@ -3,9 +3,12 @@
 \alias{p_base}
 \title{Base Install Packages}
 \usage{
-p_base(open = FALSE, basemarker = "***")
+p_base(base.only = FALSE, open = FALSE, basemarker = "***")
 }
 \arguments{
+\item{base.only}{logical.  If \code{TRUE} a character vector of only base
+install packages is returned.}
+
 \item{open}{logical. If \code{TRUE} opens the directory of the base install
 packages.}
 

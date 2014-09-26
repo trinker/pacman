@@ -2,6 +2,8 @@
 #' 
 #' List all the packages and mark those in a base install.
 #' 
+#' @param base.only logical.  If \code{TRUE} a character vector of only base 
+#' install packages is returned.
 #' @param open logical. If \code{TRUE} opens the directory of the base install 
 #' packages.
 #' @param basemarker Character string.  The string to append to mark which 
@@ -16,13 +18,14 @@
 #' p_base(TRUE)
 #' }
 p_base <- 
-function(open = FALSE,  basemarker = "***"){
+function(base.only = FALSE, open = FALSE,  basemarker = "***"){
     add_asterisks <- function(x) paste(x, basemarker)
     
     basepath <- p_basepath()
     
     basefiles <- dir(basepath) 
     basepackages <- c(getOption("defaultPackages"), "base")
+    if (base.only) return(basepackages)
     modified_output <- ifelse(basefiles %in% basepackages,
         add_asterisks(basefiles), basefiles)
     if (open) { 
