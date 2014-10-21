@@ -93,6 +93,8 @@ p_depends_helper <- function(package, local = local, reverse = FALSE, ...){
     	
     	## cran packages dependencies or reverse dependencies
         cran_db <- available.packages()
+    	if (!package %in% cran_db[, "Package"]) 
+    		stop(paste(package, "not found on CRAN\nconsider setting `local = TRUE`"))
         out <- lapply(type, function(x) {
             tools::package_dependencies(package, cran_db, reverse = reverse, 
                 which=x, ...)[[1]]
