@@ -42,6 +42,7 @@ sd_section("Internet Based Package Informatio",
   "Functions to obtain Internet based package information.", 
   c(
     "p_cran",
+  	"p_depends",  	
     "p_search_any"
   )
 )

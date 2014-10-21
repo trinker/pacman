@@ -25,15 +25,16 @@ library(highlight); library(staticdocs)
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
 #in the future qdap2 will be the go to source
-build_site(pkg="C:/Users/trinker/GitHub/pacman",launch = FALSE)
+usr <- dirname(path.expand("~"))
+build_site(pkg=file.path(usr, "GitHub/pacman"),launch = FALSE)
 library(qdap); library(acc.roxygen2)
 
 #STEP 2: reshape index
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
-rdme <- "C:/Users/trinker/GitHub/pacman/inst/extra_statdoc/readme.R"
+rdme <- file.path(usr, "GitHub/pacman/inst/extra_statdoc/readme.R")
 extras <- qcv(p_del, p_up, p_get, p_cite, p_funs, p_info, p_inter, p_ver, p_vign, 
-	p_sa, p_sl, p_lib, p_iscran)
+	p_sa, p_sl, p_lib, p_iscran, p_depends_reverse)
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
 x <- readLines(path2)
@@ -46,7 +47,7 @@ cat(paste(x, collapse="\n"), file=path2)
 
 #STEP 3: move to trinker.guthub
 library(reports)
-file <- "C:/Users/trinker/GitHub/trinker.github.com"
+file <- file.path(usr, "GitHub/trinker.github.com")
 incoming <- file.path(file, "pacman_dev")
 delete(incoming)
 file.copy(path, file, TRUE, TRUE)
@@ -63,15 +64,16 @@ library(highlight); library(staticdocs)
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true
 #in the future qdap2 will be the go to source
-build_site(pkg="C:/Users/trinker/GitHub/pacman",launch = FALSE)
+usr <- dirname(path.expand("~"))
+build_site(pkg=file.path(usr, "GitHub/pacman"),launch = FALSE)
 library(qdap); library(acc.roxygen2)
 
 #STEP 2: reshape index
 path <- "inst/web"
 path2 <- file.path(path, "/index.html")
-rdme <- "C:/Users/trinker/GitHub/pacman/inst/extra_statdoc/readme.R"
+rdme <- file.path(usr, "GitHub/pacman/inst/extra_statdoc/readme.R")
 extras <- qcv(p_del, p_up, p_get, p_cite, p_funs, p_info, p_inter, p_ver, p_vign, 
-	p_sa, p_sl, p_lib, p_iscran)
+	p_sa, p_sl, p_lib, p_iscran, p_depends_reverse)
 expand_statdoc(path2, to.icon = extras, readme = rdme)
 
 x <- readLines(path2)
@@ -84,7 +86,7 @@ cat(paste(x, collapse="\n"), file=path2)
 
 #STEP 3: move to trinker.guthub
 library(reports)
-file <- "C:/Users/trinker/GitHub/trinker.github.com"
+file <- file.path(usr, "GitHub/trinker.github.com")
 incoming <- file.path(file, "pacman")
 delete(incoming)
 file.copy(path, file, TRUE, TRUE)

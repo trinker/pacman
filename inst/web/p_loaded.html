@@ -45,9 +45,6 @@
     
     <h2>Arguments</h2>
     <dl>
-      <dt>...</dt>
-      <dd>Optional package names.  Adding package names will check their
-individual load status.</dd>
       <dt>all</dt>
       <dd>logical.  If <code>TRUE</code> will show all packages
 including base install; <code>FALSE</code> will show all packages
@@ -61,6 +58,9 @@ to load to this parameter directly.</dd>
       <dd>logical. If <code>TRUE</code> then <code>p_loaded</code> will only
 accept a single input which is a character vector containing the names of
 packages to load.</dd>
+      <dt>...</dt>
+      <dd>Optional package names.  Adding package names will check their
+individual load status.</dd>
     </dl>
     
     <div class="Check for Loaded Packages">
@@ -82,17 +82,15 @@ packages to load.</dd>
 # p_load(lattice, ggplot2)## &lt;strong&gt;End(Not run)&lt;/strong&gt;
 p_loaded()
 </div>
-<div class='output'> [1] &quot;pacman&quot;           &quot;acc.roxygen2&quot;     &quot;knitr&quot;            &quot;staticdocs&quot;       &quot;highlight&quot;       
- [6] &quot;markdown&quot;         &quot;reports&quot;          &quot;roxygen2&quot;         &quot;devtools&quot;         &quot;qdap&quot;            
-[11] &quot;RColorBrewer&quot;     &quot;qdapTools&quot;        &quot;qdapDictionaries&quot; &quot;ggplot2&quot;         
+<div class='output'> [1] &quot;pacman&quot;           &quot;staticdocs&quot;       &quot;highlight&quot;        &quot;reports&quot;          &quot;roxygen2&quot;         &quot;devtools&quot;        
+ [7] &quot;qdap&quot;             &quot;RColorBrewer&quot;     &quot;qdapTools&quot;        &quot;qdapRegex&quot;        &quot;qdapDictionaries&quot; &quot;ggplot2&quot;         
 </div>
 <div class='input'>p_loaded(all=TRUE)
 </div>
-<div class='output'> [1] &quot;pacman&quot;           &quot;acc.roxygen2&quot;     &quot;knitr&quot;            &quot;staticdocs&quot;       &quot;highlight&quot;       
- [6] &quot;markdown&quot;         &quot;graphics&quot;         &quot;grDevices&quot;        &quot;utils&quot;            &quot;datasets&quot;        
-[11] &quot;reports&quot;          &quot;roxygen2&quot;         &quot;devtools&quot;         &quot;qdap&quot;             &quot;RColorBrewer&quot;    
-[16] &quot;qdapTools&quot;        &quot;qdapDictionaries&quot; &quot;ggplot2&quot;          &quot;stats&quot;            &quot;methods&quot;         
-[21] &quot;base&quot;            
+<div class='output'> [1] &quot;pacman&quot;           &quot;staticdocs&quot;       &quot;highlight&quot;        &quot;tools&quot;            &quot;graphics&quot;         &quot;grDevices&quot;       
+ [7] &quot;utils&quot;            &quot;datasets&quot;         &quot;reports&quot;          &quot;roxygen2&quot;         &quot;devtools&quot;         &quot;qdap&quot;            
+[13] &quot;RColorBrewer&quot;     &quot;qdapTools&quot;        &quot;qdapRegex&quot;        &quot;qdapDictionaries&quot; &quot;ggplot2&quot;          &quot;stats&quot;           
+[19] &quot;methods&quot;          &quot;base&quot;            
 </div>
 <div class='input'>p_loaded(ggplot2, tm, qdap)
 </div>

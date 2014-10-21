@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>p_depends. pacman 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pacman 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Package Dependencies</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>p_depends(package&nbsp;=&nbsp;"base", local&nbsp;=&nbsp;FALSE, character.only&nbsp;=&nbsp;FALSE, ...)</div>
+<div>p_depends_reverse(package&nbsp;=&nbsp;"base", local&nbsp;=&nbsp;FALSE, character.only&nbsp;=&nbsp;FALSE, ...)</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>package</dt>
+      <dd>Name of the package you want the list of dependencies/reverse
+dependencies for.</dd>
+      <dt>local</dt>
+      <dd>logical.  If <code>TRUE</code> uses only packages found in local
+library.</dd>
+      <dt>character.only</dt>
+      <dd>logical. If <code>TRUE</code> the input is a variable
+containing the package name.</dd>
+      <dt>...</dt>
+      <dd>other arguments passed to
+<code><a href='http://www.inside-r.org/packages/cran/tools/docs/package_dependencies'>package_dependencies</a></code> and
+<code><a href='http://www.inside-r.org/packages/cran/tools/docs/dependsOnPkgs'>dependsOnPkgs</a></code>.</dd>
+    </dl>
+    
+    <div class="Package Dependencies">
+      <h2>Package Dependencies</h2>
+      
+    </div>
+
+    <div class="Value">
+      <h2>Value</h2>
+      
+      <p>Returns a list of dependencies/reverse dependencies.</p>
+  
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p><code>p_depends</code> - Get <a href = 'http://cran.r-project.org/'>CRAN</a> or local
+package dependencies.</p>
+  
+      <p><code>p_depends_reverse</code> - Get <a href = 'http://cran.r-project.org/'>CRAN</a> or
+local reverse dependencies.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>p_depends()
+</div>
+<div class='output'>NULL
+</div>
+<div class='input'>p_depends_reverse()
+</div>
+<div class='output'>$Depends
+ [1] &quot;MLCM&quot;                      &quot;MLDS&quot;                      &quot;PMCMR&quot;                     &quot;RMediation&quot;               
+ [5] &quot;ScottKnott&quot;                &quot;TTAinterfaceTrendAnalysis&quot; &quot;ThreeWay&quot;                  &quot;TukeyC&quot;                   
+ [9] &quot;UScensus2000blkgrp&quot;        &quot;UScensus2000cdp&quot;           &quot;UScensus2000tract&quot;         &quot;UScensus2010&quot;             
+[13] &quot;bootRes&quot;                   &quot;fclust&quot;                    &quot;fdth&quot;                      &quot;fechner&quot;                  
+[17] &quot;logconcens&quot;                &quot;metRology&quot;                 &quot;modelfree&quot;                 &quot;mtk&quot;                      
+[21] &quot;p3state.msm&quot;               &quot;spMC&quot;                      &quot;sse&quot;                       &quot;tightClust&quot;               
+[25] &quot;treeclim&quot;                 
+
+$Imports
+[1] &quot;fechner&quot;
+
+$Suggests
+[1] &quot;SPMS&quot;
+
+</div>
+<div class='input'>
+p_depends(lattice)
+</div>
+<div class='output'>$Imports
+[1] &quot;grid&quot;      &quot;grDevices&quot; &quot;graphics&quot;  &quot;stats&quot;     &quot;utils&quot;    
+
+$Suggests
+[1] &quot;KernSmooth&quot; &quot;MASS&quot;      
+
+</div>
+<div class='input'>p_depends_reverse(lattice)
+</div>
+<div class='output'>$Depends
+  [1] &quot;ASMap&quot;                   &quot;Actigraphy&quot;              &quot;BSDA&quot;                    &quot;BayesSAE&quot;               
+  [5] &quot;ConvergenceConcepts&quot;     &quot;Cubist&quot;                  &quot;DAAG&quot;                    &quot;DAMisc&quot;                 
+  [9] &quot;DATforDCEMRI&quot;            &quot;DCL&quot;                     &quot;DMwR&quot;                    &quot;Devore7&quot;                
+ [13] &quot;DierckxSpline&quot;           &quot;DoseFinding&quot;             &quot;ELT&quot;                     &quot;EMMIXskew&quot;              
+ [17] &quot;EngrExpt&quot;                &quot;EstCRM&quot;                  &quot;FAwR&quot;                    &quot;FTICRMS&quot;                
+ [21] &quot;FitAR&quot;                   &quot;Giza&quot;                    &quot;HH&quot;                      &quot;HSROC&quot;                  
+ [25] &quot;Hmisc&quot;                   &quot;ICEinfer&quot;                &quot;IDPmisc&quot;                 &quot;MCPMod&quot;                 
+ [29] &quot;MDR&quot;                     &quot;MOJOV&quot;                   &quot;Maeswrap&quot;                &quot;McSpatial&quot;              
+ [33] &quot;MortalitySmooth&quot;         &quot;NRAIA&quot;                   &quot;OLScurve&quot;                &quot;PASWR&quot;                  
+ [37] &quot;PKgraph&quot;                 &quot;PKreport&quot;                &quot;PKtools&quot;                 &quot;PROFANCY&quot;               
+ [41] &quot;PairedData&quot;              &quot;R2MLwiN&quot;                 &quot;R330&quot;                    &quot;REPPlab&quot;                
+ [45] &quot;RGraphics&quot;               &quot;RSA&quot;                     &quot;RcmdrPlugin.HH&quot;          &quot;RcmdrPlugin.plotByGroup&quot;
+ [49] &quot;RcmdrPlugin.temis&quot;       &quot;Rmisc&quot;                   &quot;RxCEcolInf&quot;              &quot;SEL&quot;                    
+ [53] &quot;SML&quot;                     &quot;SetMethods&quot;              &quot;VHDClassification&quot;       &quot;VizOR&quot;                  
+ [57] &quot;WaveCD&quot;                  &quot;YaleToolkit&quot;             &quot;abcdeFBA&quot;                &quot;abd&quot;                    
+ [61] &quot;adaptTest&quot;               &quot;agridat&quot;                 &quot;agsemisc&quot;                &quot;backtest&quot;               
+ [65] &quot;barcode&quot;                 &quot;bayescount&quot;              &quot;bayespref&quot;               &quot;bc3net&quot;                 
+ [69] &quot;bgmm&quot;                    &quot;biclust&quot;                 &quot;bifactorial&quot;             &quot;bigdata&quot;                
+ [73] &quot;camel&quot;                   &quot;caret&quot;                   &quot;cem&quot;                     &quot;coda&quot;                   
+ [77] &quot;compeir&quot;                 &quot;cvTools&quot;                 &quot;cwhmisc&quot;                 &quot;dae&quot;                    
+ [81] &quot;ddepn&quot;                   &quot;deseasonalize&quot;           &quot;dualScale&quot;               &quot;eHOF&quot;                   
+ [85] &quot;effects&quot;                 &quot;emdbook&quot;                 &quot;equivalence&quot;             &quot;erboost&quot;                
+ [89] &quot;factorQR&quot;                &quot;fastclime&quot;               &quot;fit.models&quot;              &quot;flare&quot;                  
+ [93] &quot;flexclust&quot;               &quot;flexmix&quot;                 &quot;gbm&quot;                     &quot;gsbDesign&quot;              
+ [97] &quot;hett&quot;                    &quot;hgam&quot;                    &quot;hotspots&quot;                &quot;huge&quot;                   
+[101] &quot;hyperSpec&quot;               &quot;iCluster&quot;                &quot;iGasso&quot;                  &quot;insideRODE&quot;             
+[105] &quot;irtProb&quot;                 &quot;joineR&quot;                  &quot;kzs&quot;                     &quot;latticeExtra&quot;           
+[109] &quot;lfstat&quot;                  &quot;loa&quot;                     &quot;mapStats&quot;                &quot;memisc&quot;                 
+[113] &quot;metacom&quot;                 &quot;metrumrg&quot;                &quot;miP&quot;                     &quot;mice&quot;                   
+[117] &quot;mirtCAT&quot;                 &quot;mirt&quot;                    &quot;mixOmics&quot;                &quot;mixPHM&quot;                 
+[121] &quot;mixexp&quot;                  &quot;mleur&quot;                   &quot;mobForest&quot;               &quot;mosaic&quot;                 
+[125] &quot;mritc&quot;                   &quot;msSurv&quot;                  &quot;msme&quot;                    &quot;nFactors&quot;               
+[129] &quot;nlmeODE&quot;                 &quot;nlrwr&quot;                   &quot;odfWeave&quot;                &quot;optiscale&quot;              
+[133] &quot;orderbook&quot;               &quot;paleoMAS&quot;                &quot;pbo&quot;                     &quot;penDvine&quot;               
+[137] &quot;pencopula&quot;               &quot;pendensity&quot;              &quot;phenmod&quot;                 &quot;phmm&quot;                   
+[141] &quot;picasso&quot;                 &quot;playwith&quot;                &quot;pmg&quot;                     &quot;portfolioSim&quot;           
+[145] &quot;portfolio&quot;               &quot;primer&quot;                  &quot;pscl&quot;                    &quot;qtlbim&quot;                 
+[149] &quot;qtlhot&quot;                  &quot;rCUR&quot;                    &quot;randomLCA&quot;               &quot;rapport&quot;                
+[153] &quot;rasterVis&quot;               &quot;rmatio&quot;                  &quot;rms&quot;                     &quot;robfilter&quot;              
+[157] &quot;robust&quot;                  &quot;rysgran&quot;                 &quot;sExtinct&quot;                &quot;scaRabee&quot;               
+[161] &quot;semPLS&quot;                  &quot;simFrame&quot;                &quot;sme&quot;                     &quot;soilprofile&quot;            
+[165] &quot;solaR&quot;                   &quot;spuRs&quot;                   &quot;sse&quot;                     &quot;survSNP&quot;                
+[169] &quot;svdvisual&quot;               &quot;sybil&quot;                   &quot;synthpop&quot;                &quot;tigerstats&quot;             
+[173] &quot;titan&quot;                   &quot;unmarked&quot;                &quot;vegan&quot;                   &quot;violinmplot&quot;            
+[177] &quot;vwr&quot;                     &quot;waterData&quot;               &quot;waterfall&quot;               &quot;weightedKmeans&quot;         
+[181] &quot;wgaim&quot;                   &quot;wskm&quot;                    &quot;xpose4&quot;                 
+
+$Imports
+ [1] &quot;AICcmodavg&quot;      &quot;ChainLadder&quot;     &quot;ChemoSpec&quot;       &quot;Cprob&quot;           &quot;DBKGrad&quot;         &quot;DepthProc&quot;      
+ [7] &quot;EQL&quot;             &quot;FactoMineR&quot;      &quot;FitAR&quot;           &quot;GENLIB&quot;          &quot;GPfit&quot;           &quot;Giza&quot;           
+[13] &quot;Gmisc&quot;           &quot;Kmisc&quot;           &quot;MSBVAR&quot;          &quot;Matrix&quot;          &quot;MplusAutomation&quot; &quot;OUwie&quot;          
+[19] &quot;PopGenReport&quot;    &quot;R2STATS&quot;         &quot;RItools&quot;         &quot;RPPanalyzer&quot;     &quot;RobLoxBioC&quot;      &quot;RobLox&quot;         
+[25] &quot;Rssa&quot;            &quot;SSN&quot;             &quot;SetMethods&quot;      &quot;SixSigma&quot;        &quot;TAM&quot;             &quot;YourCast&quot;       
+[31] &quot;aLFQ&quot;            &quot;analogue&quot;        &quot;ape&quot;             &quot;aqp&quot;             &quot;asbio&quot;           &quot;automap&quot;        
+[37] &quot;bbmle&quot;           &quot;boolean3&quot;        &quot;c060&quot;            &quot;cg&quot;              &quot;classify&quot;        &quot;comato&quot;         
+[43] &quot;copula&quot;          &quot;cvTools&quot;         &quot;dcmle&quot;           &quot;dplR&quot;            &quot;drc&quot;             &quot;easingr&quot;        
+[49] &quot;eiwild&quot;          &quot;etm&quot;             &quot;faoutlier&quot;       &quot;fastR&quot;           &quot;gamclass&quot;        &quot;gpairs&quot;         
+[55] &quot;greport&quot;         &quot;gstat&quot;           &quot;hexbin&quot;          &quot;hydroPSO&quot;        &quot;influence.ME&quot;    &quot;ldbounds&quot;       
+[61] &quot;lga&quot;             &quot;lme4&quot;            &quot;locfit&quot;          &quot;maptools&quot;        &quot;mboost&quot;          &quot;mvna&quot;           
+[67] &quot;mycor&quot;           &quot;nlme&quot;            &quot;openair&quot;         &quot;opm&quot;             &quot;paleofire&quot;       &quot;pedometrics&quot;    
+[73] &quot;plotGoogleMaps&quot;  &quot;plotMCMC&quot;        &quot;polySegratioMM&quot;  &quot;predictmeans&quot;    &quot;psychomix&quot;       &quot;qicharts&quot;       
+[79] &quot;rangeMapper&quot;     &quot;refund&quot;          &quot;rminer&quot;          &quot;robustlmm&quot;       &quot;runjags&quot;         &quot;scape&quot;          
+[85] &quot;sharpshootR&quot;     &quot;sp&quot;              &quot;spacetime&quot;       &quot;stressr&quot;         &quot;stylo&quot;           &quot;synbreed&quot;       
+[91] &quot;tiger&quot;           &quot;trajectories&quot;    &quot;tripEstimation&quot;  &quot;visreg&quot;          &quot;x12GUI&quot;          &quot;zoo&quot;            
+
+$Suggests
+  [1] &quot;AER&quot;                       &quot;AppliedPredictiveModeling&quot; &quot;BiodiversityR&quot;             &quot;CORElearn&quot;                
+  [5] &quot;ChoiceModelR&quot;              &quot;CombMSC&quot;                   &quot;CorrBin&quot;                   &quot;DAAGxtras&quot;                
+  [9] &quot;DiceDesign&quot;                &quot;EnvStats&quot;                  &quot;FuncMap&quot;                   &quot;GSE&quot;                      
+ [13] &quot;HSAUR2&quot;                    &quot;HSAUR3&quot;                    &quot;HSAUR&quot;                     &quot;HistData&quot;                 
+ [17] &quot;HiveR&quot;                     &quot;IPSUR&quot;                     &quot;JoSAE&quot;                     &quot;KRLS&quot;                     
+ [21] &quot;LDheatmap&quot;                 &quot;LPCM&quot;                      &quot;Lahman&quot;                    &quot;MASS&quot;                     
+ [25] &quot;MEMSS&quot;                     &quot;MPDiR&quot;                     &quot;MVA&quot;                       &quot;MethComp&quot;                 
+ [29] &quot;Morpho&quot;                    &quot;Oncotree&quot;                  &quot;OrgMassSpecR&quot;              &quot;PBImisc&quot;                  
+ [33] &quot;PKPDmodels&quot;                &quot;QTLRel&quot;                    &quot;R2admb&quot;                    &quot;RFLPtools&quot;                
+ [37] &quot;RMark&quot;                     &quot;RSiena&quot;                    &quot;RcmdrPlugin.IPSUR&quot;         &quot;RcmdrPlugin.NMBU&quot;         
+ [41] &quot;RcmdrPlugin.pointG&quot;        &quot;Rcmdr&quot;                     &quot;RcppDE&quot;                    &quot;RcppZiggurat&quot;             
+ [45] &quot;SASmixed&quot;                  &quot;SCEPtER&quot;                   &quot;SMIR&quot;                      &quot;SPOT&quot;                     
+ [49] &quot;SPSL&quot;                      &quot;STAR&quot;                      &quot;SemiPar&quot;                   &quot;Sleuth2&quot;                  
+ [53] &quot;Sleuth3&quot;                   &quot;SoilR&quot;                     &quot;StatRank&quot;                  &quot;SuperLearner&quot;             
+ [57] &quot;TeachingDemos&quot;             &quot;TrackReconstruction&quot;       &quot;WeightedCluster&quot;           &quot;XLConnect&quot;                
+ [61] &quot;bams&quot;                      &quot;baseline&quot;                  &quot;beanplot&quot;                  &quot;betareg&quot;                  
+ [65] &quot;binom&quot;                     &quot;bio3d&quot;                     &quot;bnlearn&quot;                   &quot;cardidates&quot;               
+ [69] &quot;cati&quot;                      &quot;contrast&quot;                  &quot;copCAR&quot;                    &quot;dclone&quot;                   
+ [73] &quot;denstrip&quot;                  &quot;desirability&quot;              &quot;directlabels&quot;              &quot;diveMove&quot;                 
+ [77] &quot;dyn&quot;                       &quot;eRm&quot;                       &quot;ergm&quot;                      &quot;evaluate&quot;                 
+ [81] &quot;evtree&quot;                    &quot;fda&quot;                       &quot;gamlss.add&quot;                &quot;gcExplorer&quot;               
+ [85] &quot;geoR&quot;                      &quot;glogis&quot;                    &quot;grImport&quot;                  &quot;gridBase&quot;                 
+ [89] &quot;gridDebug&quot;                 &quot;gridExtra&quot;                 &quot;gridSVG&quot;                   &quot;gsubfn&quot;                   
+ [93] &quot;hamlet&quot;                    &quot;heplots&quot;                   &quot;hydroTSM&quot;                  &quot;isa2&quot;                     
+ [97] &quot;languageR&quot;                 &quot;libamtrack&quot;                &quot;lsmeans&quot;                   &quot;marmap&quot;                   
+[101] &quot;meteoForecast&quot;             &quot;mlbench&quot;                   &quot;mlmRev&quot;                    &quot;mlogit&quot;                   
+[105] &quot;morse&quot;                     &quot;mosaicData&quot;                &quot;movMF&quot;                     &quot;mpMap&quot;                    
+[109] &quot;multitable&quot;                &quot;mutoss&quot;                    &quot;nlmeU&quot;                     &quot;npmlreg&quot;                  
+[113] &quot;nutshell&quot;                  &quot;pander&quot;                    &quot;pdc&quot;                       &quot;planar&quot;                   
+[117] &quot;plm&quot;                       &quot;polyCub&quot;                   &quot;polywog&quot;                   &quot;protViz&quot;                  
+[121] &quot;psyphy&quot;                    &quot;r2d2&quot;                      &quot;remote&quot;                    &quot;reshape2&quot;                 
+[125] &quot;rfordummies&quot;               &quot;rioja&quot;                     &quot;robustX&quot;                   &quot;robustbase&quot;               
+[129] &quot;robustfa&quot;                  &quot;rpanel&quot;                    &quot;rrcovNA&quot;                   &quot;rrcov&quot;                    
+[133] &quot;rtf&quot;                       &quot;sand&quot;                      &quot;simecol&quot;                   &quot;soilDB&quot;                   
+[137] &quot;spdep&quot;                     &quot;sperich&quot;                   &quot;stellaR&quot;                   &quot;subsemble&quot;                
+[141] &quot;surveillance&quot;              &quot;survey&quot;                    &quot;taRifx&quot;                    &quot;tableplot&quot;                
+[145] &quot;tergm&quot;                     &quot;texmex&quot;                    &quot;tmvtnorm&quot;                  &quot;topicmodels&quot;              
+[149] &quot;ustyc&quot;                     &quot;vcdExtra&quot;                 
+
+</div>
+<div class='input'>
+## dependencies from CRAN
+p_depends(pacman)
+</div>
+<div class='output'>NULL
+</div>
+<div class='input'>p_depends_reverse(&quot;pacman&quot;)
+</div>
+<div class='output'>NULL
+</div>
+<div class='input'>
+## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# ## local dependencies
+# p_depends(pacman, local = TRUE)
+# p_depends_reverse(&quot;qdap&quot;, local = TRUE)
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>p_depends</li><li>p_depends_reverse</li>
+    </ul>
+    <ul>
+      <li>dependency</li><li>dpendencies</li>
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code>p_info</code>,
+<code><a href='http://www.inside-r.org/packages/cran/tools/docs/package_dependencies'>package_dependencies</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/tools/docs/dependsOnPkgs'>dependsOnPkgs</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
