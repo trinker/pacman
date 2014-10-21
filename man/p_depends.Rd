@@ -4,10 +4,9 @@
 \alias{p_depends_reverse}
 \title{Package Dependencies}
 \usage{
-p_depends(package = "base", local = FALSE, character.only = FALSE, ...)
+p_depends(package, local = FALSE, character.only = FALSE, ...)
 
-p_depends_reverse(package = "base", local = FALSE, character.only = FALSE,
-  ...)
+p_depends_reverse(package, local = FALSE, character.only = FALSE, ...)
 }
 \arguments{
 \item{package}{Name of the package you want the list of dependencies/reverse
@@ -34,9 +33,6 @@ package dependencies.
 local reverse dependencies.
 }
 \examples{
-p_depends()
-p_depends_reverse()
-
 p_depends(lattice)
 p_depends_reverse(lattice)
 

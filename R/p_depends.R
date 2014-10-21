@@ -20,9 +20,6 @@
 #' \code{\link[tools]{package_dependencies}},
 #' \code{\link[tools]{dependsOnPkgs}}
 #' @examples
-#' p_depends()
-#' p_depends_reverse()
-#' 
 #' p_depends(lattice)
 #' p_depends_reverse(lattice)
 #'
@@ -35,7 +32,7 @@
 #' p_depends(pacman, local = TRUE)
 #' p_depends_reverse("qdap", local = TRUE)
 #' }
-p_depends <- function(package = "base", local = FALSE, character.only = FALSE, ...) {
+p_depends <- function(package, local = FALSE, character.only = FALSE, ...) {
     if (!character.only & is.name(substitute(package))) {
         package <- deparse(substitute(package))
     }
@@ -54,7 +51,7 @@ p_depends <- function(package = "base", local = FALSE, character.only = FALSE, .
 #' 
 #' @export
 #' @rdname p_depends
-p_depends_reverse <- function(package = "base", local = FALSE, 
+p_depends_reverse <- function(package, local = FALSE, 
 	character.only = FALSE, ...) {
 	
     if (!character.only & is.name(substitute(package))) {
@@ -93,8 +90,9 @@ p_depends_helper <- function(package, local = local, reverse = FALSE, ...){
     	
     	## cran packages dependencies or reverse dependencies
         cran_db <- available.packages()
-    	if (!package %in% cran_db[, "Package"]) 
+    	if (!package %in% cran_db[, "Package"]) {
     		stop(paste(package, "not found on CRAN\nconsider setting `local = TRUE`"))
+    	}
         out <- lapply(type, function(x) {
             tools::package_dependencies(package, cran_db, reverse = reverse, 
                 which=x, ...)[[1]]
