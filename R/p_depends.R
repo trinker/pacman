@@ -22,12 +22,12 @@
 #' @examples
 #' p_depends(lattice)
 #' p_depends_reverse(lattice)
-#'
+#' 
+#' \dontrun{
 #' ## dependencies from CRAN
 #' p_depends(pacman)
 #' p_depends_reverse("pacman")
 #' 
-#' \dontrun{
 #' ## local dependencies 
 #' p_depends(pacman, local = TRUE)
 #' p_depends_reverse("qdap", local = TRUE)
