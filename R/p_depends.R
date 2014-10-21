@@ -99,10 +99,11 @@ p_depends_helper <- function(package, local = local, reverse = FALSE, ...){
         })
     }
 	
-	## add dependency type name to list and remove empty/null elements
+    ## add dependency type name to list and remove empty/null elements
     out <- setNames(out, type)
     nulls <- sapply(out, is.null)
-    if (all(nulls)) return(NULL)  ## if no dependencies returns NULL
-    out[sapply(out, identical, character(0))|nulls] <- NULL
+    empties <- sapply(out, identical, character(0))
+    if (all(nulls)|all(empties)) return(NULL)  ## if no dependencies returns NULL
+    out[empties|nulls] <- NULL
     out
 }
