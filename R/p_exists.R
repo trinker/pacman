@@ -3,8 +3,9 @@
 #' Checks CRAN to determine if a package exists.
 #' 
 #' @param package Name of package.
-#' @param cran logical.  If \code{TRUE} checks CRAN for the package; 
-#' if \code{FALSE} checks the user's local library.
+#' @param local logical.  If \code{TRUE} checks user's local library for 
+#' existence; if \code{FALSE} \href{http://cran.r-project.org/}{CRAN} for the 
+#' package.
 #' @keywords exists package
 #' @export
 #' @examples
@@ -14,7 +15,7 @@
 #' p_exists(I_dont_exist)
 #' }
 p_exists <-
-function (package, cran = TRUE) {
+function (package, local = FALSE) {
 
     ## check if package is an object
     if(!object_check(package) || !is.character(package)){
@@ -22,7 +23,7 @@ function (package, cran = TRUE) {
     }
     p_egg(package)
 
-    if (cran){
+    if (!local){
         available_packages <- rownames(available.packages())
         package %in% available_packages
     } else {

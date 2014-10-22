@@ -5,8 +5,9 @@
 #' 
 #' @param package Name of the package you want the list of dependencies/reverse 
 #' dependencies for.
-#' @param local logical.  If \code{TRUE} uses only packages found in local 
-#' library.
+#' @param local logical.  If \code{TRUE} checks user's local library for 
+#' existence; if \code{FALSE} \href{http://cran.r-project.org/}{CRAN} for the 
+#' package.
 #' @param character.only logical. If \code{TRUE} the input is a variable 
 #' containing the package name.
 #' @param \ldots other arguments passed to 

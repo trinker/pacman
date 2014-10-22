@@ -213,14 +213,25 @@ The functions in this section provide information about a user's local packages.
 
 ### Package Existence (CRAN & Locally)
 
-The `p_exists` checks if a package exists either on CRAN (default) or locally.  `p_isinstalled` is a convenience wrapper for `p_exists` that is defaulted to check local existence.
+The `p_exists` function checks if a package exists either on CRAN (default) or locally.  `p_isinstalled` is a convenience wrapper for `p_exists` that is defaulted to check local existence.
 
 ```{r}
 p_exists(pacman)  
-p_exists(pacman, cran = FALSE)
+p_exists(pacman, local = TRUE)
 p_exists(I_dont_exist)
-## wrapper for `p_exists(cran = FALSE)`
+## wrapper for `p_exists(local = TRUE)`
 p_isinstalled(pacman)
+```
+
+### Package Dependencies & Reverse Dependencies
+
+The `p_depends` function checks the dependencies of package either on CRAN (default) or locally.  The `p_depends_reverse` function accomplishes the same task for a package's reverse dependencies.
+
+```{r}
+p_depends(lattice)  
+p_depends(lattice, local = TRUE)
+p_depends(MASS)  
+p_depends(MASS, local = TRUE)
 ```
 
 ### Package Attributes

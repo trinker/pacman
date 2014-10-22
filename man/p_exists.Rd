@@ -3,13 +3,14 @@
 \alias{p_exists}
 \title{Checks if Package is On CRAN/In Local Library}
 \usage{
-p_exists(package, cran = TRUE)
+p_exists(package, local = FALSE)
 }
 \arguments{
 \item{package}{Name of package.}
 
-\item{cran}{logical.  If \code{TRUE} checks CRAN for the package;
-if \code{FALSE} checks the user's local library.}
+\item{local}{logical.  If \code{TRUE} checks user's local library for
+existence; if \code{FALSE} \href{http://cran.r-project.org/}{CRAN} for the
+package.}
 }
 \description{
 Checks CRAN to determine if a package exists.
