@@ -26,6 +26,7 @@ sd_section("Local Package Information",
     "p_author",
     "p_citation",
     "p_data",
+    "p_depends",       
     "p_exists",
     "p_functions",
     "p_help",
@@ -41,8 +42,7 @@ sd_section("Local Package Information",
 sd_section("Internet Based Package Informatio",
   "Functions to obtain Internet based package information.", 
   c(
-    "p_cran",
-  	"p_depends",  	
+    "p_cran", 	
     "p_search_any"
   )
 )
