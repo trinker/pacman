@@ -18,9 +18,9 @@ devtools::test()
 #staticdocs dev version
 #======================
 #packages
-# library(devtools); install_github("qdap", "trinker"); install_github("staticdocs", "hadley")
+# library(devtools); install_github("qdap", "trinker"); install_github("hadley/staticdocs")
 # install_github("acc.roxygen2", "trinker")
-library(highlight); library(staticdocs)
+pacman::p_load(highlight, staticdocs)
 
 #STEP 1: create static doc  
 #right now examples are FALSE in the future this will be true

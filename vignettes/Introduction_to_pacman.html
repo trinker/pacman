@@ -915,22 +915,20 @@ p_info(MASS, &quot;Depends&quot;)
 </code></pre>
 
 <pre><code>
-To cite pacman in publications, please use:
+To cite package &#39;pacman&#39; in publications use:
 
-  Rinker, T. W. &amp; Kurkiewicz, D. (2013). pacman: Package
-  Management for R. version 0.2.0. University at Buffalo. Buffalo,
-  New York. http://github.com/trinker/pacman
+  Tyler Rinker and Dason Kurkiewicz (2012). pacman: Package
+  Management Tool. R package version 0.2.0.
+  https://github.com/trinker/pacman
 
 A BibTeX entry for LaTeX users is
 
   @Manual{,
-    title = {{pacman}: {P}ackage Management for R},
-    author = {Tyler W. Rinker and Dason Kurkiewicz},
-    organization = {University at Buffalo/SUNY},
-    address = {Buffalo, New York},
-    note = {version 0.2.0},
-    year = {2013},
-    url = {http://github.com/trinker/pacman},
+    title = {pacman: Package Management Tool},
+    author = {Tyler Rinker and Dason Kurkiewicz},
+    year = {2012},
+    note = {R package version 0.2.0},
+    url = {https://github.com/trinker/pacman},
   }
 </code></pre>
 
@@ -982,21 +980,39 @@ cite it when using it for data analysis. See also
 <pre><code class="r">p_functions(pacman)
 </code></pre>
 
-<pre><code> [1] &quot;p_author&quot;          &quot;p_base&quot;            &quot;p_citation&quot;       
- [4] &quot;p_cite&quot;            &quot;p_cran&quot;            &quot;p_data&quot;           
- [7] &quot;p_del&quot;             &quot;p_delete&quot;          &quot;p_depends&quot;        
-[10] &quot;p_depends_reverse&quot; &quot;p_detectOS&quot;        &quot;p_exists&quot;         
-[13] &quot;p_extract&quot;         &quot;p_functions&quot;       &quot;p_funs&quot;           
-[16] &quot;p_get&quot;             &quot;p_help&quot;            &quot;p_info&quot;           
-[19] &quot;p_information&quot;     &quot;p_install&quot;         &quot;p_inter&quot;          
-[22] &quot;p_interactive&quot;     &quot;p_iscran&quot;          &quot;p_isinstalled&quot;    
-[25] &quot;p_isloaded&quot;        &quot;p_lib&quot;             &quot;p_library&quot;        
-[28] &quot;p_load&quot;            &quot;p_loaded&quot;          &quot;p_news&quot;           
-[31] &quot;p_opendir&quot;         &quot;p_path&quot;            &quot;p_sa&quot;             
-[34] &quot;p_search_any&quot;      &quot;p_search_library&quot;  &quot;p_sl&quot;             
-[37] &quot;p_temp&quot;            &quot;p_unload&quot;          &quot;p_unlock&quot;         
-[40] &quot;p_up&quot;              &quot;p_update&quot;          &quot;p_ver&quot;            
-[43] &quot;p_version&quot;         &quot;p_vign&quot;            &quot;p_vignette&quot;       
+<pre><code> [1] &quot;comma_string2vector&quot;   &quot;is.base_package&quot;      
+ [3] &quot;is.installed&quot;          &quot;is.loaded_package&quot;    
+ [5] &quot;left.just&quot;             &quot;object_check&quot;         
+ [7] &quot;p_author&quot;              &quot;p_base&quot;               
+ [9] &quot;p_basepath&quot;            &quot;p_citation&quot;           
+[11] &quot;p_cite&quot;                &quot;p_cran&quot;               
+[13] &quot;p_data&quot;                &quot;p_del&quot;                
+[15] &quot;p_delete&quot;              &quot;p_delete_single&quot;      
+[17] &quot;p_delete_warning&quot;      &quot;p_dependencies_single&quot;
+[19] &quot;p_depends&quot;             &quot;p_depends_helper&quot;     
+[21] &quot;p_depends_reverse&quot;     &quot;p_detectOS&quot;           
+[23] &quot;p_egg&quot;                 &quot;p_exists&quot;             
+[25] &quot;p_extract&quot;             &quot;p_functions&quot;          
+[27] &quot;p_funs&quot;                &quot;p_get&quot;                
+[29] &quot;p_help&quot;                &quot;p_info&quot;               
+[31] &quot;p_information&quot;         &quot;p_install&quot;            
+[33] &quot;p_inter&quot;               &quot;p_interactive&quot;        
+[35] &quot;p_iscran&quot;              &quot;p_isinstalled&quot;        
+[37] &quot;p_isloaded&quot;            &quot;p_lib&quot;                
+[39] &quot;p_library&quot;             &quot;p_load&quot;               
+[41] &quot;p_load_single&quot;         &quot;p_loaded&quot;             
+[43] &quot;p_news&quot;                &quot;p_opendir&quot;            
+[45] &quot;p_path&quot;                &quot;p_sa&quot;                 
+[47] &quot;p_search_any&quot;          &quot;p_search_library&quot;     
+[49] &quot;p_set_cranrepo&quot;        &quot;p_sl&quot;                 
+[51] &quot;p_tar&quot;                 &quot;p_temp&quot;               
+[53] &quot;p_unload&quot;              &quot;p_unlock&quot;             
+[55] &quot;p_up&quot;                  &quot;p_update&quot;             
+[57] &quot;p_ver&quot;                 &quot;p_version&quot;            
+[59] &quot;p_vign&quot;                &quot;p_vignette&quot;           
+[61] &quot;paste0&quot;                &quot;print.search_any&quot;     
+[63] &quot;print.wide_table&quot;      &quot;Trim&quot;                 
+[65] &quot;writeToClipboard&quot;     
 </code></pre>
 
 <pre><code class="r">p_funs(pacman, all=TRUE)

@@ -8,8 +8,8 @@ test_that("p_exists works for local packages",{
 
 test_that("p_exists works for packages on CRAN",{
 	
-    expect_true(p_exists(ggplot2, local = TRUE))
-    expect_false(p_exists(thisisnotarealpackage235asdkjlakl3lkj, local = TRUE))
+    expect_true(p_exists(ggplot2, local = FALSE))
+    expect_false(p_exists(thisisnotarealpackage235asdkjlakl3lkj, local = FALSE))
 })
 
 test_that("p_isinstalled works", {

@@ -40,15 +40,16 @@
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>p_exists(package, cran&nbsp;=&nbsp;TRUE)</div></pre>
+    <pre><div>p_exists(package, local&nbsp;=&nbsp;FALSE)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>package</dt>
       <dd>Name of package.</dd>
-      <dt>cran</dt>
-      <dd>logical.  If <code>TRUE</code> checks CRAN for the package;
-if <code>FALSE</code> checks the user's local library.</dd>
+      <dt>local</dt>
+      <dd>logical.  If <code>TRUE</code> checks user's local library for
+existence; if <code>FALSE</code> <a href = 'http://cran.r-project.org/'>CRAN</a> for the
+package.</dd>
     </dl>
     
     <div class="Checks if Package is On CRAN/In Local Library">
