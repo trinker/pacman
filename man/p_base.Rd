@@ -3,7 +3,7 @@
 \alias{p_base}
 \title{Base Install Packages}
 \usage{
-p_base(base.only = FALSE, open = FALSE, basemarker = "***")
+p_base(base.only = TRUE, open = FALSE, basemarker = "***")
 }
 \arguments{
 \item{base.only}{logical.  If \code{TRUE} a character vector of only base
@@ -16,7 +16,8 @@ packages.}
 packages are part of the default packages.}
 }
 \description{
-List all the packages and mark those in a base install.
+List just base packages or list all the packages in the local library and
+mark those in a base install.
 }
 \note{
 Packages that are installed when R starts are marked with an asterisk(*).

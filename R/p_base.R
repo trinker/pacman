@@ -1,6 +1,7 @@
 #' Base Install Packages
 #' 
-#' List all the packages and mark those in a base install.
+#' List just base packages or list all the packages in the local library and 
+#' mark those in a base install.
 #' 
 #' @param base.only logical.  If \code{TRUE} a character vector of only base 
 #' install packages is returned.
@@ -18,8 +19,8 @@
 #' p_base(TRUE)
 #' }
 p_base <- 
-function(base.only = FALSE, open = FALSE,  basemarker = "***"){
-    add_asterisks <- function(x) paste(x, basemarker)
+function(base.only = TRUE, open = FALSE,  basemarker = "***"){
+    add_asterisks <- function(x) paste0(x, basemarker)
     
     basepath <- p_basepath()
     
