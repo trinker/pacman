@@ -21,7 +21,7 @@ You can, however, download the [zip ball](https://github.com/trinker/pacman/zipb
 update.packages()
 ## devtools is required
 library(devtools)
-install_github("pacman", "trinker")
+install_github("trinker/pacman")
 ```
 
 Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and [devtools](http://CRAN.R-project.org/package=devtools) to install this way.
