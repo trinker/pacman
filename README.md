@@ -21,7 +21,7 @@ You can, however, download the [zip ball](https://github.com/trinker/pacman/zipb
 update.packages()
 ## devtools is required
 library(devtools)
-install_github("pacman", "trinker")
+install_github("trinker/pacman")
 ```
 
 Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and [devtools](http://CRAN.R-project.org/package=devtools) to install this way.
@@ -31,7 +31,7 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 
 - [Web Page](http://trinker.github.com/pacman/)       
 - Vignettes:     
-  - [HTML Vignette: Introduction to qdap](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html)      
+  - [HTML Vignette: Introduction to pacman](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html)      
   - [pacman Functions: Quick Reference](http://trinker.github.io/pacman_dev/vignettes/pacman_functions_quick_reference.html) 
 - [Package PDF Help Manual](https://dl.dropbox.com/u/61803503/pacman.pdf)      
 
