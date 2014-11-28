@@ -25,7 +25,7 @@ function(package="R") {
     if (package %in% c("r", "R")){
         R.Version()[["version.string"]]
     } else {
-        packageDescription(package)[["Version"]]
+        packageVersion(package)
     }
 }
 
