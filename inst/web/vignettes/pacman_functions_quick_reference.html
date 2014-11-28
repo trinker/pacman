@@ -5,6 +5,18 @@
 
 <title>pacman Functions: Quick Reference</title>
 
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
 
 
 
@@ -474,9 +486,14 @@ html {
 <td>List Package Data Sets</td>
 </tr>
 <tr>
+<td><code>p_depends</code> &amp; <br><code>p_depends_reverse</code></td>
+<td><code>package_dependencies</code> &amp; <br> <code>dependsOnPkgs</code></td>
+<td>Package Dependencies/Reverse Dependencies Locally/on CRAN</td>
+</tr>
+<tr>
 <td><code>p_exists</code></td>
 <td><code>available.packages</code> &amp; <br><code>list.files</code> + <code>.libPaths</code></td>
-<td>Logical Check if Package Exists Locally/on CRAN</td>
+<td>Logical Check if Package <br>Exists Locally/on CRAN</td>
 </tr>
 <tr>
 <td><code>p_functions</code></td>
@@ -505,7 +522,7 @@ html {
 </tr>
 <tr>
 <td><code>p_version</code></td>
-<td><code>packageDescription</code> &amp; <code>R.Version</code></td>
+<td><code>packageVersion</code> &amp; <code>R.Version</code></td>
 <td>Version of Package</td>
 </tr>
 <tr>
