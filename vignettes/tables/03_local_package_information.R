@@ -10,5 +10,5 @@
 | `p_information`  | `packageDescription`  |Information for Package |
 | `p_interactive` | NONE  | Search Packages Interactively |
 | `p_news`  | `news`  | Package NEWS |
-| `p_version`  | `packageDescription` & `R.Version`  | Version of Package |
+| `p_version`  | `packageVersion` & `R.Version`  | Version of Package |
 | `p_vignette`  | `browseVignettes`  | Package Vignettes Viewing |

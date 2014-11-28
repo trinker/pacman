@@ -715,7 +715,7 @@ fakePackage
 </tr>
 <tr>
 <td><code>p_version</code></td>
-<td><code>packageDescription</code> &amp; <code>R.Version</code></td>
+<td><code>packageVersion</code> &amp; <code>R.Version</code></td>
 <td>Version of Package</td>
 </tr>
 <tr>
@@ -820,16 +820,16 @@ p_info()
 </code></pre>
 
 <pre><code>Package: base
-Version: 3.2.0
+Version: 3.1.2
 Priority: base
 Title: The R Base Package
 Author: R Core Team and contributors worldwide
 Maintainer: R Core Team &lt;R-core@r-project.org&gt;
 Description: Base R functions
-License: Part of R 3.2.0
-Built: R 3.2.0; ; 2014-10-10 02:21:02 UTC; windows
+License: Part of R 3.1.2
+Built: R 3.1.2; ; 2014-10-31 11:06:01 UTC; windows
 
--- File: C:/R/R-devel/library/base/Meta/package.rds 
+-- File: C:/R/R-31~1.2/library/base/Meta/package.rds 
 </code></pre>
 
 <pre><code class="r">names(p_info())
@@ -1060,13 +1060,13 @@ cite it when using it for data analysis. See also
 <pre><code class="r">p_version()
 </code></pre>
 
-<pre><code>[1] &quot;R Under development (unstable) (2014-10-09 r66737)&quot;
+<pre><code>[1] &quot;R version 3.1.2 (2014-10-31)&quot;
 </code></pre>
 
 <pre><code class="r">p_ver(pacman)
 </code></pre>
 
-<pre><code>[1] &quot;0.2.0&quot;
+<pre><code>[1] &#39;0.2.0&#39;
 </code></pre>
 
 <h3>Documentation</h3>
@@ -1151,7 +1151,7 @@ p_vign(pacman)
 <pre><code class="r">length(p_cran())
 </code></pre>
 
-<pre><code>[1] 5899
+<pre><code>[1] 6047
 </code></pre>
 
 <pre><code class="r">p_iscran(&quot;qdap&quot;)
@@ -1217,7 +1217,7 @@ p_sa(&quot;hadley&quot;, &quot;author&quot;)
 <pre><code class="r">p_path()
 </code></pre>
 
-<pre><code>[1] &quot;C:/R/R-devel/library&quot;
+<pre><code>[1] &quot;C:/R/R-3.1.2/library&quot;
 </code></pre>
 
 <h3>Available Packages</h3>

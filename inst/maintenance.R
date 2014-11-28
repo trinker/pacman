@@ -18,8 +18,9 @@ devtools::test()
 #staticdocs dev version
 #======================
 #packages
-# library(devtools); install_github("qdap", "trinker"); install_github("hadley/staticdocs")
-# install_github("acc.roxygen2", "trinker")
+# devtools::install_github("qdap", "trinker/qdap")
+# devtools::install_github("hadley/staticdocs")
+# devtools::install_github("trinker/acc.roxygen2")
 pacman::p_load(highlight, staticdocs)
 
 #STEP 1: create static doc  
@@ -31,7 +32,7 @@ library(qdap); library(acc.roxygen2)
 
 #STEP 2: reshape index
 path <- "inst/web"
-path2 <- file.path(path, "/index.html")
+path2 <- file.path(path, "index.html")
 rdme <- file.path(usr, "GitHub/pacman/inst/extra_statdoc/readme.R")
 extras <- qcv(p_del, p_up, p_get, p_cite, p_funs, p_info, p_inter, p_ver, p_vign, 
 	p_sa, p_sl, p_lib, p_iscran, p_depends_reverse)
@@ -47,6 +48,7 @@ cat(paste(x, collapse="\n"), file=path2)
 
 #STEP 3: move to trinker.guthub
 library(reports)
+usr <- dirname(path.expand("~"))
 file <- file.path(usr, "GitHub/trinker.github.com")
 incoming <- file.path(file, "pacman_dev")
 delete(incoming)
