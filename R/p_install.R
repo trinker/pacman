@@ -52,9 +52,17 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
         install.packages(package, ...)
 
     }
+    
+    ## check if package was installed & success notification.
     pack <- ifelse(is.null(package), "Your package", package)
-    message(sprintf("\n%s installed", pack))
+    if (pack %in% p_lib() | is.null(package)) {
+        message(sprintf("\n%s installed", pack))
+        invisible(return(TRUE))
+    } else {
+        invisible(return(FALSE))
+    }
 }
+
 
 #' @rdname p_install
 #' @export
