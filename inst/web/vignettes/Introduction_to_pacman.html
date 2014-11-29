@@ -866,7 +866,7 @@ $URL
 <h5>Extracting Package Names</h5>
 
 <div class="notebox", style="background-color: #FFFFCC;"> 
-<b>Note:</b> The <code>p_extract</code> function is particularly useful for converting the &ldquo;Depends&rdquo;, &ldquo;Imports&rdquo;, and, &ldquo;Suggests&rdquo; fields from a single string into a vector of package names.
+<b>Note:</b> The <code>p_extract</code> function is particularly useful for converting the &ldquo;Depends&rdquo;, &ldquo;Imports&rdquo;, and &ldquo;Suggests&rdquo; fields from a single string into a vector of package names.
 </div>
 
 <pre><code class="r">## without `p_extract`
@@ -1067,6 +1067,12 @@ cite it when using it for data analysis. See also
 </code></pre>
 
 <pre><code>[1] &#39;0.2.0&#39;
+</code></pre>
+
+<pre><code class="r">p_ver(pacman) &gt;= &quot;0.2.0&quot;
+</code></pre>
+
+<pre><code>[1] TRUE
 </code></pre>
 
 <h3>Documentation</h3>
