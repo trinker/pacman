@@ -273,7 +273,7 @@ p_info(pacman, fields = "Version")
 ##### Extracting Package Names
 
 <div class="notebox", style="background-color: #FFFFCC;"> 
-<b>Note:</b> The <code>p_extract</code> function is particularly useful for converting the "Depends", "Imports", and, "Suggests" fields from a single string into a vector of package names.
+<b>Note:</b> The <code>p_extract</code> function is particularly useful for converting the "Depends", "Imports", and "Suggests" fields from a single string into a vector of package names.
 </div>
 
 ```{r}
@@ -328,6 +328,7 @@ p_funs(pacman, all=TRUE)
 ```{r}
 p_version()
 p_ver(pacman)
+p_ver(pacman) >= "0.2.0"
 ```
 
 ### Documentation
