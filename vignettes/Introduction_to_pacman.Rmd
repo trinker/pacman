@@ -485,7 +485,7 @@ The functions in this section are general tools used within the **pacman** packa
 options(markdown.HTML.stylesheet = "css/style.css")
 ```
 
-## References
+
 ```{r, echo=FALSE, message=FALSE}
 #write.bibtex(file="references.bib")
 ```

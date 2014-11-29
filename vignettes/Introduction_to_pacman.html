@@ -64,10 +64,8 @@ body {
   font-family: Helvetica, arial, sans-serif;
   font-size: 14px;
   line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px; 
   background-color: white;
-  padding: 40px; }
+  padding: 8%; }
 
 body > *:first-child {
   margin-top: 0 !important; }
@@ -139,7 +137,8 @@ h2 {
   color: black; }
 
 h3 {
-  font-size: 18px; }
+  font-size: 18px; 
+}
 
 h4 {
   font-size: 16px; 
@@ -156,10 +155,14 @@ h6 {
   font-size: 14px; 
   }
 
-h3 ~ *:not(h3) {
-    margin-left: 15px;
-}
 
+
+h3 {
+    margin-left: -.5em;
+}
+h2 {
+    margin-left: -.5em;
+}
 
 
 p, blockquote, ul, ol, dl, li, pre {
@@ -250,7 +253,7 @@ table th {
 
 table {
   border: none;
-  width: 80%;
+  width: 86%;
   border-collapse: collapse;
   font-size: 18px;
   line-height: 24px;
@@ -260,6 +263,8 @@ table {
   margin-left:auto; 
   margin-right:auto;
 }
+
+
 table thead {
   border-top: 1px solid #BFBEAD;
   border-bottom: 1px solid #BFBEAD;
@@ -1287,8 +1292,6 @@ p_sl(begins.with =&quot;pa&quot;, contains = &quot;man&quot;)
 </tbody></table>
 
 <p>The functions in this section are general tools used within the <strong>pacman</strong> package.  They are not <em>package</em> specific functions.  Discussion of their functionality is beyond the scope of this vignette.</p>
-
-<h2>References</h2>
 
 </body>
 
