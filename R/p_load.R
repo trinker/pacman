@@ -1,8 +1,9 @@
-#' Load one or more packages 
+#' Load One or More Packages 
 #'
-#' This function is a wrapper for library and require.  It checks to see if a 
+#' This function is a wrapper for \code{\link[base]{library}} and 
+#' \code{\link[base]{require}}.  It checks to see if a 
 #' package is installed, if not it attempts to install the package from CRAN 
-#' and/or any other repository in the pacman repository list.
+#' and/or any other repository in the \pkg{pacman} repository list.
 #' 
 #' @param \ldots name(s) of package(s).
 #' @param char Character vector containing packages to load.  If you are calling

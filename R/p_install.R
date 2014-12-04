@@ -57,9 +57,9 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
     pack <- ifelse(is.null(package), "Your package", package)
     if (pack %in% p_lib() | is.null(package)) {
         message(sprintf("\n%s installed", pack))
-        invisible(return(TRUE))
+        return(invisible(TRUE))
     } else {
-        invisible(return(FALSE))
+        return(invisible(FALSE))
     }
 }
 
