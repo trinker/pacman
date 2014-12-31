@@ -3,7 +3,7 @@
 \alias{p_help}
 \title{Package Help Manual}
 \usage{
-p_help(package = NULL, web = FALSE, build.pdf = FALSE)
+p_help(package = NULL, web = TRUE, build.pdf = FALSE)
 }
 \arguments{
 \item{package}{Name of package.}

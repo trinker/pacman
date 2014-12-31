@@ -23,17 +23,18 @@
 #' p_help(pacman, build.pdf=TRUE)
 #' }
 p_help <- 
-function (package = NULL, web = FALSE, build.pdf = FALSE) {
+function (package = NULL, web = TRUE, build.pdf = FALSE) {
 
     ## check if package is an object
     if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
-	
+    
     if (identical(package, character(0))) 
         package <- "base"
     y <- list.files(.libPaths())
-    if (web) {
+
+    if (isTRUE(web)) {
 
         ## Load and check XML package
         xml_mess <- suppressPackageStartupMessages(p_load(char="XML"))
