@@ -75,6 +75,17 @@ The user may wish to only install packages.  The `p_install` (aliased as `p_get`
 p_install(dbConnect, qdap, reports)
 ```
 
+### Installing a Minimal Package Version 
+
+The user may need a minimal version of a particular package installed.  The `p_install_version` ensures that a package is at least some version cut off.  If the package does not exist or the minimum version is not met, `p_install` attempts to install the package from CRAN.  This may be helpful in blog posts where a new function is being demonstrated, requiring a particular version of a package.  For example: 
+
+```{r}
+p_install_version(
+    c("pacman", "testthat"),
+    c("0.2.0", "0.9.1")
+)
+```
+
 ### Installing Temporarily
 
 Lastly, `p_temp` enables the user to temporarily install a package.  This allows a session-only install for testing out a single package without muddying the user's library.  

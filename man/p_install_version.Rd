@@ -2,7 +2,7 @@
 % Please edit documentation in R/p_install_version.R
 \name{p_install_version}
 \alias{p_install_version}
-\title{Instll Minimal Package Version}
+\title{Install Minimal Package Version}
 \usage{
 p_install_version(package, version)
 }

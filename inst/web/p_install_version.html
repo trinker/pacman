@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>p_isinstalled. pacman 0.2.0</title>
+<title>p_install_version. pacman 0.2.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -35,49 +35,57 @@
         
       </header>
       
-      <h1>Checks if Package is Installed</h1>
+      <h1>Install Minimal Package Version</h1>
 
 <div class="row">
   <div class="span8">
     <h2>Usage</h2>
-    <pre><div>p_isinstalled(package)</div></pre>
+    <pre><div>p_install_version(package, version)</div></pre>
     
     <h2>Arguments</h2>
     <dl>
       <dt>package</dt>
-      <dd>Name of package you want to check.  This can be quoted or unquoted.</dd>
+      <dd><code>character</code> vector of the name of the package(s) you want
+to install a particular minimal version of.</dd>
+      <dt>version</dt>
+      <dd>Corresponding <code>character</code> vector of the minimal
+package version(s).</dd>
     </dl>
     
-    <div class="Checks if Package is Installed">
-      <h2>Checks if Package is Installed</h2>
+    <div class="Install Minimal Package Version">
+      <h2>Install Minimal Package Version</h2>
       
     </div>
 
-    <div class="Checks if Package is Installed">
-      <h2>Checks if Package is Installed</h2>
+    <div class="Install Minimal Package Version">
+      <h2>Install Minimal Package Version</h2>
       
     </div>
 
     <div class="Description">
       <h2>Description</h2>
       
-      <p>Check if package is installed locally.</p>
+      <p>Install minimal package version(s).</p>
   
     </div>
     
     <h2 id="examples">Examples</h2>
-    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
-# p_installed(pacman)
-# p_installed(fakePackage)
-# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
-</div></pre>
+    <pre class="examples"><div class='input'>p_install_version(
+    c(&quot;pacman&quot;, &quot;testthat&quot;),
+    c(&quot;0.2.0&quot;, &quot;0.9.1&quot;)
+)
+</div>
+<strong class='message'>
+Version of pacman (v. 0.2.0) is suitable</strong>
+<strong class='message'>
+Version of testthat (v. 0.9.1) is suitable</strong></pre>
   </div>
   <div class="span4">
     <!-- <ul>
-      <li>p_isinstalled</li>
+      <li>p_install_version</li>
     </ul>
     <ul>
-      <li>installed</li><li>package</li>
+      <li>version</li>
     </ul> -->
       
         

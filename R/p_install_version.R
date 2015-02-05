@@ -1,4 +1,4 @@
-#' Instll Minimal Package Version
+#' Install Minimal Package Version
 #' 
 #' Install minimal package version(s).
 #' 

@@ -16,7 +16,6 @@ sd_section("Installing, Loading, Unloading, Updating, & Deleting",
 sd_section("Session Information",
   "Functions to obtain package session information.",  
   c(
-    "p_isloaded",  	
     "p_loaded"
   )
 )
