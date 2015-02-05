@@ -5,6 +5,7 @@ sd_section("Installing, Loading, Unloading, Updating, & Deleting",
   c(
     "p_load",
     "p_install",
+    "p_install_version",
     "p_temp",
     "p_unload",
     "p_update",
