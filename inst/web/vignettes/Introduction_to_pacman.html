@@ -473,6 +473,16 @@ html {
 <td>Install Packages from CRAN</td>
 </tr>
 <tr>
+<td><code>p_load_gh</code></td>
+<td>NONE</td>
+<td>Loads and Install GitHub Packages</td>
+</tr>
+<tr>
+<td><code>p_install_gh</code></td>
+<td>NONE</td>
+<td>Install Packages from GitHub</td>
+</tr>
+<tr>
 <td><code>p_install_version</code></td>
 <td><code>install.packages</code> &amp; <br/> <code>packageVersion</code></td>
 <td>Install Minimum Version of Packages</td>
@@ -521,6 +531,20 @@ sapply(names(success)[!success], require, character.only = TRUE)
 <p>The user may wish to only install packages.  The <code>p_install</code> (aliased as <code>p_get</code>) will allow the user to install with the same ease of format as <code>p_load</code>.  For example: </p>
 
 <pre><code class="r">p_install(dbConnect, qdap, reports)
+</code></pre>
+
+<h4>Installing &amp; Loading from GitHub</h4>
+
+<p><strong>pacman</strong> provides a wrapper to the <strong>devtools</strong> package&#39;s <code>install_github</code> function for installing and loading <a href="https://github.com">GitHub</a> packages.  <code>p_load_gh</code> and <code>p_install_gh</code> are wrapper functions that are named and operate similarly to <strong>pacman</strong>&#39;s <code>p_load</code> and <code>p_install</code>. </p>
+
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b>  Packages are passed as character vector repository addresses in the form of <code>username/repo[/subdir][@ref|#pull]</code>.
+</div>
+
+<pre><code class="r">p_install_gh(c(&quot;Dasonk/githubSearch&quot;, &quot;trinker/regexr&quot;, &quot;hadley/httr@v0.4&quot;))
+</code></pre>
+
+<pre><code class="r">p_load_gh(&quot;Dasonk/githubSearch&quot;, &quot;trinker/regexr&quot;, &quot;hadley/httr@v0.4&quot;)
 </code></pre>
 
 <h3>Installing a Minimal Package Version</h3>
@@ -1022,24 +1046,26 @@ cite it when using it for data analysis. See also
 [27] &quot;p_funs&quot;                   &quot;p_get&quot;                   
 [29] &quot;p_help&quot;                   &quot;p_info&quot;                  
 [31] &quot;p_information&quot;            &quot;p_install&quot;               
-[33] &quot;p_install_version&quot;        &quot;p_install_version_single&quot;
-[35] &quot;p_inter&quot;                  &quot;p_interactive&quot;           
-[37] &quot;p_iscran&quot;                 &quot;p_isinstalled&quot;           
-[39] &quot;p_isloaded&quot;               &quot;p_lib&quot;                   
-[41] &quot;p_library&quot;                &quot;p_load&quot;                  
-[43] &quot;p_load_single&quot;            &quot;p_loaded&quot;                
-[45] &quot;p_news&quot;                   &quot;p_opendir&quot;               
-[47] &quot;p_path&quot;                   &quot;p_sa&quot;                    
-[49] &quot;p_search_any&quot;             &quot;p_search_library&quot;        
-[51] &quot;p_set_cranrepo&quot;           &quot;p_sl&quot;                    
-[53] &quot;p_tar&quot;                    &quot;p_temp&quot;                  
-[55] &quot;p_unload&quot;                 &quot;p_unlock&quot;                
-[57] &quot;p_up&quot;                     &quot;p_update&quot;                
-[59] &quot;p_ver&quot;                    &quot;p_version&quot;               
-[61] &quot;p_vign&quot;                   &quot;p_vignette&quot;              
-[63] &quot;paste0&quot;                   &quot;print.search_any&quot;        
-[65] &quot;print.wide_table&quot;         &quot;Trim&quot;                    
-[67] &quot;writeToClipboard&quot;        
+[33] &quot;p_install_gh&quot;             &quot;p_install_version&quot;       
+[35] &quot;p_install_version_single&quot; &quot;p_inter&quot;                 
+[37] &quot;p_interactive&quot;            &quot;p_iscran&quot;                
+[39] &quot;p_isinstalled&quot;            &quot;p_isloaded&quot;              
+[41] &quot;p_lib&quot;                    &quot;p_library&quot;               
+[43] &quot;p_load&quot;                   &quot;p_load_gh&quot;               
+[45] &quot;p_load_single&quot;            &quot;p_load_single_gh&quot;        
+[47] &quot;p_loaded&quot;                 &quot;p_news&quot;                  
+[49] &quot;p_opendir&quot;                &quot;p_path&quot;                  
+[51] &quot;p_sa&quot;                     &quot;p_search_any&quot;            
+[53] &quot;p_search_library&quot;         &quot;p_set_cranrepo&quot;          
+[55] &quot;p_sl&quot;                     &quot;p_tar&quot;                   
+[57] &quot;p_temp&quot;                   &quot;p_unload&quot;                
+[59] &quot;p_unlock&quot;                 &quot;p_up&quot;                    
+[61] &quot;p_update&quot;                 &quot;p_ver&quot;                   
+[63] &quot;p_version&quot;                &quot;p_vign&quot;                  
+[65] &quot;p_vignette&quot;               &quot;parse_git_repo&quot;          
+[67] &quot;paste0&quot;                   &quot;print.search_any&quot;        
+[69] &quot;print.wide_table&quot;         &quot;Trim&quot;                    
+[71] &quot;writeToClipboard&quot;        
 </code></pre>
 
 <pre><code class="r">p_funs(pacman, all=TRUE)
@@ -1061,24 +1087,26 @@ cite it when using it for data analysis. See also
 [27] &quot;p_funs&quot;                   &quot;p_get&quot;                   
 [29] &quot;p_help&quot;                   &quot;p_info&quot;                  
 [31] &quot;p_information&quot;            &quot;p_install&quot;               
-[33] &quot;p_install_version&quot;        &quot;p_install_version_single&quot;
-[35] &quot;p_inter&quot;                  &quot;p_interactive&quot;           
-[37] &quot;p_iscran&quot;                 &quot;p_isinstalled&quot;           
-[39] &quot;p_isloaded&quot;               &quot;p_lib&quot;                   
-[41] &quot;p_library&quot;                &quot;p_load&quot;                  
-[43] &quot;p_load_single&quot;            &quot;p_loaded&quot;                
-[45] &quot;p_news&quot;                   &quot;p_opendir&quot;               
-[47] &quot;p_path&quot;                   &quot;p_sa&quot;                    
-[49] &quot;p_search_any&quot;             &quot;p_search_library&quot;        
-[51] &quot;p_set_cranrepo&quot;           &quot;p_sl&quot;                    
-[53] &quot;p_tar&quot;                    &quot;p_temp&quot;                  
-[55] &quot;p_unload&quot;                 &quot;p_unlock&quot;                
-[57] &quot;p_up&quot;                     &quot;p_update&quot;                
-[59] &quot;p_ver&quot;                    &quot;p_version&quot;               
-[61] &quot;p_vign&quot;                   &quot;p_vignette&quot;              
-[63] &quot;paste0&quot;                   &quot;print.search_any&quot;        
-[65] &quot;print.wide_table&quot;         &quot;Trim&quot;                    
-[67] &quot;writeToClipboard&quot;        
+[33] &quot;p_install_gh&quot;             &quot;p_install_version&quot;       
+[35] &quot;p_install_version_single&quot; &quot;p_inter&quot;                 
+[37] &quot;p_interactive&quot;            &quot;p_iscran&quot;                
+[39] &quot;p_isinstalled&quot;            &quot;p_isloaded&quot;              
+[41] &quot;p_lib&quot;                    &quot;p_library&quot;               
+[43] &quot;p_load&quot;                   &quot;p_load_gh&quot;               
+[45] &quot;p_load_single&quot;            &quot;p_load_single_gh&quot;        
+[47] &quot;p_loaded&quot;                 &quot;p_news&quot;                  
+[49] &quot;p_opendir&quot;                &quot;p_path&quot;                  
+[51] &quot;p_sa&quot;                     &quot;p_search_any&quot;            
+[53] &quot;p_search_library&quot;         &quot;p_set_cranrepo&quot;          
+[55] &quot;p_sl&quot;                     &quot;p_tar&quot;                   
+[57] &quot;p_temp&quot;                   &quot;p_unload&quot;                
+[59] &quot;p_unlock&quot;                 &quot;p_up&quot;                    
+[61] &quot;p_update&quot;                 &quot;p_ver&quot;                   
+[63] &quot;p_version&quot;                &quot;p_vign&quot;                  
+[65] &quot;p_vignette&quot;               &quot;parse_git_repo&quot;          
+[67] &quot;paste0&quot;                   &quot;print.search_any&quot;        
+[69] &quot;print.wide_table&quot;         &quot;Trim&quot;                    
+[71] &quot;writeToClipboard&quot;        
 </code></pre>
 
 <h4>Package Version</h4>
@@ -1185,7 +1213,7 @@ p_vign(pacman)
 <pre><code class="r">length(p_cran())
 </code></pre>
 
-<pre><code>[1] 6203
+<pre><code>[1] 6206
 </code></pre>
 
 <pre><code class="r">p_iscran(&quot;qdap&quot;)

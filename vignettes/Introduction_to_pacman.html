@@ -526,14 +526,14 @@ sapply(names(success)[!success], require, character.only = TRUE)
 <pre><code class="r">pacman::p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
 </code></pre>
 
-<h3>Just Installing</h3>
+<h4>Just Installing</h4>
 
 <p>The user may wish to only install packages.  The <code>p_install</code> (aliased as <code>p_get</code>) will allow the user to install with the same ease of format as <code>p_load</code>.  For example: </p>
 
 <pre><code class="r">p_install(dbConnect, qdap, reports)
 </code></pre>
 
-<h3>Installing &amp; Loading from GitHub</h3>
+<h4>Installing &amp; Loading from GitHub</h4>
 
 <p><strong>pacman</strong> provides a wrapper to the <strong>devtools</strong> package&#39;s <code>install_github</code> function for installing and loading <a href="https://github.com">GitHub</a> packages.  <code>p_load_gh</code> and <code>p_install_gh</code> are wrapper functions that are named and operate similarly to <strong>pacman</strong>&#39;s <code>p_load</code> and <code>p_install</code>. </p>
 
