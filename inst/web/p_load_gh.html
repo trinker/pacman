@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>p_load_gh. pacman 0.2.0</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">pacman 0.2.0</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1>Load One or More GitHub Packages</h1>
+
+<div class="row">
+  <div class="span8">
+    <h2>Usage</h2>
+    <pre><div>p_load_gh(..., char, install&nbsp;=&nbsp;TRUE, update&nbsp;=&nbsp;getOption("pac_update"))</div></pre>
+    
+    <h2>Arguments</h2>
+    <dl>
+      <dt>char</dt>
+      <dd>Character vector containing repository address to load.  If you are calling
+<code>p_load_gh</code> from within a function (or just having difficulties calling it
+using a character vector input) then pass your character vector of packages
+to load to this parameter directly.</dd>
+      <dt>install</dt>
+      <dd>logical.  If <code>TRUE</code> will attempt to install a package not
+found in the library.</dd>
+      <dt>update</dt>
+      <dd>logical.  If <code>TRUE</code> will attempt to update all out of date
+packages.  Default allows the user to set a <code>"pac_update"</code> in his/her
+.Rprofile.</dd>
+      <dt>...</dt>
+      <dd>Repository address(es) in the format
+<code>username/repo[/subdir][@ref|#pull]</code>.  Note that this must be a character string.</dd>
+    </dl>
+    
+    <div class="Load One or More GitHub Packages">
+      <h2>Load One or More GitHub Packages</h2>
+      
+    </div>
+
+    <div class="Load One or More GitHub Packages">
+      <h2>Load One or More GitHub Packages</h2>
+      
+    </div>
+
+    <div class="Description">
+      <h2>Description</h2>
+      
+      <p>This function is a wrapper for <code><a href='http://www.inside-r.org/packages/cran/devtools/docs/install_github'>install_github</a></code> and
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/library'>require</a></code>.  It checks to see if a
+package is installed, if not it attempts to install the package from
+<a href = 'https://github.com'>GitHub</a>.</p>
+  
+    </div>
+    
+    <h2 id="examples">Examples</h2>
+    <pre class="examples"><div class='input'>## &lt;strong&gt;Not run&lt;/strong&gt;: 
+# p_load_gh(&quot;Dasonk/Dmisc&quot;, &quot;trinker/regexr&quot;)
+# 
+# p_load_gh(c(&quot;trinker/regexTools&quot;,
+#     &quot;hadley/lubridate&quot;,
+#     &quot;ramnathv/rCharts&quot;))
+# ## &lt;strong&gt;End(Not run)&lt;/strong&gt;
+</div></pre>
+  </div>
+  <div class="span4">
+    <!-- <ul>
+      <li>p_load_gh</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+      
+    <h2>See also</h2>
+    
+<code><a href='http://www.inside-r.org/packages/cran/devtools/docs/install_github'>install_github</a></code>
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/library'>library</a></code>,
+<code><a href='http://www.inside-r.org/packages/cran/base/docs/library'>require</a></code>
+
+        
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="http://twitter.github.com/bootstrap">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
