@@ -9,7 +9,7 @@
 \arguments{
 \item{x}{The wide_table object.}
 
-\item{right}{logical.  If \code{FALSE} stings will be left-alinged.}
+\item{right}{logical.  If \code{FALSE} stings will be left-aligned.}
 
 \item{\ldots}{ignored}
 }

@@ -9,7 +9,7 @@
 #' @examples
 #' p_news()
 #' p_news(lattice)
-#' ## Grab specfic version subsets
+#' ## Grab specific version subsets
 #' subset(p_news(lattice), Version == 0.7)  
 p_news <-
 function(package = NULL){   

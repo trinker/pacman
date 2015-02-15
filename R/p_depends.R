@@ -14,7 +14,7 @@
 #' \code{\link[tools]{package_dependencies}} and 
 #' \code{\link[tools]{dependsOnPkgs}}.
 #' @return Returns a list of dependencies/reverse dependencies.
-#' @keywords dependency dpendencies
+#' @keywords dependency dependencies
 #' @export
 #' @rdname p_depends
 #' @seealso \code{\link[pacman]{p_info}},

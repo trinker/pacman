@@ -14,7 +14,7 @@ package).}
 (e.g. \code{data("datasets")}).}
 }
 \value{
-Returns the data sets of a package as dataframe
+Returns the data sets of a package as a \code{\link[base]{data.frame}}.
 (\code{static = FALSE}) or as a static text file (\code{static = TRUE}).
 }
 \description{

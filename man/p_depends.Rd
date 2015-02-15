@@ -53,6 +53,6 @@ p_depends_reverse("qdap", local = TRUE)
 \code{\link[tools]{package_dependencies}},
 \code{\link[tools]{dependsOnPkgs}}
 }
+\keyword{dependencies}
 \keyword{dependency}
-\keyword{dpendencies}
 

@@ -15,7 +15,7 @@ Find out news on a package or R.
 \examples{
 p_news()
 p_news(lattice)
-## Grab specfic version subsets
+## Grab specific version subsets
 subset(p_news(lattice), Version == 0.7)
 }
 \seealso{

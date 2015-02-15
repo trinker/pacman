@@ -20,7 +20,7 @@ makes sense.
 }
 \section{Note}{
  Most likely this function will move to a different
-package at some point as it's not specifically package related...
+package at some point as it's not specifically package related.
 }
 \examples{
 \dontrun{

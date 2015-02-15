@@ -91,9 +91,7 @@ cat(paste(x, collapse="\n"), file=path2)
 library(reports)
 file <- file.path(usr, "GitHub/trinker.github.com")
 incoming <- file.path(file, "pacman")
-delete(incoming)
-file.copy(path, file, TRUE, TRUE)
-file.rename(file.path(file, "web"), incoming)
+#   delete(incoming); file.copy(path, file, TRUE, TRUE) ; file.rename(file.path(file, "web"), incoming)
 
 
 

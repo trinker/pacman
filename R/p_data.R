@@ -7,7 +7,7 @@
 #' @param static logical.  If \code{TRUE} a static text document is returned 
 #' (e.g. \code{data("datasets")}).
 #' @seealso \code{\link[utils]{data}}
-#' @return Returns the data sets of a package as dataframe 
+#' @return Returns the data sets of a package as a \code{\link[base]{data.frame}}.
 #' (\code{static = FALSE}) or as a static text file (\code{static = TRUE}).
 #' @keywords data package
 #' @export
@@ -50,7 +50,7 @@ function(package = "datasets", static = FALSE) {
 #' Prints a wide_table object.
 #' 
 #' @param x The wide_table object.
-#' @param right logical.  If \code{FALSE} stings will be left-alinged.
+#' @param right logical.  If \code{FALSE} stings will be left-aligned.
 #' @param \ldots ignored
 #' @method print wide_table
 #' @export

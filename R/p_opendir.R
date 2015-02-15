@@ -10,7 +10,7 @@
 #' (either relative or absolute) to the directory to be opened.
 #' Defaults to the working directory.
 #' @section Note: Most likely this function will move to a different
-#' package at some point as it's not specifically package related...
+#' package at some point as it's not specifically package related.
 #' @export
 #' @examples
 #' \dontrun{
