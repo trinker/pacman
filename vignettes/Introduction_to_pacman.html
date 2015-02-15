@@ -558,7 +558,7 @@ sapply(names(success)[!success], require, character.only = TRUE)
 </code></pre>
 
 <pre><code>
-Version of pacman (v. 0.2.0) is suitable
+Version of pacman (v. 0.3.0) is suitable
 
 Version of testthat (v. 0.9.1) is suitable
 </code></pre>
@@ -870,16 +870,16 @@ p_info()
 </code></pre>
 
 <pre><code>Package: base
-Version: 3.1.2
+Version: 3.2.0
 Priority: base
 Title: The R Base Package
 Author: R Core Team and contributors worldwide
 Maintainer: R Core Team &lt;R-core@r-project.org&gt;
-Description: Base R functions
-License: Part of R 3.1.2
-Built: R 3.1.2; ; 2014-10-31 11:06:01 UTC; windows
+Description: Base R functions.
+License: Part of R 3.2.0
+Built: R 3.2.0; ; 2015-02-14 03:18:45 UTC; windows
 
--- File: C:/R/R-31~1.2/library/base/Meta/package.rds 
+-- File: C:/R/R-devel/library/base/Meta/package.rds 
 </code></pre>
 
 <pre><code class="r">names(p_info())
@@ -910,7 +910,7 @@ $URL
 </code></pre>
 
 <pre><code>$Version
-[1] &quot;0.2.0&quot;
+[1] &quot;0.3.0&quot;
 </code></pre>
 
 <h5>Extracting Package Names</h5>
@@ -924,13 +924,13 @@ p_info(MASS, &quot;Depends&quot;)
 </code></pre>
 
 <pre><code>$Depends
-[1] &quot;R (&gt;= 3.0.0), grDevices, graphics, stats, utils&quot;
+[1] &quot;R (&gt;= 3.1.0), grDevices, graphics, stats, utils&quot;
 </code></pre>
 
 <pre><code class="r">p_extract(p_info(MASS, &quot;Depends&quot;))
 </code></pre>
 
-<pre><code>R (&gt;= 3.0.0)    grDevices     graphics        stats        utils 
+<pre><code>R (&gt;= 3.1.0)    grDevices     graphics        stats        utils 
          &quot;R&quot;  &quot;grDevices&quot;   &quot;graphics&quot;      &quot;stats&quot;      &quot;utils&quot; 
 </code></pre>
 
@@ -968,7 +968,7 @@ p_info(MASS, &quot;Depends&quot;)
 To cite package &#39;pacman&#39; in publications use:
 
   Tyler Rinker and Dason Kurkiewicz (2012). pacman: Package
-  Management Tool. R package version 0.2.0.
+  Management Tool. R package version 0.3.0.
   https://github.com/trinker/pacman
 
 A BibTeX entry for LaTeX users is
@@ -977,7 +977,7 @@ A BibTeX entry for LaTeX users is
     title = {pacman: Package Management Tool},
     author = {Tyler Rinker and Dason Kurkiewicz},
     year = {2012},
-    note = {R package version 0.2.0},
+    note = {R package version 0.3.0},
     url = {https://github.com/trinker/pacman},
   }
 </code></pre>
@@ -988,7 +988,7 @@ A BibTeX entry for LaTeX users is
 <pre><code>
 To cite R in publications use:
 
-  R Core Team (2014). R: A language and environment for
+  R Core Team (2015). R: A language and environment for
   statistical computing. R Foundation for Statistical Computing,
   Vienna, Austria. URL http://www.R-project.org/.
 
@@ -999,7 +999,7 @@ A BibTeX entry for LaTeX users is
     author = {{R Core Team}},
     organization = {R Foundation for Statistical Computing},
     address = {Vienna, Austria},
-    year = {2014},
+    year = {2015},
     url = {http://www.R-project.org/},
   }
 
@@ -1030,42 +1030,42 @@ cite it when using it for data analysis. See also
 <pre><code class="r">p_functions(pacman)
 </code></pre>
 
-<pre><code> [1] &quot;comma_string2vector&quot;      &quot;is.base_package&quot;         
- [3] &quot;is.installed&quot;             &quot;is.loaded_package&quot;       
- [5] &quot;left.just&quot;                &quot;object_check&quot;            
- [7] &quot;p_author&quot;                 &quot;p_base&quot;                  
- [9] &quot;p_basepath&quot;               &quot;p_citation&quot;              
-[11] &quot;p_cite&quot;                   &quot;p_cran&quot;                  
-[13] &quot;p_data&quot;                   &quot;p_del&quot;                   
-[15] &quot;p_delete&quot;                 &quot;p_delete_single&quot;         
-[17] &quot;p_delete_warning&quot;         &quot;p_dependencies_single&quot;   
-[19] &quot;p_depends&quot;                &quot;p_depends_helper&quot;        
-[21] &quot;p_depends_reverse&quot;        &quot;p_detectOS&quot;              
-[23] &quot;p_egg&quot;                    &quot;p_exists&quot;                
-[25] &quot;p_extract&quot;                &quot;p_functions&quot;             
-[27] &quot;p_funs&quot;                   &quot;p_get&quot;                   
-[29] &quot;p_help&quot;                   &quot;p_info&quot;                  
-[31] &quot;p_information&quot;            &quot;p_install&quot;               
-[33] &quot;p_install_gh&quot;             &quot;p_install_version&quot;       
-[35] &quot;p_install_version_single&quot; &quot;p_inter&quot;                 
-[37] &quot;p_interactive&quot;            &quot;p_iscran&quot;                
-[39] &quot;p_isinstalled&quot;            &quot;p_isloaded&quot;              
-[41] &quot;p_lib&quot;                    &quot;p_library&quot;               
-[43] &quot;p_load&quot;                   &quot;p_load_gh&quot;               
-[45] &quot;p_load_single&quot;            &quot;p_load_single_gh&quot;        
-[47] &quot;p_loaded&quot;                 &quot;p_news&quot;                  
-[49] &quot;p_opendir&quot;                &quot;p_path&quot;                  
-[51] &quot;p_sa&quot;                     &quot;p_search_any&quot;            
-[53] &quot;p_search_library&quot;         &quot;p_set_cranrepo&quot;          
-[55] &quot;p_sl&quot;                     &quot;p_tar&quot;                   
-[57] &quot;p_temp&quot;                   &quot;p_unload&quot;                
-[59] &quot;p_unlock&quot;                 &quot;p_up&quot;                    
-[61] &quot;p_update&quot;                 &quot;p_ver&quot;                   
-[63] &quot;p_version&quot;                &quot;p_vign&quot;                  
-[65] &quot;p_vignette&quot;               &quot;parse_git_repo&quot;          
-[67] &quot;paste0&quot;                   &quot;print.search_any&quot;        
-[69] &quot;print.wide_table&quot;         &quot;Trim&quot;                    
-[71] &quot;writeToClipboard&quot;        
+<pre><code> [1] &quot;p_basepath&quot;               &quot;p_iscran&quot;                
+ [3] &quot;p_interactive&quot;            &quot;paste0&quot;                  
+ [5] &quot;p_information&quot;            &quot;p_sl&quot;                    
+ [7] &quot;p_news&quot;                   &quot;p_get&quot;                   
+ [9] &quot;p_version&quot;                &quot;p_citation&quot;              
+[11] &quot;p_load_single_gh&quot;         &quot;p_install_version&quot;       
+[13] &quot;p_install_version_single&quot; &quot;p_set_cranrepo&quot;          
+[15] &quot;p_library&quot;                &quot;left.just&quot;               
+[17] &quot;print.wide_table&quot;         &quot;p_unload&quot;                
+[19] &quot;p_unlock&quot;                 &quot;p_install_gh&quot;            
+[21] &quot;p_dependencies_single&quot;    &quot;is.base_package&quot;         
+[23] &quot;p_tar&quot;                    &quot;p_vign&quot;                  
+[25] &quot;p_install&quot;                &quot;p_search_library&quot;        
+[27] &quot;p_info&quot;                   &quot;p_detectOS&quot;              
+[29] &quot;p_data&quot;                   &quot;p_lib&quot;                   
+[31] &quot;p_delete_single&quot;          &quot;p_temp&quot;                  
+[33] &quot;is.loaded_package&quot;        &quot;p_search_any&quot;            
+[35] &quot;p_base&quot;                   &quot;p_ver&quot;                   
+[37] &quot;p_inter&quot;                  &quot;p_egg&quot;                   
+[39] &quot;p_extract&quot;                &quot;p_update&quot;                
+[41] &quot;p_del&quot;                    &quot;p_cite&quot;                  
+[43] &quot;p_funs&quot;                   &quot;Trim&quot;                    
+[45] &quot;p_load_gh&quot;                &quot;is.installed&quot;            
+[47] &quot;p_isinstalled&quot;            &quot;p_depends&quot;               
+[49] &quot;p_up&quot;                     &quot;p_author&quot;                
+[51] &quot;p_cran&quot;                   &quot;comma_string2vector&quot;     
+[53] &quot;writeToClipboard&quot;         &quot;p_delete_warning&quot;        
+[55] &quot;p_help&quot;                   &quot;p_vignette&quot;              
+[57] &quot;p_loaded&quot;                 &quot;p_path&quot;                  
+[59] &quot;print.search_any&quot;         &quot;p_load_single&quot;           
+[61] &quot;p_exists&quot;                 &quot;p_isloaded&quot;              
+[63] &quot;p_load&quot;                   &quot;parse_git_repo&quot;          
+[65] &quot;p_opendir&quot;                &quot;object_check&quot;            
+[67] &quot;p_depends_reverse&quot;        &quot;p_functions&quot;             
+[69] &quot;p_sa&quot;                     &quot;p_delete&quot;                
+[71] &quot;p_depends_helper&quot;        
 </code></pre>
 
 <pre><code class="r">p_funs(pacman, all=TRUE)
@@ -1116,13 +1116,13 @@ cite it when using it for data analysis. See also
 <pre><code class="r">p_version()
 </code></pre>
 
-<pre><code>[1] &quot;R version 3.1.2 (2014-10-31)&quot;
+<pre><code>[1] &quot;R Under development (unstable) (2015-02-13 r67815)&quot;
 </code></pre>
 
 <pre><code class="r">p_ver(pacman)
 </code></pre>
 
-<pre><code>[1] &#39;0.2.0&#39;
+<pre><code>[1] &#39;0.3.0&#39;
 </code></pre>
 
 <pre><code class="r">p_ver(pacman) &gt;= &quot;0.2.0&quot;
@@ -1213,7 +1213,7 @@ p_vign(pacman)
 <pre><code class="r">length(p_cran())
 </code></pre>
 
-<pre><code>[1] 6240
+<pre><code>[1] 6284
 </code></pre>
 
 <pre><code class="r">p_iscran(&quot;qdap&quot;)
@@ -1279,7 +1279,7 @@ p_sa(&quot;hadley&quot;, &quot;author&quot;)
 <pre><code class="r">p_path()
 </code></pre>
 
-<pre><code>[1] &quot;C:/R/R-3.1.2/library&quot;
+<pre><code>[1] &quot;C:/R/R-devel/library&quot;
 </code></pre>
 
 <h3>Available Packages</h3>

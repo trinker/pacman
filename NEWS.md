@@ -6,7 +6,7 @@ Versioning
 
 Releases will be numbered with the following semantic versioning format:
 
-<b>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;</b>
+&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;
 
 And constructed with the following guidelines:
 
@@ -17,9 +17,21 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.3.0 - 
+----------------------------------------------------------------
+
+**BUG FIXES**
+
+**NEW FEATURES**
+
+**MINOR FEATURES**
+
+**IMPROVEMENTS**
+
+**CHANGES**
 
 
-<b>CHANGES</b> IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.2.0
+**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.2.0
 ----------------------------------------------------------------
 
 * The first installation of <a href="https://github.com/trinker/pacman" target="_blank">pacman</a>

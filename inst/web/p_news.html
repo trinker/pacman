@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-<title>p_news. pacman 0.2.0</title>
+<title>p_news. pacman 0.3.0</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="author" content="">
 
@@ -20,7 +20,7 @@
     <div class="navbar">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="#">pacman 0.2.0</a>
+      <a class="brand" href="#">pacman 0.3.0</a>
       <div class="nav">
         <ul class="nav">
           <li><a href="index.html"><i class="icon-home icon-white"></i> Index</a></li>
@@ -68,7 +68,626 @@
     <h2 id="examples">Examples</h2>
     <pre class="examples"><div class='input'>p_news()
 </div>
-<div class='output'>Changes in version 3.1.2:
+<div class='output'>Changes in R-devel:
+
+NEW FEATURES
+
+    o   anyNA() gains a recursive argument.
+
+    o   When x is missing and names is not false (including the default
+	 value), Sys.getenv(x, names) returns an object of class &quot;Dlist&quot; and
+	 hence prints tidily.
+
+    o   (Windows.)  shell() no longer consults the environment variable
+	 SHELL: too many systems have been encountered where it was set
+	 incorrectly (usually to a path where software was compiled, not
+	 where it was installed).  R_SHELL, the preferred way to select a
+	 non-default shell, can be used instead.
+
+    o   Some unusual arguments to embedFonts() can now be specified as
+	 character vectors, and the defaults have been changed accordingly.
+
+    o   Functions in the Summary group duplicate less.  (PR#15798)
+
+    o   (Unix-alikes.) system(cmd, input = ) now uses
+	 ‘shell-execution-environment’ redirection, which will be more
+	 natural if cmd is not a single command (but requires a
+	 POSIX-compliant shell). (Wish of PR#15508)
+
+    o   read.fwf() and read.DIF() gain a fileEncoding argument, for
+	 convenience.
+
+    o   Graphics devices can add attributes to their description in .Device
+	 and .Devices.  Several of those included with R use a &quot;filepath&quot;
+	 attribute.
+
+    o   pmatch() uses hashing in more cases and so is faster at the expense
+	 of using more memory. (PR#15697)
+
+    o   pairs() gains new arguments to select sets of variables to be
+	 plotted against each other.
+
+    o   file.info(, extra_cols = FALSE) allows a minimal set of columns to
+	 be computed on Unix-alikes: on some systems without
+	 properly-configured caching this can be significantly faster with
+	 large file lists.
+
+    o   New function dir.exists() in package base to test efficiently
+	 whether one or more paths exist and are directories.
+
+    o   dput() and friends gain new controls hexNumeric and digits17 which
+	 output double and complex quantities as, respectively, binary
+	 fractions (exactly, see sprintf(&quot;%a&quot;)) and as decimals with up to
+	 17 significant digits.
+
+    o   save(), saveRDS() and serialize() now support ascii = NA which
+	 writes ASCII files using sprintf(&quot;%a&quot;) for double/complex
+	 quantities.  This is read-compatible with ascii = TRUE but avoids
+	 binary-&gt;decimal-&gt;binary conversions with potential loss of
+	 precision.  Unfortunately the Windows C runtime&#39;s lack of C99
+	 compliance means that the format cannot be read correctly there in
+	 R before 3.1.2.
+
+    o   The default for formatC(decimal.mark =) has been changed to be
+	 getOption(&quot;OutDec&quot;); this makes it more consistent with format()
+	 and suitable for use in print methods, e.g. those for classes
+	 &quot;density&quot;, &quot;ecdf&quot;, &quot;stepfun&quot; and &quot;summary.lm&quot;.
+	
+	 getOption(&quot;OutDec&quot;) is now consulted by the print method for class
+	 &quot;kmeans&quot;, by cut(), dendrogram(), plot.ts() and quantile() when
+	 constructing labels and for the report from legend(trace = TRUE).
+	
+	 (In part, wish of PR#15819.)
+
+    o   printNum() and hence format() and formatC() give a warning if
+	 big.mark and decimal.mark are set to the same value (period and
+	 comma are not uncommonly used for each, and this is a check that
+	 conventions have not got mixed).
+
+    o   merge() can create a result which uses long vectors on 64-bit
+	 platforms.
+
+    o   dget() gains a new argument keep.source which defaults to FALSE for
+	 speed (dput() and dget() are most often used for data objects where
+	 this can make dget() many times faster).
+
+    o   Packages may now use a file of common macro definitions in their
+	 help files, and may import definitions from other packages.
+
+    o   A number of macros have been added in the new share/Rd directory for
+	 use in package overview help pages, and promptPackage() now makes
+	 use of them.
+
+    o   tools::parse_Rd() gains a new permissive argument which converts
+	 unrecognized macros into text.  This is used by
+	 utils:::format.bibentry to allow LaTeX markup to be ignored.
+
+    o   options(OutDec =) can now specify a multi-byte character, e.g.,
+	 options(OutDec = &quot;\u00b7&quot;) in a UTF-8 locale.
+
+    o   is.recursive(x) is no longer true when x is an external pointer, a
+	 weak reference or byte code; the first enables all.equal(x, x) when
+	 x &lt;- getClass(.).
+
+    o   ls() (aka objects()) and as.list.environment() gain a new argument
+	 sorted.
+
+    o   The &quot;source&quot; attribute (which has not been added to functions by R
+	 since before R version 2.14.0) is no longer treated as special.
+
+    o   An experimental function returnValue() has been added to give
+	 on.exit() code access to a function&#39;s return value for debugging
+	 purposes.
+
+    o   crossprod(x, y) allows more matrix coercions when x or y are
+	 vectors, now equalling t(x) %*% y in these cases (also reported by
+	 Radford Neal).  Similarly, tcrossprod(x,y) and %*% work in more
+	 cases with vector arguments.
+
+    o   An experimental utility dynGet() useful for detecting cycles, aka
+	 infinite recursions.
+
+    o   The byte code compiler and interpreter now include new instructions
+	 that allow many scalar subsetting and assignment and scalar
+	 arithmetic operations to be handled more efficiently. This can
+	 result in significant performance improvements in scalar numerical
+	 code.
+
+    o   apply(m, 2, identity) is now the same as the matrix m when it has
+	 _named_ row names.
+
+    o   A new somewhat experimental function debuggingState() has been
+	 added, allowing to temporarily turn off debugging.
+
+    o   example() gets new optional argument run.donttest and tools::Rd2ex()
+	 a corresponding commentDonttest, with a default such that
+	 example(..) in help examples will run \donttest code only if used
+	 interactively.
+
+    o   rbind.data.frame() gains an optional argument make.row.names, for
+	 potential speedup.
+
+    o   New function extSoftVersion() to report on the versions of
+	 third-party software in use in this session.  Currently reports
+	 versions of zlib, bzlib, the liblzma from xz, PCRE, ICU, TRE and
+	 the iconv implementation.
+	
+	 A similar function grSoftVersion() in package grDevices reports on
+	 third-party graphics software.
+	
+	 Function tcltk::tclVersion() reports the Tcl/Tk version.
+
+    o   Calling callGeneric() without arguments now works with primitive
+	 generics to some extent.
+
+    o   vapply(x, FUN, FUN.VALUE) is more efficient notably for large
+	 length(FUN.VALUE); as extension of PR#16061.
+
+    o   as.table() now allows tables with one or more dimensions of length 0
+	 (such as as.table(integer())).
+
+    o   names(x) &lt;- NULL now clears the names of call and ... objects.
+
+    o   library() will report a warning when an insufficient dependency
+	 version is masking a sufficient one later on the library search
+	 path.
+
+    o   A new plot.raster() method has been added.
+
+    o   New check_packages_in_dir_changes() function in package tools for
+	 conveniently analyzing how changing sources impacts the check
+	 results of their reverse dependencies.
+
+    o   Speed-up from Peter Haverty for ls() and methods:::.requirePackage()
+	 speeding up package loading.  (PR#16133)
+
+    o   New (somewhat experimental) get0() function, combining exists() and
+	 get() in one call.
+
+    o   match.call() gains an envir argument for specifying the environment
+	 from which to retrieve the ... in the call, if any; this
+	 environment was wrong (or at least undesirable) when the definition
+	 argument was a function.
+
+    o   topenv() has been made .Internal() for speedup, based on Peter
+	 Haverty&#39;s proposal in PR#16140.
+
+    o   getOption() no longer calls options() in the main case.
+
+    o   Optional use of libcurl (version 7.28.0 from Oct 2012 or later) for
+	 Internet access:
+	
+	  * capabilities(&quot;libcurl&quot;) reports if this is available.
+	
+	  * libcurlVersion() reports the version in use, and other details
+	     of the &quot;libcurl&quot; build including which URL schemes it supports.
+	
+	  * curlGetHeaders() retrieves the headers for http://, https://,
+	     ftp:// and ftps:// URLs: analysis of these headers can provide
+	     insights into the `existence&#39; of a URL (it might for example be
+	     permanently redirected) and is so used in R CMD check
+	     --as-cran.
+	
+	  * download.file() has a new optional method &quot;libcurl&quot; which will
+	     handle more URL schemes, follow redirections, and allows
+	     simultaneous downloads of multiple URLs.
+	
+	  * url() has a new method &quot;libcurl&quot; which handles more URL schemes
+	     and follows redirections.  The default method is controlled by
+	     a new option url.method, which applies also to the opening of
+	     URLs _via_ file() (which happens implicitly in functions such
+	     as read.table.)
+	
+	  * When file() or url() is invoked with a https:// or ftps:// URL
+	     which the current method cannot handle, it switches to a
+	     suitable method if one is available.
+
+    o   (Windows.) The DLLs internet.dll and internet2.dll have been merged.
+	 In this version it is safe to switch (repeatedly) between the
+	 internal and Windows internet functions within an R session.
+	
+	 The Windows internet functions are still selected by flag
+	 --internet2 or setInternet2().  This can be overridden for an url()
+	 connection _via_ its new method argument.
+	
+	 download.file() has new method &quot;wininet&quot;, selected as the default
+	 by --internet2 or setInternet2().
+
+    o   parent.env&lt;- can no longer modify the parent of a locked namespace
+	 or namespace imports environment.  Contributed by Karl Millar.
+
+    o   New function isLoadedNamespace() for readability and speed.
+
+    o   names(env) now returns all the object names of an environment env,
+	 equivalently to ls(env, all.names = TRUE, sorted = FALSE) and also
+	 to the names of the corresponding list, names(as.list(env,
+	 all.names = TRUE)).
+
+    o   The memory manager now grows the heap more aggressively. This
+	 reduces the number of garbage collections, in particular while data
+	 or code are loaded, at the expense of slightly increasing the
+	 memory footprint.
+
+    o   New function trimws() for removing leading/trailing whitespace.
+
+    o   cbind() and rbind() now consider S4 inheritance during S3 dispatch.
+
+    o   cbind() and rbind() will delegate recursively to methods::cbind2
+	 (methods::rbind2) when at least one argument is an S4 object and S3
+	 dispatch fails (due to ambiguity).
+
+    o   (Windows.)  download.file(quiet = FALSE) now uses text rather than
+	 Windows progress bars in non-interactive use.
+
+    o   New function hsearch_db() in package utils for building and
+	 retrieving the help search database used by help.search(), along
+	 with functions for inspecting the concepts and keywords in the help
+	 search database.
+
+    o   New .getNamespaceInfo() as no-check version of getNamespaceInfo()
+	 mostly for internal speedup.
+
+    o   The help search system now takes \keyword entries in Rd files which
+	 are not standard keywords (as given in KEYWORDS in the R
+	 documentation directory) as concepts.  For standard keyword entries
+	 the corresponding descriptions are additionally taken as concepts.
+
+    o   Add lengths() function for getting the length of every element in a
+	 list.
+
+    o   New function toTitleCase() in package tools, tailored to package
+	 titles.
+
+    o   The matrix methods of cbind() and rbind() allow matrices as inputs
+	 which have 2^31 or more elements.  (For cbind(), wish of PR#16198.)
+
+INSTALLATION and INCLUDED SOFTWARE
+
+    o   The \donttest sections of R&#39;s help files can be tested by
+	 make check TEST_DONTTEST=TRUE .
+
+    o   It is possible to request the use of system valgrind headers _via_
+	 configure option --with-system-valgrind-headers: note the possible
+	 future incompatibility of such headers discussed in the &#39;R
+	 Installation and Administration&#39; manual. (Wish of PR#16068.)
+
+    o   The included version of liblzma has been updated to xz-utils 5.0.7
+	 (minor bug fixes from 5.0.5).
+
+    o   configure options --with-system-zlib, --with-system-bzlib and
+	 --with-system-pcre are now the default.  For the time being there
+	 is fallback to the versions included in the R sources if no system
+	 versions are found or (unlikely) if they are too old.
+	
+	 Linux users should check that the -devel or -dev versions of
+	 packages zlib, bzip2/libbz2 and pcre (or similar names) are
+	 installed.
+
+    o   configure requires the texi2any script from texinfo 5.1 or later,
+	 replacing the makeinfo program.  (makeinfo is a link to the Perl
+	 script texi2any in texinfo 5.x.)
+
+    o   R CMD INSTALL gains an option --built-timestamp=STAMP allowing 100%
+	 reproducible package building, thanks to Dirk Eddelbuettel.
+
+UTILITIES
+
+    o   There is support for testing the \dontrun and \donttest parts of
+	 examples in packages.
+	
+	 tools::testInstalledPackage() accepts new arguments commentDontrun
+	 = FALSE and commentDonttest = FALSE.
+	
+	 R CMD check gains options --run-dontrun and --run-donttest.
+
+    o   The HTML generated by tools::Rd2HTML() and tools::toHTML() methods
+	 is now ‘XHTML 1.0 Strict’.
+
+    o   The compiler package&#39;s utility function setCompilerOptions() now
+	 returns the old values invisibly. The initial optimization level
+	 can also be set with the environment variable R_COMPILER_OPTIMIZE.
+
+    o   R CMD check gains option --test-dir to specify an alternative set of
+	 tests to run.
+
+    o   R CMD check will now by default continue with testing after many
+	 types of errors, and will output a summary count of errors at the
+	 end if any have occurred.
+
+    o   R CMD check --as-cran checks a README.md file can be processed: this
+	 needs pandoc installed.
+
+    o   R CMD build adds a NeedsCompilation field if one is not already
+	 present in the DESCRIPTION file.
+
+    o   R CMD check notes uses of library() and require() in package code:
+	 see the section ‘Suggested packages’ of ‘Writing R Extensions’ for
+	 good practice.
+
+    o   R CMD check --as-cran checks the existence and accessibility of URLs
+	 in the DESCRIPTION, CITATION and NEWS.Rd files and in the help
+	 files.
+
+    o   R CMD check --as-cran reports non-ASCII characters in R source files
+	 when there is no declared package encoding.
+
+    o   R CMD check --as-cran reports (apparent) S3 methods exported but not
+	 registered.
+	
+	 It reports overwriting registered S3 methods from base/recommended
+	 packages.  (Such methods are replaced in the affected package for
+	 the rest of the session, even if the replacing namespace is
+	 unloaded.)
+	
+	 These checks can also be selected by environment variables: see the
+	 ‘R Internals’ manual.
+
+    o   R CMD check now checks that the Title and Description fields are
+	 correctly terminated.
+
+    o   R CMD check --as-cran reports if the Title field does not appear to
+	 be in title case (see ‘Writing R Extensions’: there may be false
+	 positives, especially from technical words).
+
+C-LEVEL FACILITIES
+
+    o   New C API utility logspace_sum(logx[], n).
+
+    o   Entry points rbinom_mu, rnbinom_mu and rmultinom are remapped (by
+	 default) to Rf_rbinom_mu etc.  This requires packages using them to
+	 be re-installed.
+
+    o   .C(DUP = FALSE) and .Fortran(DUP = FALSE) are now ignored, so
+	 arguments are duplicated if DUP = TRUE would do so.  As their help
+	 has long said, .Call() is much preferred.
+
+    o   New entry point R_allocLD, like R_alloc but guaranteed to have
+	 sufficient alignment for long double pointers.
+
+    o   isPairList() now returns TRUE for DOTSXP.
+
+WINDOWS BUILD CHANGES
+
+    o   Installation using external binary distributions of zlib, bzip,
+	 liblzma, pcre, libpng, jpeglib and libtiff is now required, and the
+	 build instructions have been revised.
+
+    o   A new make target rsync-extsoft has been added to obtain copies of
+	 the external libraries from CRAN.
+
+    o   Building the manuals now requires texi2any from texinfo 5.1 or
+	 later.  CRAN binary builds include the manuals, but by default
+	 builds from source will not, and they will be accessed from CRAN.
+	 See the comments in src/gnuwin32/MkRules.dist for how to specify
+	 the location of texi2any.
+
+PACKAGE INSTALLATION
+
+    o   (Windows) The use of macro ZLIB_LIBS in file src/Makevars.win (which
+	 has not been documented for a long time) now requires an external
+	 libz.a to be available (it is part of the ‘goodies’ used to compile
+	 Windows binary packages).  It would be simpler to use -lz instead.
+
+    o   The default for option pkgType on platforms using binary packages is
+	 now &quot;both&quot;, so source packages will be tried if binary versions are
+	 not available or not up to date.
+	
+	 There are options for what install.packages(type = &quot;both&quot;)
+	 (possibly called _via_ update.packages()) will do if compilation of
+	 a source package is desirable: see ?options (under utils).
+	
+	 If you intend not to accept updates as source packages, you should
+	 use update.packages(type = &quot;binary&quot;).
+
+DEPRECATED AND DEFUNCT
+
+    o   download.file(method = &quot;lynx&quot;) is defunct.
+
+    o   Use of the included versions of zlib, bzip2, xz and PCRE is
+	 deprecated: these are essentially frozen and will eventually be
+	 removed.
+
+    o   The configure option --with-valgrind-instrumentation=3 has been
+	 withdrawn, as it did not work with recent valgrind headers: it is
+	 now treated as level 2.
+
+BUG FIXES
+
+    o   Fixed two obscure bugs in pairlist subassignment, reported by
+	 Radford Neal as part of pqR issue 16.
+
+    o   Fixes for bugs in handling empty arguments and argument matching by
+	 name in log().
+
+    o   all.equal() gains methods for environments and refClasses.
+
+    o   [&lt;- and [[&lt;- gain S4 data.frame methods to avoid corruption of S4
+	 class information by the S3 methods.
+
+    o   callNextMethod() should now work within a .local call when ... is
+	 absent from formals(.local).
+
+    o   dput(pairlist(x)) generates a call to the pairlist constructor
+	 instead of the list constructor.
+
+    o   Fix missing() when arguments are propagated through .... (PR#15707)
+
+    o   eigen(m) now defaults to symmetric = TRUE even when the dimnames are
+	 asymmetric if the matrix is otherwise symmetric.  (PR#16151)
+
+    o   Fix issues with forwarding ... through callGeneric() and
+	 callNextMethod().  (PR#16141)
+
+    o   callGeneric() now works after a callNextMethod().
+
+    o   Subclass information is kept consistent when replacing an ordinary
+	 S4 class with an &quot;old class&quot; via the S4Class argument to
+	 setOldClass(). Thus, for example, a data.frame is valid for a list
+	 argument in the signature, and a factor is valid for vector
+	 arguments.
+
+Changes in version 3.1.2 patched:
+
+NEW FEATURES
+
+    o   The internal method of download.file() can now handle files larger
+	 than 2GB on 32-bit builds which support such files (tested on
+	 32-bit R running on 64-bit Windows).
+
+    o   kruskal.test() warns on more types of suspicious input.
+
+    o   The as.dendrogram() method for &quot;hclust&quot; objects gains a check
+	 argument protecting against memory explosion for invalid inputs.
+
+    o   capabilities() has a new item long.double which indicates if the
+	 build uses a long double type which is longer than double.
+
+    o   nlm() no longer modifies the callback argument in place (a new
+	 vector is allocated for each invocation, which mimics the implicit
+	 duplication that occurred in R &lt; 3.1.0); note that this is a change
+	 from the previously documented behavior. (PR#15958)
+
+    o   icuSetCollate() now accepts locale = &quot;ASCII&quot; which uses the basic C
+	 function strcmp and so collates strings byte-by-byte in numerical
+	 order.
+
+    o   sessionInfo() tries to report the OS version in use (not just that
+	 compiled under, and including details of Linux distributions).
+
+    o   model.frame() (used by lm() and many other modelling functions) now
+	 warns when it drops contrasts from factors.  (Wish of PR#16119)
+
+    o   install.packages() and friends now accept the value type = &quot;binary&quot;
+	 as a synonym for the native binary type on the platform (if it has
+	 one).
+
+    o   Single source or binary files can be supplied for
+	 install.packages(type = &quot;both&quot;) and the appropriate type and repos
+	 = NULL will be inferred.
+
+    o   New function pcre_config() to report on some of the configuration
+	 options of the version of PCRE in use.  In particular, this reports
+	 if regular expressions using \p{xx} are supported.
+
+    o   (Windows.) download.file(cacheOK = FALSE) is now supported when
+	 internet2.dll is used.
+
+INSTALLATION and INCLUDED SOFTWARE
+
+    o   The included version of PCRE has been updated to 8.36.
+
+    o   configure accepts MAKEINFO=texi2any as another way to ensure texinfo
+	 5.x is used when both 5.x and 4.x are installed.
+
+UTILITIES
+
+    o   R CMD check now checks the packages used in \donttest sections of
+	 the examples are specified in the DESCRIPTION file.  (These are
+	 needed to run the examples interactively.)
+
+    o   R CMD check checks for the undeclared use of GNU extensions in
+	 Makefiles, and for Makefiles with a missing final linefeed.
+	
+	 R CMD build will correct line endings in all Makefiles, not just
+	 those in the src directory.
+
+DEPRECATED AND DEFUNCT
+
+    o   The configure option --with-valgrind-instrumentation=3 is deprecated
+	 and will be removed in R 3.2.0.
+
+BUG FIXES
+
+    o   (Windows.) Rscript.exe was missing a manifest specifying the modern
+	 style for common controls (e.g., the download progress bar).
+
+    o   If a package had extra documentation files but no vignette, the HTML
+	 help system produced an empty index page.
+
+    o   The parser now gives an error if a null character is included in a
+	 string using Unicode escapes. (PR#16046)
+
+    o   qr.Q() failed on complex arguments due to pre-3.0(!) typo.
+	 (PR#16054)
+
+    o   abs() failed with named arguments when the argument was complex.
+	 (PR#16047)
+
+    o   &quot;noquote&quot; objects may now be used as columns in dataframes.
+	 (PR#15997)
+
+    o   Some values with extremely long names were printed incorrectly.
+	 (PR#15999)
+
+    o   Extremely large exponents on zero expressed in scientific notation
+	 (e.g. 0.0e50000) could give NaN.  (PR#15976)
+
+    o   download.file() reported downloaded sizes as 0KB if less than 1MB,
+	 only for R 3.1.2 and only on big-endian platforms.
+
+    o   prompt() did not escape percent signs in the automatically generated
+	 usage section of help files.
+
+    o   drop.terms() dropped some of the attributes of the object it was
+	 working with.  (PR#16029)
+
+    o   (Windows.) The command completion in Rgui.exe messed up the console.
+	 (PR#15791)
+
+    o   (Windows.) The choose.files() command returned a blank string when
+	 the user asked for a single file but cancelled the request.
+	 (PR#16074)
+
+    o   Math2 S4 group generics failed to correctly dispatch &quot;structure&quot;-
+	 and &quot;nonStructure&quot;-derived classes.
+
+    o   loadNamespace() imposed undocumented restrictions on the
+	 versionCheck parameter.  (Reported by Geoff Lee.)
+
+    o   Rare over-runs detected by AddressSanitizer in substr() and its
+	 replacement version have been avoided.
+
+    o   Loading packages incorrectly defining an S4 generic followed by a
+	 function of the same name caused an erroneous cyclic namespace
+	 dependency error.
+
+    o   Declared vignette encodings are now always passed to the vignette
+	 engine.
+
+    o   Port Tomas Kalibera&#39;s fix from R-devel that restores the loadMethod
+	 fast path, effectively doubling the speed of S4 dispatch.
+
+    o   power.t.test() and power.prop.test() now make use of the extendInt
+	 option of uniroot() and hence work in more extreme cases.
+	 (PR#15792)
+
+    o   If a package was updated and attached when its namespace was already
+	 loaded, it could end up with parts from one version and parts from
+	 the other.  (PR#16120)
+
+    o   tools:::.Rdconv() didn&#39;t accept --encoding= due to a typo.
+	 (PR#16121)
+
+    o   Unix-alike builds without a suitable makeinfo were documented to
+	 link the missing HTML manuals to CRAN, but did not.
+
+    o   save(*, ascii=TRUE) and load() now correctly deal with NaN&#39;s.
+	 (PR#16137)
+
+    o   split.Date() retains fractional representations while avoiding
+	 incomplete class propagation.
+
+    o   R_ext/Lapack.h had not been updated for changes to the argument
+	 lists of the (largely internal) functions dlaed2 and dlaed3.
+	 (PR#16157)
+
+    o   RShowDoc(&quot;NEWS&quot;, &quot;txt&quot;) had not been updated for the layout changes
+	 of R 3.1.0.
+
+    o   The xtfrm() method for class &quot;Surv&quot; has been corrected and its
+	 description expanded.
+
+Changes in version 3.1.2:
 
 NEW FEATURES
 
@@ -106,14 +725,18 @@ NEW FEATURES
 	 in use (if any).
 
     o   utils::URLencode() was updated to use unreserved and reserved
-	 characters from RFC 3986, &lt;URL:
-	 http://tools.ietf.org/html/rfc3986&gt;, instead of RFC 1738.
+	 characters from RFC 3986 (&lt;URL:
+	 http://tools.ietf.org/html/rfc3986&gt;) instead of RFC 1738.
 
     o   unique(warnings()) and c(warnings()) are now supported.
 
     o   The Bioconductor ‘version’ used by setRepositories() now defaults to
 	 3.0. (It can be set at runtime _via_ environment variable
 	 R_BIOC_VERSION.)
+
+    o   Omegahat is no longer listed as providing Windows binary packages,
+	 e.g. by setRepositories().  It has no binary packages available for
+	 R 3.1.x and those for earlier versions were 32-bit only.
 
 INSTALLATION and INCLUDED SOFTWARE
 
@@ -133,9 +756,9 @@ INSTALLATION and INCLUDED SOFTWARE
     o   LaTeX package upquote is no longer required for R&#39;s use of
 	 inconsolata.
 
-    o   (Windows only) If both 32 and 64 bit versions of R are installed,
-	 the bin/R.exe and bin/Rscript.exe executables now run 64 bit R.
-	 (To run 32 bit R, overwrite these files with copies of
+    o   (Windows only) If both 32- and 64-bit versions of R are installed,
+	 the bin/R.exe and bin/Rscript.exe executables now run 64-bit R.
+	 (To run 32-bit R, overwrite these files with copies of
 	 bin/i386/Rfe.exe.)
 
 UTILITIES
