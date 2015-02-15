@@ -22,7 +22,7 @@ Suggests:
     XML
 BugReports: https://github.com/trinker/pacman/issues?state=open
 Description: Tools to more conveniently perform tasks
-    associated with add on packages.  pacman conveniently wraps library and
+    associated with add-on packages.  pacman conveniently wraps library and
     package related functions and names them in an intuitive and consistent
     fashion.  It seeks to combine functionality from lower level functions which
     can speed up workflow.
