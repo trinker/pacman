@@ -11,7 +11,7 @@ Function names in the pacman package follow the format of `p_xxx` where 'xxx' is
 
 ## Installation
 
-The user can install from CRAN via:
+The user can install from [CRAN](http://cran.r-project.org/web/packages/pacman/index.html) via:
 
 ```r
 install.packages("pacman")
