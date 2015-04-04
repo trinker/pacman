@@ -24,6 +24,13 @@ BUG FIXES
 
 NEW FEATURES
 
+* Support for Bioconductor packages added compiments of Keith Hughitt.  See #62
+
+* `p_boot` added to generate a string for the standard **pacman** script header 
+  that, when added to scripts, will ensure **pacman** is installed before 
+  attempting to use it.  **pacman** will attempt to copy this string (standard 
+  script header) to the clipboard for easy cut and paste.
+
 MINOR FEATURES
 
 IMPROVEMENTS
