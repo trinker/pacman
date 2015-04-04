@@ -24,6 +24,13 @@ And constructed with the following guidelines:
 
 **NEW FEATURES**
 
+* Support for Bioconductor packages added compiments of Keith Hughitt.  See #62
+
+* `p_boot` added to generate a string for the standard  <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> script header 
+  that, when added to scripts, will ensure  <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> is installed before 
+  attempting to use it.   <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> will attempt to copy this string (standard 
+  script header) to the clipboard for easy cut and paste.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**
