@@ -44,7 +44,7 @@ function (package = "base", all = FALSE, character.only = FALSE){
     datas <- suppressWarnings(data(package = package)[["results"]][, 3])
     packagefunctions <- packagefunctions[!packagefunctions %in% datas]
 
-    return(packagefunctions)
+    return(sort(packagefunctions))
 }
 
 #' @rdname p_functions

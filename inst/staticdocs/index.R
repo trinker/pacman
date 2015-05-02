@@ -63,6 +63,7 @@ sd_section("Library Information",
 sd_section("pacman Tools",
   "General pacman tools/functions.",  
   c(
+    "p_boot",
     "p_detectOS",
   	"p_extract",
     "p_opendir" 

@@ -17,7 +17,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.3.0 - 
+**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.3.1 - 
 ----------------------------------------------------------------
 
 **BUG FIXES**
@@ -35,10 +35,12 @@ And constructed with the following guidelines:
 
 **IMPROVEMENTS**
 
+* `p_functions` sorts the functions alphabetically before returning them.
+
 **CHANGES**
 
 
-**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.2.0
+**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.2.0 - 0.3.0
 ----------------------------------------------------------------
 
 * The first installation of <a href="https://github.com/trinker/pacman" target="_blank">pacman</a>

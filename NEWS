@@ -17,7 +17,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-CHANGES IN pacman VERSION 0.3.0 - 
+CHANGES IN pacman VERSION 0.3.1 - 
 ----------------------------------------------------------------
 
 BUG FIXES
@@ -35,10 +35,12 @@ MINOR FEATURES
 
 IMPROVEMENTS
 
+* `p_functions` sorts the functions alphabetically before returning them.
+
 CHANGES
 
 
-CHANGES IN pacman VERSION 0.2.0
+CHANGES IN pacman VERSION 0.2.0 - 0.3.0
 ----------------------------------------------------------------
 
 * The first installation of pacman
