@@ -49,16 +49,36 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
             package <- NULL 
         } 
 
-        install.packages(package, ...)
-
+        response = tryCatch(
+            install.packages(package, ...),
+            warning = function(w) {
+                ## for users with bioconductor on installed, check to see if
+                ## package is available in the bioconductor repos
+                if ("Biobase" %in% p_lib()) {
+                    if (!exists('biocLite')) {
+                        source("http://bioconductor.org/biocLite.R")
+                    }
+                    suppressMessages(
+                        suppressWarnings(
+                            biocLite(package, suppressUpdates=TRUE)
+                        )
+                    )
+                }
+                # preserve original warning message
+                return(w)
+            }
+        )
     }
     
     ## check if package was installed & success notification.
     pack <- ifelse(is.null(package), "Your package", package)
+
     if (pack %in% p_lib() | is.null(package)) {
         message(sprintf("\n%s installed", pack))
         return(invisible(TRUE))
     } else {
+        # If unable to install, raise warning and continue
+        warning(response)
         return(invisible(FALSE))
     }
 }

@@ -75,6 +75,10 @@ The user may wish to only install packages.  The `p_install` (aliased as `p_get`
 p_install(dbConnect, qdap, reports)
 ```
 
+This will install packages available on CRAN, or, if the user has previously
+installed [Bioconductor](http://www.bioconductor.org/), from the Bioconductor
+repos.
+
 #### Installing & Loading from GitHub
 
 **pacman** provides a wrapper to the **devtools** package's `install_github` function for installing and loading [GitHub](https://github.com) packages.  `p_load_gh` and `p_install_gh` are wrapper functions that are named and operate similarly to **pacman**'s `p_load` and `p_install`. 
