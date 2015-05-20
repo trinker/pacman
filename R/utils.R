@@ -18,7 +18,7 @@ function(dataframe, column = NULL, keep.class = FALSE) {
     if (is.null(column)) column <- colnames(dataframe)
     lj <- function(DF2, column) {
         if (is.null(column)) column <- colnames(DF2)
-        Q <- max(nchar(c(as.character(DF2[, column]), names(DF2)[column])))
+        Q <- max(nchar(c(as.character(DF2[, column]), column)))
         DF2 <- data.frame(rbind(colnames(DF2), do.call(cbind,
             lapply(DF2, as.character))), check.names = FALSE)
         DF2[, column] <- left.j(as.character(DF2[, column]))     

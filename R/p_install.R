@@ -49,11 +49,12 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
             package <- NULL 
         } 
 
-        response = tryCatch(
+        response <- tryCatch(
             install.packages(package, ...),
             warning = function(w) {
                 ## for users with bioconductor on installed, check to see if
                 ## package is available in the bioconductor repos
+                biocLite <- NULL
                 if ("Biobase" %in% p_lib()) {
                     if (!exists('biocLite')) {
                         source("http://bioconductor.org/biocLite.R")
