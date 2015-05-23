@@ -64,8 +64,6 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
                     ))
                 ))
             
-                # preserve original warning message
-                return(w)
             }
         )
     }
