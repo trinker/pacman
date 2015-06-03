@@ -11,7 +11,7 @@ test_that("p_install_version returns TRUE if minimal is met",{
 })
 
 test_that("p_install_version returns FALSE package doesn't exist on CRAN and min. not met",{
-    
-    out2 <- suppressWarnings(p_install_version("MadeUpPackage", "3.4.1"))
+
+    expect_warning(out2 <- p_install_version("MadeUpPackage", "3.4.1"))
     expect_false(out2[[1]])
 })
