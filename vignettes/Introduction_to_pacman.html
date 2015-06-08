@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Introduction to pacman</title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  background-color: white;
+  padding: 8%; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url("../../images/modules/styleguide/para.png") no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; 
+}
+
+h1.title {
+  text-align:center;
+  font-size:250%
+}
+
+h1.auth {
+  text-align:center;
+  font-size:150%
+}
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; 
+}
+
+h4 {
+  font-size: 16px; 
+  font-style: italic;    
+}
+
+h5 {
+  font-size: 14px; 
+  color: #686868
+}
+
+h6 {
+  color: #777777;
+  font-size: 14px; 
+  }
+
+
+
+h3 {
+    margin-left: -.5em;
+}
+h2 {
+    margin-left: -.5em;
+}
+
+
+p, blockquote, ul, ol, dl, li, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url("../../images/modules/pulls/dirty-shade.png") repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0; }
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+/* Tables */
+table caption{
+  margin-top: 20pt;
+  font-weight: normal;
+  font-family: "Trebuchet MS", Garuda, sans-serif;
+}
+
+table th {
+  text-transform: capitalize;
+}
+
+/* Tables */
+
+table {
+  border: none;
+  width: 86%;
+  border-collapse: collapse;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: 'Trebuchet MS';
+  font-weight: bolder;
+  color: rgb(102, 102, 102);
+  margin-left:auto; 
+  margin-right:auto;
+}
+
+
+table thead {
+  border-top: 1px solid #BFBEAD;
+  border-bottom: 1px solid #BFBEAD;
+}
+table th, table td, table caption {
+  margin: 0;
+  padding: 2pt 6pt;
+  text-align: left;
+  vertical-align: top;
+}
+table th {
+  background: #CFCEBD;
+  color: #575400;
+}
+table td {
+  border-bottom: 1px solid #CFCEBD;
+}
+
+table td.ind1 {
+  text-indent:25px;
+}
+
+table td.ind2 {
+  text-indent:50px;
+}
+
+table td.ind3 {
+  text-indent:90px;
+}
+
+
+table tr:nth-child(2n+1) {
+/*  background: #E8F2FF; */
+  background: #FFFFFF;
+}
+
+table tr:nth-child(2n) {
+/*  background: #E8F2FF; */
+  background: #F8F8F8;
+}
+
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  color:#B00000;
+  border: 1px solid #A0A0A0 ;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+html {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #C8C8C8; /* Fills the page */
+  position: relative; /* Fix for absolute positioning */
+}
+
+.textbox {
+    border-radius: 5px; 
+    padding:10px; 
+    border: 1px solid black;
+}
+
+.notebox {
+    border-radius: 5px; 
+    padding:10px; 
+    border: 1px solid #CC3300;
+    font-style:italic;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+<!--
+%\VignetteEngine{knitr}
+%\VignetteIndexEntry{Introduction to pacman}
+-->
+
+<h1 class="title">Introduction to pacman</h1>
+
+<h1 class="auth">Tyler W. Rinker & Dason Kurkiewicz</h1>
+
+<p>The <strong>pacman</strong> package is an R package management tool that combines the functionality of base <code>library</code> related functions into intuitively named functions.  This package is ideally added to <a href="http://stat.ethz.ch/R-manual/R-patched/library/base/html/Startup.html">.Rprofile</a> to increase workflow by reducing time recalling obscurely named functions, reducing code, and integrating functionality of base functions to simultaneously perform multiple actions.  The function <code>p_load</code> is particularly well suited for help forums and blog posts, as it will load and, if necessary, install missing packages.</p>
+
+<p><img width="350", height="150" style="display:block; margin-left:auto; margin-right:auto;" src="data:image/png;base64,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" /></p>
+
+<p>Function names in the pacman package follow the format of <code>p_xxx</code> where &#39;xxx&#39; is the task the function performs.  For instance the <code>p_load</code> function allows the user to load one or more packages as a more generic substitute for the <code>library</code> or <code>require</code> functions and if the package isn&#39;t available locally it will install it for you.  In keeping with the <code>library</code> function, the user need not use quotes around package names for most *<em>pacman</em> functions.</p>
+
+<h2 id="loading"> Installing, Loading, Unloading, Updating, & Deleting </h2>
+
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_load</code></td>
+<td><code>install.packages</code> + <code>library</code></td>
+<td>Load and Install Packages</td>
+</tr>
+<tr>
+<td><code>p_install</code></td>
+<td><code>install.packages</code></td>
+<td>Install Packages from CRAN</td>
+</tr>
+<tr>
+<td><code>p_load_gh</code></td>
+<td>NONE</td>
+<td>Load and Install GitHub Packages</td>
+</tr>
+<tr>
+<td><code>p_install_gh</code></td>
+<td>NONE</td>
+<td>Install Packages from GitHub</td>
+</tr>
+<tr>
+<td><code>p_install_version</code></td>
+<td><code>install.packages</code> &amp; <br/> <code>packageVersion</code></td>
+<td>Install Minimum Version of Packages</td>
+</tr>
+<tr>
+<td><code>p_temp</code></td>
+<td>NONE</td>
+<td>Install a Package Temporarily</td>
+</tr>
+<tr>
+<td><code>p_unload</code></td>
+<td><code>detach</code></td>
+<td>Unload Packages from the Search Path</td>
+</tr>
+<tr>
+<td><code>p_update</code></td>
+<td><code>update.packages</code></td>
+<td>Update Out-of-Date Packages</td>
+</tr>
+</tbody></table>
+
+<p>The heart of <strong>pacman</strong> is it&#39;s ability to reduce typing in package management actions.  The functions in this section <strong><em>act</em></strong> on packages.  </p>
+
+<h3>Installing and Loading</h3>
+
+<p><code>p_load</code> is a general use tool that can install, load, and update packages.  The form for the function is:</p>
+
+<pre><code class="r">p_load(..., char, install = TRUE, update = getOption(&quot;pac_update&quot;), character.only = FALSE)
+</code></pre>
+
+<p>where the <code>...</code> argument allows the user to pass in quoted (or unquoted) package names.  For example, many blog posts begin coding with this sort of package call:</p>
+
+<pre><code class="r">packs &lt;- c(&quot;XML&quot;, &quot;devtools&quot;, &quot;RCurl&quot;, &quot;fakePackage&quot;, &quot;SPSSemulate&quot;)
+success &lt;- suppressWarnings(sapply(packs, require, character.only = TRUE))
+install.packages(names(success)[!success])
+sapply(names(success)[!success], require, character.only = TRUE)
+</code></pre>
+
+<p>With pacman this call can be reduced to:</p>
+
+<pre><code class="r">pacman::p_load(XML, devtools, RCurl, fakePackage, SPSSemulate)
+</code></pre>
+
+<h4>Just Installing</h4>
+
+<p>The user may wish to only install packages.  The <code>p_install</code> (aliased as <code>p_get</code>) will allow the user to install with the same ease of format as <code>p_load</code>.  For example: </p>
+
+<pre><code class="r">p_install(dbConnect, qdap, reports)
+</code></pre>
+
+<p>This will install packages available on CRAN, or, if the user has previously
+installed <a href="http://www.bioconductor.org/">Bioconductor</a>, from the Bioconductor
+repos.</p>
+
+<h4>Installing &amp; Loading from GitHub</h4>
+
+<p><strong>pacman</strong> provides a wrapper to the <strong>devtools</strong> package&#39;s <code>install_github</code> function for installing and loading <a href="https://github.com">GitHub</a> packages.  <code>p_load_gh</code> and <code>p_install_gh</code> are wrapper functions that are named and operate similarly to <strong>pacman</strong>&#39;s <code>p_load</code> and <code>p_install</code>. </p>
+
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b>  Packages are passed as character vector repository addresses in the form of <code>username/repo[/subdir][@ref|#pull]</code>.
+</div>
+
+<pre><code class="r">p_install_gh(c(&quot;Dasonk/githubSearch&quot;, &quot;trinker/regexr&quot;, &quot;hadley/httr@v0.4&quot;))
+</code></pre>
+
+<pre><code class="r">p_load_gh(&quot;Dasonk/githubSearch&quot;, &quot;trinker/regexr&quot;, &quot;hadley/httr@v0.4&quot;)
+</code></pre>
+
+<h3>Installing a Minimal Package Version</h3>
+
+<p>The user may need a minimal version of a particular package installed.  The <code>p_install_version</code> ensures that a package is at least some version cut off.  If the package does not exist or the minimum version is not met, <code>p_install</code> attempts to install the package from CRAN.  This may be helpful in blog posts where a new function is being demonstrated, requiring a particular version of a package.  For example: </p>
+
+<pre><code class="r">p_install_version(
+    c(&quot;pacman&quot;, &quot;testthat&quot;),
+    c(&quot;0.2.0&quot;, &quot;0.9.1&quot;)
+)
+</code></pre>
+
+<pre><code>
+Version of pacman (v. 0.3.1) is suitable
+
+Version of testthat (v. 0.9.1) is suitable
+</code></pre>
+
+<h3>Installing Temporarily</h3>
+
+<p>Lastly, <code>p_temp</code> enables the user to temporarily install a package.  This allows a session-only install for testing out a single package without muddying the user&#39;s library.  </p>
+
+<pre><code class="r">p_temp(aprof)
+
+p_isinstalled(aprof)
+p_isloaded(aprof)
+</code></pre>
+
+<pre><code>> p_temp(aprof)
+trying URL 'http://cran.rstudio.com/bin/windows/contrib/3.1/aprof_0.2.zip'
+Content type 'application/zip' length 34037 bytes (33 Kb)
+opened URL
+downloaded 33 Kb
+
+package 'aprof' successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+        C:\Users\you\AppData\Local\Temp\RtmpYh6bSr\downloaded_packages
+
+aprof installed
+Loading required package: aprof
+> 
+> p_isinstalled(aprof)
+[1] FALSE
+> p_isloaded(aprof)
+aprof 
+ TRUE 
+</code></pre>
+
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b>  When using <code>p_load</code> and friends inside of functions, the user may want to explicitly supply the package name(s) as character strings and set <code>character.only = FALSE</code> or supply a character vector of package names directly to the <code>char</code> argument if it is available.
+</div>
+
+<h3>Unloading</h3>
+
+<p>To unload package(s) from the search path use <code>p_unload</code>.  <code>p_unload</code> will not unload the base install packages that load when R boots up. The form for the function is:</p>
+
+<pre><code class="r">p_unload(..., negate = FALSE, char, character.only = FALSE)
+</code></pre>
+
+<p>where the <code>...</code> argument allows the user to pass in quoted package names.  Users may also supply <code>&quot;all&quot;</code> to <code>...</code>  to remove all add on packages.  The <code>negate</code> argument negates, unloading all packages except those supplied to <code>...</code>.</p>
+
+<pre><code class="r">p_load(lattice)
+p_isloaded(lattice)
+p_unload(lattice)
+p_isloaded(lattice)
+</code></pre>
+
+<pre><code>> p_load(lattice)
+> p_isloaded(lattice)
+lattice 
+   TRUE 
+> p_unload(lattice)
+The following packages have been unloaded:
+lattice
+
+> p_isloaded(lattice)
+lattice 
+  FALSE 
+</code></pre>
+
+<h3>Updating</h3>
+
+<p>The <code>p_update</code> (aliased as <code>p_up</code>) is a wrapper for <code>update.packages</code> (defaults to <code>ask = FALSE</code>) and <code>old.packages</code>. To update packages use:</p>
+
+<pre><code class="r">p_update() 
+</code></pre>
+
+<p>The user may just query (not actually update) for out-of-date packages using:</p>
+
+<pre><code class="r">p_update(FALSE) 
+</code></pre>
+
+<h3>Deleting</h3>
+
+<p>The task of recalling the name <code>remove.packages</code> for permanently deleting a package from your library has been replaced by the more consistently named <code>p_delete</code> (aliased as <code>p_del</code>).  Additionally, the user may delete multiple packages in a single call.  The function protects the user from accidental attempted base package deletion as it will not delete base installed packages (see <code>installed.packages(priority = &quot;base&quot;)</code>).  Try it out:</p>
+
+<pre><code class="r">p_delete(fakePackage, stats)
+</code></pre>
+
+<pre><code>> p_delete(fakePackage, stats)
+The following packages are a base install and will not be deleted:
+stats
+
+The following packages not found in library:
+fakePackage
+</code></pre>
+
+<h2 id="session_info"> Session Information  </h2>  
+
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_loaded</code></td>
+<td><code>.packages</code> &amp; <code>sessionInfo</code></td>
+<td>List Attached Packages</td>
+</tr>
+<tr>
+<td><code>p_isloaded</code></td>
+<td>NONE</td>
+<td>Logical Test of Attached Package</td>
+</tr>
+</tbody></table>
+
+<p>The <code>p_loaded</code> function allows the user to quickly determine what packages are attached.  </p>
+
+<pre><code class="r">p_loaded()
+</code></pre>
+
+<p>This returns non-base packages that are attached.  Adding <code>all = TRUE</code> will return the base packages as well.</p>
+
+<pre><code class="r">p_loaded(all = TRUE)
+</code></pre>
+
+<p>Supplying a package name to <code>p_loaded</code> (or alternatively <code>p_isloaded()</code>) provides a logical check of whether package(s) are attached:</p>
+
+<pre><code class="r">p_loaded(base, MASS)
+</code></pre>
+
+<pre><code> base  MASS 
+ TRUE FALSE 
+</code></pre>
+
+<pre><code class="r">p_isloaded(methods, stats)
+</code></pre>
+
+<pre><code>methods   stats 
+   TRUE    TRUE 
+</code></pre>
+
+<h2 id="local_package_info"> Local Package Information </h2>   
+
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_author</code></td>
+<td><code>packageDescription</code></td>
+<td>Author of Package</td>
+</tr>
+<tr>
+<td><code>p_citation</code></td>
+<td><code>citation</code></td>
+<td>Citation for Package</td>
+</tr>
+<tr>
+<td><code>p_data</code></td>
+<td><code>data</code></td>
+<td>List Package Data Sets</td>
+</tr>
+<tr>
+<td><code>p_depends</code> &amp; <br><code>p_depends_reverse</code></td>
+<td><code>package_dependencies</code> &amp; <br> <code>dependsOnPkgs</code></td>
+<td>Package Dependencies/Reverse Dependencies Locally/on CRAN</td>
+</tr>
+<tr>
+<td><code>p_exists</code></td>
+<td><code>available.packages</code> &amp; <br><code>list.files</code> + <code>.libPaths</code></td>
+<td>Logical Check if Package <br>Exists Locally/on CRAN</td>
+</tr>
+<tr>
+<td><code>p_functions</code></td>
+<td><code>loadNamespace</code> + <code>getNamespaceExports</code></td>
+<td>Functions from Package</td>
+</tr>
+<tr>
+<td><code>p_help</code></td>
+<td><code>help</code></td>
+<td>HTML/PDF Manuals Viewing</td>
+</tr>
+<tr>
+<td><code>p_information</code></td>
+<td><code>packageDescription</code></td>
+<td>Information for Package</td>
+</tr>
+<tr>
+<td><code>p_interactive</code></td>
+<td>NONE</td>
+<td>Search Packages Interactively</td>
+</tr>
+<tr>
+<td><code>p_news</code></td>
+<td><code>news</code></td>
+<td>Package NEWS</td>
+</tr>
+<tr>
+<td><code>p_version</code></td>
+<td><code>packageVersion</code> &amp; <code>R.Version</code></td>
+<td>Version of Package</td>
+</tr>
+<tr>
+<td><code>p_vignette</code></td>
+<td><code>browseVignettes</code></td>
+<td>Package Vignettes Viewing</td>
+</tr>
+</tbody></table>
+
+<p>The functions in this section provide information about a user&#39;s local packages.</p>
+
+<h3>Package Existence (CRAN &amp; Locally)</h3>
+
+<p>The <code>p_exists</code> function checks if a package exists either on CRAN (default) or locally.  <code>p_isinstalled</code> is a convenience wrapper for <code>p_exists</code> that is defaulted to check local existence.</p>
+
+<pre><code class="r">p_exists(pacman)  
+</code></pre>
+
+<pre><code>[1] TRUE
+</code></pre>
+
+<pre><code class="r">p_exists(pacman, local = TRUE)
+</code></pre>
+
+<pre><code>[1] TRUE
+</code></pre>
+
+<pre><code class="r">p_exists(I_dont_exist)
+</code></pre>
+
+<pre><code>[1] FALSE
+</code></pre>
+
+<pre><code class="r">## wrapper for `p_exists(local = TRUE)`
+p_isinstalled(pacman)
+</code></pre>
+
+<pre><code>[1] TRUE
+</code></pre>
+
+<h3>Package Dependencies &amp; Reverse Dependencies</h3>
+
+<p>The <code>p_depends</code> function checks the dependencies of package either on CRAN (default) or locally.  The <code>p_depends_reverse</code> function accomplishes the same task for a package&#39;s reverse dependencies.</p>
+
+<pre><code class="r">p_depends(lattice)  
+</code></pre>
+
+<pre><code>$Imports
+[1] &quot;grid&quot;      &quot;grDevices&quot; &quot;graphics&quot;  &quot;stats&quot;     &quot;utils&quot;    
+
+$Suggests
+[1] &quot;KernSmooth&quot; &quot;MASS&quot;      
+</code></pre>
+
+<pre><code class="r">p_depends(lattice, local = TRUE)
+</code></pre>
+
+<pre><code>$Imports
+[1] &quot;grid&quot;      &quot;grDevices&quot; &quot;graphics&quot;  &quot;stats&quot;     &quot;utils&quot;    
+
+$Suggests
+[1] &quot;KernSmooth&quot; &quot;MASS&quot;      
+</code></pre>
+
+<pre><code class="r">p_depends(MASS)  
+</code></pre>
+
+<pre><code>$Depends
+[1] &quot;grDevices&quot; &quot;graphics&quot;  &quot;stats&quot;     &quot;utils&quot;    
+
+$Suggests
+[1] &quot;lattice&quot;  &quot;nlme&quot;     &quot;nnet&quot;     &quot;survival&quot;
+</code></pre>
+
+<pre><code class="r">p_depends(MASS, local = TRUE)
+</code></pre>
+
+<pre><code>$Depends
+[1] &quot;grDevices&quot; &quot;graphics&quot;  &quot;stats&quot;     &quot;utils&quot;    
+
+$Suggests
+[1] &quot;lattice&quot;  &quot;nlme&quot;     &quot;nnet&quot;     &quot;survival&quot;
+</code></pre>
+
+<h3>Package Attributes</h3>
+
+<p>The following subsections discuss <strong>pacman</strong> functions that are used to grab package information.</p>
+
+<h4>Package Information</h4>
+
+<p><code>p_information</code> (aliased as <code>p_info</code>) is a more general use function to grab information about a package from its &#39;DESCRIPTION&#39; file; for example, the following <em>fields</em> come from the <strong>base</strong> package: (a) Package, (b) Version, &#40;c) Priority, (d) Title, (e) Author, (f) Maintainer, (g) Description, (h) License, and (i) Built.  </p>
+
+<p>The form for the function is:</p>
+
+<pre><code class="r">p_info(package, ..., fields = NULL)
+</code></pre>
+
+<p>where <code>package</code> is a package name and <code>...</code> argument allows the user to request specific fields (the <code>fields</code> argument is a character only <a href="http://adv-r.had.co.nz/Computing-on-the-language.html#calling-from-another-function">&#39;escape hatch&#39;</a> for use of <code>p_info</code> inside of functions). If both <code>...</code> and <code>fields</code> are blank, <code>p_info</code> returns a list of all package fields from the package &#39;DESCRIPTION&#39; file.  <code>p_info</code> returns a <code>list</code>.</p>
+
+<pre><code class="r">## Defaults to supply a list of fields with information about R&#39;s base package
+p_info()
+</code></pre>
+
+<pre><code>Package: base
+Version: 3.3.0
+Priority: base
+Title: The R Base Package
+Author: R Core Team and contributors worldwide
+Maintainer: R Core Team &lt;R-core@r-project.org&gt;
+Description: Base R functions.
+License: Part of R 3.3.0
+Built: R 3.3.0; ; 2015-05-20 02:21:23 UTC; windows
+
+-- File: C:/R/R-devel/library/base/Meta/package.rds 
+</code></pre>
+
+<pre><code class="r">names(p_info())
+</code></pre>
+
+<pre><code>[1] &quot;Package&quot;     &quot;Version&quot;     &quot;Priority&quot;    &quot;Title&quot;       &quot;Author&quot;     
+[6] &quot;Maintainer&quot;  &quot;Description&quot; &quot;License&quot;     &quot;Built&quot;      
+</code></pre>
+
+<pre><code class="r">p_info(pacman, Author)
+</code></pre>
+
+<pre><code>$Author
+[1] &quot;Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb], Keith Hughitt [ctb]&quot;
+</code></pre>
+
+<pre><code class="r">p_info(pacman, BugReports, URL)
+</code></pre>
+
+<pre><code>$BugReports
+[1] &quot;https://github.com/trinker/pacman/issues?state=open&quot;
+
+$URL
+[1] &quot;https://github.com/trinker/pacman&quot;
+</code></pre>
+
+<pre><code class="r">p_info(pacman, fields = &quot;Version&quot;)
+</code></pre>
+
+<pre><code>$Version
+[1] &quot;0.3.1&quot;
+</code></pre>
+
+<h5>Extracting Package Names</h5>
+
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b> The <code>p_extract</code> function is particularly useful for converting the &ldquo;Depends&rdquo;, &ldquo;Imports&rdquo;, and &ldquo;Suggests&rdquo; fields from a single string into a vector of package names.
+</div>
+
+<pre><code class="r">## without `p_extract`
+p_info(MASS, &quot;Depends&quot;)  
+</code></pre>
+
+<pre><code>$Depends
+[1] &quot;R (&gt;= 3.1.0), grDevices, graphics, stats, utils&quot;
+</code></pre>
+
+<pre><code class="r">p_extract(p_info(MASS, &quot;Depends&quot;))
+</code></pre>
+
+<pre><code>R (&gt;= 3.1.0)    grDevices     graphics        stats        utils 
+         &quot;R&quot;  &quot;grDevices&quot;   &quot;graphics&quot;      &quot;stats&quot;      &quot;utils&quot; 
+</code></pre>
+
+<pre><code class="r">p_extract(p_info(methods, &quot;Imports&quot;))
+</code></pre>
+
+<pre><code>  utils   stats 
+&quot;utils&quot; &quot;stats&quot; 
+</code></pre>
+
+<h4>Package Author</h4>
+
+<p><code>p_author</code> provides author information for a package as a string.</p>
+
+<pre><code class="r">p_author(pacman)
+</code></pre>
+
+<pre><code>[1] &quot;Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb],\nKeith Hughitt [ctb]&quot;
+</code></pre>
+
+<pre><code class="r">p_author()
+</code></pre>
+
+<pre><code>[1] &quot;R Core Team and contributors worldwide&quot;
+</code></pre>
+
+<h4>Package Citation</h4>
+
+<p><code>p_citation</code> (aliased as <code>p_cite</code>) provides citation information for a package to the console and in interactive sessions, attempts to copy to the users clipboard (OS dependent).</p>
+
+<pre><code class="r">p_cite(pacman)
+</code></pre>
+
+<pre><code>
+To cite package &#39;pacman&#39; in publications use:
+
+  Tyler Rinker and Dason Kurkiewicz (2015). pacman: Package
+  Management Tool. R package version 0.3.1.
+  https://github.com/trinker/pacman
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {pacman: Package Management Tool},
+    author = {Tyler Rinker and Dason Kurkiewicz},
+    year = {2015},
+    note = {R package version 0.3.1},
+    url = {https://github.com/trinker/pacman},
+  }
+</code></pre>
+
+<pre><code class="r">p_citation()
+</code></pre>
+
+<pre><code>
+To cite R in publications use:
+
+  R Core Team (2015). R: A language and environment for
+  statistical computing. R Foundation for Statistical Computing,
+  Vienna, Austria. URL http://www.R-project.org/.
+
+A BibTeX entry for LaTeX users is
+
+  @Manual{,
+    title = {R: A Language and Environment for Statistical Computing},
+    author = {{R Core Team}},
+    organization = {R Foundation for Statistical Computing},
+    address = {Vienna, Austria},
+    year = {2015},
+    url = {http://www.R-project.org/},
+  }
+
+We have invested a lot of time and effort in creating R, please
+cite it when using it for data analysis. See also
+&#39;citation(&quot;pkgname&quot;)&#39; for citing R packages.
+</code></pre>
+
+<h4>Package Data</h4>
+
+<p><code>p_data</code> provides a <code>data.frame</code> of a package&#39;s data sets and a description.</p>
+
+<pre><code class="r">p_data(lattice)
+</code></pre>
+
+<pre><code>  Data          Description                                          
+1 barley        Yield data from a Minnesota barley trial             
+2 environmental Atmospheric environmental conditions in New York City
+3 ethanol       Engine exhaust fumes from burning ethanol            
+4 melanoma      Melanoma skin cancer incidence                       
+5 singer        Heights of New York Choral Society singers           
+</code></pre>
+
+<h4>Package Functions</h4>
+
+<p><code>p_functions</code> (aliased as <code>p_funs</code>) provides a list of the functions utilized by a package.  Setting <code>all = TRUE</code> will yield the non-exported functions as well.</p>
+
+<pre><code class="r">p_functions(pacman)
+</code></pre>
+
+<pre><code> [1] &quot;comma_string2vector&quot;      &quot;is.base_package&quot;         
+ [3] &quot;is.installed&quot;             &quot;is.loaded_package&quot;       
+ [5] &quot;left.just&quot;                &quot;object_check&quot;            
+ [7] &quot;p_author&quot;                 &quot;p_base&quot;                  
+ [9] &quot;p_basepath&quot;               &quot;p_boot&quot;                  
+[11] &quot;p_citation&quot;               &quot;p_cite&quot;                  
+[13] &quot;p_cran&quot;                   &quot;p_data&quot;                  
+[15] &quot;p_del&quot;                    &quot;p_delete&quot;                
+[17] &quot;p_delete_single&quot;          &quot;p_delete_warning&quot;        
+[19] &quot;p_dependencies_single&quot;    &quot;p_depends&quot;               
+[21] &quot;p_depends_helper&quot;         &quot;p_depends_reverse&quot;       
+[23] &quot;p_detectOS&quot;               &quot;p_egg&quot;                   
+[25] &quot;p_exists&quot;                 &quot;p_extract&quot;               
+[27] &quot;p_functions&quot;              &quot;p_funs&quot;                  
+[29] &quot;p_get&quot;                    &quot;p_help&quot;                  
+[31] &quot;p_info&quot;                   &quot;p_information&quot;           
+[33] &quot;p_install&quot;                &quot;p_install_gh&quot;            
+[35] &quot;p_install_version&quot;        &quot;p_install_version_single&quot;
+[37] &quot;p_inter&quot;                  &quot;p_interactive&quot;           
+[39] &quot;p_iscran&quot;                 &quot;p_isinstalled&quot;           
+[41] &quot;p_isloaded&quot;               &quot;p_lib&quot;                   
+[43] &quot;p_library&quot;                &quot;p_load&quot;                  
+[45] &quot;p_load_gh&quot;                &quot;p_load_single&quot;           
+[47] &quot;p_load_single_gh&quot;         &quot;p_loaded&quot;                
+[49] &quot;p_news&quot;                   &quot;p_opendir&quot;               
+[51] &quot;p_path&quot;                   &quot;p_sa&quot;                    
+[53] &quot;p_search_any&quot;             &quot;p_search_library&quot;        
+[55] &quot;p_set_cranrepo&quot;           &quot;p_sl&quot;                    
+[57] &quot;p_tar&quot;                    &quot;p_temp&quot;                  
+[59] &quot;p_unload&quot;                 &quot;p_unlock&quot;                
+[61] &quot;p_up&quot;                     &quot;p_update&quot;                
+[63] &quot;p_ver&quot;                    &quot;p_version&quot;               
+[65] &quot;p_vign&quot;                   &quot;p_vignette&quot;              
+[67] &quot;parse_git_repo&quot;           &quot;paste0&quot;                  
+[69] &quot;print.search_any&quot;         &quot;print.wide_table&quot;        
+[71] &quot;Trim&quot;                     &quot;writeToClipboard&quot;        
+</code></pre>
+
+<pre><code class="r">p_funs(pacman, all=TRUE)
+</code></pre>
+
+<pre><code> [1] &quot;comma_string2vector&quot;      &quot;is.base_package&quot;         
+ [3] &quot;is.installed&quot;             &quot;is.loaded_package&quot;       
+ [5] &quot;left.just&quot;                &quot;object_check&quot;            
+ [7] &quot;p_author&quot;                 &quot;p_base&quot;                  
+ [9] &quot;p_basepath&quot;               &quot;p_boot&quot;                  
+[11] &quot;p_citation&quot;               &quot;p_cite&quot;                  
+[13] &quot;p_cran&quot;                   &quot;p_data&quot;                  
+[15] &quot;p_del&quot;                    &quot;p_delete&quot;                
+[17] &quot;p_delete_single&quot;          &quot;p_delete_warning&quot;        
+[19] &quot;p_dependencies_single&quot;    &quot;p_depends&quot;               
+[21] &quot;p_depends_helper&quot;         &quot;p_depends_reverse&quot;       
+[23] &quot;p_detectOS&quot;               &quot;p_egg&quot;                   
+[25] &quot;p_exists&quot;                 &quot;p_extract&quot;               
+[27] &quot;p_functions&quot;              &quot;p_funs&quot;                  
+[29] &quot;p_get&quot;                    &quot;p_help&quot;                  
+[31] &quot;p_info&quot;                   &quot;p_information&quot;           
+[33] &quot;p_install&quot;                &quot;p_install_gh&quot;            
+[35] &quot;p_install_version&quot;        &quot;p_install_version_single&quot;
+[37] &quot;p_inter&quot;                  &quot;p_interactive&quot;           
+[39] &quot;p_iscran&quot;                 &quot;p_isinstalled&quot;           
+[41] &quot;p_isloaded&quot;               &quot;p_lib&quot;                   
+[43] &quot;p_library&quot;                &quot;p_load&quot;                  
+[45] &quot;p_load_gh&quot;                &quot;p_load_single&quot;           
+[47] &quot;p_load_single_gh&quot;         &quot;p_loaded&quot;                
+[49] &quot;p_news&quot;                   &quot;p_opendir&quot;               
+[51] &quot;p_path&quot;                   &quot;p_sa&quot;                    
+[53] &quot;p_search_any&quot;             &quot;p_search_library&quot;        
+[55] &quot;p_set_cranrepo&quot;           &quot;p_sl&quot;                    
+[57] &quot;p_tar&quot;                    &quot;p_temp&quot;                  
+[59] &quot;p_unload&quot;                 &quot;p_unlock&quot;                
+[61] &quot;p_up&quot;                     &quot;p_update&quot;                
+[63] &quot;p_ver&quot;                    &quot;p_version&quot;               
+[65] &quot;p_vign&quot;                   &quot;p_vignette&quot;              
+[67] &quot;parse_git_repo&quot;           &quot;paste0&quot;                  
+[69] &quot;print.search_any&quot;         &quot;print.wide_table&quot;        
+[71] &quot;Trim&quot;                     &quot;writeToClipboard&quot;        
+</code></pre>
+
+<h4>Package Version</h4>
+
+<p><code>p_version</code> (aliased as <code>p_ver</code>) gives the version of a package.</p>
+
+<pre><code class="r">p_version()
+</code></pre>
+
+<pre><code>[1] &quot;R Under development (unstable) (2015-05-19 r68384)&quot;
+</code></pre>
+
+<pre><code class="r">p_ver(pacman)
+</code></pre>
+
+<pre><code>[1] &#39;0.3.1&#39;
+</code></pre>
+
+<pre><code class="r">p_ver(pacman) &gt;= &quot;0.2.0&quot;
+</code></pre>
+
+<pre><code>[1] TRUE
+</code></pre>
+
+<h3>Documentation</h3>
+
+<p>The following subsections discuss <strong>pacman</strong> functions that are used to view help manuals, news, and vignettes for a package.</p>
+
+<h4>Package Help Manual</h4>
+
+<p>The <code>p_help</code> function accesses a package&#39;s help documentation in HTML or PDF form.  If no Internet connection is available the pdf can be built from the package&#39;s internal files.</p>
+
+<pre><code class="r">p_help(pacman)
+p_help(pacman, web = FALSE)
+p_help(pacman, build.pdf = TRUE)
+</code></pre>
+
+<h4>Package News</h4>
+
+<p><code>p_news</code> provides the NEWS file for for R or an add-on package.</p>
+
+<pre><code class="r">p_news()
+p_news(pacman)
+## Grab specfic version subsets
+subset(p_news(lattice), Version == 0.7)  
+</code></pre>
+
+<div class="notebox", style="background-color: #FFFFCC;"> 
+<b>Note:</b>  <code>p_news</code> yields an object of class: &ldquo;news_db_from_Rd&rdquo;, &ldquo;news_db&rdquo;, and &ldquo;data.frame&rdquo; and can be coerced to an ordinary data.frame via: <code>as.data.frame</code>.
+</div>
+
+<h4>Package Vignette</h4>
+
+<p><code>p_vignette</code> (aliased as <code>p_vign</code>) enables an interactive HTML exploration of packages&#39; vignettes.  The default (i.e., no package supplied) is to interact with all of the package vignettes available from a user&#39;s local library. </p>
+
+<pre><code class="r">p_vignette()
+p_vign(pacman)
+</code></pre>
+
+<h3>Interactive Package Exploration</h3>
+
+<p>Lastly, the user may explore packages and package functions more interactively with <code>p_interactive</code> (aliased as <code>p_inter</code>).  This function is an interactive mix of <code>p_library</code> and <code>p_functions</code>.  <code>p_interactive</code> provides the user&#39;s local packages (their library) to choose to explore and then displays available functions for the chosen package.  The user may optionally view the documentation for the chosen function from the chosen package.  This function has no arguments as this information is passed interactively.</p>
+
+<pre><code class="r">p_interactive()
+</code></pre>
+
+<h2 id="internet_package_info"> Internet Based Package Information  </h2> 
+
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_cran</code></td>
+<td><code>available.package</code></td>
+<td>List CRAN Package</td>
+</tr>
+<tr>
+<td><code>p_iscran</code></td>
+<td><code>%in%</code> + <code>available.package</code></td>
+<td>Logical Test of CRAN</td>
+</tr>
+<tr>
+<td><code>p_search_any</code></td>
+<td>NONE</td>
+<td>Search for Package by Author</td>
+</tr>
+</tbody></table>
+
+<p>The functions in this section are Internet based and provide information about available CRAN packages.</p>
+
+<h3>CRAN Packages</h3>
+
+<p><code>p_cran</code> provides a list of available <a href="http://cran.r-project.org/">CRAN</a> packages.  Its counterpart, p_iscran provides a logical check whether a package is available on CRAN.</p>
+
+<pre><code class="r">p_cran()
+</code></pre>
+
+<pre><code class="r">length(p_cran())
+</code></pre>
+
+<pre><code>[1] 6714
+</code></pre>
+
+<pre><code class="r">p_iscran(&quot;qdap&quot;)
+</code></pre>
+
+<pre><code>[1] TRUE
+</code></pre>
+
+<h3>Search CRAN</h3>
+
+<p><code>p_search_any</code> (aliased as <code>p_sa</code>) enables approximate matching by package or author/maintainer names containing the search term.  The first argument to <code>p_search_any</code>, <code>term</code>, is the word or name to search for.  The second argument <code>search.by</code> tells the function what fields to search through: <code>1</code>-<code>&quot;Maintainer&quot;</code>, <code>1</code>-<code>&quot;Author&quot;</code>, <code>2</code>-<code>&quot;Package&quot;</code>, <code>3</code>-<code>&quot;Version&quot;</code>.</p>
+
+<p>For example, we may choose to search for packages with the word <strong>&ldquo;color&rdquo;</strong> in the package name or packages with authors/maintainers named <strong>&ldquo;hadley&rdquo;</strong>.  We could accomplish these tasks as follows:</p>
+
+<pre><code class="r">p_sa(&quot;color&quot;, &quot;package&quot;)
+p_sa(&quot;hadley&quot;, &quot;author&quot;)
+</code></pre>
+
+<h2 id="library_info"> Library Information  </h2>   
+
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_base</code></td>
+<td>NONE</td>
+<td>List Base Package</td>
+</tr>
+<tr>
+<td><code>p_library</code></td>
+<td><code>Sys.getenv</code> + <code>.packages</code></td>
+<td>List Packages in User&#39;s Library</td>
+</tr>
+<tr>
+<td><code>p_path</code></td>
+<td><code>.libPaths</code></td>
+<td>Path to User&#39;s Package Library</td>
+</tr>
+<tr>
+<td><code>p_search_library</code></td>
+<td>NONE</td>
+<td>Search Library Packages Via Partial Matching</td>
+</tr>
+<tr>
+<td><code>p_unlock</code></td>
+<td>NONE</td>
+<td>Deletes 00LOCK Directory</td>
+</tr>
+</tbody></table>
+
+<p>The functions in this section interact with the user&#39;s local library.</p>
+
+<h3>Library Location</h3>
+
+<p><code>p_path</code>, a wrapper for <code>.libPaths</code>, provides the location to the user&#39;s library of add-on packages.  </p>
+
+<pre><code class="r">p_path()
+</code></pre>
+
+<pre><code>[1] &quot;C:/R/R-devel/library&quot;
+</code></pre>
+
+<h3>Available Packages</h3>
+
+<p><code>p_library</code> (aliased as <code>p_lib</code>) yields a vector of a user&#39;s packages and optionally opens the library location.  <code>p_base</code>, similarly, provides the user&#39;s packages, but, marks base install packages with a marker (defaults to <code>**</code>).</p>
+
+<pre><code class="r">p_lib()
+p_base()
+</code></pre>
+
+<h3>Search Library</h3>
+
+<p><code>p_search_library</code> (aliased <code>p_sl</code>) is a handy function to search the library for a package that&#39;s on the tip of your tongue but you can&#39;t remember the full name or how to spell it.  <code>p_search_library</code> takes then form:</p>
+
+<pre><code class="r">p_search_library(begins.with = NULL, contains = NULL)
+</code></pre>
+
+<p>The first argument, <code>begins.with</code> allows the user to search for a package by initial characters.  The <code>contains</code> argument allows the user to search for character strings within the package name.  This will yield a list of matching packages that the user can then choose one to load.</p>
+
+<pre><code class="r">p_sl(&quot;pa&quot;)
+p_sl(contains = &quot;man&quot;)
+p_sl(begins.with =&quot;pa&quot;, contains = &quot;man&quot;)
+</code></pre>
+
+<h3>Unlock Library</h3>
+
+<p><code>p_unlock</code> deletes the <strong>00LOCK</strong> directory that is accidentally left behind by a fail in <code>install.packages</code>.  The documentation for <code>install.packages</code> states that sometimes <code>install.packages</code> can: </p>
+
+<blockquote>
+<p>fail so badly that the lock directory is not removed: this inhibits any further installs to the library directory (or for &ndash;pkglock, of the package) until the lock directory is removed manually.</p>
+</blockquote>
+
+<p>When this occurs simply enter <code>p_unlock()</code> and the <strong>00LOCK</strong> directory is removed.</p>
+
+<h2 id="pacman_tools"> pacman Tools  </h2>  
+
+<p><strong>Quick Reference Table</strong> </p>
+
+<table><thead>
+<tr>
+<th>pacman Function</th>
+<th>Base Equivalent</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>p_detectOS</code></td>
+<td><code>Sys.info</code></td>
+<td>Detect Operating System</td>
+</tr>
+<tr>
+<td><code>p_extract</code></td>
+<td>NONE</td>
+<td>Extract Packages from String</td>
+</tr>
+<tr>
+<td><code>p_opendir</code></td>
+<td><code>system</code>/<code>shell</code></td>
+<td>Open a Directory</td>
+</tr>
+</tbody></table>
+
+<p>The functions in this section are general tools used within the <strong>pacman</strong> package.  They are not <em>package</em> specific functions.  Discussion of their functionality is beyond the scope of this vignette.</p>
+
+</body>
+
+</html>
