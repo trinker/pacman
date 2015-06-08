@@ -37,6 +37,9 @@ And constructed with the following guidelines:
 
 * `p_functions` sorts the functions alphabetically before returning them.
 
+* `p_path` now takes a package as an agument, allowing the user to return the 
+  path to individual packages as well.
+  
 **CHANGES**
 
 

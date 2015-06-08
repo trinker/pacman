@@ -4,13 +4,18 @@
 \alias{p_path}
 \title{Path to Library of Add-On Packages}
 \usage{
-p_path()
+p_path(package = "R")
+}
+\arguments{
+\item{package}{Name of package (default returns path to library of add-on
+packages).}
 }
 \description{
 Path to library of add-on packages.
 }
 \examples{
 p_path()
+p_path(pacman)
 }
 \seealso{
 \code{\link[base]{.libPaths}}
