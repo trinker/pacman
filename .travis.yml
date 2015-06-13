@@ -21,3 +21,7 @@ env:
      - R_CHECK_ARGS="--as-cran"
      - DISPLAY=:99.0
      - BOOTSTRAP_LATEX=1
+     - WARNINGS_ARE_ERRORS=1
+     - R_BUILD_ARGS=--no-manual
+     - R_CHECK_ARGS=--no-manual --as-cran
+     
