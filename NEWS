@@ -45,6 +45,9 @@ IMPROVEMENTS
   
 CHANGES
 
+* `p_version` returns a numeric version for `p_version("R")` to allow for 
+  logical comparisons.
+
 
 CHANGES IN pacman VERSION 0.2.0 - 0.3.0
 ----------------------------------------------------------------

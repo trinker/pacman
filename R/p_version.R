@@ -16,6 +16,10 @@
 #' 
 #' p_ver_cran()
 #' p_ver_cran(pacman)
+#'
+#' ## Compare local to CRAN version
+#' p_ver(pacman) == p_ver_cran(pacman)
+#' p_ver(pacman) > p_ver_cran(pacman)
 #' }
 p_version <-
 function(package="R") {
@@ -26,7 +30,7 @@ function(package="R") {
     }
 
     if (package %in% c("r", "R")){
-        R.Version()[["version.string"]]
+        getRversion()
     } else {
         packageVersion(package)
     }

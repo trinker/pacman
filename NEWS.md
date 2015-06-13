@@ -45,6 +45,9 @@ And constructed with the following guidelines:
   
 **CHANGES**
 
+* `p_version` returns a numeric version for `p_version("R")` to allow for 
+  logical comparisons.
+
 
 **CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.2.0 - 0.3.0
 ----------------------------------------------------------------
