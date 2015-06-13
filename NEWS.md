@@ -31,6 +31,9 @@ And constructed with the following guidelines:
   attempting to use it.   <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> will attempt to copy this string (standard 
   script header) to the clipboard for easy cut and paste.
 
+* `p_version_cran` (`p_ver_cran`) added to check R/package version currently 
+  available on CRAN.
+
 **MINOR FEATURES**
 
 **IMPROVEMENTS**

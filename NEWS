@@ -31,6 +31,9 @@ NEW FEATURES
   attempting to use it.  **pacman** will attempt to copy this string (standard 
   script header) to the clipboard for easy cut and paste.
 
+* `p_version_cran` (`p_ver_cran`) added to check R/package version currently 
+  available on CRAN.
+
 MINOR FEATURES
 
 IMPROVEMENTS
