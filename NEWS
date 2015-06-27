@@ -33,6 +33,9 @@ NEW FEATURES
 
 * `p_version_cran` (`p_ver_cran`) added to check R/package version currently 
   available on CRAN.
+  
+* `p_version_diff` (`p_ver_diff`) added to determine version difference between 
+  a local package and CRAN.
 
 MINOR FEATURES
 
