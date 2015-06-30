@@ -50,7 +50,7 @@ function(..., all = FALSE, char, character.only = FALSE) {
     if (all) {
         loaded <- .packages()
     } else {
-        loaded <- names(sessionInfo()[["otherPkgs"]])
+        loaded <- names(utils::sessionInfo()[["otherPkgs"]])
     }
 
     if (!all && (length(packs) > 1 || !is.na(packs))) {

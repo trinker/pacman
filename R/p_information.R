@@ -51,7 +51,7 @@ function(package = "base", ..., fields = NULL) {
     }
 
     ## grab the information and return it if not fields supplied
-    out <- packageDescription(package)
+    out <- utils::packageDescription(package)
     if (is.null(fields)) return(out)
 
 	## clean up extra space and \n from pretty printing

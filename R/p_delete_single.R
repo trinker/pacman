@@ -32,7 +32,7 @@ function (package) {
 
 	## Force delte the package
 	loc <- dirname(system.file(package = package) )
-    suppressWarnings(remove.packages(pkgs = package, lib = loc))
+    suppressWarnings(utils::remove.packages(pkgs = package, lib = loc))
     
     return(invisible(meta))
 }

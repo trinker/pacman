@@ -7,7 +7,7 @@ p_install_version_single <- function(package, version){
         if (isTRUE(out)) {
             message(sprintf(
                 "\n%s not found in user's library; Version %s was installed", 
-                package, packageVersion(package))
+                package, utils::packageVersion(package))
             )
         }
         return(invisible(out))

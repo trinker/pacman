@@ -24,7 +24,7 @@ function (package, local = FALSE) {
     p_egg(package)
 
     if (!local){
-        available_packages <- rownames(available.packages())
+        available_packages <- rownames(utils::available.packages())
         package %in% available_packages
     } else {
         local_packages <- list.files(.libPaths())

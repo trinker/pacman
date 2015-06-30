@@ -35,7 +35,7 @@ function(package="R") {
     if (package %in% c("r", "R")){
         getRversion()
     } else {
-        packageVersion(package)
+        utils::packageVersion(package)
     }
 }
 
@@ -105,7 +105,7 @@ function (package = "R") {
     if (package %in% c("r", "R")) {
         myver <- getRversion()
     } else {
-        myver <- packageVersion(package)
+        myver <- utils::packageVersion(package)
     }
 
     ## Compare Local/CRAN and generate difference message

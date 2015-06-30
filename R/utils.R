@@ -67,7 +67,7 @@ function(dataframe, column = NULL, keep.class = FALSE) {
                 Date=as.Date(d[[i]], origin='1970-01-01'), 
                 POSIXct=as.POSIXct(d[[i]], origin='1970-01-01'), 
                 factor=as.factor(d[[i]]),
-                as(d[[i]], colClasses[i]) ))
+                methods::as(d[[i]], colClasses[i]) ))
             d
         }
         DF3 <- colClasses(DF3, CLASS)
@@ -126,7 +126,7 @@ is.installed <- function(x) system.file(package = x) != ""
 
 ## Check if package exists on the system
 is.base_package <- function(x) {
-    base_install <- rownames(installed.packages(priority="base"))
+    base_install <- rownames(utils::installed.packages(priority="base"))
 	any(x %in% c(base_install))
 }	
 	
@@ -139,7 +139,7 @@ is.loaded_package <- function(x = NULL, include.via.namespace = FALSE) {
     } 
 
     the_packages_loaded <- unlist(lapply(fields, function(x) {
-        names(sessionInfo()[[x]])
+        names(utils::sessionInfo()[[x]])
     }))
     if (!is.null(the_packages_loaded)) {
         the_packages_loaded <- sort(the_packages_loaded)
@@ -155,7 +155,7 @@ p_dependencies_single <- function(x, all=FALSE, fields = c("Depends", "Imports")
 
     ## grab Depends and Imports for package
     ## remove parenthesis, unlist, and individual character vector of packages
-    depends <- comma_string2vector(unlist(packageDescription(x)[fields], 
+    depends <- comma_string2vector(unlist(utils::packageDescription(x)[fields], 
         use.names=FALSE))
 
     ## return package dependencies (all includes "R" and base install packages)
@@ -204,7 +204,7 @@ parse_git_repo <- function(path) {
           username_rx, repo_rx, subdir_rx, ref_or_pull_or_release_rx)
 
       param_names <- c("username", "repo", "subdir", "ref", "pull", "release", "invalid")
-      replace <- setNames(sprintf("\\%d", seq_along(param_names)), param_names)
+      replace <- stats::setNames(sprintf("\\%d", seq_along(param_names)), param_names)
       params <- lapply(replace, function(r) gsub(github_rx, r, path, perl = TRUE))
       if (params$invalid != "") stop(sprintf("Invalid git repo: %s", path))
       params <- params[sapply(params, nchar) > 0]

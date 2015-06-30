@@ -24,5 +24,5 @@ function(package = NULL){
     }
     # the extra parenthesis allows us to pass in object
     # containing the string of interest.
-    news(package = (package))
+    utils::news(package = (package))
 }

@@ -24,12 +24,12 @@ p_update <-
 function (update = TRUE, ask = FALSE, ...) {
 	
     p_set_cranrepo()
-    out <- unname(old.packages()[, 1])
+    out <- unname(utils::old.packages()[, 1])
 	
     if (update){ 
         # TODO: Add package options
         #       Make 'ask' one of those options...
-        update.packages(ask = ask, ...)
+        utils::update.packages(ask = ask, ...)
     	return(invisible(out))
     } 
     out

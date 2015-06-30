@@ -2,7 +2,7 @@ Package: pacman
 Type: Package
 Title: Package Management Tool
 Version: 0.3.1
-Date: 2015-06-27
+Date: 2015-06-30
 Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"),
         email = "tyler.rinker@gmail.com"), person("Dason",
         "Kurkiewicz", role = c("aut", "ctb"), email =
@@ -12,7 +12,7 @@ Author: Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb],
         Keith Hughitt [ctb]
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends: R (>= 2.13.0)
-Imports: devtools
+Imports: devtools, methods
 Suggests: knitr, lattice, testthat (>= 0.9.0), XML
 BugReports: https://github.com/trinker/pacman/issues?state=open
 Description: Tools to more conveniently perform tasks associated with

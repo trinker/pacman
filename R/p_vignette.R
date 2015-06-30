@@ -41,7 +41,7 @@ function(..., char, interactive = TRUE, character.only = FALSE){
         if (inherits(pack, "try-error") | (length(pack) == 1 && 
             pack %in% c("TRUE", "FALSE"))) {
             if (interactive) {
-                pack <- unique(vignette()[["results"]][, "Package"])
+                pack <- unique(utils::vignette()[["results"]][, "Package"])
             } else {
                 pack <- "all"
             }
@@ -51,12 +51,12 @@ function(..., char, interactive = TRUE, character.only = FALSE){
     ## Interactive picking if ! all
     if (interactive){
         p_load("tools")
-        return(browseVignettes(package=pack))
+        return(utils::browseVignettes(package=pack))
     }
 
     ## Return a dataframe if not interactive
     ## Get list of all vignettes
-    all <- vignette()
+    all <- utils::vignette()
     all <- data.frame(all[["results"]], stringsAsFactors = FALSE)
     all <- all[, !colnames(all) %in% c("LibPath")]
     spltitle <- strsplit(all[, "Title"], " (source, ", fixed=TRUE)

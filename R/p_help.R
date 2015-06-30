@@ -50,11 +50,11 @@ function (package = NULL, web = TRUE, build.pdf = FALSE) {
         base <- gsub("/", "", content, fixed = TRUE)
         if (!(package %in% base)) {
             p1 <- "http://cran.r-project.org/web/packages/"
-            browseURL(paste0(p1, package, "/", package, ".pdf"))
+            utils::browseURL(paste0(p1, package, "/", package, ".pdf"))
         } else {
             p1 <- "http://stat.ethz.ch/R-manual/"
             p2 <- "R-patched/library/"
-            browseURL(paste0(p1, p2, package, "/html/00Index.html"))
+            utils::browseURL(paste0(p1, p2, package, "/html/00Index.html"))
         }
     } else {
         if (!build.pdf) {
@@ -62,7 +62,7 @@ function (package = NULL, web = TRUE, build.pdf = FALSE) {
                 j <- options()[["help_type"]]
                 on.exit(options(help_type = j))
                 options(help_type = "html")
-                help(package = (package))
+                utils::help(package = (package))
             } else {
                 z <- "http://cran.r-project.org/web/packages/"
                 url_string <- paste0(z, package, "/", package, ".pdf")
@@ -72,7 +72,7 @@ function (package = NULL, web = TRUE, build.pdf = FALSE) {
                     message("Failed to establish connection to:\n", url_string)
                     return(invisible(FALSE))
                 }
-                browseURL(url_string)
+                utils::browseURL(url_string)
 
             }
         } else {

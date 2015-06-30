@@ -44,7 +44,7 @@ function(begins.with = NULL, contains = NULL){
     }
 
     ## allow for interactive choice from matches and load
-    choice <- select.list(c("EXIT p_search_library", matches), 
+    choice <- utils::select.list(c("EXIT p_search_library", matches), 
         title = "packages")
     if (choice == "EXIT p_search_library") {
         return(invisible(NULL))

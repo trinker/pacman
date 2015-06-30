@@ -90,7 +90,7 @@ p_depends_helper <- function(package, local = local, reverse = FALSE, ...){
     	p_set_cranrepo()
     	
     	## cran packages dependencies or reverse dependencies
-        cran_db <- available.packages()
+        cran_db <- utils::available.packages()
     	if (!package %in% cran_db[, "Package"]) {
     		stop(paste(package, "not found on CRAN\nconsider setting `local = TRUE`"))
     	}
@@ -101,7 +101,7 @@ p_depends_helper <- function(package, local = local, reverse = FALSE, ...){
     }
 	
     ## add dependency type name to list and remove empty/null elements
-    out <- setNames(out, type)
+    out <- stats::setNames(out, type)
     nulls <- sapply(out, is.null)
     empties <- sapply(out, identical, character(0))
     if (all(nulls)|all(empties)) return(NULL)  ## if no dependencies returns NULL

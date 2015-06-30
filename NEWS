@@ -36,6 +36,8 @@ NEW FEATURES
   
 * `p_version_diff` (`p_ver_diff`) added to determine version difference between 
   a local package and CRAN.
+  
+* `p_old` added to search for outdated packages.
 
 MINOR FEATURES
 

@@ -31,7 +31,7 @@ p_install_gh <- function(package, ...){
     pack <- sapply(package, function(x) parse_git_repo(x)[["repo"]])
 
     ## Message for install status
-    install_checks <- setNames(sapply(out, function(x) !inherits(x, "try-error")), pack)
+    install_checks <- stats::setNames(sapply(out, function(x) !inherits(x, "try-error")), pack)
 
     caps_check <- p_isinstalled(pack) == install_checks
     if (any(!caps_check)) {

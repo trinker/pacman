@@ -47,7 +47,7 @@ function (..., negate = FALSE, char, character.only = FALSE) {
         toUnload <- tryCatch(as.character(match.call(expand.dots = FALSE)[[2]]), error=function(err) NA)
     }
 
-    loaded <- names(sessionInfo()[["otherPkgs"]])
+    loaded <- names(utils::sessionInfo()[["otherPkgs"]])
     defaultPackages <- getOption("defaultPackages")
     cantUnload <- c("base", defaultPackages)
     if (negate & !any(toUnload %in% "all")) {
@@ -64,7 +64,7 @@ function (..., negate = FALSE, char, character.only = FALSE) {
     mt <- toUnload %in% "all"
     toUnload <- toUnload[toUnload %in% loaded]
     if (!identical(mt, logical(0)) & all(mt)) {
-        toUnload <- names(sessionInfo()[["otherPkgs"]])
+        toUnload <- names(utils::sessionInfo()[["otherPkgs"]])
         x <- paste0("package:", toUnload)
         toUnload <- paste(toUnload, collapse = ", ")
         invisible(lapply(x, function(package) {

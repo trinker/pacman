@@ -15,5 +15,5 @@ function (package = "base") {
     if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
-    packageDescription(package)[["Author"]]
+    utils::packageDescription(package)[["Author"]]
 }

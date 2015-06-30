@@ -29,7 +29,8 @@ p_ver_diff(package = "R")
 
 \code{p_version_cran} - Determine what version a package is on CRAN.
 
-\code{p_version_difference} - Determine version difference between a local package and CRAN.
+\code{p_version_difference} - Determine version difference between a local
+package and CRAN.
 }
 \examples{
 \dontrun{

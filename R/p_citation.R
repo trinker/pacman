@@ -42,18 +42,18 @@ p_citation <- function(package = "r", copy2clip = interactive(),
         ## grab the LaTeX, text, or both versions
         if (is.na(tex)) {
             out <- unlist(sapply(c("Bibtex", "text"), function(x) {
-                capture.output(print(citation(package), style = x))
+                utils::capture.output(print(utils::citation(package), style = x))
             }))
             
         } else {
             bibtype <- ifelse(tex, "Bibtex", "text")
-            out <- capture.output(print(citation(package), style = bibtype))
+            out <- utils::capture.output(print(utils::citation(package), style = bibtype))
         }
 
         ## paste elements together and write to clipboard
         writeToClipboard(paste(out, collapse="\n"))            
     }   
-    citation(package = package, ...)
+    utils::citation(package = package, ...)
 }
 
 #' @rdname p_citation

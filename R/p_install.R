@@ -35,7 +35,7 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
                 tar_path <- file.choose()
             }      
         }
-        install.packages(tar_path, repos = NULL, type = "source", ...)
+        utils::install.packages(tar_path, repos = NULL, type = "source", ...)
     } else {
       
         p_set_cranrepo()
@@ -50,7 +50,7 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
         } 
 
         response <- tryCatch(
-            install.packages(package, ...),
+            utils::install.packages(package, ...),
             warning = function(w) {   
                 ## for users with bioconductor on installed, check to see if
                 ## package is available in the bioconductor repos
