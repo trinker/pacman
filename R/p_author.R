@@ -15,5 +15,9 @@ function (package = "base") {
     if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
+    if(!p_isinstalled(package)){
+        warning(package, " is not installed or does not exist.\nCan not return author info.")
+        return(invisible(NULL))
+    }
     utils::packageDescription(package)[["Author"]]
 }
