@@ -24,10 +24,10 @@ function(package = "datasets", static = FALSE) {
     }
 
     if (static) {
-        return(data(package = package))
+        return(utils::data(package = package))
     } else {    
         ## grab the data sets
-        results <- data(package = package)[["results"]]
+        results <- utils::data(package = package)[["results"]]
     
         ## if 0 rows return NULL and message
         if (nrow(results) == 0) {
@@ -36,7 +36,7 @@ function(package = "datasets", static = FALSE) {
         }
     
         ## make results into a dataframe and add anmes
-        o <- setNames(data.frame(results[, 3:4, drop = FALSE], 
+        o <- stats::setNames(data.frame(results[, 3:4, drop = FALSE], 
             stringsAsFactors = FALSE
         ), c("Data", "Description"))
     
