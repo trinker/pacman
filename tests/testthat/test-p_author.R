@@ -5,5 +5,6 @@ test_that("p_author works",{
         grepl("Tyler Rinker \\[aut, cre, ctb\\].+?Dason Kurkiewicz \\[aut, ctb\\]", 
             p_author(pacman))
     )
-    expect_output(p_author(lattice), "Deepayan Sarkar <deepayan.sarkar@r-project.org>")
+    p_load(lattice)
+    expect_equal(p_author(lattice), "Deepayan Sarkar <deepayan.sarkar@r-project.org>")
 })

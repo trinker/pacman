@@ -8,6 +8,7 @@ before_install:
 install:
   - sh -e /etc/init.d/xvfb start
   - ./travis-tool.sh aptget_install r-cran-xml 
+  - ./travis-tool.sh install_github hadley/testthat  
   - ./travis-tool.sh aptget_install r-cran-MASS 
   - ./travis-tool.sh install_deps
 script: ./travis-tool.sh run_tests  
