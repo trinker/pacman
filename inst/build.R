@@ -19,8 +19,8 @@ library(devtools)
 
 unlink(paste0(pack, ".pdf"), recursive = TRUE, force = TRUE)
 x <- file.path(base.git, pack)
-document(x)
-install(x, quick = quick, build_vignettes = FALSE, dependencies = TRUE)
+document('C:/Users/trinker/Desktop/GitHub/pacman')
+install('C:/Users/trinker/Desktop/GitHub/pacman', quick = quick, build_vignettes = FALSE, dependencies = TRUE)
 
 path <- find.package(pack)
 system(paste(shQuote(file.path(R.home("bin"), "R")), 
