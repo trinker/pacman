@@ -26,9 +26,9 @@ And constructed with the following guidelines:
 
 * Support for Bioconductor packages added compiments of Keith Hughitt.  See #62
 
-* `p_boot` added to generate a string for the standard  <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> script header 
-  that, when added to scripts, will ensure  <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> is installed before 
-  attempting to use it.   <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> will attempt to copy this string (standard 
+* `p_boot` added to generate a string for the standard **pacman** script header 
+  that, when added to scripts, will ensure **pacman** is installed before 
+  attempting to use it.  **pacman** will attempt to copy this string (standard 
   script header) to the clipboard for easy cut and paste.
 
 * `p_version_cran` (`p_ver_cran`) added to check R/package version currently 
@@ -37,9 +37,10 @@ And constructed with the following guidelines:
 * `p_version_diff` (`p_ver_diff`) added to determine version difference between 
   a local package and CRAN.
   
+* `p_old` added to search for outdated packages.
+
 * `p_install_version_gh` added as a partner to `p_install_version` for GitHub
-  packages.  Thanks to Steve Simpson for this: <a href="https://github.com/trinker/pacman/issues/70" target="_blank">https://github.com/trinker/pacman/issues/70</a> 
-  
+  packages.  Thanks to Steve Simpson for this: https://github.com/trinker/pacman/issues/70
 
 **MINOR FEATURES**
 
