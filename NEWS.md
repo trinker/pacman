@@ -17,10 +17,8 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.3.1 - 
+**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.3.1 - 0.4.0
 ----------------------------------------------------------------
-
-**BUG FIXES**
 
 **NEW FEATURES**
 
@@ -36,9 +34,13 @@ And constructed with the following guidelines:
   
 * `p_version_diff` (`p_ver_diff`) added to determine version difference between 
   a local package and CRAN.
+  
+* `p_old` added to search for outdated packages.
 
-**MINOR FEATURES**
-
+* `p_install_version_gh` and `p_install_current_gh` added as partners to 
+  `p_install_version` for GitHub packages.  Thanks to Steve Simpson for this: 
+  https://github.com/trinker/pacman/issues/70  
+  
 **IMPROVEMENTS**
 
 * `p_functions` sorts the functions alphabetically before returning them.
