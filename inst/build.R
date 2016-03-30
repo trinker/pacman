@@ -1,20 +1,22 @@
+root <- Sys.getenv("USERPROFILE")
+repo <- pack <- basename(getwd())
+
 curd <- getwd()
-usr <- dirname(path.expand("~"))
-loc <- file.path(usr, "Desktop")
+loc <- file.path(root, "Desktop")
 setwd(loc)
 
-qman <- function(x = "pacman", db = file.path(usr, "Dropbox/Public"), dir=loc) {
+base.git <- dirname(curd)
+
+qman <- function(x = repo, db = file.path(root, "/Dropbox/Public"), dir=loc) {
     path <- file.path(dir, paste0(x, ".pdf"))
-	if (!file.exists(path)) stop(paste(x, "does not exist..."))
+    if (!file.exists(path)) stop(paste(x, "does not exist..."))
     opath <- file.path(db, paste0(x, ".pdf"))
     file.copy(path, opath, overwrite = TRUE)
     message("manual copied!\n")
 }
 
 
-repo <- pack <- "pacman"
-base.git = file.path(usr, "GitHub")
-quick = TRUE
+quick <-  TRUE
 library(devtools)
 
 unlink(paste0(pack, ".pdf"), recursive = TRUE, force = TRUE)
@@ -29,4 +31,3 @@ system(paste(shQuote(file.path(R.home("bin"), "R")),
 qman(repo, dir=loc)
 setwd(curd)
 message("Done!")
-
