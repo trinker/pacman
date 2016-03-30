@@ -1,6 +1,6 @@
 # pacman
 
-[![Build Status](https://travis-ci.org/trinker/pacman.png?branch=master)](https://travis-ci.org/trinker/pacman) [![DOI](https://zenodo.org/badge/5398/trinker/pacman.svg)](http://dx.doi.org/10.5281/zenodo.15406) [![Version](https://img.shields.io/badge/Version-0.4.0-orange.svg)](https://img.shields.io/badge/Version-0.4.0-orange.svg)
+[![Build Status](https://travis-ci.org/trinker/pacman.png?branch=master)](https://travis-ci.org/trinker/pacman) [![DOI](https://zenodo.org/badge/5398/trinker/pacman.svg)](http://dx.doi.org/10.5281/zenodo.15406) [![Version](https://img.shields.io/badge/Version-0.4.1-orange.svg)](https://img.shields.io/badge/Version-0.4.0-orange.svg)
 
 The [pacman](http://trinker.github.io/pacman_dev/) package is an R package management tool that combines the functionality of base library related functions into intuitively named functions.  This package is ideally added to .Rprofile to increase workflow by reducing time recalling obscurely named functions, reducing code and integrating functionality of base functions to simultaneously perform multiple actions.  
 
@@ -11,7 +11,7 @@ Function names in the pacman package follow the format of `p_xxx` where 'xxx' is
 
 ## Installation
 
-The user can install from [CRAN](http://cran.r-project.org/web/packages/pacman/index.html) via:
+The user can install from [CRAN](https://cran.r-project.org/package=pacman) via:
 
 ```r
 install.packages("pacman")
