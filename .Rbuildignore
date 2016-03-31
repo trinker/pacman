@@ -19,3 +19,4 @@ travis-tool.sh
 vignettes/Introduction_to_pacman.md
 inst/web
 inst/build.R
+.Thumbs.db
