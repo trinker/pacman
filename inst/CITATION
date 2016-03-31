@@ -6,11 +6,11 @@ citEntry(entry = "manual",
     author = "Tyler W. Rinker and Dason Kurkiewicz",
     organization = "University at Buffalo/SUNY",
     address = "Buffalo, New York",
-    note = "version 0.4.1",
+    note = "version 0.4.2",
     year = "2015",
     url = "http://github.com/trinker/pacman",
     textVersion  = paste("Rinker, T. W. & Kurkiewicz, D. (2015).",
         "pacman: Package Management for R.",
-        "version 0.4.1. University at Buffalo. Buffalo, New York.",
+        "version 0.4.2. University at Buffalo. Buffalo, New York.",
         "http://github.com/trinker/pacman")
 )

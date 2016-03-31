@@ -17,6 +17,21 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
+CHANGES IN pacman VERSION 0.4.2 -
+----------------------------------------------------------------
+
+BUG FIXES
+
+NEW FEATURES
+
+MINOR FEATURES
+
+IMPROVEMENTS
+
+CHANGES
+
+
+
 CHANGES IN pacman VERSION 0.3.1 - 0.4.1
 ----------------------------------------------------------------
 
@@ -37,7 +52,7 @@ NEW FEATURES
   
 * `p_old` added to search for outdated packages.
 
-* `p_install_version_gh` and `p_install_current_gh` added as partners to 
+* `p_install_version_gh` and `p_load_current_gh` added as partners to 
   `p_install_version` for GitHub packages.  Thanks to Steve Simpson for this: 
   https://github.com/trinker/pacman/issues/70  
   
