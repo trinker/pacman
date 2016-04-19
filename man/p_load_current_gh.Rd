@@ -23,7 +23,8 @@ packages.  Default allows the user to set a \code{"pac_update"} in his/her
 This function is a wrapper for \code{\link[devtools]{install_github}} and 
 \code{\link[base]{require}}.  It checks to see if a 
 package is installed, if not it attempts to install the package from 
-\href{https://github.com}{GitHub}.
+\href{https://github.com}{GitHub}. Use this over \code{p_load_gh} if you
+want to force install the most recent GitHub version of a package.
 }
 \examples{
 \dontrun{
