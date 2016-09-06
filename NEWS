@@ -28,7 +28,7 @@ MINOR FEATURES
 
 IMPROVEMENTS
 
-* `p_xxx_gh` functions not pick up a`dependencies = TRUE` argument to 
+* `p_xxx_gh` functions pick up a`dependencies = TRUE` argument to 
   automatically install necessary dependencies in the same way `install.packages` 
   defaults to install dependencies (See issue #75).
 
