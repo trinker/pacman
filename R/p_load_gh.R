@@ -16,6 +16,8 @@
 #' @param update logical.  If \code{TRUE} will attempt to update all out of date 
 #' packages.  Default allows the user to set a \code{"pac_update"} in his/her 
 #' .Rprofile.
+#' @param dependencies logical.  If \code{TRUE} necessary dependencies will be 
+#' installed as well.
 #' @seealso 
 #' \code{\link[devtools]{install_github}}
 #' \code{\link[base]{library}},
@@ -30,7 +32,7 @@
 #'     "ramnathv/rCharts"))
 #' }
 p_load_gh <- 
-function (..., char, install = TRUE, update = getOption("pac_update")){ 
+function (..., char, install = TRUE, update = getOption("pac_update"), dependencies = TRUE){ 
 
     if (!missing(char)){
         packages <- char
@@ -49,7 +51,7 @@ function (..., char, install = TRUE, update = getOption("pac_update")){
     }
 
     # Attempt to load packages making note of which don't load
-    loaded <- suppressMessages(sapply(packages, p_load_single_gh, install = install))
+    loaded <- suppressMessages(sapply(packages, p_load_single_gh, install = install, dependencies = dependencies))
     # Give a warning if some packags couldn't be installed/loaded
     if(!all(loaded)){
         failed <- packages[!loaded]

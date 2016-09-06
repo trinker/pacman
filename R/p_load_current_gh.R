@@ -15,6 +15,8 @@
 #' @param update logical.  If \code{TRUE} will attempt to update all out of date 
 #' packages.  Default allows the user to set a \code{"pac_update"} in his/her 
 #' .Rprofile.
+#' @param dependencies logical.  If \code{TRUE} necessary dependencies will be 
+#' installed as well.
 #' @seealso 
 #' \code{\link[devtools]{install_github}}
 #' \code{\link[base]{library}},
@@ -25,7 +27,7 @@
 #' p_load_current_gh(c("Dasonk/Dmisc", "trinker/clustext", "trinker/termco"))
 #' }
 p_load_current_gh <- 
-function (..., char, update = getOption("pac_update")){ 
+function (..., char, update = getOption("pac_update"), dependencies = TRUE){ 
 
     if (!missing(char)){
         packages <- char
@@ -44,7 +46,7 @@ function (..., char, update = getOption("pac_update")){
     }
 
     # Attempt to load packages making note of which don't load
-    loaded <- suppressMessages(sapply(packages, p_load_current_single_gh))
+    loaded <- suppressMessages(sapply(packages, p_load_current_single_gh, dependencies = dependencies))
     # Give a warning if some packags couldn't be installed/loaded
     if(!all(loaded)){
         failed <- packages[!loaded]

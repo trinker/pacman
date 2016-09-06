@@ -4,7 +4,8 @@
 \alias{p_load_current_gh}
 \title{Force Install and Load One or More GitHub Packages}
 \usage{
-p_load_current_gh(..., char, update = getOption("pac_update"))
+p_load_current_gh(..., char, update = getOption("pac_update"),
+  dependencies = TRUE)
 }
 \arguments{
 \item{char}{Character vector containing repository address to load.  If you are calling
@@ -15,6 +16,9 @@ to load to this parameter directly.}
 \item{update}{logical.  If \code{TRUE} will attempt to update all out of date 
 packages.  Default allows the user to set a \code{"pac_update"} in his/her 
 .Rprofile.}
+
+\item{dependencies}{logical.  If \code{TRUE} necessary dependencies will be 
+installed as well.}
 
 \item{\ldots}{Repository address(es) in the format 
 \code{username/repo[/subdir][@ref|#pull]}.  Note that this must be a character string.}

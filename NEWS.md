@@ -28,6 +28,10 @@ And constructed with the following guidelines:
 
 **IMPROVEMENTS**
 
+* `p_xxx_gh` functions not pick up a`dependencies = TRUE` argument to 
+  automatically install necessary dependencies in the same way `install.packages` 
+  defaults to install dependencies (See <a href="https://github.com/trinker/pacman/issues/75">issue #75</a>).
+
 **CHANGES**
 
 
@@ -39,9 +43,9 @@ And constructed with the following guidelines:
 
 * Support for Bioconductor packages added compiments of Keith Hughitt.  See #62
 
-* `p_boot` added to generate a string for the standard  <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> script header 
-  that, when added to scripts, will ensure  <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> is installed before 
-  attempting to use it.   <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> will attempt to copy this string (standard 
+* `p_boot` added to generate a string for the standard **pacman** script header 
+  that, when added to scripts, will ensure **pacman** is installed before 
+  attempting to use it.  **pacman** will attempt to copy this string (standard 
   script header) to the clipboard for easy cut and paste.
 
 * `p_version_cran` (`p_ver_cran`) added to check R/package version currently 

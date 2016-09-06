@@ -5,6 +5,8 @@
 #' @param package Repository address(es) in the format 
 #' \code{username/repo[/subdir][@@ref|#pull]}.  
 #' Note that this must be a character string.
+#' @param dependencies logical.  If \code{TRUE} necessary dependencies will be 
+#' installed as well.
 #' @param \ldots Additional parameters to pass to \code{\link[devtools]{install_github}}.
 #' @keywords github install
 #' @seealso \code{\link[devtools]{install_github}}
@@ -16,7 +18,7 @@
 #' ## Package doesn't exist
 #' p_install_gh("trinker/pacmanAwesomer")
 #' }
-p_install_gh <- function(package, ...){
+p_install_gh <- function(package, dependencies = TRUE, ...){
 
     if (p_loaded(char = package)) {
         p_unload(char = package)
@@ -24,7 +26,7 @@ p_install_gh <- function(package, ...){
 
     ## Download package
     out <- invisible(lapply(package, function(x) {
-        try(devtools::install_github(x, ...))
+        try(devtools::install_github(x, dependencies = dependencies, ...))
     }))
     
     ## Check if package was installed & success notification.

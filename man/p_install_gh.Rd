@@ -4,12 +4,15 @@
 \alias{p_install_gh}
 \title{Installs & Loads GitHub Packages}
 \usage{
-p_install_gh(package, ...)
+p_install_gh(package, dependencies = TRUE, ...)
 }
 \arguments{
 \item{package}{Repository address(es) in the format 
 \code{username/repo[/subdir][@ref|#pull]}.  
 Note that this must be a character string.}
+
+\item{dependencies}{logical.  If \code{TRUE} necessary dependencies will be 
+installed as well.}
 
 \item{\ldots}{Additional parameters to pass to \code{\link[devtools]{install_github}}.}
 }

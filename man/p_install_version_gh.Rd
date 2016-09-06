@@ -4,7 +4,7 @@
 \alias{p_install_version_gh}
 \title{Install Minimal GitHub Package Version}
 \usage{
-p_install_version_gh(package, version)
+p_install_version_gh(package, version, dependencies = TRUE)
 }
 \arguments{
 \item{package}{\code{character} vector of the repository address(es) of the 
@@ -13,6 +13,9 @@ address(es) in the format \code{username/repo[/subdir][@ref|#pull]}.}
 
 \item{version}{Corresponding \code{character} vector of the minimal 
 package version(s).}
+
+\item{dependencies}{logical.  If \code{TRUE} necessary dependencies will be 
+installed as well.}
 }
 \description{
 Install minimal GitHub package version(s).
