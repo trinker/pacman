@@ -28,7 +28,7 @@ And constructed with the following guidelines:
 
 **IMPROVEMENTS**
 
-* `p_xxx_gh` functions not pick up a`dependencies = TRUE` argument to 
+* `p_xxx_gh` functions pick up a`dependencies = TRUE` argument to 
   automatically install necessary dependencies in the same way `install.packages` 
   defaults to install dependencies (See <a href="https://github.com/trinker/pacman/issues/75">issue #75</a>).
 
