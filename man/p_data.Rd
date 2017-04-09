@@ -30,4 +30,3 @@ p_data(lattice)
 }
 \keyword{data}
 \keyword{package}
-

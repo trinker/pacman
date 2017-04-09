@@ -12,4 +12,3 @@ p_set_cranrepo(default_repo = "http://cran.rstudio.com/")
 \description{
 Check if a repo is already set and if not choose an appropriate repo.
 }
-

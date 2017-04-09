@@ -32,4 +32,3 @@ p_install_gh("trinker/pacmanAwesomer")
 }
 \keyword{github}
 \keyword{install}
-

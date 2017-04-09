@@ -24,6 +24,7 @@ Setting \code{build.pdf = TRUE} requires the user to have a pdf compiler (e.g.,
 \href{http://miktex.org/}{MikTex} or 
 \href{https://www.tug.org/texlive/}{Tex Live}) installed.
 }
+
 \examples{
 \dontrun{
 p_help()
@@ -41,4 +42,3 @@ p_help(pacman, build.pdf=TRUE)
 \keyword{help}
 \keyword{manual}
 \keyword{package}
-

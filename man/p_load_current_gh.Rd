@@ -40,4 +40,3 @@ p_load_current_gh(c("Dasonk/Dmisc", "trinker/clustext", "trinker/termco"))
 \code{\link[base]{library}},
 \code{\link[base]{require}}
 }
-

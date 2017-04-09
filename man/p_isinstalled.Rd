@@ -20,4 +20,3 @@ p_installed(fakePackage)
 }
 \keyword{installed}
 \keyword{package}
-

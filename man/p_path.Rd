@@ -24,4 +24,3 @@ p_path(pacman)
 \keyword{location}
 \keyword{package}
 \keyword{path}
-

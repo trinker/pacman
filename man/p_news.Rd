@@ -23,4 +23,3 @@ subset(p_news(lattice), Version == 0.7)
 }
 \keyword{news}
 \keyword{packages}
-

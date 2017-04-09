@@ -28,4 +28,3 @@ p_funs(pacman)
 }
 \keyword{function}
 \keyword{package}
-

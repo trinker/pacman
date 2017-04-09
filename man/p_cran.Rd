@@ -32,4 +32,3 @@ p_iscran(pacman)
 }
 \keyword{CRAN}
 \keyword{package}
-

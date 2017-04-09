@@ -22,6 +22,7 @@ makes sense.
  Most likely this function will move to a different
 package at some point as it's not specifically package related.
 }
+
 \examples{
 \dontrun{
 p_opendir() # opens working directory
@@ -29,4 +30,3 @@ p_opendir(path.expand("~")) # opens home directory
 p_opendir(pacman:::p_basepath())
 }
 }
-

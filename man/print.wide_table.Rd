@@ -16,4 +16,3 @@
 \description{
 Prints a wide_table object.
 }
-

@@ -27,4 +27,3 @@ p_install_version_gh(
 )
 }
 \keyword{version}
-

@@ -41,4 +41,3 @@ p_cite(knitr)
 }
 \keyword{citation}
 \keyword{cite}
-

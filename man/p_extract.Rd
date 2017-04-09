@@ -31,4 +31,3 @@ lapply(p_info(ggplot2, "Imports", "Depends", "Suggests"), p_extract)
 \seealso{
 \code{\link[pacman]{p_information}}
 }
-

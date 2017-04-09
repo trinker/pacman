@@ -25,4 +25,3 @@ p_exists(I_dont_exist)
 }
 \keyword{exists}
 \keyword{package}
-

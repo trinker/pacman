@@ -14,4 +14,3 @@
 \description{
 Prints a search_any object.
 }
-

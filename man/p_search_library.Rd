@@ -32,4 +32,3 @@ p_search_library(contains = "att")
 \keyword{library}
 \keyword{package}
 \keyword{search}
-

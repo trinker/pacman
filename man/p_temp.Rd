@@ -18,10 +18,9 @@ eventually be deleted from the machine with no additional
 effort needed by the user.  This will also install the necessary
 dependencies temporarily as well.
 }
-\author{
-juba (stackoverflow.com) and Dason Kurkiewicz
-}
 \references{
 \url{http://stackoverflow.com/a/14896943/1003565}
 }
-
+\author{
+juba (stackoverflow.com) and Dason Kurkiewicz
+}

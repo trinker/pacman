@@ -10,4 +10,3 @@ p_detectOS()
 Attempts to detect the operating system.
 Returns: "Windows", "Darwin" on Mac, "Linux", or "SunOS" on Solaris
 }
-

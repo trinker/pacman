@@ -33,4 +33,3 @@ p_unlock()
 \code{\link[utils]{install.packages}}
 }
 \keyword{lock}
-

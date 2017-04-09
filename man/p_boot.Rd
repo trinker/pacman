@@ -39,4 +39,3 @@ have \pkg{pacman} installed.
 p_boot()
 }
 \keyword{header}
-

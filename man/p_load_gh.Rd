@@ -46,4 +46,3 @@ p_load_gh(c("trinker/regexTools",
 \code{\link[base]{library}},
 \code{\link[base]{require}}
 }
-

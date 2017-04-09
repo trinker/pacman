@@ -7,6 +7,8 @@
 p_unload(..., negate = FALSE, char, character.only = FALSE)
 }
 \arguments{
+\item{\dots}{name of package(s) or "all" (all removes all add on packages).}
+
 \item{negate}{logical. If \code{TRUE} will unload
 all add on packages except those provided to \code{p_unload}.}
 
@@ -18,8 +20,6 @@ to load to this parameter directly.}
 \item{character.only}{logical. If \code{TRUE} then \code{p_unload} will only 
 accept a single input which is a character vector containing the names of 
 packages to load.}
-
-\item{\dots}{name of package(s) or "all" (all removes all add on packages).}
 }
 \description{
 Unloads package(s) or all packages.
@@ -53,4 +53,3 @@ p_loaded()
 }
 \keyword{detach}
 \keyword{package}
-

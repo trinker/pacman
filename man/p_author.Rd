@@ -21,4 +21,3 @@ p_author()
 }
 \keyword{author}
 \keyword{package}
-

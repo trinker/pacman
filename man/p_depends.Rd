@@ -55,4 +55,3 @@ p_depends_reverse("qdap", local = TRUE)
 }
 \keyword{dependencies}
 \keyword{dependency}
-

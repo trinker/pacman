@@ -1,28 +1,27 @@
-language: c
+language: r
 
-sudo: required
+sudo: false
 before_install:
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
-install:
   - sh -e /etc/init.d/xvfb start
-  - ./travis-tool.sh aptget_install r-cran-xml 
-  - ./travis-tool.sh install_github hadley/testthat  
-  - ./travis-tool.sh aptget_install r-cran-MASS 
-  - ./travis-tool.sh install_deps
-script: ./travis-tool.sh run_tests  
+
+r_github_packages: 
+  - jimhester/covr
+  
 notifications:
   email:
-    on_success: change
-    on_failure: change
+    on_success:      change
+    on_failure:      change
+    
+after_success:
+  - Rscript -e 'covr::coveralls()'
+  
+r_build_args: "--resave-data=best"
+r_check_args: "--as-cran"
 
 env:
-  global:
-     - R_CHECK_ARGS="--as-cran"
+   global:
      - DISPLAY=:99.0
      - BOOTSTRAP_LATEX=1
-     - WARNINGS_ARE_ERRORS=FALSE
-     - R_BUILD_ARGS=--no-manual
-     - R_CHECK_ARGS=--no-manual --as-cran
+     
+
      

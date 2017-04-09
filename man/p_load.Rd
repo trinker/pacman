@@ -47,4 +47,3 @@ p_loaded()
 \code{\link[base]{require}},
 \code{\link[utils]{install.packages}}
 }
-
