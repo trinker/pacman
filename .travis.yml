@@ -22,6 +22,15 @@ env:
    global:
      - DISPLAY=:99.0
      - BOOTSTRAP_LATEX=1
-     
 
-     
+r:
+    - oldrel
+    - release
+    - devel
+os:
+    - linux
+    - osx
+matrix:
+    exclude:
+    -   r: devel
+        os: osx     
