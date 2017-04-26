@@ -21,7 +21,8 @@ function (package, local = FALSE) {
     if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
-    p_egg(package)
+    # Removing easter egg in lieu of issue #90
+    #p_egg(package)
 
     if (!local){
         available_packages <- rownames(utils::available.packages())
