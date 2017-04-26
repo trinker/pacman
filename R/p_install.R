@@ -51,7 +51,7 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
 
         response <- tryCatch(
             utils::install.packages(package, ...),
-            warning = function(w) {   
+            error = function(e) {   
                 ## for users with bioconductor on installed, check to see if
                 ## package is available in the bioconductor repos
                 if (!p_isinstalled('BiocInstaller')) {
