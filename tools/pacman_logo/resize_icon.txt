@@ -1,0 +1,2 @@
+cd C:\Users\Tyler\GitHub\pacman\tools\pacman_logo
+ffmpeg -i r_pacmana.png -vf scale=250:-1 r_pacman.png

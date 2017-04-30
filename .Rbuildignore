@@ -11,7 +11,11 @@ Rlogo.png
 NEWS.html
 inst/extra_statdoc
 README.html
-inst/pacman_logo
+inst/pacman_logo/pacman logo.docx
+inst/pacman_logo/pacmanR.svg
+inst/pacman_logo/pacmanR.png
+inst/pacman_logo/Rlogo.svg
+inst/pacman_logo/Rlogo.png
 inst/staticdocs
 contributors.geojson
 inst/web
@@ -20,3 +24,6 @@ vignettes/Introduction_to_pacman.md
 inst/web
 inst/build.R
 .Thumbs.db
+tools/pacman_logo/r_pacmana.png
+tools/pacman_logo/r_pacman.pptx
+tools/pacman_logo/resize_icon.txt

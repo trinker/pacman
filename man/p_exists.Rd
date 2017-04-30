@@ -10,7 +10,7 @@ p_exists(package, local = FALSE)
 \item{package}{Name of package.}
 
 \item{local}{logical.  If \code{TRUE} checks user's local library for 
-existence; if \code{FALSE} \href{http://cran.r-project.org/}{CRAN} for the 
+existence; if \code{FALSE} \href{https://cran.r-project.org/}{CRAN} for the 
 package.}
 }
 \description{

@@ -34,7 +34,7 @@ p_sa("psych", "package")
 }
 }
 \references{
-\url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
+\url{https://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
 \url{http://stackoverflow.com/a/10082624/1000343}
 }
 \author{

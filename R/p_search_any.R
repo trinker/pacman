@@ -11,7 +11,7 @@
 #' @details Useful for finding packages by the same author (usually the same as 
 #' the maintainer).  This function will take some time as the function 
 #' is searching thousands of packages via CRAN's website.
-#' @references \url{http://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
+#' @references \url{https://cran.r-project.org/web/checks/check_summary_by_maintainer.html#summary_by_maintainer}
 #' \url{http://stackoverflow.com/a/10082624/1000343}   
 #' @keywords author package search
 #' @author BondedDust (stackoverflow.com) and Tyler Rinker <tyler.rinker@@gmail.com>
@@ -31,7 +31,7 @@ function (term, search.by = "Maintainer") {
     xml_mess <- suppressPackageStartupMessages(p_load(char="XML"))
 	if (!xml_mess) stop("Unable to install/load the XML package")
 
-    u1 <- "http://cran.r-project.org/web/checks/check_summary"
+    u1 <- "https://cran.r-project.org/web/checks/check_summary"
     u2 <- "_by_maintainer.html#summary_by_maintainer"
     URL <- paste0(u1, u2)
     dat <- XML::readHTMLTable(doc = URL, which = 1, header = TRUE, 

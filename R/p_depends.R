@@ -1,12 +1,12 @@
 #' Package Dependencies
 #' 
-#' \code{p_depends} - Get \href{http://cran.r-project.org/}{CRAN} or local 
+#' \code{p_depends} - Get \href{https://cran.r-project.org/}{CRAN} or local 
 #' package dependencies.
 #' 
 #' @param package Name of the package you want the list of dependencies/reverse 
 #' dependencies for.
 #' @param local logical.  If \code{TRUE} checks user's local library for 
-#' existence; if \code{FALSE} \href{http://cran.r-project.org/}{CRAN} for the 
+#' existence; if \code{FALSE} \href{https://cran.r-project.org/}{CRAN} for the 
 #' package.
 #' @param character.only logical. If \code{TRUE} the input is a variable 
 #' containing the package name.
@@ -47,7 +47,7 @@ p_depends <- function(package, local = FALSE, character.only = FALSE, ...) {
 
 #' Package Dependencies
 #' 
-#' \code{p_depends_reverse} - Get \href{http://cran.r-project.org/}{CRAN} or 
+#' \code{p_depends_reverse} - Get \href{https://cran.r-project.org/}{CRAN} or 
 #' local reverse dependencies.
 #' 
 #' @export

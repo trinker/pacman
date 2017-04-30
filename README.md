@@ -1,12 +1,12 @@
 # pacman
 
-[![Build Status](https://travis-ci.org/trinker/pacman.png?branch=master)](https://travis-ci.org/trinker/pacman) [![DOI](https://zenodo.org/badge/5398/trinker/pacman.svg)](http://dx.doi.org/10.5281/zenodo.15406) [![Version](https://img.shields.io/badge/Version-0.4.4-orange.svg)](https://img.shields.io/badge/Version-0.4.4-orange.svg)
+[![Build Status](https://travis-ci.org/trinker/pacman.png?branch=master)](https://travis-ci.org/trinker/pacman) [![DOI](https://zenodo.org/badge/5398/trinker/pacman.svg)](http://dx.doi.org/10.5281/zenodo.15406) 
 [![](http://cranlogs.r-pkg.org/badges/pacman)](https://cran.r-project.org/package=pacman)
 
 The [pacman](http://trinker.github.io/pacman_dev/) package is an R package management tool that combines the functionality of base library related functions into intuitively named functions.  This package is ideally added to .Rprofile to increase workflow by reducing time recalling obscurely named functions, reducing code and integrating functionality of base functions to simultaneously perform multiple actions.  
 
-<img src="inst/pacman_logo/r_pacman.png" width="45%">
 
+![](tools/pacman_logo/r_pacman.png)
 
 Function names in the pacman package follow the format of `p_xxx` where 'xxx' is the task the function performs.  For instance the `p_load` function allows the user to load one or more packages as a more generic substitute for the `library` or `require` functions and if the package isn't available locally it will install it for you.
 
@@ -36,7 +36,7 @@ Note: Windows users need [Rtools](http://www.murdoch-sutherland.com/Rtools/) and
 
 - [Web Page](http://trinker.github.com/pacman/)       
 - Vignettes:     
-  - [HTML Vignette: Introduction to pacman](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html)      
+  - [HTML Vignette: Introduction to pacman](http://trinker.github.io/pacman/vignettes/Introduction_to_pacman.html)  
   - [pacman Functions: Quick Reference](http://trinker.github.io/pacman_dev/vignettes/pacman_functions_quick_reference.html) 
 
 ## Contact

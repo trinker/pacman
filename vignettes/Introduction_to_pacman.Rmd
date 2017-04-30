@@ -16,7 +16,7 @@ uri_embed <- function(path, add="") {
 opts_knit$set(upload.fun = image_uri, self.contained=TRUE)
 
 ## set mirror
-options(repos="http://cran.rstudio.com/")
+options(repos="https://cran.rstudio.com/")
 ```
 
 <h1 class="title">Introduction to pacman</h1>
@@ -76,7 +76,7 @@ p_install(dbConnect, qdap, reports)
 ```
 
 This will install packages available on CRAN, or, if the user has previously
-installed [Bioconductor](http://www.bioconductor.org/), from the Bioconductor
+installed [Bioconductor](https://www.bioconductor.org/), from the Bioconductor
 repos.
 
 #### Installing & Loading from GitHub
@@ -119,7 +119,7 @@ p_isloaded(aprof)
 ```
 
 <pre><code>> p_temp(aprof)
-trying URL 'http://cran.rstudio.com/bin/windows/contrib/3.1/aprof_0.2.zip'
+trying URL 'https://cran.rstudio.com/bin/windows/contrib/3.1/aprof_0.2.zip'
 Content type 'application/zip' length 34037 bytes (33 Kb)
 opened URL
 downloaded 33 Kb
@@ -426,7 +426,7 @@ The functions in this section are Internet based and provide information about a
 
 ### CRAN Packages
 
-`p_cran` provides a list of available [CRAN](http://cran.r-project.org/) packages.  Its counterpart, p_iscran` provides a logical check whether a package is available on CRAN.
+`p_cran` provides a list of available [CRAN](https://cran.r-project.org/) packages.  Its counterpart, p_iscran` provides a logical check whether a package is available on CRAN.
 
 ```{r, eval=FALSE}
 p_cran()
