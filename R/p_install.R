@@ -36,6 +36,7 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
             }      
         }
         utils::install.packages(tar_path, repos = NULL, type = "source", ...)
+        
     } else {
       
         p_set_cranrepo()
@@ -49,47 +50,58 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
             package <- NULL 
         } 
 
-        try_bioc <- function(){
-            ## for users with bioconductor on installed, check to see if
-            ## package is available in the bioconductor repos
-            if (!p_isinstalled('BiocInstaller')) {
-                source("http://bioconductor.org/biocLite.R")
-            }           
-            suppressMessages(suppressWarnings(
-                eval(parse(
-                    text=sprintf("BiocInstaller::biocLite('%s', suppressUpdates=TRUE)", 
-                        package)
-                ))
-            ))
-        }
+        ## an environment with a marker indicating if the package installed with 
+        ## a not available error
+        bioconductor_env <- new.env(hash=FALSE)
+        bioconductor_env[['try_bioc_p']] <- FALSE
 
-        try_bioc_p <- FALSE
-
+        ## install from CRAN; if not available warning happens record in the
+        ## bioconductor environment
         response <- withCallingHandlers(
             utils::install.packages(package, ...),
             warning = function(w){
                 if (grepl("package.*is not available", w$message)) {
-                    try_bioc_p <<- TRUE
+                    assign('try_bioc_p', TRUE, envir = bioconductor_env)
                 }
             }
         )
 
-        if (try_bioc_p) try_bioc()
+        ## if the CRAN install failed from not available warning try installing
+        ## from bioconductor
+        if (isTRUE(bioconductor_env[['try_bioc_p']])) try_bioc(package)
     }
     
     ## check if package was installed & success notification.
     pack <- ifelse(is.null(package), "Your package", package)
 
     if (pack %in% p_lib() | is.null(package)) {
+        
         message(sprintf("\n%s installed", pack))
         return(invisible(TRUE))
+        
     } else {
+        
         # If unable to install, raise warning and continue
         warning(response)
         return(invisible(FALSE))
+        
     }
 }
 
+
+try_bioc <- function(package){
+    ## Bioconductor's `BiocInstaller::biocLite` is updated regardless 
+    ## of whether the package already exists 
+    source("http://bioconductor.org/biocLite.R")
+  
+    ## attempt to install the assumed bioconductor package
+    suppressMessages(suppressWarnings(
+        eval(parse(
+            text=sprintf("BiocInstaller::biocLite('%s', suppressUpdates=TRUE)", 
+                package)
+        ))
+    ))
+}
 
 #' @rdname p_install
 #' @export

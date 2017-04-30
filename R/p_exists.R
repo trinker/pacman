@@ -21,15 +21,20 @@ function (package, local = FALSE) {
     if(!object_check(package) || !is.character(package)){
         package <- as.character(substitute(package))
     }
-    # Removing easter egg in lieu of issue #90
-    #p_egg(package)
 
-    if (!local){
+    p_egg(package)
+
+    ## check for existance in CRAN or local
+    if (!isTRUE(local)){
+        
         available_packages <- rownames(utils::available.packages())
         package %in% available_packages
+        
     } else {
+        
         local_packages <- list.files(.libPaths())
         package %in% local_packages
+        
     }
 }
 

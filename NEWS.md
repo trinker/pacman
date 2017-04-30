@@ -22,6 +22,11 @@ And constructed with the following guidelines:
 
 **BUG FIXES**
 
+* R version 3.4.0 cause `p_install` to result in an error: 
+  `Error in readRDS(dest) : error reading from connection` as noted by @arbelt
+  in <a href="https://github.com/trinker/pacman/issues/90">issue #90</a>.  This was rectified in thanks to @arbelt's pull request (see 
+  <a href="https://github.com/trinker/pacman/issues/91">issue #91</a>).
+
 **NEW FEATURES**
 
 **MINOR FEATURES**
@@ -41,11 +46,11 @@ And constructed with the following guidelines:
 
 **NEW FEATURES**
 
-* Support for Bioconductor packages added compiments of Keith Hughitt.  See #62
+* Support for Bioconductor packages added compliments of Keith Hughitt.  See #62
 
-* `p_boot` added to generate a string for the standard **pacman** script header 
-  that, when added to scripts, will ensure **pacman** is installed before 
-  attempting to use it.  **pacman** will attempt to copy this string (standard 
+* `p_boot` added to generate a string for the standard  <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> script header 
+  that, when added to scripts, will ensure  <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> is installed before 
+  attempting to use it.   <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> will attempt to copy this string (standard 
   script header) to the clipboard for easy cut and paste.
 
 * `p_version_cran` (`p_ver_cran`) added to check R/package version currently 
@@ -64,7 +69,7 @@ And constructed with the following guidelines:
 
 * `p_functions` sorts the functions alphabetically before returning them.
 
-* `p_path` now takes a package as an agument, allowing the user to return the 
+* `p_path` now takes a package as an argument, allowing the user to return the 
   path to individual packages as well.
   
 **CHANGES**

@@ -22,6 +22,11 @@ CHANGES IN pacman VERSION 0.4.2 -
 
 BUG FIXES
 
+* R version 3.4.0 cause `p_install` to result in an error: 
+  `Error in readRDS(dest) : error reading from connection` as noted by @arbelt
+  in issue #90.  This was rectified in thanks to @arbelt's pull request (see 
+  issue #91).
+
 NEW FEATURES
 
 MINOR FEATURES
@@ -41,7 +46,7 @@ CHANGES IN pacman VERSION 0.3.1 - 0.4.1
 
 NEW FEATURES
 
-* Support for Bioconductor packages added compiments of Keith Hughitt.  See #62
+* Support for Bioconductor packages added compliments of Keith Hughitt.  See #62
 
 * `p_boot` added to generate a string for the standard **pacman** script header 
   that, when added to scripts, will ensure **pacman** is installed before 
@@ -64,7 +69,7 @@ IMPROVEMENTS
 
 * `p_functions` sorts the functions alphabetically before returning them.
 
-* `p_path` now takes a package as an agument, allowing the user to return the 
+* `p_path` now takes a package as an argument, allowing the user to return the 
   path to individual packages as well.
   
 CHANGES
