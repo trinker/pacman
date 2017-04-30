@@ -49,23 +49,32 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
             package <- NULL 
         } 
 
-        response <- tryCatch(
-            utils::install.packages(package, ...),
-            warning = function(w) {   
-                ## for users with bioconductor on installed, check to see if
-                ## package is available in the bioconductor repos
-                if (!p_isinstalled('BiocInstaller')) {
-                    source("http://bioconductor.org/biocLite.R")
-                }           
-                suppressMessages(suppressWarnings(
-                    eval(parse(
-                        text=sprintf("BiocInstaller::biocLite('%s', suppressUpdates=TRUE)", 
-                            package)
-                    ))
+        try_bioc <- function(){
+            ## for users with bioconductor on installed, check to see if
+            ## package is available in the bioconductor repos
+            if (!p_isinstalled('BiocInstaller')) {
+                source("http://bioconductor.org/biocLite.R")
+            }           
+            suppressMessages(suppressWarnings(
+                eval(parse(
+                    text=sprintf("BiocInstaller::biocLite('%s', suppressUpdates=TRUE)", 
+                        package)
                 ))
-            
+            ))
+        }
+
+        try_bioc_p <- FALSE
+
+        response <- withCallingHandlers(
+            utils::install.packages(package, ...),
+            warning = function(w){
+                if (grepl("package.*is not available", w$message)) {
+                    try_bioc_p <<- TRUE
+                }
             }
         )
+
+        if (try_bioc_p) try_bioc()
     }
     
     ## check if package was installed & success notification.
