@@ -17,7 +17,7 @@ And constructed with the following guidelines:
 * Bug fixes and misc changes bumps the patch
 
 
-**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.4.2 -
+**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.4.2 - 0.4.5
 ----------------------------------------------------------------
 
 **BUG FIXES**
