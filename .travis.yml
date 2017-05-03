@@ -29,7 +29,7 @@ r:
     - devel
 os:
     - linux
-    - osx
+
 matrix:
     exclude:
     -   r: devel

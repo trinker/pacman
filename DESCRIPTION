@@ -2,14 +2,15 @@ Package: pacman
 Type: Package
 Title: Package Management Tool
 Version: 0.4.5
-Date: 2016-09-06
+Date: 2017-05-02
 Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"),
         email = "tyler.rinker@gmail.com"), person("Dason",
         "Kurkiewicz", role = c("aut", "ctb"), email =
         "dasonk@iastate.edu"), person("Keith", "Hughitt", role =
+        c("ctb")), person("Albert", "Wang", role =
         c("ctb")))
 Author: Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb],
-        Keith Hughitt [ctb]
+        Keith Hughitt [ctb], Albert Wang [ctb]
 Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
 Depends: R (>= 3.0.2)
 Imports: devtools, methods, stats, utils

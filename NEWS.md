@@ -24,12 +24,8 @@ And constructed with the following guidelines:
 
 * R version 3.4.0 cause `p_install` to result in an error: 
   `Error in readRDS(dest) : error reading from connection` as noted by @arbelt
-  in <a href="https://github.com/trinker/pacman/issues/90">issue #90</a>.  This was rectified in thanks to @arbelt's pull request (see 
+  in <a href="https://github.com/trinker/pacman/issues/90">issue #90</a>.  This was rectified in thanks to Albert Wang's pull request (see 
   <a href="https://github.com/trinker/pacman/issues/91">issue #91</a>).
-
-**NEW FEATURES**
-
-**MINOR FEATURES**
 
 **IMPROVEMENTS**
 
@@ -37,7 +33,6 @@ And constructed with the following guidelines:
   automatically install necessary dependencies in the same way `install.packages` 
   defaults to install dependencies (See <a href="https://github.com/trinker/pacman/issues/75">issue #75</a>).
 
-**CHANGES**
 
 
 

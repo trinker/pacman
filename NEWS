@@ -24,12 +24,8 @@ BUG FIXES
 
 * R version 3.4.0 cause `p_install` to result in an error: 
   `Error in readRDS(dest) : error reading from connection` as noted by @arbelt
-  in issue #90.  This was rectified in thanks to @arbelt's pull request (see 
+  in issue #90.  This was rectified in thanks to Albert Wang's pull request (see 
   issue #91).
-
-NEW FEATURES
-
-MINOR FEATURES
 
 IMPROVEMENTS
 
@@ -37,7 +33,6 @@ IMPROVEMENTS
   automatically install necessary dependencies in the same way `install.packages` 
   defaults to install dependencies (See issue #75).
 
-CHANGES
 
 
 
