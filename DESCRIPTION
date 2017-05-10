@@ -3,15 +3,12 @@ Type: Package
 Title: Package Management Tool
 Version: 0.4.6
 Date: 2017-05-02
-Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"),
-        email = "tyler.rinker@gmail.com"), person("Dason",
-        "Kurkiewicz", role = c("aut", "ctb"), email =
-        "dasonk@iastate.edu"), person("Keith", "Hughitt", role =
-        c("ctb")), person("Albert", "Wang", role =
-        c("ctb")))
-Author: Tyler Rinker [aut, cre, ctb], Dason Kurkiewicz [aut, ctb],
-        Keith Hughitt [ctb], Albert Wang [ctb]
-Maintainer: Tyler Rinker <tyler.rinker@gmail.com>
+Authors@R:
+  c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"), email = "tyler.rinker@gmail.com"),
+    person("Dason", "Kurkiewicz", role = c("aut", "ctb"), email = "dasonk@iastate.edu"),
+    person("Keith", "Hughitt", role = c("ctb")),
+    person("Albert", "Wang", role = c("ctb")),
+    person("Jim", "Hester", role = c("ctb")))
 Depends: R (>= 3.0.2)
 Imports: devtools (>= 1.13.0), methods, stats, utils
 Suggests: knitr, lattice, testthat (>= 0.9.0), XML
