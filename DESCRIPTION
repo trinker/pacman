@@ -5,7 +5,7 @@ Version: 0.4.6
 Date: 2017-05-02
 Authors@R:
   c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"), email = "tyler.rinker@gmail.com"),
-    person("Dason", "Kurkiewicz", role = c("aut", "ctb"), email = "dasonk@iastate.edu"),
+    person("Dason", "Kurkiewicz", role = c("aut", "ctb"), email = "dasonk@gmail.com"),
     person("Keith", "Hughitt", role = c("ctb")),
     person("Albert", "Wang", role = c("ctb")),
     person("Jim", "Hester", role = c("ctb")))
