@@ -25,15 +25,15 @@ p_install_gh <- function(package, dependencies = TRUE, ...){
     }
 
     ## Download package
-    out <- invisible(lapply(package, function(x) {
-        try(devtools::install_github(x, dependencies = dependencies, ...))
-    }))
+    out <- lapply(package, function(x) {
+        devtools::install_github(x, dependencies = dependencies, ...)
+    })
     
     ## Check if package was installed & success notification.
     pack <- sapply(package, function(x) parse_git_repo(x)[["repo"]])
 
     ## Message for install status
-    install_checks <- stats::setNames(sapply(out, function(x) !inherits(x, "try-error")), pack)
+    install_checks <- stats::setNames(unlist(out), pack)
 
     caps_check <- p_isinstalled(pack) == install_checks
     if (any(!caps_check)) {
