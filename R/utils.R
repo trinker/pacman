@@ -210,12 +210,12 @@ parse_git_repo <- function(path) {
       params <- params[sapply(params, nchar) > 0]
 
       if (!is.null(params$pull)) {
-          params$ref <- devtools::github_pull(params$pull)
+          params$ref <- remotes::github_pull(params$pull)
           params$pull <- NULL
       }
 
       if (!is.null(params$release)) {
-          params$ref <- devtools::github_release()
+          params$ref <- remotes::github_release()
           params$release <- NULL
       }
 

@@ -1,6 +1,7 @@
 #' Load One or More GitHub Packages 
 #'
-#' This function is a wrapper for \code{\link[devtools]{install_github}} and 
+#' This function is a wrapper for \code{\link[remotes]{install_github}}
+#' which is the same as \code{\link[devtools]{install_github}} and 
 #' \code{\link[base]{require}}.  It checks to see if a 
 #' package is installed, if not it attempts to install the package from 
 #' \href{https://github.com}{GitHub}.
@@ -19,7 +20,7 @@
 #' @param dependencies logical.  If \code{TRUE} necessary dependencies will be 
 #' installed as well.
 #' @seealso 
-#' \code{\link[devtools]{install_github}}
+#' \code{\link[remotes]{install_github}}
 #' \code{\link[base]{library}},
 #' \code{\link[base]{require}}
 #' @export

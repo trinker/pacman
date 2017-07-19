@@ -14,10 +14,11 @@ Note that this must be a character string.}
 \item{dependencies}{logical.  If \code{TRUE} necessary dependencies will be 
 installed as well.}
 
-\item{\ldots}{Additional parameters to pass to \code{\link[devtools]{install_github}}.}
+\item{\ldots}{Additional parameters to pass to \code{\link[remotes]{install_github}}.}
 }
 \description{
-Installs a GitHub package.  A wrapper for \code{\link[devtools]{install_github}}.
+Installs a GitHub package.  A wrapper for \code{\link[remotes]{install_github}}
+which is the same as \code{\link[devtools]{install_github}}.
 }
 \examples{
 \dontrun{
@@ -28,7 +29,7 @@ p_install_gh("trinker/pacmanAwesomer")
 }
 }
 \seealso{
-\code{\link[devtools]{install_github}}
+\code{\link[remotes]{install_github}}
 }
 \keyword{github}
 \keyword{install}
