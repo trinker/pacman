@@ -5,9 +5,11 @@ r_github_packages:
   - jimhester/covr
   
 notifications:
+  slack: talkstats:AdIullnahcEy4dX12JYbD4G9
   email:
     on_success:      change
     on_failure:      change
+
     
 after_success:
   - Rscript -e 'covr::coveralls()'
