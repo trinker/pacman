@@ -27,7 +27,8 @@ installed as well.}
 \code{username/repo[/subdir][@ref|#pull]}.  Note that this must be a character string.}
 }
 \description{
-This function is a wrapper for \code{\link[devtools]{install_github}} and 
+This function is a wrapper for \code{\link[remotes]{install_github}}
+which is the same as \code{\link[devtools]{install_github}} and 
 \code{\link[base]{require}}.  It checks to see if a 
 package is installed, if not it attempts to install the package from 
 \href{https://github.com}{GitHub}.
@@ -42,7 +43,7 @@ p_load_gh(c("trinker/regexTools",
 }
 }
 \seealso{
-\code{\link[devtools]{install_github}}
+\code{\link[remotes]{install_github}}
 \code{\link[base]{library}},
 \code{\link[base]{require}}
 }

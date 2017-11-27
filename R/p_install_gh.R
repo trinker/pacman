@@ -1,15 +1,16 @@
 #' Installs & Loads GitHub Packages 
 #' 
-#' Installs a GitHub package.  A wrapper for \code{\link[devtools]{install_github}}.
+#' Installs a GitHub package.  A wrapper for \code{\link[remotes]{install_github}}
+#' which is the same as \code{\link[devtools]{install_github}}.
 #' 
 #' @param package Repository address(es) in the format 
 #' \code{username/repo[/subdir][@@ref|#pull]}.  
 #' Note that this must be a character string.
 #' @param dependencies logical.  If \code{TRUE} necessary dependencies will be 
 #' installed as well.
-#' @param \ldots Additional parameters to pass to \code{\link[devtools]{install_github}}.
+#' @param \ldots Additional parameters to pass to \code{\link[remotes]{install_github}}.
 #' @keywords github install
-#' @seealso \code{\link[devtools]{install_github}}
+#' @seealso \code{\link[remotes]{install_github}}
 #' @export
 #' @examples
 #' \dontrun{
@@ -26,7 +27,14 @@ p_install_gh <- function(package, dependencies = TRUE, ...){
 
     ## Download package
     out <- lapply(package, function(x) {
-        devtools::install_github(x, dependencies = dependencies, ...)
+        tryCatch(
+        remotes::install_github(x, dependencies = dependencies, ...),
+        error = function(e) {
+            # Possibly add a quiet parameter to mute this?
+            message("Installation failed: ", paste(deparse(conditionCall(e)), collapse = " "), " : ", conditionMessage(e))
+            FALSE
+        }
+        )
     })
     
     ## Check if package was installed & success notification.

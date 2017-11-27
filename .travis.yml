@@ -1,16 +1,15 @@
 language: r
-
 sudo: false
-before_install:
-  - sh -e /etc/init.d/xvfb start
 
 r_github_packages: 
   - jimhester/covr
   
 notifications:
+  slack: talkstats:AdIullnahcEy4dX12JYbD4G9
   email:
     on_success:      change
     on_failure:      change
+
     
 after_success:
   - Rscript -e 'covr::coveralls()'
@@ -18,19 +17,20 @@ after_success:
 r_build_args: "--resave-data=best"
 r_check_args: "--as-cran"
 
-env:
-   global:
-     - DISPLAY=:99.0
-     - BOOTSTRAP_LATEX=1
-
 r:
     - oldrel
     - release
     - devel
 os:
     - linux
+    - osx
 
 matrix:
-    exclude:
+    fast_finish: true
+    allow_failures:
+    -   r: oldrel
+        os: osx
+    -   r: release
+        os: osx
     -   r: devel
-        os: osx     
+        os: osx 
