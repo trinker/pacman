@@ -53,7 +53,7 @@ p_load <- function (..., char, install = TRUE, update = getOption("pac_update"),
     	update <- FALSE
     }
     if (update){
-        p_update()
+        p_update(oldPkgs=packages)
     }
     
     # Attempt to load packages making note of which don't load
