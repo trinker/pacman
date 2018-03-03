@@ -2,20 +2,18 @@ Package: pacman
 Type: Package
 Title: Package Management Tool
 Version: 0.4.7
-Date: 2017-05-13
-Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"), email =
-         "tyler.rinker@gmail.com"), person("Dason", "Kurkiewicz", role = c("aut",
-         "ctb"), email = "dasonk@gmail.com"), person("Keith", "Hughitt", role =
-         c("ctb")), person("Albert", "Wang", role = c("ctb")), person("Jim",
-         "Hester", role = c("ctb")))
+Date: 2018-03-03
+Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"), email = "tyler.rinker@gmail.com"),
+             person("Dason", "Kurkiewicz", role = c("aut", "ctb"), email = "dasonk@gmail.com"), person("Keith",
+             "Hughitt", role = c("ctb")), person("Albert", "Wang", role = c("ctb")), person("Jim", "Hester", role =
+             c("ctb")))
 Depends: R (>= 3.0.2)
 Imports: remotes, methods, stats, utils
 Suggests: knitr, lattice, testthat (>= 0.9.0), XML
 BugReports: https://github.com/trinker/pacman/issues?state=open
-Description: Tools to more conveniently perform tasks associated with add-on packages.
-         pacman conveniently wraps library and package related functions and names
-         them in an intuitive and consistent fashion.  It seeks to combine
-         functionality from lower level functions which can speed up workflow.
+Description: Tools to more conveniently perform tasks associated with add-on packages. pacman conveniently wraps
+             library and package related functions and names them in an intuitive and consistent fashion.  It seeks to
+             combine functionality from lower level functions which can speed up workflow.
 License: GPL-2
 URL: https://github.com/trinker/pacman
 Roxygen: list(wrap = FALSE)

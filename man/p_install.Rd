@@ -5,10 +5,10 @@
 \alias{p_get}
 \title{Installs & Loads Packages}
 \usage{
-p_install(package, character.only = FALSE, overwrite = TRUE,
+p_install(package, character.only = FALSE, force = TRUE,
   path = getOption("download_path"), ...)
 
-p_get(package, character.only = FALSE, overwrite = TRUE,
+p_get(package, character.only = FALSE, force = TRUE,
   path = getOption("download_path"), ...)
 }
 \arguments{
@@ -17,7 +17,8 @@ p_get(package, character.only = FALSE, overwrite = TRUE,
 \item{character.only}{logical.  If \code{TRUE} \code{\dots} is treated a 
 character string.}
 
-\item{overwrite}{logical. Should package be installed if it already exists on local system?}
+\item{force}{logical. Should package be installed if it already exists on 
+local system?}
 
 \item{path}{The path to the directory that contains the package.  It is 
 convenient to set \code{download_path} in .Rprofile options to the downloads 
