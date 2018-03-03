@@ -6,6 +6,7 @@
 #' @param package Name of package(s).
 #' @param character.only logical.  If \code{TRUE} \code{\dots} is treated a 
 #' character string.
+#' @param overwrite logical. Should package be installed if it already exists on local system?
 #' @param \ldots Additional parameters to pass to \code{install.packages}.
 #' @param path The path to the directory that contains the package.  It is 
 #' convenient to set \code{download_path} in .Rprofile options to the downloads 
@@ -16,11 +17,16 @@
 #' @examples
 #' \dontrun{p_install(pacman)}
 p_install <-
-function(package, character.only = FALSE, path = getOption("download_path"), ...){
+function(package, character.only = FALSE, overwrite = TRUE, path = getOption("download_path"), ...){
 
     if(!character.only){
         package <- as.character(substitute(package))
     }
+  
+  if (package %in% rownames(installed.packages()) & !overwrite){
+    message("Package is already on your system")
+    
+  } else {
 
     ## Detect if package ends in zip/tar.gz
     if (grepl("\\.tar\\.gz|\\.zip", package)) {
@@ -35,8 +41,9 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
                 tar_path <- file.choose()
             }      
         }
-        utils::install.packages(tar_path, repos = NULL, type = "source", ...)
         
+        utils::install.packages(tar_path, repos = NULL, type = "source", ...)
+      
     } else {
       
         p_set_cranrepo()
@@ -65,6 +72,7 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
                 }
             }
         )
+        
 
         ## if the CRAN install failed from not available warning try installing
         ## from bioconductor
@@ -86,6 +94,8 @@ function(package, character.only = FALSE, path = getOption("download_path"), ...
         return(invisible(FALSE))
         
     }
+    
+  }  
 }
 
 
