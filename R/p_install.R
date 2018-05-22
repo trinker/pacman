@@ -67,12 +67,13 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
     
             ## install from CRAN; if not available warning happens record in the
             ## bioconductor environment
-            response <- withCallingHandlers(
+            response <- tryCatch(
                 utils::install.packages(package, ...),
                 warning = function(w){
                     if (grepl("package.*is not available", w$message)) {
                         assign('try_bioc_p', TRUE, envir = bioconductor_env)
                     }
+                    w$message
                 }
             )
             
