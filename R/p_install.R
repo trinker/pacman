@@ -12,12 +12,17 @@
 #' @param path The path to the directory that contains the package.  It is 
 #' convenient to set \code{download_path} in .Rprofile options to the downloads 
 #' directory.
+#' @param skip_bioc Should BioConductor be skipped? Set to \code{FALSE} to 
+#' search for the package on BioConductor (and install \code{\link{BiocManager}} 
+#' if not installed). By default, BioConductor is skipped if
+#' \code{\link{BiocManager}} is not installed.
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export
 #' @examples
 #' \dontrun{p_install(pacman)}
 p_install <- function(package, character.only = FALSE, force = TRUE, 
+    skip_bioc = NULL,
     path = getOption("download_path"), ...){
 
     if(!character.only){
@@ -79,7 +84,9 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
     
             ## if the CRAN install failed from not available warning try installing
             ## from bioconductor
-            if (isTRUE(bioconductor_env[['try_bioc_p']])) try_bioc(package)
+            if (isTRUE(bioconductor_env[['try_bioc_p']])) {
+                try_bioc(package, skip_bioc, character.only, ...)
+            }
         }
         
         ## check if package was installed & success notification.
@@ -102,15 +109,26 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
 }
 
 
-try_bioc <- function(package){
-    ## Bioconductor's `BiocInstaller::biocLite` is updated regardless 
-    ## of whether the package already exists 
-    source("http://bioconductor.org/biocLite.R")
+try_bioc <- function(package, skip_bioc = FALSE, character.only = FALSE, ...){
+    if (is.null(skip_bioc)) {
+        skip_bioc <- !p_isinstalled("BiocManager")
+        if (skip_bioc) {
+            warning("Skipping BioConductor because 'BiocManager' is not installed.", 
+                    call. = FALSE)
+        }
+    }
+    if (skip_bioc) return(invisible(FALSE))
   
+    # Check if BiocManager is installed, install if not. Calls p_install() again, 
+    # so dots and character.only are passed from original p_install() call
+    if (!p_isinstalled("BiocManager")) {
+        p_install("BiocManager", character.only, skip_bioc = TRUE, ...)
+    }
+    
     ## attempt to install the assumed bioconductor package
     suppressMessages(suppressWarnings(
         eval(parse(
-            text=sprintf("BiocInstaller::biocLite('%s', suppressUpdates=TRUE)", 
+            text=sprintf("BiocManager::install('%s')", 
                 package)
         ))
     ))
