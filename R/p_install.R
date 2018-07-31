@@ -12,9 +12,9 @@
 #' @param path The path to the directory that contains the package.  It is 
 #' convenient to set \code{download_path} in .Rprofile options to the downloads 
 #' directory.
-#' @param skip_bioc Should BioConductor be skipped? Set to \code{FALSE} to 
-#' search for the package on BioConductor (and install \code{\link{BiocManager}} 
-#' if not installed). By default, BioConductor is skipped if
+#' @param skip_bioc Should Bioconductor be skipped? Set to \code{FALSE} to 
+#' search for the package on Bioconductor (and install \code{\link{BiocManager}} 
+#' if not installed). By default, Bioconductor is skipped if
 #' \code{\link{BiocManager}} is not installed.
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
@@ -113,7 +113,7 @@ try_bioc <- function(package, skip_bioc = FALSE, character.only = FALSE, ...){
     if (is.null(skip_bioc)) {
         skip_bioc <- !p_isinstalled("BiocManager")
         if (skip_bioc) {
-            warning("Skipping BioConductor because 'BiocManager' is not installed.", 
+            warning("Skipping Bioconductor because 'BiocManager' is not installed.", 
                     call. = FALSE)
         }
     }
