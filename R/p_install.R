@@ -12,17 +12,15 @@
 #' @param path The path to the directory that contains the package.  It is 
 #' convenient to set \code{download_path} in .Rprofile options to the downloads 
 #' directory.
-#' @param skip_bioc Should Bioconductor be skipped? Set to \code{FALSE} to 
-#' search for the package on Bioconductor (and install \code{\link{BiocManager}} 
-#' if not installed). By default, Bioconductor is skipped if
-#' \code{\link{BiocManager}} is not installed.
+#' @param try_bioconductor If \code{TRUE}, tries to install the package from 
+#' Bioconductor if it is not found on CRAN using \code{\link{BiocManager}}.
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export
 #' @examples
 #' \dontrun{p_install(pacman)}
 p_install <- function(package, character.only = FALSE, force = TRUE, 
-    skip_bioc = NULL,
+    try_bioconductor = TRUE,
     path = getOption("download_path"), ...){
 
     if(!character.only){
@@ -84,7 +82,7 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
     
             ## if the CRAN install failed from not available warning try installing
             ## from bioconductor
-            if (isTRUE(bioconductor_env[['try_bioc_p']])) {
+            if (try_bioconductor && isTRUE(bioconductor_env[['try_bioc_p']])) {
                 try_bioc(package)
             }
         }
