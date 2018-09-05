@@ -8,7 +8,7 @@ Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"), email = "t
              "Hughitt", role = c("ctb")), person("Albert", "Wang", role = c("ctb")), person("Jim", "Hester", role =
              c("ctb")))
 Depends: R (>= 3.0.2)
-Imports: remotes, methods, stats, utils
+Imports: remotes, methods, stats, utils, BiocManager
 Suggests: knitr, lattice, testthat (>= 0.9.0), XML
 BugReports: https://github.com/trinker/pacman/issues?state=open
 Description: Tools to more conveniently perform tasks associated with add-on packages. pacman conveniently wraps

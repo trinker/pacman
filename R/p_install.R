@@ -85,7 +85,7 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
             ## if the CRAN install failed from not available warning try installing
             ## from bioconductor
             if (isTRUE(bioconductor_env[['try_bioc_p']])) {
-                try_bioc(package, skip_bioc, character.only, ...)
+                try_bioc(package)
             }
         }
         
@@ -109,22 +109,7 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
 }
 
 
-try_bioc <- function(package, skip_bioc = FALSE, character.only = FALSE, ...){
-    if (is.null(skip_bioc)) {
-        skip_bioc <- !p_isinstalled("BiocManager")
-        if (skip_bioc) {
-            warning("Skipping Bioconductor because 'BiocManager' is not installed.", 
-                    call. = FALSE)
-        }
-    }
-    if (skip_bioc) return(invisible(FALSE))
-  
-    # Check if BiocManager is installed, install if not. Calls p_install() again, 
-    # so dots and character.only are passed from original p_install() call
-    if (!p_isinstalled("BiocManager")) {
-        p_install("BiocManager", character.only, skip_bioc = TRUE, ...)
-    }
-    
+try_bioc <- function(package){
     ## attempt to install the assumed bioconductor package
     suppressMessages(suppressWarnings(
         eval(parse(
