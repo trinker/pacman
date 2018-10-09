@@ -27,8 +27,10 @@ p_install_gh <- function(package, dependencies = TRUE, ...){
 
     ## Download package
     out <- lapply(package, function(x) {
-        tryCatch(
-        remotes::install_github(x, dependencies = dependencies, ...),
+        tryCatch({
+          remotes::install_github(x, dependencies = dependencies, ...)
+          TRUE
+        },
         error = function(e) {
             # Possibly add a quiet parameter to mute this?
             message("Installation failed: ", paste(deparse(conditionCall(e)), collapse = " "), " : ", conditionMessage(e))
