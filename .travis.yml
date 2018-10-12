@@ -3,6 +3,7 @@ sudo: false
 
 r_github_packages: 
   - jimhester/covr
+  - Bioconductor/BiocManager
   
 notifications:
   slack: talkstats:AdIullnahcEy4dX12JYbD4G9
