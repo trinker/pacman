@@ -12,12 +12,15 @@
 #' @param path The path to the directory that contains the package.  It is 
 #' convenient to set \code{download_path} in .Rprofile options to the downloads 
 #' directory.
+#' @param try_bioconductor If \code{TRUE}, tries to install the package from 
+#' Bioconductor if it is not found on CRAN using \code{\link{BiocManager}}.
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export
 #' @examples
 #' \dontrun{p_install(pacman)}
 p_install <- function(package, character.only = FALSE, force = TRUE, 
+    try_bioconductor = TRUE,
     path = getOption("download_path"), ...){
 
     if(!character.only){
@@ -79,7 +82,9 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
     
             ## if the CRAN install failed from not available warning try installing
             ## from bioconductor
-            if (isTRUE(bioconductor_env[['try_bioc_p']])) try_bioc(package)
+            if (try_bioconductor && isTRUE(bioconductor_env[['try_bioc_p']])) {
+                try_bioc(package)
+            }
         }
         
         ## check if package was installed & success notification.
@@ -103,14 +108,10 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
 
 
 try_bioc <- function(package){
-    ## Bioconductor's `BiocInstaller::biocLite` is updated regardless 
-    ## of whether the package already exists 
-    source("http://bioconductor.org/biocLite.R")
-  
     ## attempt to install the assumed bioconductor package
     suppressMessages(suppressWarnings(
         eval(parse(
-            text=sprintf("BiocInstaller::biocLite('%s', suppressUpdates=TRUE)", 
+            text=sprintf("BiocManager::install('%s')", 
                 package)
         ))
     ))
