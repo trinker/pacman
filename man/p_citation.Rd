@@ -17,8 +17,8 @@ p_cite(package = "r", copy2clip = interactive(),
 \item{copy2clip}{logical.  If \code{TRUE} attempts to copy the output to the 
 clipboard.}
 
-\item{tex}{logical.  If \code{TRUE} A only the BibTex version of the citation
-is copied to the clipboard.  If \code{FALSE} The standard citation is copied 
+\item{tex}{logical.  If \code{TRUE} only the BibTex version of the citation
+is copied to the clipboard.  If \code{FALSE} the standard citation is copied 
 to the clipboard.  If \code{NA} both are copied to the clipboard.  Default 
 allows the user to set a \code{"pac_tex"} in his/her .Rprofile.}
 

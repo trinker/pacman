@@ -4,13 +4,12 @@ citHeader("To cite pacman in publications, please use:")
 citEntry(entry = "manual",
     title = "{pacman}: {P}ackage Management for {R}",
     author = "Tyler W. Rinker and Dason Kurkiewicz",
-    organization = "University at Buffalo/SUNY",
     address = "Buffalo, New York",
-    note = "version 0.4.7",
-    year = "2017",
+    note = "version 0.5.0",
+    year = "2018",
     url = "http://github.com/trinker/pacman",
     textVersion  = paste("Rinker, T. W. & Kurkiewicz, D. (2017).",
         "pacman: Package Management for R.",
-        "version 0.4.7. University at Buffalo. Buffalo, New York.",
+        "version 0.5.0. Buffalo, New York.",
         "http://github.com/trinker/pacman")
 )
