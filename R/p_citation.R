@@ -6,8 +6,8 @@
 #' @param package Name of the package you want a citation for.
 #' @param copy2clip logical.  If \code{TRUE} attempts to copy the output to the 
 #' clipboard.
-#' @param tex logical.  If \code{TRUE} A only the BibTex version of the citation
-#' is copied to the clipboard.  If \code{FALSE} The standard citation is copied 
+#' @param tex logical.  If \code{TRUE} only the BibTex version of the citation
+#' is copied to the clipboard.  If \code{FALSE} the standard citation is copied 
 #' to the clipboard.  If \code{NA} both are copied to the clipboard.  Default 
 #' allows the user to set a \code{"pac_tex"} in his/her .Rprofile.
 #' @param \ldots Additional inputs to \code{\link[utils]{citation}}
