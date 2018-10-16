@@ -28,7 +28,7 @@ p_install_gh <- function(package, dependencies = TRUE, ...){
     ## Download package
     out <- lapply(package, function(x) {
         tryCatch({
-          remotes::install_github(x, dependencies = dependencies, ...)
+          remotes::install_github(x, dependencies = dependencies, upgrade = 'always', ...)
           TRUE
         },
         error = function(e) {
