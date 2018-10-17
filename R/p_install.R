@@ -8,20 +8,22 @@
 #' character string.
 #' @param force logical. Should package be installed if it already exists on 
 #' local system?
-#' @param \ldots Additional parameters to pass to \code{install.packages}.
 #' @param path The path to the directory that contains the package.  It is 
 #' convenient to set \code{download_path} in .Rprofile options to the downloads 
 #' directory.
-#' @param try_bioconductor If \code{TRUE}, tries to install the package from 
+#' @param try.bioconductor If \code{TRUE}, tries to install the package from 
 #' Bioconductor if it is not found on CRAN using \code{\link{BiocManager}}.
+#' @param update.bioconductor If \code{TRUE}, tries to update dependencies used
+#' by \code{try.bioconductor}. 
+#' @param \ldots Additional parameters to pass to \code{install.packages}.
 #' @keywords install package
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export
 #' @examples
 #' \dontrun{p_install(pacman)}
 p_install <- function(package, character.only = FALSE, force = TRUE, 
-    try_bioconductor = TRUE,
-    path = getOption("download_path"), ...){
+    path = getOption("download_path"), 
+    try.bioconductor = TRUE, update.bioconductor = FALSE, ...){
 
     if(!character.only){
         package <- as.character(substitute(package))
@@ -82,8 +84,8 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
     
             ## if the CRAN install failed from not available warning try installing
             ## from bioconductor
-            if (try_bioconductor && isTRUE(bioconductor_env[['try_bioc_p']])) {
-                try_bioc(package)
+            if (try.bioconductor && isTRUE(bioconductor_env[['try_bioc_p']])) {
+                try_bioc(package, update.bioconductor)
             }
         }
         
@@ -107,12 +109,11 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
 }
 
 
-try_bioc <- function(package){
+try_bioc <- function(package, update, ...){
     ## attempt to install the assumed bioconductor package
     suppressMessages(suppressWarnings(
         eval(parse(
-            text=sprintf("BiocManager::install('%s')", 
-                package)
+            text=sprintf("BiocManager::install('%s', update = %s)", package, ifelse(update, 'TRUE', 'FALSE'))
         ))
     ))
 }

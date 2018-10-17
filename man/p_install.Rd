@@ -6,10 +6,12 @@
 \title{Installs & Loads Packages}
 \usage{
 p_install(package, character.only = FALSE, force = TRUE,
-  try_bioconductor = TRUE, path = getOption("download_path"), ...)
+  path = getOption("download_path"), try.bioconductor = TRUE,
+  update.bioconductor = FALSE, ...)
 
 p_get(package, character.only = FALSE, force = TRUE,
-  try_bioconductor = TRUE, path = getOption("download_path"), ...)
+  path = getOption("download_path"), try.bioconductor = TRUE,
+  update.bioconductor = FALSE, ...)
 }
 \arguments{
 \item{package}{Name of package(s).}
@@ -20,12 +22,15 @@ character string.}
 \item{force}{logical. Should package be installed if it already exists on 
 local system?}
 
-\item{try_bioconductor}{If \code{TRUE}, tries to install the package from 
-Bioconductor if it is not found on CRAN using \code{\link{BiocManager}}.}
-
 \item{path}{The path to the directory that contains the package.  It is 
 convenient to set \code{download_path} in .Rprofile options to the downloads 
 directory.}
+
+\item{try.bioconductor}{If \code{TRUE}, tries to install the package from 
+Bioconductor if it is not found on CRAN using \code{\link{BiocManager}}.}
+
+\item{update.bioconductor}{If \code{TRUE}, tries to update dependencies used
+by \code{try.bioconductor}.}
 
 \item{\ldots}{Additional parameters to pass to \code{install.packages}.}
 }
