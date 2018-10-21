@@ -6,8 +6,9 @@ r_github_packages:
 
 env:
   global:
-  - secure: Gy733DZxVeSv7uHbRu+LeoeXgFHfTyM2Zgvf4vsxpQsM8cTz6qKMSkKPxUHEauqxwOCVw9se4Bh+3MMLQsdMqfPdhVQfHPv+xtKHhfyvEeSkY2woWp/OINw5vioxW3quA4DPbkVEmtC604o7MlKFkuIMIcnJjmk3b7Ynq72hSPU=
- 
+  matrix:
+    secure: "Gy733DZxVeSv7uHbRu+LeoeXgFHfTyM2Zgvf4vsxpQsM8cTz6qKMSkKPxUHEauqxwOCVw9se4Bh+3MMLQsdMqfPdhVQfHPv+xtKHhfyvEeSkY2woWp/OINw5vioxW3quA4DPbkVEmtC604o7MlKFkuIMIcnJjmk3b7Ynq72hSPU="
+
   
 notifications:
   slack: talkstats:AdIullnahcEy4dX12JYbD4G9
