@@ -12,7 +12,7 @@
 #' convenient to set \code{download_path} in .Rprofile options to the downloads 
 #' directory.
 #' @param try.bioconductor If \code{TRUE}, tries to install the package from 
-#' Bioconductor if it is not found on CRAN using \code{\link{BiocManager}}.
+#' Bioconductor if it is not found on CRAN using \pkg{BiocManager}.
 #' @param update.bioconductor If \code{TRUE}, tries to update dependencies used
 #' by \code{try.bioconductor}. 
 #' @param \ldots Additional parameters to pass to \code{install.packages}.

@@ -27,7 +27,7 @@ convenient to set \code{download_path} in .Rprofile options to the downloads
 directory.}
 
 \item{try.bioconductor}{If \code{TRUE}, tries to install the package from 
-Bioconductor if it is not found on CRAN using \code{\link{BiocManager}}.}
+Bioconductor if it is not found on CRAN using \pkg{BiocManager}.}
 
 \item{update.bioconductor}{If \code{TRUE}, tries to update dependencies used
 by \code{try.bioconductor}.}
