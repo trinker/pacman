@@ -13,10 +13,12 @@ p_news(package = NULL)
 Find out news on a package or R.
 }
 \examples{
+\dontrun{
 p_news()
 p_news(lattice)
 ## Grab specific version subsets
 subset(p_news(lattice), Version == 0.7)  
+}
 }
 \seealso{
 \code{\link[utils]{news}}
