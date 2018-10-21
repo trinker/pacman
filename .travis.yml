@@ -6,8 +6,9 @@ r_github_packages:
 
 env:
   global:
-  - secure: "xN4G4VtP9oCofIJW03YMJoanKiSzihU0GcnHZAbAszgN1t38t9TgbOV02bHKdlZ2msZTA0WoMbjP1I0/l9YixG0dSKoUCxNU0SmJ/SDsUN50QBMgNxLRXM97EKFX9rtRPJwP4pL7R7l/2VTNNL9Thk/nemISxujBHavPfe7p8RA="
-  
+  - NOT_CRAN=true
+  - secure: "Gn6IV3N9/4xgo6lQaADy+IqsKFWT00Q7Beyd5R9tuOpqPVtLt0Et4IKZILf5TnWh0Hf9GAcQs9LWDPUpFmp/ZzCWfju6IxA7axQvviPcf3d84ICAxOGjg+bCfbPw1Euvz2vJ4ChAc5kK6FhDcRtjvvNaKCXG4bSofpZyHxVnJxQ="
+
 notifications:
   slack: talkstats:AdIullnahcEy4dX12JYbD4G9
   email:
