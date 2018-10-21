@@ -4,6 +4,9 @@ sudo: false
 r_github_packages: 
   - jimhester/covr
 
+env:
+  global:
+  - secure: GITHUB_PAT = 'd0345a805a931ec32175d31ce17eaedc52737775'  
   
 notifications:
   slack: talkstats:AdIullnahcEy4dX12JYbD4G9
