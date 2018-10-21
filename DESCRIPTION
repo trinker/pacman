@@ -11,8 +11,8 @@ Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"),
         person("Albert", "Wang", role = c("ctb")),
         person("Lukas", "Burk", role = c("ctb")))
 Depends: R (>= 3.5.0)
-Imports: remotes, methods, stats, utils, BiocManager
-Suggests: knitr, lattice, testthat (>= 0.9.0), XML
+Imports: remotes, methods, stats, utils
+Suggests: BiocManager, knitr, lattice, testthat (>= 0.9.0), XML
 BugReports: https://github.com/trinker/pacman/issues?state=open
 Description: Tools to more conveniently perform tasks associated with
         add-on packages. pacman conveniently wraps library and package
@@ -23,4 +23,4 @@ License: GPL-2
 URL: https://github.com/trinker/pacman
 Roxygen: list(wrap = FALSE)
 VignetteBuilder: knitr
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0.9000

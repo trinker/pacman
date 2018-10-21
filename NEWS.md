@@ -18,18 +18,13 @@ And constructed with the following guidelines:
 
 
 
-**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.4.6 -
+**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.4.6 - 0.5.0
 ----------------------------------------------------------------
 
-**BUG FIXES**
-
-**NEW FEATURES**
-
-**MINOR FEATURES**
-
-**IMPROVEMENTS**
-
 **CHANGES**
+
+* `p_install` and dependent functions now use *BiocManager* to install from
+  Bioconductor.  Thanks to Garrick Aden-Buie for this update.
 
 
 

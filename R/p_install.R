@@ -110,12 +110,23 @@ p_install <- function(package, character.only = FALSE, force = TRUE,
 
 
 try_bioc <- function(package, update, ...){
-    ## attempt to install the assumed bioconductor package
-    suppressMessages(suppressWarnings(
-        eval(parse(
-            text=sprintf("BiocManager::install('%s', update = %s)", package, ifelse(update, 'TRUE', 'FALSE'))
-        ))
-    ))
+    
+    if (requireNamespace("BiocManager", quietly = TRUE)){
+
+        ## attempt to install the assumed bioconductor package
+        suppressMessages(suppressWarnings(
+            eval(parse(
+                text=sprintf("BiocManager::install('%s', update = %s)", package, ifelse(update, 'TRUE', 'FALSE'))
+            ))
+        ))             
+        
+    } else {
+        
+        warning('\'BiocManager\' not available.  Could not check Bioconductor.\n\nPlease use `install.packages(\'BiocManager\')` and then retry.', call. = FALSE)
+        
+    }
+    
+
 }
 
 #' @rdname p_install
