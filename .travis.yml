@@ -24,7 +24,7 @@ r_check_args: "--as-cran"
 
 r:
     - oldrel
-    - release
+    #- release
     - devel
 os:
     - linux
@@ -33,8 +33,8 @@ os:
 matrix:
     fast_finish: true
     allow_failures:
-    -   r: oldrel
-        os: osx
+    #-   r: oldrel
+    #    os: osx
     -   r: release
         os: osx
     -   r: devel
