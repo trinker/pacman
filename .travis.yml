@@ -3,6 +3,7 @@ sudo: false
 
 r_github_packages: 
   - jimhester/covr
+ 
 
 env:
   global:
@@ -23,8 +24,8 @@ r_build_args: "--resave-data=best"
 r_check_args: "--as-cran"
 
 r:
-    - oldrel
-    #- release
+    #- oldrel
+    - release
     - devel
 os:
     - linux
