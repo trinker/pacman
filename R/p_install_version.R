@@ -9,10 +9,12 @@
 #' @keywords version
 #' @export
 #' @examples
+#' \dontrun{
 #' p_install_version(
 #'     c("pacman", "testthat"), 
 #'     c("0.2.0", "0.9.1")
 #' )
+#' }
 p_install_version <- function (package, version){ 
 
     ## Check that package and version are equal in length

@@ -14,7 +14,9 @@
 #' @examples
 #' p_data()
 #' p_data(lattice)
-#' \dontrun{p_data(static=TRUE)}
+#' \dontrun{
+#' p_data(static=TRUE)
+#' }
 p_data <-
 function(package = "datasets", static = FALSE) {
 

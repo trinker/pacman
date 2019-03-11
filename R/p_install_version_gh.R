@@ -12,10 +12,12 @@
 #' @keywords version
 #' @export
 #' @examples
+#' \dontrun{
 #' p_install_version_gh(
 #'     c("trinker/pacman", "hadley/testthat"), 
 #'     c("0.2.0", "0.9.1")
 #' )
+#' }
 p_install_version_gh <- function (package, version, dependencies = TRUE){ 
 
     ## Check that package and version are equal in length

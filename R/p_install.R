@@ -20,7 +20,9 @@
 #' @seealso \code{\link[utils]{install.packages}}
 #' @export
 #' @examples
-#' \dontrun{p_install(pacman)}
+#' \dontrun{
+#' p_install(pacman)
+#' }
 p_install <- function(package, character.only = FALSE, force = TRUE, 
     path = getOption("download_path"), 
     try.bioconductor = TRUE, update.bioconductor = FALSE, ...){

@@ -12,7 +12,9 @@
 #' @examples
 #' p_lib()
 #' p_library()
-#' \dontrun{p_lib(TRUE)}
+#' \dontrun{
+#' p_lib(TRUE)
+#' }
 p_library <-
 function (open = FALSE) 
 {

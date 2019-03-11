@@ -22,14 +22,17 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' p_load(lattice, ggplot2)}
+#' p_load(lattice, ggplot2)
+#' }
 #' p_loaded()
 #' p_loaded(all=TRUE)
 #' p_loaded(ggplot2, tm, qdap)
 #' 
 #' p_isloaded(ggplot2)
 #' p_isloaded(ggplot2, dfs, pacman)
-#' \dontrun{p_unload(lattice)}
+#' \dontrun{p
+#' _unload(lattice)
+#' }
 p_loaded <- 
 function(..., all = FALSE, char, character.only = FALSE) {
     # make this better...	
