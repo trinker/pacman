@@ -18,6 +18,14 @@ And constructed with the following guidelines:
 
 
 
+CHANGES IN pacman VERSION 0.5.1 
+----------------------------------------------------------------
+
+CHANGES
+
+* Removed vignettes and tests because having pacman install violates CRAN policies.
+
+
 CHANGES IN pacman VERSION 0.4.6 - 0.5.0
 ----------------------------------------------------------------
 

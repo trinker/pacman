@@ -21,9 +21,11 @@ installed as well.}
 Install minimal GitHub package version(s).
 }
 \examples{
+\dontrun{
 p_install_version_gh(
     c("trinker/pacman", "hadley/testthat"), 
     c("0.2.0", "0.9.1")
 )
+}
 }
 \keyword{version}

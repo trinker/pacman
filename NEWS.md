@@ -18,6 +18,14 @@ And constructed with the following guidelines:
 
 
 
+**CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.5.1 
+----------------------------------------------------------------
+
+**CHANGES**
+
+* Removed vignettes and tests because having <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> install violates CRAN policies.
+
+
 **CHANGES** IN <a href="https://github.com/trinker/pacman" target="_blank">pacman</a> VERSION 0.4.6 - 0.5.0
 ----------------------------------------------------------------
 

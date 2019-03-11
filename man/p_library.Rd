@@ -21,7 +21,9 @@ packages are stored).
 \examples{
 p_lib()
 p_library()
-\dontrun{p_lib(TRUE)}
+\dontrun{
+p_lib(TRUE)
+}
 }
 \keyword{library}
 \keyword{package}

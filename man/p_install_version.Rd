@@ -17,9 +17,11 @@ package version(s).}
 Install minimal package version(s).
 }
 \examples{
+\dontrun{
 p_install_version(
     c("pacman", "testthat"), 
     c("0.2.0", "0.9.1")
 )
+}
 }
 \keyword{version}

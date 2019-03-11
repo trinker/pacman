@@ -38,7 +38,9 @@ by \code{try.bioconductor}.}
 Installs a package provided the package is a CRAN package.
 }
 \examples{
-\dontrun{p_install(pacman)}
+\dontrun{
+p_install(pacman)
+}
 }
 \seealso{
 \code{\link[utils]{install.packages}}

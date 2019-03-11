@@ -1,7 +1,7 @@
 Package: pacman
 Type: Package
 Title: Package Management Tool
-Version: 0.5.0
+Version: 0.5.1
 Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"),
         email = "tyler.rinker@gmail.com"), person("Dason",
         "Kurkiewicz", role = c("aut", "ctb"), email =
@@ -23,4 +23,4 @@ License: GPL-2
 URL: https://github.com/trinker/pacman
 Roxygen: list(wrap = FALSE)
 VignetteBuilder: knitr
-RoxygenNote: 6.1.0.9000
+RoxygenNote: 6.1.1

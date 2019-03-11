@@ -23,7 +23,9 @@ Generate a script of all data sets contained in package.
 \examples{
 p_data()
 p_data(lattice)
-\dontrun{p_data(static=TRUE)}
+\dontrun{
+p_data(static=TRUE)
+}
 }
 \seealso{
 \code{\link[utils]{data}}
