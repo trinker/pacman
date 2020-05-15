@@ -9,7 +9,8 @@ Authors@R: c(person("Tyler", "Rinker", role = c("aut", "cre", "ctb"),
         c("ctb")), person("Albert", "Wang", role = c("ctb")),
         person("Garrick", "Aden-Buie", role = c("ctb")),
         person("Albert", "Wang", role = c("ctb")),
-        person("Lukas", "Burk", role = c("ctb")))
+        person("Lukas", "Burk", role = c("ctb")),
+        person("Michael", "McGowan", role=c("ctb")))
 Depends: R (>= 3.5.0)
 Imports: remotes, methods, stats, utils
 Suggests: BiocManager, knitr, lattice, testthat (>= 0.9.0), XML
