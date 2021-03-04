@@ -35,18 +35,29 @@
 p_load <- function (..., char, install = TRUE, update = getOption("pac_update"), 
 	character.only = FALSE){ 
 
-    if(!missing(char)){
-        packages <- char
-    }else if(character.only){
+  if (!missing(char)) {
+    packages <- char
+  }
+  else {
+    if (character.only) {
+      if (length(match.call()) == 2) {
+        packages <- character(0)
+      }
+      else {
         packages <- eval(match.call()[[2]])
-    }else{
-        packages <- as.character(match.call(expand.dots = FALSE)[[2]])
+      }
     }
-    
-    
-    if(length(packages) == 0){
-        return(invisible())
+    else {
+      if (length(match.call()) == 1) {
+        packages <- character(0)
+      }
+      else packages <- as.character(match.call(expand.dots = FALSE)[[2]])
     }
+  }
+  if (length(packages) == 0) {
+    warning("No packages specified to load")
+    return(invisible())
+  }
     
     # Update all packages
     if (is.null(update)) {
